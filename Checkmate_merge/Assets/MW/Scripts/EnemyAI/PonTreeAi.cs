@@ -13,7 +13,7 @@ public class PonTreeAi : MonoBehaviour
     
 
 
-    float duration = 0.5f;
+    float duration = 0.46511627906976744186046511627907f;
     public float step = 1f;
     public float delayTime = 10f;
 
@@ -84,7 +84,7 @@ public class PonTreeAi : MonoBehaviour
     IEnumerator Wait(WaitNode waitNode)
     {
 
-        delayTime = 3f;
+        delayTime = 0.93023255813953488372093023255814f* 3f;
         while(delayTime > 0)
         {
             transform.gameObject.tag = "PonCanKilled";

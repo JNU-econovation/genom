@@ -12,7 +12,7 @@ public class KingTreeAi : MonoBehaviour
     [SerializeField] GameObject FindPivot2;
 
 
-    float duration = 0.25f;
+    float duration = 0.23255813953488372093023255813953f;
     public float step = 1f;
     public float delayTime = 10f;
 
@@ -78,7 +78,7 @@ public class KingTreeAi : MonoBehaviour
     IEnumerator Wait(KingWaitNode waitNode)
     {
 
-        delayTime = 1f;
+        delayTime = 0.93023255813953488372093023255814f;
         while(delayTime > 0)
         {
 
