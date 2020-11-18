@@ -24,11 +24,11 @@ public class PonSetDirNode : Node
 
     public override NodeState Evaluate()
     {
-        if(FindPivot1.transform.localPosition.x > 1)
+        if (Mathf.Abs(ponPivot.transform.localPosition.x) > 1)
         {
             return NodeState.SUCCESS;
         }
-        if (FindPivot1.transform.localPosition.y > 1)
+        if (Mathf.Abs(ponPivot.transform.localPosition.y) > 1)
         {
             return NodeState.SUCCESS;
         }

@@ -44,14 +44,26 @@ public class Player : Character
 
         if (collision.tag == "KingCanKilled")
         {
-            GameObject.Find("King").GetComponent<PonController>().PonKilledByPlayer();
+            GameObject.Find("King").GetComponent<KingController>().KingKilledByPlayer();
 
         }
         else if (collision.tag == "KingCanKill")
         {
             PlayerKilledByEnemy();
         }
-        
+
+
+        if (collision.tag == "RockCanKilled")
+        {
+            GameObject.Find("Rock").GetComponent<RockController>().RockKilledByPlayer();
+
+
+        }
+        else if (collision.tag == "RockCanKill")
+        {
+            PlayerKilledByEnemy();
+        }
+
     }
 
 
