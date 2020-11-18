@@ -64,6 +64,18 @@ public class Player : Character
             PlayerKilledByEnemy();
         }
 
+
+        if (collision.tag == "BishopCanKilled")
+        {
+            GameObject.Find("Bishop").GetComponent<BishopController>().BishopKilledByPlayer();
+
+
+        }
+        else if (collision.tag == "BishopCanKill")
+        {
+            PlayerKilledByEnemy();
+        }
+
     }
 
 

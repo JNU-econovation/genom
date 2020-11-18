@@ -10,6 +10,8 @@ TagManager:
   - KingCanKilled
   - RockCanKill
   - RockCanKilled
+  - BishopCanKill
+  - BishopCanKilled
   layers:
   - Default
   - TransparentFX
