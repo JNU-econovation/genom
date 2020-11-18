@@ -8,6 +8,8 @@ TagManager:
   - PonCanKilled
   - KingCanKill
   - KingCanKilled
+  - RockCanKill
+  - RockCanKilled
   layers:
   - Default
   - TransparentFX
