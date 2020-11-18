@@ -16,6 +16,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
     private float radius;
 
     [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject PlayerPos;
     [SerializeField] private GameObject PlayerPivot;
 
     private bool isTouch = false;
@@ -92,7 +93,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
         a.transform.localPosition = toPos;
 
-
+        PlayerPos.transform.position = Player.transform.position;
     }
 
 

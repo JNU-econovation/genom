@@ -12,6 +12,9 @@ TagManager:
   - RockCanKilled
   - BishopCanKill
   - BishopCanKilled
+  - PlayerPos
+  - QueenCanKill
+  - QueenCanKilled
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

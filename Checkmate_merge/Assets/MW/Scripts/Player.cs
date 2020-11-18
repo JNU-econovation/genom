@@ -76,6 +76,18 @@ public class Player : Character
             PlayerKilledByEnemy();
         }
 
+
+
+        if (collision.tag == "QueenCanKilled")
+        {
+            GameObject.Find("Queen").GetComponent<QueenController>().QueenKilledByPlayer();
+
+
+        }
+        else if (collision.tag == "QueenCanKill")
+        {
+            PlayerKilledByEnemy();
+        }
     }
 
 
