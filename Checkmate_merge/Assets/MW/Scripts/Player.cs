@@ -27,6 +27,8 @@ public class Player : Character
     {
         Destroy(player);
         Destroy(playerControllUi);
+
+        // 플레이어가 죽었을때 발동되는 함수들.
     }
 
 

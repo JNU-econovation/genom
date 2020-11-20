@@ -22,16 +22,19 @@ public class PonController : MonoBehaviour
     {
         if (pon.tag == "PonCanKilled")
         {
+            // 폰이 죽였을때 점수 올리는 문항
             PonKilledByPlayer();
 
         }
+
+
         else if (pon.tag == "PonCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
         }
 
-
+        
     }
     void Update()
     {
