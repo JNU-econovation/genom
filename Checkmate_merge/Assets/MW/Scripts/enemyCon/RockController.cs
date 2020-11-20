@@ -16,7 +16,19 @@ public class RockController : MonoBehaviour
     {
         Destroy(rock);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (rock.tag == "RockCanKilled")
+        {
+            RockKilledByPlayer();
 
+        }
+        else if (rock.tag == "RockCanKill")
+        {
+
+            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
+    }
 
 
     void Update()

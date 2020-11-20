@@ -18,7 +18,21 @@ public class PonController : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (pon.tag == "PonCanKilled")
+        {
+            PonKilledByPlayer();
 
+        }
+        else if (pon.tag == "PonCanKill")
+        {
+
+            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
+
+
+    }
     void Update()
     {
 

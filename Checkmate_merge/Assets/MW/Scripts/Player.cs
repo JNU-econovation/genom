@@ -29,66 +29,7 @@ public class Player : Character
         Destroy(playerControllUi);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "PonCanKilled")
-        {
-            GameObject.Find("Pon").GetComponent<PonController>().PonKilledByPlayer();
 
-        }
-        else if (collision.tag == "PonCanKill")
-        {
-            PlayerKilledByEnemy();
-        }
-
-
-        if (collision.tag == "KingCanKilled")
-        {
-            GameObject.Find("King").GetComponent<KingController>().KingKilledByPlayer();
-
-        }
-        else if (collision.tag == "KingCanKill")
-        {
-            PlayerKilledByEnemy();
-        }
-
-
-        if (collision.tag == "RockCanKilled")
-        {
-            GameObject.Find("Rock").GetComponent<RockController>().RockKilledByPlayer();
-
-
-        }
-        else if (collision.tag == "RockCanKill")
-        {
-            PlayerKilledByEnemy();
-        }
-
-
-        if (collision.tag == "BishopCanKilled")
-        {
-            GameObject.Find("Bishop").GetComponent<BishopController>().BishopKilledByPlayer();
-
-
-        }
-        else if (collision.tag == "BishopCanKill")
-        {
-            PlayerKilledByEnemy();
-        }
-
-
-
-        if (collision.tag == "QueenCanKilled")
-        {
-            GameObject.Find("Queen").GetComponent<QueenController>().QueenKilledByPlayer();
-
-
-        }
-        else if (collision.tag == "QueenCanKill")
-        {
-            PlayerKilledByEnemy();
-        }
-    }
 
 
 

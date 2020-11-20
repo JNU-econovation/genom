@@ -16,7 +16,19 @@ public class BishopController : MonoBehaviour
     {
         Destroy(bishop);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (bishop.tag == "BishopCanKilled")
+        {
+            BishopKilledByPlayer();
 
+        }
+        else if (bishop.tag == "BishopCanKill")
+        {
+
+            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
+    }
 
 
     void Update()

@@ -17,7 +17,19 @@ public class QueenController : MonoBehaviour
         Destroy(queen);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (queen.tag == "QueenCanKilled")
+        {
+            QueenKilledByPlayer();
 
+        }
+        else if (queen.tag == "QueenCanKill")
+        {
+
+            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
+    }
 
     void Update()
     {
