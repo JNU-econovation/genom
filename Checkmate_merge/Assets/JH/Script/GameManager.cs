@@ -8,10 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isGameover = false;
-    public Text scoreText;
     public GameObject gameoverUI;
-
-    private int score = 0;
+    public Text scoreText;
+    private float score = 0.0f;
 
     //싱글톤
     private void Awake()
@@ -31,22 +30,44 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    //점수 계산
-    public void Addscore(int newScore)
+
+    private void Start()
     {
-        if (!isGameover)//게임오버가 아니라면
-        {
-            score += newScore;//점수증가
-            scoreText.text = "Score :" + score;
-        }
+        StartCoroutine(AddScore());
     }
+
+    //점수 계산
+    IEnumerator AddScore()
+    {
+        while (isGameover == false)
+        {
+            score++;
+            scoreText.text = score.ToString();
+            yield return new WaitForSeconds(0.5f);//0.5초마다 증가
+        }
+
+    }
+
+
     //게임오버시 게임오버UI 활성화
     public void OnPlayerDead()
     {
         isGameover = true;//게임오버되면
+        StopCoroutine(AddScore());//코루틴 정지
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
     }
 
+    //다시 시작 버튼을 누름
+    public void OncclickRestart()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    //메뉴 버튼을 누름
+    public void OnclickMenu()
+    {
+        SceneManager.LoadScene("Menu");//메뉴씬 로드
+    }
 
 
 }
