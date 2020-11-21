@@ -20,9 +20,8 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private GameObject PlayerPivot;
 
     private bool isTouch = false;
-    public bool moveing = false;
 
-    float duration = 0.23255813953488372093023255813953f;
+    float duration = 0.25f;
 
 
     private Vector3 movePosition;
@@ -88,11 +87,10 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
         while (Time.time - startTime <= duration)
         {
-            moveing = true;
             a.transform.localPosition = Vector2.Lerp(startPos, toPos, ((Time.time - startTime) / duration) *2f);
             yield return null;
         }
-        moveing = false;
+
         a.transform.localPosition = toPos;
 
         PlayerPos.transform.position = Player.transform.position;

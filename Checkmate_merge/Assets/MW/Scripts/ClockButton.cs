@@ -29,10 +29,8 @@ public class ClockButton : Character, IPointerDownHandler, IPointerUpHandler
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(virtualJoystick.moveing == false) {
             virtualJoystick.Move();
             StartCoroutine(wait(0.25f));
-            }
         }
         
 

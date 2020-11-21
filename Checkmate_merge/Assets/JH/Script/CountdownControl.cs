@@ -5,58 +5,26 @@ using UnityEngine.UI;
 
 public class CountdownControl : MonoBehaviour
 {
-    private int Timer = 0;
-
-    public GameObject Num_A;//1
-    public GameObject Num_B;//2
-    public GameObject Num_C;//3
-    public GameObject Num_Go;//Go
+    public int countdownTime;
+    public Text countdownTxt;
 
     private void Start()
     {
-
-        Timer = 0;
-        Num_A.SetActive(false);
-        Num_B.SetActive(false);
-        Num_C.SetActive(false);
-        Num_Go.SetActive(false);
+        StartCoroutine(Countstart());
     }
 
-    private void Update()
+    IEnumerator Countstart()
     {
-        if (Timer == 0)
+        while(countdownTime>0)
         {
-            Time.timeScale = 0.0f;
+            countdownTxt.text = countdownTime.ToString();
+            yield return new WaitForSeconds(1f);//1초 쉬고
+            countdownTime--;
         }
-        if(Timer<=90)
-        {
-            Timer++;
 
-            if (Timer < 30)
-                Num_C.SetActive(true);
-            if(Timer>=30)
-            {
-                Num_C.SetActive(false);
-                Num_B.SetActive(true);
-            }
-            if(Timer>=60)
-            {
-                Num_B.SetActive(false);
-                Num_A.SetActive(true);
-            }
-            if(Timer>=90)
-            {
-                Num_A.SetActive(false);
-                Num_Go.SetActive(true);
-                StartCoroutine(this.LoadingEnd());
-                Time.timeScale = 1.0f;
-
-            }
-        }
-    }
-    IEnumerator LoadingEnd()
-    { 
-        yield return new WaitForSeconds(1.0f);
-        Num_Go.SetActive(false);
+        countdownTxt.text = "Go!";//타이머가 0이 되면 "go"출력
+        GameManager.instance.StartGame();//플레이 시작
+        yield return new WaitForSeconds(1f);//1초 쉬고
+        countdownTxt.gameObject.SetActive(false);//카운트다운 텍스트 비활성화
     }
 }

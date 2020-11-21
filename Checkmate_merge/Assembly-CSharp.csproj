@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\JH\Script\CountdownControl.cs" />
     <Compile Include="Assets\JH\Script\GameManager.cs" />
-    <Compile Include="Assets\JH\Script\GameOverMenuControl.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
     <Compile Include="Assets\JH\Script\PauseMenuControl.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Invertor.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="Assets\MW\Scripts\ClockButton.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\BishopTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\KingTreeAi.cs" />
-    <Compile Include="Assets\MW\Scripts\EnemyAI\KnightTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\PonTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\QueenTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\RockTreeAi.cs" />
@@ -88,15 +86,6 @@
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingMoveNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingSetDirNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingWaitNode.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightEndMove.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightMoveNode.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightMoveNode2.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode2.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode3.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode4.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightWaitNode.cs" />
-    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightWaitNode2.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\DestroyNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\FindMoveNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\FindMoveNode2.cs" />
@@ -116,7 +105,6 @@
     <Compile Include="Assets\MW\Scripts\VirtualJoystick.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\BishopController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\KingController.cs" />
-    <Compile Include="Assets\MW\Scripts\enemyCon\KnightController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\PonController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\QueenController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\RockController.cs" />
@@ -655,85 +643,85 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/설민우/genom/Checkmate_merge/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/hbapt/genom/Checkmate_merge/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
