@@ -76,6 +76,7 @@
     <Compile Include="Assets\MW\Scripts\ClockButton.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\BishopTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\KingTreeAi.cs" />
+    <Compile Include="Assets\MW\Scripts\EnemyAI\KnightTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\PonTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\QueenTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\RockTreeAi.cs" />
@@ -87,6 +88,15 @@
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingMoveNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingSetDirNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\kingNode\KingWaitNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightEndMove.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightMoveNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightMoveNode2.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode2.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode3.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightSetDirNode4.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightWaitNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\knightNode\KnightWaitNode2.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\DestroyNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\FindMoveNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\ponNode\FindMoveNode2.cs" />
@@ -106,6 +116,7 @@
     <Compile Include="Assets\MW\Scripts\VirtualJoystick.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\BishopController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\KingController.cs" />
+    <Compile Include="Assets\MW\Scripts\enemyCon\KnightController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\PonController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\QueenController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\RockController.cs" />
