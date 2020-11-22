@@ -16,21 +16,51 @@ public class QueenController : MonoBehaviour
     {
         Destroy(queen);
     }
+    public void QueenKilledByEnemy()
+    {
+        Destroy(queen);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (queen.tag == "QueenCanKilled")
+        if (collision.tag == "Player" && queen.tag == "QueenCanKilled")
         {
             QueenKilledByPlayer();
             GameManager.instance.score += 9.0f;//9점 증가
 
         }
-        else if (queen.tag == "QueenCanKill")
+
+
+        else if (collision.tag == "Player" && queen.tag == "QueenCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
+
+       
+
+        else if (collision.tag == "KingCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            QueenKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
+        {
+            QueenKilledByEnemy();
+        }
+
+
     }
 
     void Update()
