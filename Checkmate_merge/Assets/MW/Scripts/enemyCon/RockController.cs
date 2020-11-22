@@ -16,18 +16,62 @@ public class RockController : MonoBehaviour
     {
         Destroy(rock);
     }
+    public void RockKilledByEnemy()
+    {
+        Destroy(rock);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (rock.tag == "RockCanKilled")
+        if (collision.tag == "Player" && rock.tag == "RockCanKilled")
         {
+            // 폰이 죽였을때 점수 올리는 문항
             RockKilledByPlayer();
 
         }
-        else if (rock.tag == "RockCanKill")
+
+
+        else if (collision.tag == "Player" && rock.tag == "RockCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
         }
+
+
+        else if (collision.tag == "KingCanKill")
+        {
+            RockKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            RockKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKill")
+        {
+            RockKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
+        {
+            RockKilledByEnemy();
+        }
+
+      
+        else if (collision.tag == "RockCanKill")
+        {
+
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "RockCanKilled")
+        {
+
+            RockKilledByEnemy();
+        }
+
+
+
+
     }
 
 

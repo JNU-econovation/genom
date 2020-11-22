@@ -21,7 +21,11 @@ public class ClockButton : Character, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         isClick = true;
-        virtualJoystick.Move();
+        if(virtualJoystick.moveing == false)
+        {
+            virtualJoystick.Move();
+        }
+
     }
 
     // Update is called once per frame

@@ -12,28 +12,75 @@ public class KnightController : MonoBehaviour
 
     }
 
-    public void PonKilledByPlayer()
+    public void KnightKilledByPlayer()
+    {
+        Destroy(knight);
+    }
+    public void KnightKilledByEnemy()
     {
         Destroy(knight);
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (knight.tag == "KnightCanKilled")
+        if (collision.tag == "Player" && knight.tag == "KnightCanKilled")
         {
-            // 폰이 죽였을때 점수 올리는 문항
-            PonKilledByPlayer();
+            KnightKilledByPlayer();
 
         }
 
 
-        else 
+        else if (collision.tag == "Player" && knight.tag == "KnightCanKill")
+        {
+            Debug.Log("di");
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
 
 
-        
+
+
+        else if (collision.tag == "KingCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            KnightKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
+        {
+            KnightKilledByEnemy();
+        }
+
+        else if (collision.tag == "KnightCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+ 
+
+        else if (collision.tag == "BishopCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+
+
+        else if (collision.tag == "RockCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "RockCanKilled")
+        {
+            KnightKilledByEnemy();
+        }
+
     }
     void Update()
     {

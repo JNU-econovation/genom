@@ -16,19 +16,41 @@ public class KingController : MonoBehaviour
     {
         Destroy(king);
     }
+    public void KingKilledByEnemy()
+    {
+        Destroy(king);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (king.tag == "KingCanKilled")
+        if (collision.tag == "Player" && king.tag == "KingCanKilled")
         {
             KingKilledByPlayer();
 
         }
-        else if (king.tag == "KingCanKill")
+
+
+        else if (collision.tag == "Player" && king.tag == "KingCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
         }
+
+        else if (collision.tag == "KingCanKill")
+        {
+            KingKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            KingKilledByEnemy();
+        }
+
+
+
+
+
+
     }
 
     void Update()

@@ -16,17 +16,74 @@ public class BishopController : MonoBehaviour
     {
         Destroy(bishop);
     }
+    public void BishopKilledByEnemy()
+    {
+        Destroy(bishop);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (bishop.tag == "BishopCanKilled")
+        if (collision.tag == "Player" && bishop.tag == "BishopCanKilled")
         {
             BishopKilledByPlayer();
 
         }
-        else if (bishop.tag == "BishopCanKill")
+
+
+        else if (collision.tag == "Player" && bishop.tag == "BishopCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+        }
+
+
+
+
+        else if (collision.tag == "KingCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            BishopKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
+        {
+            BishopKilledByEnemy();
+        }
+
+        else if (collision.tag == "KnightCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+  
+
+        else if (collision.tag == "BishopCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "BishopCanKilled")
+        {
+            BishopKilledByEnemy();
+        }
+
+        else if (collision.tag == "RockCanKill")
+        {
+
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "RockCanKilled")
+        {
+
+            BishopKilledByEnemy();
         }
     }
 

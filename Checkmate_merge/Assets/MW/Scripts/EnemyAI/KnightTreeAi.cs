@@ -149,7 +149,7 @@ public class KnightTreeAi : MonoBehaviour
 
         while (Time.time - startTime <= duration)
         {
-            pon.gameObject.tag = "QueenCanKill";
+            pon.gameObject.tag = "KnightCanKill";
             transform.localPosition = Vector2.Lerp(startPos, endPos, (Time.time - startTime) / duration);
             yield return null;
         }

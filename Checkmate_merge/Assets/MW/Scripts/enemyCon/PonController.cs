@@ -16,11 +16,14 @@ public class PonController : MonoBehaviour
     {
         Destroy(pon);
     }
-
+    public void PonKilledByEnemy()
+    {
+        Destroy(pon);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (pon.tag == "PonCanKilled")
+        if (collision.tag == "Player" && pon.tag == "PonCanKilled")
         {
             // 폰이 죽였을때 점수 올리는 문항
             PonKilledByPlayer();
@@ -28,13 +31,74 @@ public class PonController : MonoBehaviour
         }
 
 
-        else if (pon.tag == "PonCanKill")
+        else if (collision.tag == "Player" && pon.tag == "PonCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
         }
 
-        
+
+
+
+        else if (collision.tag == "PonCanKill")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "PonCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKill")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "KingCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKill")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "KnightCanKill")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "KnightCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "BishopCanKill")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "BishopCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
+        else if (collision.tag == "RockCanKill")
+        {
+
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "RockCanKilled")
+        {
+
+            PonKilledByEnemy();
+        }
+
     }
     void Update()
     {
