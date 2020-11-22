@@ -23,24 +23,15 @@ public class PonController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-<<<<<<< HEAD
-        if (pon.tag == "PonCanKilled") // 폰이 플레이어에 의해 죽었을때 점수 올리는 문항
-=======
+
         if (collision.tag == "Player" && pon.tag == "PonCanKilled")
->>>>>>> ef769ffbf8562b3135dcac86d640e77329ca878f
         {
            
             PonKilledByPlayer();
             GameManager.instance.score += 1.0f;//점수 1점 증가
 
         }
-
-
-<<<<<<< HEAD
-        else if (pon.tag == "PonCanKill")//폰이 플레이어를 죽임
-=======
         else if (collision.tag == "Player" && pon.tag == "PonCanKill")
->>>>>>> ef769ffbf8562b3135dcac86d640e77329ca878f
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
