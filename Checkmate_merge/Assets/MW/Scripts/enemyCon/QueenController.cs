@@ -22,12 +22,14 @@ public class QueenController : MonoBehaviour
         if (queen.tag == "QueenCanKilled")
         {
             QueenKilledByPlayer();
+            GameManager.instance.score += 9.0f;//9점 증가
 
         }
         else if (queen.tag == "QueenCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
     }
 

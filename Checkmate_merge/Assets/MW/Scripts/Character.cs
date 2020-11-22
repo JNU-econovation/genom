@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
         {
             canMove = true;
             intervalTime = 0f;
+            GameManager.instance.GameOver();//게임 메니저의 게임오버 함수 호출
         }
     }
 

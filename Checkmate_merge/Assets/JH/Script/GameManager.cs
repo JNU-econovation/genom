@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isPlay = false;//플레이 중인가?
     public GameObject gameoverUI;
     public Text scoreText;
-    private float score=0.0f;
+    public float score=0.0f;
 
     //싱글톤
     private void Awake()
@@ -44,12 +44,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-
     //게임오버시 게임오버UI 활성화
-    public void OnPlayerDead()
+    public void GameOver()
     {
         isPlay=false;//플레이가 종료되면
         StopCoroutine(AddScore());//코루틴 정지
+        Time.timeScale = 0.0f;//모든 오브젝트 정지
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
     }
 

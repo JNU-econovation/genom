@@ -12,7 +12,7 @@ public class PonController : MonoBehaviour
 
     }
 
-    public void PonKilledByPlayer()
+    public void PonKilledByPlayer()//폰이 플레이어에 잡혔을 때 함수(폰 파괴)
     {
         Destroy(pon);
     }
@@ -20,28 +20,32 @@ public class PonController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (pon.tag == "PonCanKilled")
+        if (pon.tag == "PonCanKilled") // 폰이 플레이어에 의해 죽었을때 점수 올리는 문항
         {
-            // 폰이 죽였을때 점수 올리는 문항
+           
             PonKilledByPlayer();
+            GameManager.instance.score += 1.0f;//점수 1점 증가
 
         }
 
 
-        else if (pon.tag == "PonCanKill")
+        else if (pon.tag == "PonCanKill")//폰이 플레이어를 죽임
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
 
         
     }
-    void Update()
+
+    void Update()//매 프레임마다 폰의 위치를 파악하여 범위에서 벗어나면 폰 파괴
     {
 
         PonDestroy();
     }
-    public void PonDestroy() 
+
+    public void PonDestroy()//폰 위치가 범위에서 벗어나면 폰을 파괴하는 함수.
     {
         if (pon.transform.position.x > 5.5)
         {

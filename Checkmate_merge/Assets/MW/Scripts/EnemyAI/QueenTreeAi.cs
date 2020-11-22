@@ -26,8 +26,11 @@ public class QueenTreeAi : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("PlayerPos");
+        
         ConstructBehaviourTree();
         evaluateCoroutine = StartCoroutine(StartEvaluate());
+        
+        
     }
 
     public void StartEvaluateCoroutine()

@@ -27,6 +27,7 @@ public class BishopController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
     }
 

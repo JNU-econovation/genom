@@ -11,24 +11,24 @@ public class PonTreeAi : MonoBehaviour
     [SerializeField] GameObject FindPivot1;
     [SerializeField] GameObject FindPivot2;
     
-
-
     float duration = 0.46511627906976744186046511627907f;
     public float step = 1f;
     public float delayTime = 10f;
-
     public float dirCheckNum;
-
-    public Sequence topNode;
 
     public bool isWaitEnd = false;
     public bool isTimerOn = false;
+
+    public Sequence topNode;
     public Coroutine evaluateCoroutine;
+
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        ConstructBehaviourTree();
-        evaluateCoroutine = StartCoroutine(StartEvaluate());
+       ConstructBehaviourTree();
+       evaluateCoroutine = StartCoroutine(StartEvaluate());
+     
     }
 
     void Update()
@@ -36,16 +36,18 @@ public class PonTreeAi : MonoBehaviour
 
 
     }
-    public void StartEvaluateCoroutine()
+
+    public void StartEvaluateCoroutine()//StartEvaluate코루틴 시작 함수
     {
         evaluateCoroutine = StartCoroutine(StartEvaluate());
     }
 
-    public void StopEvaluateCoroutine()
+    public void StopEvaluateCoroutine()//StartEvaluate코루틴 정지 함수
     {
         StopCoroutine(evaluateCoroutine);
     }
-    IEnumerator StartEvaluate()
+
+    IEnumerator StartEvaluate()//StartEvaluate코루틴-타이머가 true인 동안에는 1프레임씩 대기 하면서 Node evaluate
     {
         while (!isTimerOn)
         {
@@ -73,15 +75,13 @@ public class PonTreeAi : MonoBehaviour
     }
 
  
-    public void StartWaitCoroutine(WaitNode waitNode)
+    public void StartWaitCoroutine(WaitNode waitNode)//Wait코루틴 시작 함수
     {
         StartCoroutine(Wait( waitNode));
     }
 
 
-
-
-    IEnumerator Wait(WaitNode waitNode)
+    IEnumerator Wait(WaitNode waitNode)//Wait코루틴
     {
 
         delayTime = 0.93023255813953488372093023255814f* 3f;
@@ -129,9 +129,6 @@ public class PonTreeAi : MonoBehaviour
         //StartCoroutine(Lerp(moveNode));
         StartCoroutine(moveCoroutine(FindPivot2.transform.position));
     }
-
-
-
 
     IEnumerator moveCoroutine(Vector2 endPos)
     {

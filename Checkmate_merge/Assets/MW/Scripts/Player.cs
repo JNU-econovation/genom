@@ -29,6 +29,7 @@ public class Player : Character
         Destroy(playerControllUi);
 
         // 플레이어가 죽었을때 발동되는 함수들.
+        GameManager.instance.GameOver();//게임오버함수 호출
     }
 
 
