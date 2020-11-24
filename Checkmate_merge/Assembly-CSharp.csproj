@@ -80,6 +80,15 @@
     <Compile Include="Assets\MW\Scripts\EnemyAI\QueenTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemyAI\RockTreeAi.cs" />
     <Compile Include="Assets\MW\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightEndMove.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightMoveNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightMoveNode2.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightSetDirNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightSetDirNode2.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightSetDirNode3.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightSetDirNode4.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightWaitNode.cs" />
+    <Compile Include="Assets\MW\Scripts\Node\KnightNode\KnightWaitNode2.cs" />
     <Compile Include="Assets\MW\Scripts\Node\bishopNode\BishopMoveNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\bishopNode\BishopSetDirNode.cs" />
     <Compile Include="Assets\MW\Scripts\Node\bishopNode\BishopWaitNode.cs" />

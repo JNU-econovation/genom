@@ -8,7 +8,7 @@ public class Player : Character
     [SerializeField] GameObject playerControllUi;
     private Rigidbody2D playerRigidbody;
     //[SerializeField] PonController KingController; 
-    // Start is called before the first frame update
+   
     void Start()
     {
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BishopController : MonoBehaviour
 {
     [SerializeField] GameObject bishop;
+    public int bishop_score;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class BishopController : MonoBehaviour
         if (collision.tag == "Player" && bishop.tag == "BishopCanKilled")
         {
             BishopKilledByPlayer();
+            GameManager.instance.EnemyScore(bishop_score);
 
         }
 

@@ -9,8 +9,15 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool isPlay = false;//플레이 중인가?
     public GameObject gameoverUI;
+
+    static int score;//기본 점수
     public Text scoreText;
-    public float score=0.0f;
+
+    static int enemyscore;//적 점수
+    public Text enemyscore_text;
+
+    private int lastscore;
+    public Text lastscore_txt;
 
     //싱글톤
     private void Awake()
@@ -26,23 +33,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void Start()
     {
         isPlay = true;
-        StartCoroutine(AddScore());//점수계산 코루틴 시작
+        
+        score = 0;
+        scoreText.text = "score : " + score.ToString();
+        enemyscore = 0;
+        enemyscore_text.text = "Enemy : " + enemyscore.ToString();
+
+        StartCoroutine(AddScore());//생존점수계산 코루틴 시작
     }
 
-    //점수 계산
-    IEnumerator AddScore()
+    //기본 점수 계산
+    private IEnumerator AddScore()
     {
-        while (isPlay == true)//플레이 중일때만 실행
+        yield return new WaitForSeconds(4f);//4초 후에 점수 카운트 시작
+
+        while (isPlay)
         {
             score++;
-            scoreText.text = "점수 : "+ score.ToString();
-            yield return new WaitForSeconds(0.5f);//0.5초마다 증가
+            scoreText.text = "score : " + score.ToString();
+            yield return new WaitForSeconds(0.5f);
         }
-
     }
+
+    //적 점수 계산
+    public void EnemyScore(int value)
+    {
+        enemyscore += value;//value 만큼 적 점수 증가
+        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+    }
+
 
     //게임오버시 게임오버UI 활성화
     public void GameOver()
@@ -51,6 +73,8 @@ public class GameManager : MonoBehaviour
         StopCoroutine(AddScore());//코루틴 정지
         Time.timeScale = 0.0f;//모든 오브젝트 정지
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
+        lastscore = score + enemyscore;
+        lastscore_txt.text = "총 점수 : " + lastscore.ToString();
     }
 
 }

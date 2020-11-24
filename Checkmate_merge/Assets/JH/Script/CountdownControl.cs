@@ -23,8 +23,9 @@ public class CountdownControl : MonoBehaviour
         }
 
         countdownTxt.text = "Go!";//타이머가 0이 되면 "go"출력
-        GameManager.instance.StartGame();//플레이 시작
         yield return new WaitForSeconds(1f);//1초 쉬고
         countdownTxt.gameObject.SetActive(false);//카운트다운 텍스트 비활성화
+        
+        
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PonController : MonoBehaviour
 {
     [SerializeField] GameObject pon;
+    public int pon_score = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +25,15 @@ public class PonController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player" && pon.tag == "PonCanKilled")
+        if (collision.tag == "Player" && pon.tag == "PonCanKilled")//폰이 플레이어에 의해 죽음(1점 증가)
         {
            
             PonKilledByPlayer();
-            GameManager.instance.score += 1.0f;//점수 1점 증가
+            GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
+           
 
         }
-        else if (collision.tag == "Player" && pon.tag == "PonCanKill")
+        else if (collision.tag == "Player" && pon.tag == "PonCanKill")//폰이 플레이어를 죽임(게임 오버)
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class KingController : MonoBehaviour
 {
     [SerializeField] GameObject king;
+    public int king_score = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class KingController : MonoBehaviour
         if (collision.tag == "Player" && king.tag == "KingCanKilled")
         {
             KingKilledByPlayer();
-
+            GameManager.instance.EnemyScore(king_score);
         }
 
 

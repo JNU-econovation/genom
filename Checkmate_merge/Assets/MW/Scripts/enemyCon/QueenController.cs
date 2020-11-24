@@ -5,6 +5,7 @@ using UnityEngine;
 public class QueenController : MonoBehaviour
 {
     [SerializeField] GameObject queen;
+    public int queen_score;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class QueenController : MonoBehaviour
         if (collision.tag == "Player" && queen.tag == "QueenCanKilled")
         {
             QueenKilledByPlayer();
-            GameManager.instance.score += 9.0f;//9점 증가
+            GameManager.instance.EnemyScore(queen_score);
 
         }
 

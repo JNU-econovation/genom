@@ -5,6 +5,7 @@ using UnityEngine;
 public class RockController : MonoBehaviour
 {
     [SerializeField] GameObject rock;
+    public int rock_score;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,9 @@ public class RockController : MonoBehaviour
     {
         if (collision.tag == "Player" && rock.tag == "RockCanKilled")
         {
-            // 폰이 죽였을때 점수 올리는 문항
+            // 점수 올리는 문항
             RockKilledByPlayer();
+            GameManager.instance.EnemyScore(rock_score);
 
         }
 
