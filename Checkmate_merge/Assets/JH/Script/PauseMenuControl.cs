@@ -10,20 +10,25 @@ public class PauseMenuControl : MonoBehaviour//일시정지메뉴(퍼즈메뉴)
 
     public void PauseMenuFun()//퍼즈메뉴 불러오기
     {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+        }
         PauseMenu.SetActive(true);
-        Time.timeScale = 0.0f;//모든 게임 오브젝트 정지
+        
     }
 
     public void OnclickRestart()//다시시작을 누르면 게임씬 불러오기
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Game");
         Time.timeScale = 1.0f;
+        
     }
 
     public void OnclickReMenu()//메뉴를 누르면 메뉴씬 불러오기
     {
         SceneManager.LoadScene("Menu");
-        
+
     }
 
     public void OnclickOut()//게임 종료
@@ -31,7 +36,7 @@ public class PauseMenuControl : MonoBehaviour//일시정지메뉴(퍼즈메뉴)
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit;
+        Application.Quit();
 #endif
     }
 }

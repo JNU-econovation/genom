@@ -77,4 +77,6 @@ public class GameManager : MonoBehaviour
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
     }
 
+  
+
 }
