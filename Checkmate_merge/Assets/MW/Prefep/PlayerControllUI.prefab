@@ -267,7 +267,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 77.1, y: 99.2}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7638640794615638638
 CanvasRenderer:
@@ -336,6 +336,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   PlayerPos: {fileID: 0}
   PlayerPivot: {fileID: 0}
+  ismoving: 0
 --- !u!1 &7638640794831957091
 GameObject:
   m_ObjectHideFlags: 0
