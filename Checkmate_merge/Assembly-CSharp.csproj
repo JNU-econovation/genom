@@ -66,7 +66,6 @@
     <Compile Include="Assets\JH\Script\CountdownControl.cs" />
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
-    <Compile Include="Assets\JH\Script\PauseMenuControl.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Invertor.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Node.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Selector.cs" />

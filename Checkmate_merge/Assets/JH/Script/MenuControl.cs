@@ -11,7 +11,7 @@ public class MenuControl : MonoBehaviour//메인 메뉴
         SceneManager.LoadScene("Game");
         Time.timeScale = 1.0f;
     }
-    public void OnclickTutorialBtn()//튜토리얼버튼을 누르면 튜토리얼 UI시작
+    public void OnclickHowToPlay()//설명버튼을 누르면 설명 UI시작
     {
 
     }
