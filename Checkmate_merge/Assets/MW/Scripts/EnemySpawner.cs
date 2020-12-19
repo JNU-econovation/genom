@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator fisrtTimer()
     {
-        yield return new WaitForSeconds(0.93023255813953488372093023255812f* 6);
+        yield return new WaitForSeconds(3);
         StartCoroutine(setRound());
     }
 

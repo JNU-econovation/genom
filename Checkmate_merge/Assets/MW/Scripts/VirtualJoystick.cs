@@ -20,7 +20,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private GameObject PlayerPivot;
 
     private bool isTouch = false;
-    public bool ismoving = false;
+
     float duration = 0.25f;
 
 
@@ -87,13 +87,12 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
         while (Time.time - startTime <= duration)
         {
-            ismoving = true;
             a.transform.localPosition = Vector2.Lerp(startPos, toPos, ((Time.time - startTime) / duration) *2f);
             yield return null;
         }
 
         a.transform.localPosition = toPos;
-        ismoving = false;
+
         PlayerPos.transform.position = Player.transform.position;
     }
 
@@ -131,9 +130,9 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
 
 
-            if (rectJoystick.localPosition.x >= 10)
+            if (rectJoystick.localPosition.x >= 25f)
             {
-                if (rectJoystick.localPosition.y < 10 && rectJoystick.localPosition.y > -10)
+                if (rectJoystick.localPosition.y < 25f && rectJoystick.localPosition.y > -25f)
                 {
 
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 0f);
@@ -143,14 +142,14 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
 
                 }
-                if (rectJoystick.localPosition.y < 36 && rectJoystick.localPosition.y > 10)
+                if (rectJoystick.localPosition.y < 50f && rectJoystick.localPosition.y > 25f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", 1);
                     animator.SetFloat("Magnitude", 0.001f);
                 }
-                if (rectJoystick.localPosition.y < -10 && rectJoystick.localPosition.y > -36)
+                if (rectJoystick.localPosition.y < -25f && rectJoystick.localPosition.y > -50f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
@@ -159,9 +158,9 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                 }
             }
 
-            if(rectJoystick.localPosition.x >-10 && rectJoystick.localPosition.x < 10)
+            if(rectJoystick.localPosition.x >-25f && rectJoystick.localPosition.x < 25f)
             {
-                if (rectJoystick.localPosition.y > 10)
+                if (rectJoystick.localPosition.y > 25f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(0f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
@@ -169,7 +168,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     animator.SetFloat("Magnitude", 0.001f);
 
                 }
-                if (rectJoystick.localPosition.y < -10)
+                if (rectJoystick.localPosition.y < -25f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(0f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
@@ -178,25 +177,25 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                 }
             }
 
-            if (rectJoystick.localPosition.x <= -10)
+            if (rectJoystick.localPosition.x <= -25f)
             {
 
 
-                if (rectJoystick.localPosition.y < 10 && rectJoystick.localPosition.y > -36)
+                if (rectJoystick.localPosition.y < 25f && rectJoystick.localPosition.y > -25f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 0f);
                     animator.SetFloat("Horizontal", 0);
                     animator.SetFloat("Vertical", -1);
                     animator.SetFloat("Magnitude", 0.001f);
                 }
-                if (rectJoystick.localPosition.y < 36 && rectJoystick.localPosition.y > 10)
+                if (rectJoystick.localPosition.y < 50f && rectJoystick.localPosition.y > 25f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", -1);
                     animator.SetFloat("Magnitude", 0.001f);
                 }
-                if (rectJoystick.localPosition.y < -10 && rectJoystick.localPosition.y > -36)
+                if (rectJoystick.localPosition.y < -25f && rectJoystick.localPosition.y > -50f)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);

@@ -15,8 +15,6 @@ TagManager:
   - PlayerPos
   - QueenCanKill
   - QueenCanKilled
-  - KnightCanKill
-  - KnightCanKilled
   layers:
   - Default
   - TransparentFX
