@@ -6,10 +6,12 @@ public class RockController : MonoBehaviour
 {
     [SerializeField] GameObject rock;
     public int rock_score;
-
+    public int sortingOrder = 0;
+    private SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -82,6 +84,39 @@ public class RockController : MonoBehaviour
     {
 
         RockDestroy();
+        if (rock.transform.position.y > 3.744f && rock.transform.position.y < 4.85f)
+        {
+            sprite.sortingOrder = 1;
+        }
+        if (rock.transform.position.y > 2.656f && rock.transform.position.y < 3.744f)
+        {
+            sprite.sortingOrder = 2;
+        }
+        if (rock.transform.position.y > 1.55f && rock.transform.position.y < 2.656f)
+        {
+            sprite.sortingOrder = 3;
+        }
+        if (rock.transform.position.y > 0.458f && rock.transform.position.y < 1.55f)
+        {
+            sprite.sortingOrder = 4;
+        }
+        if (rock.transform.position.y > -0.655f && rock.transform.position.y < 0.458f)
+        {
+            sprite.sortingOrder = 5;
+        }
+        if (rock.transform.position.y > -1.75f && rock.transform.position.y < -0.655f)
+        {
+            sprite.sortingOrder = 6;
+        }
+
+        if (rock.transform.position.y > -2.84f && rock.transform.position.y < -1.75f)
+        {
+            sprite.sortingOrder = 7;
+        }
+        if (rock.transform.position.y > -3.94f && rock.transform.position.y < -2.84f)
+        {
+            sprite.sortingOrder = 8;
+        }
     }
     public void RockDestroy() 
     {

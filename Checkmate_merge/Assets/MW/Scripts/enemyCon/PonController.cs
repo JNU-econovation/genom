@@ -7,10 +7,12 @@ public class PonController : MonoBehaviour
     [SerializeField] GameObject pon;
     public int pon_score = 1;
 
+    public int sortingOrder = 0;
+    private SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
-
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     public void PonKilledByPlayer()//폰이 플레이어에 잡혔을 때 함수(폰 파괴)
@@ -108,6 +110,39 @@ public class PonController : MonoBehaviour
     {
 
         PonDestroy();
+        if (pon.transform.position.y > 3.744f && pon.transform.position.y < 4.85f)
+        {
+            sprite.sortingOrder = 1;
+        }
+        if (pon.transform.position.y > 2.656f && pon.transform.position.y < 3.744f)
+        {
+            sprite.sortingOrder = 2;
+        }
+        if (pon.transform.position.y > 1.55f && pon.transform.position.y < 2.656f)
+        {
+            sprite.sortingOrder = 3;
+        }
+        if (pon.transform.position.y > 0.458f && pon.transform.position.y < 1.55f)
+        {
+            sprite.sortingOrder = 4;
+        }
+        if (pon.transform.position.y > -0.655f && pon.transform.position.y < 0.458f)
+        {
+            sprite.sortingOrder = 5;
+        }
+        if (pon.transform.position.y > -1.75f && pon.transform.position.y < -0.655f)
+        {
+            sprite.sortingOrder = 6;
+        }
+
+        if (pon.transform.position.y > -2.84f && pon.transform.position.y < -1.75f)
+        {
+            sprite.sortingOrder = 7;
+        }
+        if (pon.transform.position.y > -3.94f && pon.transform.position.y < -2.84f)
+        {
+            sprite.sortingOrder = 8;
+        }
     }
 
     public void PonDestroy()//폰 위치가 범위에서 벗어나면 폰을 파괴하는 함수.

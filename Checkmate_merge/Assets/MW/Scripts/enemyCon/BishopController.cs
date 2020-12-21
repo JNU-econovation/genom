@@ -6,10 +6,12 @@ public class BishopController : MonoBehaviour
 {
     [SerializeField] GameObject bishop;
     public int bishop_score;
-
+    public int sortingOrder = 0;
+    private SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -95,6 +97,39 @@ public class BishopController : MonoBehaviour
     {
 
         BishopDestroy();
+        if (bishop.transform.position.y > 3.744f && bishop.transform.position.y < 4.85f)
+        {
+            sprite.sortingOrder = 1;
+        }
+        if (bishop.transform.position.y > 2.656f && bishop.transform.position.y < 3.744f)
+        {
+            sprite.sortingOrder = 2;
+        }
+        if (bishop.transform.position.y > 1.55f && bishop.transform.position.y < 2.656f)
+        {
+            sprite.sortingOrder = 3;
+        }
+        if (bishop.transform.position.y > 0.458f && bishop.transform.position.y < 1.55f)
+        {
+            sprite.sortingOrder = 4;
+        }
+        if (bishop.transform.position.y > -0.655f && bishop.transform.position.y < 0.458f)
+        {
+            sprite.sortingOrder = 5;
+        }
+        if (bishop.transform.position.y > -1.75f && bishop.transform.position.y < -0.655f)
+        {
+            sprite.sortingOrder = 6;
+        }
+
+        if (bishop.transform.position.y > -2.84f && bishop.transform.position.y < -1.75f)
+        {
+            sprite.sortingOrder = 7;
+        }
+        if (bishop.transform.position.y > -3.94f && bishop.transform.position.y < -2.84f)
+        {
+            sprite.sortingOrder = 8;
+        }
     }
     public void BishopDestroy() 
     {

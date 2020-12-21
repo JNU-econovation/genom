@@ -15,6 +15,8 @@ TagManager:
   - PlayerPos
   - QueenCanKill
   - QueenCanKilled
+  - KnightCanKill
+  - KnightCanKilled
   layers:
   - Default
   - TransparentFX
@@ -24,15 +26,15 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - F
   - 
   - 
   - 
@@ -52,12 +54,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: player
+  - name: A
     uniqueID: 2494257215
     locked: 0
-  - name: pad
+  - name: B
     uniqueID: 409418069
     locked: 0
-  - name: enemy
+  - name: C
     uniqueID: 3798774631
+    locked: 0
+  - name: D
+    uniqueID: 2002519779
+    locked: 0
+  - name: E
+    uniqueID: 3771797805
+    locked: 0
+  - name: F
+    uniqueID: 1374031987
+    locked: 0
+  - name: G
+    uniqueID: 1254962615
+    locked: 0
+  - name: H
+    uniqueID: 4082628393
+    locked: 0
+  - name: F
+    uniqueID: 3607263615
     locked: 0
