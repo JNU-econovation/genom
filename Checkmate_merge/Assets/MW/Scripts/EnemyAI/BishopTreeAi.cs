@@ -9,7 +9,7 @@ public class BishopTreeAi : MonoBehaviour
     [SerializeField] GameObject bishop;
     [SerializeField] GameObject bishopPivot;
 
-    
+    public Animator animator;
 
 
     float duration = 0.23255813953488372093023255813953f /2;
@@ -24,6 +24,7 @@ public class BishopTreeAi : MonoBehaviour
     public Coroutine evaluateCoroutine;
     void Start()
     {
+        animator = bishop.GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         ConstructBehaviourTree();
         evaluateCoroutine = StartCoroutine(StartEvaluate());
@@ -31,7 +32,7 @@ public class BishopTreeAi : MonoBehaviour
 
     void Update()
     {
-
+        moveDir();
 
     }
     public void StartEvaluateCoroutine()
@@ -134,10 +135,74 @@ public class BishopTreeAi : MonoBehaviour
 
     }
 
+    public void moveDir()
+    {
+        if (bishopPivot.transform.localPosition.x > 0.5f && bishopPivot.transform.localPosition.y > 0.5f && bishop.tag == "BishopCanKilled")
+        {
+
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Ver", -2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+        if (bishopPivot.transform.localPosition.x > 0.5f && bishopPivot.transform.localPosition.y > 0.5f && bishop.tag == "BishopCanKill")
+        {
+
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Ver", 2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+
+
+        if (bishopPivot.transform.localPosition.x < -0.5f && bishopPivot.transform.localPosition.y > 0.5f && bishop.tag == "BishopCanKilled")
+        {
+
+            animator.SetFloat("Hor", -1);
+            animator.SetFloat("Ver", -2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+        if (bishopPivot.transform.localPosition.x < -0.5f && bishopPivot.transform.localPosition.y > 0.5f && bishop.tag == "BishopCanKill")
+        {
+
+            animator.SetFloat("Hor", -1);
+            animator.SetFloat("Ver", 2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+
+
+        if (bishopPivot.transform.localPosition.x > 0.5f && bishopPivot.transform.localPosition.y < -0.5f && bishop.tag == "BishopCanKilled")
+        {
+
+            animator.SetFloat("Hor", 1);
+            animator.SetFloat("Ver", -2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+        if (bishopPivot.transform.localPosition.x > 0.5f && bishopPivot.transform.localPosition.y < -0.5f && bishop.tag == "BishopCanKill")
+        {
+
+            animator.SetFloat("Hor", 1);
+            animator.SetFloat("Ver", 2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+
+
+        if (bishopPivot.transform.localPosition.x < -0.5f && bishopPivot.transform.localPosition.y < -0.5f && bishop.tag == "BishopCanKilled")
+        {
+
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Ver", -2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
+        if (bishopPivot.transform.localPosition.x < -0.5f && bishopPivot.transform.localPosition.y < -0.5f && bishop.tag == "BishopCanKill")
+        {
+
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Ver", 2);
+            animator.SetFloat("Magnitude", 0.01f);
+        }
 
 
 
 
-
+    }
 
 }

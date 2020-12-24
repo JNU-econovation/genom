@@ -92,36 +92,36 @@ public class KnightController : MonoBehaviour
 
         PonDestroy();
 
-        if(knight.transform.position.y > 3.744f && knight.transform.position.y < 4.85f)
+        if (knight.transform.position.y > 3.744f && knight.transform.position.y < 4.85f)
         {
             sprite.sortingOrder = 1;
         }
-        if (knight.transform.position.y > 2.656f && knight.transform.position.y < 3.744f)
+        if (knight.transform.position.y > 2.656f && knight.transform.position.y < 3.743f)
         {
             sprite.sortingOrder = 2;
         }
-        if (knight.transform.position.y > 1.55f && knight.transform.position.y < 2.656f)
+        if (knight.transform.position.y > 1.55f && knight.transform.position.y < 2.655f)
         {
             sprite.sortingOrder = 3;
         }
-        if (knight.transform.position.y > 0.458f && knight.transform.position.y < 1.55f)
+        if (knight.transform.position.y > 0.458f && knight.transform.position.y < 1.54f)
         {
             sprite.sortingOrder = 4;
         }
-        if (knight.transform.position.y > -0.655f && knight.transform.position.y < 0.458f)
+        if (knight.transform.position.y > -0.655f && knight.transform.position.y < 0.457f)
         {
             sprite.sortingOrder = 5;
         }
-        if (knight.transform.position.y > -1.75f && knight.transform.position.y < -0.655f)
+        if (knight.transform.position.y > -1.75f && knight.transform.position.y < -0.656f)
         {
             sprite.sortingOrder = 6;
         }
 
-        if (knight.transform.position.y > -2.84f && knight.transform.position.y < -1.75f)
+        if (knight.transform.position.y > -2.84f && knight.transform.position.y < -1.76f)
         {
             sprite.sortingOrder = 7;
         }
-        if (knight.transform.position.y > -3.94f && knight.transform.position.y < -2.84f)
+        if (knight.transform.position.y > -3.94f && knight.transform.position.y < -2.85f)
         {
             sprite.sortingOrder = 8;
         }

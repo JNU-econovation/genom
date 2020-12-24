@@ -101,32 +101,32 @@ public class BishopController : MonoBehaviour
         {
             sprite.sortingOrder = 1;
         }
-        if (bishop.transform.position.y > 2.656f && bishop.transform.position.y < 3.744f)
+        if (bishop.transform.position.y > 2.656f && bishop.transform.position.y < 3.743f)
         {
             sprite.sortingOrder = 2;
         }
-        if (bishop.transform.position.y > 1.55f && bishop.transform.position.y < 2.656f)
+        if (bishop.transform.position.y > 1.55f && bishop.transform.position.y < 2.655f)
         {
             sprite.sortingOrder = 3;
         }
-        if (bishop.transform.position.y > 0.458f && bishop.transform.position.y < 1.55f)
+        if (bishop.transform.position.y > 0.458f && bishop.transform.position.y < 1.54f)
         {
             sprite.sortingOrder = 4;
         }
-        if (bishop.transform.position.y > -0.655f && bishop.transform.position.y < 0.458f)
+        if (bishop.transform.position.y > -0.655f && bishop.transform.position.y < 0.457f)
         {
             sprite.sortingOrder = 5;
         }
-        if (bishop.transform.position.y > -1.75f && bishop.transform.position.y < -0.655f)
+        if (bishop.transform.position.y > -1.75f && bishop.transform.position.y < -0.656f)
         {
             sprite.sortingOrder = 6;
         }
 
-        if (bishop.transform.position.y > -2.84f && bishop.transform.position.y < -1.75f)
+        if (bishop.transform.position.y > -2.84f && bishop.transform.position.y < -1.76f)
         {
             sprite.sortingOrder = 7;
         }
-        if (bishop.transform.position.y > -3.94f && bishop.transform.position.y < -2.84f)
+        if (bishop.transform.position.y > -3.94f && bishop.transform.position.y < -2.85f)
         {
             sprite.sortingOrder = 8;
         }

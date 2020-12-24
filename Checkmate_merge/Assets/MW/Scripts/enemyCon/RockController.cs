@@ -88,32 +88,32 @@ public class RockController : MonoBehaviour
         {
             sprite.sortingOrder = 1;
         }
-        if (rock.transform.position.y > 2.656f && rock.transform.position.y < 3.744f)
+        if (rock.transform.position.y > 2.656f && rock.transform.position.y < 3.743f)
         {
             sprite.sortingOrder = 2;
         }
-        if (rock.transform.position.y > 1.55f && rock.transform.position.y < 2.656f)
+        if (rock.transform.position.y > 1.55f && rock.transform.position.y < 2.655f)
         {
             sprite.sortingOrder = 3;
         }
-        if (rock.transform.position.y > 0.458f && rock.transform.position.y < 1.55f)
+        if (rock.transform.position.y > 0.458f && rock.transform.position.y < 1.54f)
         {
             sprite.sortingOrder = 4;
         }
-        if (rock.transform.position.y > -0.655f && rock.transform.position.y < 0.458f)
+        if (rock.transform.position.y > -0.655f && rock.transform.position.y < 0.457f)
         {
             sprite.sortingOrder = 5;
         }
-        if (rock.transform.position.y > -1.75f && rock.transform.position.y < -0.655f)
+        if (rock.transform.position.y > -1.75f && rock.transform.position.y < -0.656f)
         {
             sprite.sortingOrder = 6;
         }
 
-        if (rock.transform.position.y > -2.84f && rock.transform.position.y < -1.75f)
+        if (rock.transform.position.y > -2.84f && rock.transform.position.y < -1.76f)
         {
             sprite.sortingOrder = 7;
         }
-        if (rock.transform.position.y > -3.94f && rock.transform.position.y < -2.84f)
+        if (rock.transform.position.y > -3.94f && rock.transform.position.y < -2.85f)
         {
             sprite.sortingOrder = 8;
         }

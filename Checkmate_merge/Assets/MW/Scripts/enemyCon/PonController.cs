@@ -114,32 +114,32 @@ public class PonController : MonoBehaviour
         {
             sprite.sortingOrder = 1;
         }
-        if (pon.transform.position.y > 2.656f && pon.transform.position.y < 3.744f)
+        if (pon.transform.position.y > 2.656f && pon.transform.position.y < 3.743f)
         {
             sprite.sortingOrder = 2;
         }
-        if (pon.transform.position.y > 1.55f && pon.transform.position.y < 2.656f)
+        if (pon.transform.position.y > 1.55f && pon.transform.position.y < 2.655f)
         {
             sprite.sortingOrder = 3;
         }
-        if (pon.transform.position.y > 0.458f && pon.transform.position.y < 1.55f)
+        if (pon.transform.position.y > 0.458f && pon.transform.position.y < 1.54f)
         {
             sprite.sortingOrder = 4;
         }
-        if (pon.transform.position.y > -0.655f && pon.transform.position.y < 0.458f)
+        if (pon.transform.position.y > -0.655f && pon.transform.position.y < 0.457f)
         {
             sprite.sortingOrder = 5;
         }
-        if (pon.transform.position.y > -1.75f && pon.transform.position.y < -0.655f)
+        if (pon.transform.position.y > -1.75f && pon.transform.position.y < -0.656f)
         {
             sprite.sortingOrder = 6;
         }
 
-        if (pon.transform.position.y > -2.84f && pon.transform.position.y < -1.75f)
+        if (pon.transform.position.y > -2.84f && pon.transform.position.y < -1.76f)
         {
             sprite.sortingOrder = 7;
         }
-        if (pon.transform.position.y > -3.94f && pon.transform.position.y < -2.84f)
+        if (pon.transform.position.y > -3.94f && pon.transform.position.y < -2.85f)
         {
             sprite.sortingOrder = 8;
         }
