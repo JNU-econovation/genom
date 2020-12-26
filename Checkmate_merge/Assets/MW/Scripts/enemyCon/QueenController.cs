@@ -6,11 +6,12 @@ public class QueenController : MonoBehaviour
 {
     [SerializeField] GameObject queen;
     public int queen_score;
-
+    public int sortingOrder = 0;
+    private SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
-
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     public void QueenKilledByPlayer()
@@ -68,6 +69,39 @@ public class QueenController : MonoBehaviour
     {
 
         QueenDestroy();
+        if (queen.transform.position.y > 3.744f && queen.transform.position.y < 4.85f)
+        {
+            sprite.sortingOrder = 1;
+        }
+        if (queen.transform.position.y > 2.656f && queen.transform.position.y < 3.743f)
+        {
+            sprite.sortingOrder = 2;
+        }
+        if (queen.transform.position.y > 1.55f && queen.transform.position.y < 2.655f)
+        {
+            sprite.sortingOrder = 3;
+        }
+        if (queen.transform.position.y > 0.458f && queen.transform.position.y < 1.54f)
+        {
+            sprite.sortingOrder = 4;
+        }
+        if (queen.transform.position.y > -0.655f && queen.transform.position.y < 0.457f)
+        {
+            sprite.sortingOrder = 5;
+        }
+        if (queen.transform.position.y > -1.75f && queen.transform.position.y < -0.656f)
+        {
+            sprite.sortingOrder = 6;
+        }
+
+        if (queen.transform.position.y > -2.84f && queen.transform.position.y < -1.76f)
+        {
+            sprite.sortingOrder = 7;
+        }
+        if (queen.transform.position.y > -3.94f && queen.transform.position.y < -2.85f)
+        {
+            sprite.sortingOrder = 8;
+        }
     }
     public void QueenDestroy() 
     {

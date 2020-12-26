@@ -1869,13 +1869,13 @@ MonoBehaviour:
   dialog_text: {fileID: 1333315454}
   name_text: {fileID: 1289560940}
   dialog:
-  - dialog: "\uC548\uB155"
+  - dialog: A
     name: "\uD3F0"
     cg: {fileID: 21300000, guid: a963de567d6411841a42ad00c58e642f, type: 3}
-  - dialog: "\uBC18\uAC00\uC6CC"
+  - dialog: B
     name: "\uD0B9"
     cg: {fileID: 21300000, guid: d4d69eb060648b24594cc211d51c45d6, type: 3}
-  - dialog: "\uC798\uAC00"
+  - dialog: C
     name: "\uD3F0"
     cg: {fileID: 21300000, guid: a963de567d6411841a42ad00c58e642f, type: 3}
 --- !u!4 &1182053378

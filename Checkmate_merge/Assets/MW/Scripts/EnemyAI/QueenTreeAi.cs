@@ -11,7 +11,7 @@ public class QueenTreeAi : MonoBehaviour
     [SerializeField] GameObject FindPivot1;
     [SerializeField] GameObject FindPivot2;
     [SerializeField] LayerMask PlayerMask;
-
+    public Animator animator;
     float duration = 0.23255813953488372093023255813953f;
     public float step = 1f;
     public float delayTime = 10f;
@@ -25,6 +25,7 @@ public class QueenTreeAi : MonoBehaviour
     public Coroutine evaluateCoroutine;
     void Start()
     {
+        animator = pon.GetComponent<Animator>();
         player = GameObject.FindWithTag("PlayerPos");
         
         ConstructBehaviourTree();
@@ -184,6 +185,21 @@ public class QueenTreeAi : MonoBehaviour
 
     }
 
+    void Update()
+    {
 
+        moveDir();
+    }
+    public void moveDir()
+    {
+        if (pon.transform.tag == "QueenCanKilled")
+        {
+            animator.SetFloat("attck", 0);
+        }
+        else if (pon.transform.tag == "QueenCanKill")
+        {
+            animator.SetFloat("attck", 1);
+        }
+    }
 
 }

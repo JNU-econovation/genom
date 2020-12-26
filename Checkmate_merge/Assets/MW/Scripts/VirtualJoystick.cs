@@ -116,7 +116,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
         {
             PlayerPivot.transform.localPosition = Vector3.zero;
         }
-        if (PlayerPivot.transform.position.y < -5)
+        if (PlayerPivot.transform.position.y < -4.5)
         {
             PlayerPivot.transform.localPosition = Vector3.zero;
         }

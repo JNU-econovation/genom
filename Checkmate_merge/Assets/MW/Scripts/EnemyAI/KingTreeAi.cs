@@ -10,7 +10,7 @@ public class KingTreeAi : MonoBehaviour
     [SerializeField] GameObject ponPivot;
     [SerializeField] GameObject FindPivot1;
     [SerializeField] GameObject FindPivot2;
-
+    public Animator animator;
 
     float duration = 0.23255813953488372093023255813953f;
     public float step = 1f;
@@ -25,6 +25,7 @@ public class KingTreeAi : MonoBehaviour
     public Coroutine evaluateCoroutine;
     void Start()
     {
+        animator = pon.GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         ConstructBehaviourTree();
         evaluateCoroutine = StartCoroutine(StartEvaluate());
@@ -192,6 +193,22 @@ public class KingTreeAi : MonoBehaviour
         }
 
 
+    }
+    void Update()
+    {
+
+        moveDir();
+    }
+    public void moveDir()
+    {
+        if (pon.transform.tag == "KingCanKilled")
+        {
+            animator.SetFloat("Att", 0);
+        }
+        else if (pon.transform.tag == "KingCanKill")
+        {
+            animator.SetFloat("Att", 1);
+        }
     }
 
 

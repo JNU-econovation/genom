@@ -10,7 +10,7 @@ public class PonTreeAi : MonoBehaviour
     [SerializeField] GameObject ponPivot;
     [SerializeField] GameObject FindPivot1;
     [SerializeField] GameObject FindPivot2;
-    
+    public Animator animator;
     float duration = 0.46511627906976744186046511627907f;
     public float step = 1f;
     public float delayTime = 10f;
@@ -25,6 +25,7 @@ public class PonTreeAi : MonoBehaviour
 
     void Start()
     {
+        animator = pon.GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
        ConstructBehaviourTree();
        evaluateCoroutine = StartCoroutine(StartEvaluate());
@@ -33,7 +34,7 @@ public class PonTreeAi : MonoBehaviour
 
     void Update()
     {
-
+        moveDir();
 
     }
 
@@ -196,7 +197,77 @@ public class PonTreeAi : MonoBehaviour
 
 
     }
+    public void moveDir()
+    {
+        if (ponPivot.transform.localPosition.x > 0.5f   && pon.tag == "PonCanKilled")
+        {
 
+            animator.SetFloat("Ver", -0.5f);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (ponPivot.transform.localPosition.x > 0.5f  && pon.tag == "PonCanKill")
+        {
+
+            animator.SetFloat("Ver", -0.5f);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+
+        if (ponPivot.transform.localPosition.x < -0.5f && pon.tag == "PonCanKilled")
+        {
+
+            animator.SetFloat("Ver", 1);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (ponPivot.transform.localPosition.x < -0.5f && pon.tag == "PonCanKill")
+        {
+
+            animator.SetFloat("Ver", 1);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+
+        if (ponPivot.transform.localPosition.y > 0.5f && pon.tag == "PonCanKilled")
+        {
+
+            animator.SetFloat("Ver", -1);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (ponPivot.transform.localPosition.y > 0.5f && pon.tag == "PonCanKill")
+        {
+
+            animator.SetFloat("Ver", -1);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+
+
+        if (ponPivot.transform.localPosition.y < -0.5f && pon.tag == "PonCanKilled")
+        {
+
+            animator.SetFloat("Ver", 0.5f);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (ponPivot.transform.localPosition.y < -0.5f && pon.tag == "PonCanKill")
+        {
+
+            animator.SetFloat("Ver", 0.5f);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+    }
 
 
 }

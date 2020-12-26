@@ -68,6 +68,7 @@
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
     <Compile Include="Assets\JH\Script\PauseManager.cs" />
+    <Compile Include="Assets\KnightAlert.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Invertor.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Node.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Selector.cs" />
@@ -121,6 +122,11 @@
     <Compile Include="Assets\MW\Scripts\enemyCon\PonController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\QueenController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\RockController.cs" />
+    <Compile Include="Assets\QueenAlert.cs" />
+    <Compile Include="Assets\bishopAlert.cs" />
+    <Compile Include="Assets\kingAlert.cs" />
+    <Compile Include="Assets\ponAlert.cs" />
+    <Compile Include="Assets\rockAlert.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

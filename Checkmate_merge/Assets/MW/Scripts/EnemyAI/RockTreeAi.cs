@@ -9,7 +9,7 @@ public class RockTreeAi : MonoBehaviour
     [SerializeField] GameObject rock;
     [SerializeField] GameObject rockPivot;
 
-    
+    public Animator animator;
 
 
     float duration = 0.23255813953488372093023255813953f /2;
@@ -25,16 +25,13 @@ public class RockTreeAi : MonoBehaviour
     public Coroutine evaluateCoroutine;
     void Start()
     {
+        animator = rock.GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
         ConstructBehaviourTree();
         evaluateCoroutine = StartCoroutine(StartEvaluate());
     }
 
-    void Update()
-    {
 
-
-    }
     public void StartEvaluateCoroutine()
     {
         evaluateCoroutine = StartCoroutine(StartEvaluate());
@@ -135,8 +132,71 @@ public class RockTreeAi : MonoBehaviour
 
     }
 
+    void Update()
+    {
+
+        moveDir();
+    }
+    public void moveDir()
+    {
+        if (rockPivot.transform.localPosition.x > 0.5f && rock.transform.tag == "RockCanKilled")
+        {
+            animator.SetFloat("Ver", -0.5f);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (rockPivot.transform.localPosition.x > 0.5f && rock.transform.tag == "RockCanKill")
+        {
+            animator.SetFloat("Ver", -0.5f);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
 
 
+        if (rockPivot.transform.localPosition.x < -0.5f && rock.transform.tag == "RockCanKilled")
+        {
+            animator.SetFloat("Ver", 1);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (rockPivot.transform.localPosition.x < -0.5f && rock.transform.tag == "RockCanKill")
+        {
+            animator.SetFloat("Ver", 1);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+
+
+        if (rockPivot.transform.localPosition.y > 0.5f && rock.transform.tag == "RockCanKilled")
+        {
+            animator.SetFloat("Ver", -1);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (rockPivot.transform.localPosition.y > 0.5f && rock.transform.tag == "RockCanKill")
+        {
+            animator.SetFloat("Ver", -1);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+        if (rockPivot.transform.localPosition.y < -0.5f && rock.transform.tag == "RockCanKilled")
+        {
+            animator.SetFloat("Ver", 0.5f);
+            animator.SetFloat("Hor", 2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+        if (rockPivot.transform.localPosition.y < -0.5f && rock.transform.tag == "RockCanKill")
+        {
+            animator.SetFloat("Ver", 0.5f);
+            animator.SetFloat("Hor", -2);
+            animator.SetFloat("Mag", 0.01f);
+        }
+
+
+    }
 
 
 
