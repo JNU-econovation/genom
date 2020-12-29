@@ -10,12 +10,14 @@ public class Dialog
     public string dialog;//대사
     public string name;//이름
     public Sprite cg; // 스탠딩 이미지
+    
 }
 
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] private Image standing_cg;
     [SerializeField] private Image dialog_box;
+
     [SerializeField] private Text dialog_text;
     [SerializeField] private Text name_text;
     
@@ -24,7 +26,7 @@ public class DialogManager : MonoBehaviour
     private bool isDialog;
     private int count;
 
-    //버튼이 눌러지면 활성화시키는 함수
+    //대화 UI 활성화시키는 함수
     public void StartDialog()
     {
         standing_cg.gameObject.SetActive(true);
@@ -48,12 +50,29 @@ public class DialogManager : MonoBehaviour
         count++;
     }
 
-    //대화 끝내기
-    public void EndDialog()
+    //스페이스바 누르면 다음 대화 실행
+    public void Update()
     {
-        if (Time.timeScale == 0.0f)
-            Time.timeScale = 1.0f;
-   
+        if (isDialog == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (count < dialog.Length)
+                    NextDialog();
+                else
+                    EndDialog();
+                
+            }
+        }
+    }
+
+    //대화 끝내기
+    private void EndDialog()
+    {
+        //FindObjectOfType<CountdownControl>().Start();
+
+        Time.timeScale = 1.0f;
+
         isDialog = false;
 
         standing_cg.gameObject.SetActive(false);
@@ -63,28 +82,16 @@ public class DialogManager : MonoBehaviour
 
     }
 
-    //스페이스바 누르면 다음 대화 실행
-    public void Update()
-    {
-        if(isDialog==true)
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                if (count < dialog.Length)
-                    NextDialog();
-                else
-                    EndDialog();
-            }
-        }
-    }
-
 }
 
-// 마지막 대사가 실행 안됨
-// 게임매니저에 특정 점수가 되면 실행되도록 했는데 안나옴
-// 왜 lastscore은 안되지
-// 스페이스바 눌렀는데 왜 안돼
-// 왜 대화가 안끝나냐고 하
-// 애니메이션 추가?
+
+
+
+// StopCoroutine(PonDialog()); ??
+// 코루틴 델타타임??
+
+//EndDialog()에서 바로 시작하지 않고 3초 쉰다음에 시작
+
+
 
 

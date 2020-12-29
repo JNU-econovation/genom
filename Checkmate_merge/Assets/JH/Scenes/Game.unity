@@ -1869,15 +1869,16 @@ MonoBehaviour:
   dialog_text: {fileID: 1333315454}
   name_text: {fileID: 1289560940}
   dialog:
-  - dialog: A
-    name: "\uD3F0"
-    cg: {fileID: 21300000, guid: a963de567d6411841a42ad00c58e642f, type: 3}
-  - dialog: B
+  - dialog: "\uD3EC\uC704 \uB2F9\uD558\uC168\uC2B5\uB2C8\uB2E4. \uB0A8\uAE38 \uB9D0\uC774
+      \uC788\uB2E4\uBA74 \uB4E4\uC5B4\uB4DC\uB9AC\uC8E0."
+    name: "\uD3F0 \uC2E4\uBC84\uC988 \uC6F0"
+    cg: {fileID: 21300000, guid: 180b68e4c7d27184abc7cbd330c9a769, type: 3}
+  - dialog: "\uB299\uC740 \uAC1C\uAC00 \uBC84\uB987\uC5C6\uC774 \uC9D6\uB294\uAD6C\uB098."
     name: "\uD0B9"
-    cg: {fileID: 21300000, guid: d4d69eb060648b24594cc211d51c45d6, type: 3}
-  - dialog: C
-    name: "\uD3F0"
-    cg: {fileID: 21300000, guid: a963de567d6411841a42ad00c58e642f, type: 3}
+    cg: {fileID: 21300000, guid: 156e28db88c3e7a4ba013b5121243029, type: 3}
+  - dialog: "\uC774 \uB299\uC740\uC774\uBCF4\uB2E4 \uBA3C\uC800 \uAC00\uC2DC\uACA0\uAD70\uC694."
+    name: "\uD3F0 \uC2E4\uBC84\uC988 \uC6F0"
+    cg: {fileID: 21300000, guid: 180b68e4c7d27184abc7cbd330c9a769, type: 3}
 --- !u!4 &1182053378
 Transform:
   m_ObjectHideFlags: 0

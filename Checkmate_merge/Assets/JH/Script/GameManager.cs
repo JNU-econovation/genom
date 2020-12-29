@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
+        StartCoroutine(PonDialog());//폰 대화 코루틴 시작
     }
 
     //기본 점수 계산
@@ -56,8 +57,17 @@ public class GameManager : MonoBehaviour
         {
             score++;
             scoreText.text = "score : " + score.ToString();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public IEnumerator PonDialog()
+    {
+        yield return new WaitForSeconds(10f);//10초 뒤 시작
+
+        Time.timeScale = 0.0f;
+        FindObjectOfType<DialogManager>().StartDialog();
+
     }
 
     //적 점수 계산
@@ -78,18 +88,5 @@ public class GameManager : MonoBehaviour
         lastscore = score + enemyscore;
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
     }
-
-    //점수 10점이 되면 다이얼로그 실행
-    public void FixedUpdate()
-    {
-        if(score==10)
-        {
-            Time.timeScale = 0.0f;
-            FindObjectOfType<DialogManager>().StartDialog();
-        }
-    }
-
-   
-
 
 }
