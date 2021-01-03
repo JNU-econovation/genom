@@ -21,8 +21,12 @@ public class GameManager : MonoBehaviour
 
     public enum State { onDialog,offDialog };
     public State state;
-    
 
+    public Dialog dialog1;
+    public Dialog dialog2;
+    public Dialog dialog3;
+    public Dialog dialog4;
+    public Dialog dialog5;
 
     //싱글톤
     private void Awake()
@@ -51,6 +55,49 @@ public class GameManager : MonoBehaviour
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
         
+    }
+
+    public void Update()
+    {
+        if (score == 5 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog1));
+            
+        }
+        if(score == 10 && state==State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog2));
+        }
+        if (score == 15 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog3));
+        }
+        if (score == 20 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog4));
+        }
+        if (score == 25 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog5));
+        }
+
+
+    }
+
+    public IEnumerator Dialog(Dialog dialog)
+    {
+
+        Time.timeScale = 0.0f;
+        FindObjectOfType<DialogManager>().ShowDialog(dialog);
+
+        yield return new WaitForSeconds(1f);
+        state = State.offDialog;
+
     }
 
     //기본 점수 계산
@@ -85,35 +132,6 @@ public class GameManager : MonoBehaviour
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
         lastscore = score + enemyscore;
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
-    }
-
-
-    public void Update()
-    {
-        if (score == 5 && state==State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog());
-        }
-
-        if (score == 10 && state==State.offDialog )
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog());
-        }
-        
-   
-    }
-
-    public IEnumerator Dialog()
-    {
-      
-        Time.timeScale = 0.0f;
-        FindObjectOfType<DialogManager>().StartDialog();
-        
-        yield return new WaitForSeconds(1f);
-        state = State.offDialog;
-
     }
 
     
