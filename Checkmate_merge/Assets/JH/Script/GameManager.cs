@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -11,14 +12,21 @@ public class GameManager : MonoBehaviour
     private bool isPlay = false;//플레이 중인가?
     public GameObject gameoverUI;//게임오버 UI
     
-    static int score;//기본 점수
+    private static int score;//기본 점수
     public Text scoreText;
-    static int enemyscore;//적 점수
+    private static int enemyscore;//적 점수
     public Text enemyscore_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
 
-    private Dialog dialog;
+    public enum State { onDialog,offDialog };
+    public State state;
+
+    public Dialog dialog1;
+    public Dialog dialog2;
+    public Dialog dialog3;
+    public Dialog dialog4;
+    public Dialog dialog5;
 
     //싱글톤
     private void Awake()
@@ -38,13 +46,58 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         isPlay = true;
-        
+        state = State.offDialog;
+
         score = 0;
         scoreText.text = "score : " + score.ToString();
         enemyscore = 0;
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
+        
+    }
+
+    public void Update()
+    {
+        if (score == 5 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog1));
+            
+        }
+        if(score == 10 && state==State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog2));
+        }
+        if (score == 15 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog3));
+        }
+        if (score == 20 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog4));
+        }
+        if (score == 25 && state == State.offDialog)
+        {
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog5));
+        }
+
+
+    }
+
+    public IEnumerator Dialog(Dialog dialog)
+    {
+
+        Time.timeScale = 0.0f;
+        FindObjectOfType<DialogManager>().ShowDialog(dialog);
+
+        yield return new WaitForSeconds(1f);
+        state = State.offDialog;
+
     }
 
     //기본 점수 계산
@@ -56,8 +109,10 @@ public class GameManager : MonoBehaviour
         {
             score++;
             scoreText.text = "score : " + score.ToString();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
+
+        
     }
 
     //적 점수 계산
@@ -79,17 +134,7 @@ public class GameManager : MonoBehaviour
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
     }
 
-    //점수 10점이 되면 다이얼로그 실행
-    public void FixedUpdate()
-    {
-        if(score==10)
-        {
-            Time.timeScale = 0.0f;
-            FindObjectOfType<DialogManager>().StartDialog();
-        }
-    }
-
-   
+    
 
 
 }
