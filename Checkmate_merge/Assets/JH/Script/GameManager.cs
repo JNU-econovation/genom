@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private bool isPlay = false;//플레이 중인가?
     public GameObject gameoverUI;//게임오버 UI
     
-    private static int score;//기본 점수
+    public static int score;//기본 점수
     public Text scoreText;
     private static int enemyscore;//적 점수
     public Text enemyscore_text;

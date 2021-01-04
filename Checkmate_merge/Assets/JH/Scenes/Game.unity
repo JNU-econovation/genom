@@ -1808,10 +1808,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 543689371}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: ponPrefab
+      value: 
+      objectReference: {fileID: 2675597320215411020, guid: a29e1880074c5d84b96d6c8e402fa141,
+        type: 3}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: rockPrefab
+      value: 
+      objectReference: {fileID: 256660523844570461, guid: 4cbc2c6c0ce801d4fa29ede299d42389,
+        type: 3}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: bishopPrefab
+      value: 
+      objectReference: {fileID: 1041733747015810819, guid: 4ef901ca2adbe4d46bfff8a92b7631c5,
+        type: 3}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: knightPrefab
+      value: 
+      objectReference: {fileID: 3475964817984294413, guid: e28d1bfb756a07b4a9460f4e33485901,
+        type: 3}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: kingPrefab
+      value: 
+      objectReference: {fileID: 6642614574565159384, guid: d09ddc55f85a1cf48affe6c58e8e450e,
+        type: 3}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: queenPrefab
+      value: 
+      objectReference: {fileID: 414595870472343477, guid: 2d5b22ba075e3ac43bc089eee31fde59,
+        type: 3}
     - target: {fileID: 1880714271278250261, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880714271278250261, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1880714271278250263, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}

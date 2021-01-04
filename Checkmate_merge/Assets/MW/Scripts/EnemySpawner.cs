@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
     Vector2 a1 = new Vector2(-3.157f, 3.501f);
     Vector2 a2 = new Vector2(-2.057f, 3.501f);
     Vector2 a3 = new Vector2(-0.957f, 3.501f);
@@ -84,7 +85,10 @@ public class EnemySpawner : MonoBehaviour
     public GameObject knightPrefab;
     public GameObject kingPrefab;
     public GameObject queenPrefab;
-
+    int roundNum = 0;
+    float count;
+    float firstCount;
+    bool firstSpawn = true;
 
     float delayTime = 0.93023255813953488372093023255812f * 5;
 
@@ -101,30 +105,45 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
+    IEnumerator fisrtTimer()
+    {
+        yield return new WaitForSeconds(0.93023255813953488372093023255812f * 6);
+        StartCoroutine(PonRound());
+    }
+
 
     IEnumerator timer(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        StartCoroutine(setRound());
+
+
+        if(GameManager.score >= 0 && GameManager.score < 200)
+        {
+            StartCoroutine(PonRound());
+        }
+
+        if (GameManager.score >= 0 && GameManager.score < 200)
+        {
+            StartCoroutine(PonRound());
+        }
+
+        if (GameManager.score >= 200 && GameManager.score < 400)
+        {
+            StartCoroutine(PonRound());
+        }
+
+        if (GameManager.score >= 400 && GameManager.score < 600)
+        {
+            StartCoroutine(PonRound());
+        }
+
     }
-    IEnumerator fisrtTimer()
+
+
+
+    IEnumerator PonRound()
     {
-        yield return new WaitForSeconds(0.93023255813953488372093023255812f* 6);
-        StartCoroutine(setRound());
-    }
-
-    int roundNum = 0;
-    float count;
-    float firstCount;
-    bool firstSpawn = true;
-    IEnumerator setRound()
-    {
-
-
-
-        roundNum = Random.Range(1, 8);
-
-
+        roundNum = Random.Range(1, 5);
         switch (roundNum)
         {
             case 1:
@@ -132,47 +151,72 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(ponPrefab, b7, Quaternion.identity);
                 Instantiate(ponPrefab, g2, Quaternion.identity);
                 Instantiate(ponPrefab, g7, Quaternion.identity);
-                count = 0;
                 break;
             case 2:
-                Instantiate(rockPrefab, a1, Quaternion.identity);
-                Instantiate(rockPrefab, b1, Quaternion.identity);
-                Instantiate(rockPrefab, c1, Quaternion.identity);
-                Instantiate(rockPrefab, d1, Quaternion.identity);
-                Instantiate(rockPrefab, e1, Quaternion.identity);
-                Instantiate(rockPrefab, f1, Quaternion.identity);
-                Instantiate(rockPrefab, g1, Quaternion.identity);
-                Instantiate(rockPrefab, h1, Quaternion.identity);
-                count = 0;
+                Instantiate(ponPrefab, b2, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(knightPrefab, c3, Quaternion.identity);
-                Instantiate(knightPrefab, c6, Quaternion.identity);
-                Instantiate(knightPrefab, f3, Quaternion.identity);
-                Instantiate(knightPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
                 break;
             case 4:
-                Instantiate(queenPrefab, a4, Quaternion.identity);
-                Instantiate(queenPrefab, g5, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
                 break;
             case 5:
-                Instantiate(kingPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
                 break;
-            case 6:
-                Instantiate(bishopPrefab, b3, Quaternion.identity);
-                Instantiate(bishopPrefab, c4, Quaternion.identity);
-                Instantiate(bishopPrefab, d5, Quaternion.identity);
-                break;
-
-
-
         }
-
                 yield return null;
-
         StartCoroutine(timer(delayTime));
 
     }
+
+
+
+    IEnumerator RockRound()
+    {
+        roundNum = Random.Range(1, 5);
+        switch (roundNum)
+        {
+            case 1:
+                Instantiate(rockPrefab, a1, Quaternion.identity);
+                Instantiate(rockPrefab, c1, Quaternion.identity);
+                Instantiate(rockPrefab, e1, Quaternion.identity);
+                Instantiate(rockPrefab, g1, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(rockPrefab, h1, Quaternion.identity);
+                Instantiate(rockPrefab, h3, Quaternion.identity);
+                Instantiate(rockPrefab, h5, Quaternion.identity);
+                Instantiate(rockPrefab, h7, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(rockPrefab, h8, Quaternion.identity);
+                Instantiate(rockPrefab, f8, Quaternion.identity);
+                Instantiate(rockPrefab, d8, Quaternion.identity);
+                Instantiate(rockPrefab, b8, Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+                Instantiate(rockPrefab, a5, Quaternion.identity);
+                Instantiate(rockPrefab, a3, Quaternion.identity);
+                Instantiate(rockPrefab, a1, Quaternion.identity);
+                break;
+            case 5:
+                Instantiate(rockPrefab, c4, Quaternion.identity);
+                Instantiate(rockPrefab, c5, Quaternion.identity);
+                Instantiate(rockPrefab, d6, Quaternion.identity);
+                Instantiate(rockPrefab, e6, Quaternion.identity);
+                Instantiate(rockPrefab, f4, Quaternion.identity);
+                Instantiate(rockPrefab, f5, Quaternion.identity);
+                Instantiate(rockPrefab, d3, Quaternion.identity);
+                Instantiate(rockPrefab, e3, Quaternion.identity);
+                break;
+        }
+        yield return null;
+        StartCoroutine(timer(delayTime));
+
+    }
+
 
 
 }

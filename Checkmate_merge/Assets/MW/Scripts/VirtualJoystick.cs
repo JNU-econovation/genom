@@ -139,7 +139,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 0f);
                     animator.SetFloat("Horizontal", 0);
                     animator.SetFloat("Vertical", 1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
 
 
                 }
@@ -148,14 +148,14 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", 1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
                 if (rectJoystick.localPosition.y < -10 && rectJoystick.localPosition.y > -36)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
                     animator.SetFloat("Vertical", 1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
             }
 
@@ -166,7 +166,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     PlayerPivot.transform.localPosition = new Vector2(0f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", 0);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
 
                 }
                 if (rectJoystick.localPosition.y < -10)
@@ -174,7 +174,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     PlayerPivot.transform.localPosition = new Vector2(0f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
                     animator.SetFloat("Vertical", 0);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
             }
 
@@ -187,21 +187,21 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 0f);
                     animator.SetFloat("Horizontal", 0);
                     animator.SetFloat("Vertical", -1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
                 if (rectJoystick.localPosition.y < 36 && rectJoystick.localPosition.y > 10)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", -1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
                 if (rectJoystick.localPosition.y < -10 && rectJoystick.localPosition.y > -36)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
                     animator.SetFloat("Vertical", -1);
-                    animator.SetFloat("Magnitude", 0.001f);
+                    animator.SetFloat("Magnitude", 1);
                 }
 
             }
@@ -215,7 +215,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
             PlayerPivot.transform.localPosition = Vector3.zero;
             animator.SetFloat("Horizontal", 0);
             animator.SetFloat("Vertical", 0);
-            animator.SetFloat("Magnitude", 0.01f);
+            animator.SetFloat("Magnitude", 0);
         }
     }
 }
