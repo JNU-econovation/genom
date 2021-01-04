@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Checkmate_merge/Assets/JH/Sprite/Pon.png.meta
+guid: e619d1364bf9c89498e2fe4c26b6116a
+=======
 guid: 93036e63b0327f643a8607f975b32d04
+>>>>>>> 1d07b01e9c2b7c7e808e5b8fab409e4b3b2b2618:Checkmate_merge/Assets/JH/Scenes/pon_front.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

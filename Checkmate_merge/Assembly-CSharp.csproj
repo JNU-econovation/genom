@@ -64,8 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\JH\Script\CountdownControl.cs" />
+    <Compile Include="Assets\JH\Script\DialogManager.cs" />
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
+    <Compile Include="Assets\JH\Script\PauseManager.cs" />
     <Compile Include="Assets\KnightAlert.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Invertor.cs" />
     <Compile Include="Assets\MW\Scripts\Behavior Tree\Node.cs" />

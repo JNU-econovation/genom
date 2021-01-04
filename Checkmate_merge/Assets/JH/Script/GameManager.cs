@@ -7,17 +7,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public bool isPlay = false;//플레이 중인가?
-    public bool isPaused = false;//일시정지 중인가?
-    public GameObject puasemenuUI;//일시정지 UI
-    public GameObject gameoverUI;//게임오버 UI
 
+    private bool isPlay = false;//플레이 중인가?
+    public GameObject gameoverUI;//게임오버 UI
+    
     static int score;//기본 점수
     public Text scoreText;
     static int enemyscore;//적 점수
     public Text enemyscore_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
+
+    private Dialog dialog;
 
     //싱글톤
     private void Awake()
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 초기화
     public void Start()
     {
         isPlay = true;
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "score : " + score.ToString();
         enemyscore = 0;
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
-
+    
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
     }
 
@@ -65,7 +67,6 @@ public class GameManager : MonoBehaviour
         enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
     }
 
-
     //게임오버시 게임오버UI 활성화
     public void GameOver()
     {
@@ -77,38 +78,18 @@ public class GameManager : MonoBehaviour
         lastscore = score + enemyscore;
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
     }
-    
 
-    //퍼즈메뉴 창 열기
-    public void OpenPasemenuUI()
+    //점수 10점이 되면 다이얼로그 실행
+    public void FixedUpdate()
     {
-        isPaused = true;//게임상태 pause로 변경
-        Time.timeScale = 0.0f;// 모든 게임오브젝트 정지
-        puasemenuUI.SetActive(true);// 퍼즈메뉴 창 실행
+        if(score==10)
+        {
+            Time.timeScale = 0.0f;
+            FindObjectOfType<DialogManager>().StartDialog();
+        }
     }
-    public void OnclickContinue()//계속하기 버튼
-    {
-        isPaused = false;
-        Time.timeScale = 1.0f;
-        puasemenuUI.SetActive(false);
-    }
-    public void OnclickRestart()// 다시 시작
-    {
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Game");
-    }
-    public void OnclickMenu()//메뉴
-    {
-        SceneManager.LoadScene("Menu");
-    }
-    public void OnclickQuit()//종료
-    {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-        
-    }
+
+   
+
 
 }
