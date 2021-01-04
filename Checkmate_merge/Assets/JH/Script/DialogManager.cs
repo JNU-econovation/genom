@@ -20,6 +20,7 @@ public class DialogManager : MonoBehaviour
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
+    private string write_text;//시범 텍스트
 
     private List<string> list_name;
     private List<string> list_sentence;
@@ -58,39 +59,56 @@ public class DialogManager : MonoBehaviour
 
 
     //대화 뽑아내기
-    IEnumerator StartDialog()
+    public IEnumerator StartDialog()
     {
         //이름
         name_text.text = list_name[count];
 
         //대사
-        sentence_text.text = list_sentence[count];
-        
+        //sentence_text.text = list_sentence[count];
+
         //스탠딩 이미지
-        if(count>0)
+        if (count > 0)
         {
             if (list_cg[count] != list_cg[count - 1])//두개의 이미지가 다르다면 이미지 교체
             {
                 standing_cg.sprite = list_cg[count];
             }
-           
+
         }
         else//count==0 (첫 이미지)
         {
             standing_cg.sprite = list_cg[count];
         }
 
+        StartCoroutine(Typing(list_sentence[count]));
         yield return null;
-        /*//대사 1글자씩 출력
-        for(int i=0; i<list_sentence[count].Length; i++)
+
+
+        //대사 1글자씩 출력 
+        /*for (int i = 0; i < list_sentence[count].Length; i++)
         {
-            Debug.Log("i:" + i);
-     
-            sentence_text.text += list_sentence[count][i];
-            yield return new WaitForSeconds(0.01f);
             
+
+            sentence_text.text += list_sentence[count][i];
+
+            yield return new WaitForSeconds(0.01f);
+
         }*/
-        
+
+       
+    }
+
+    IEnumerator Typing(string narration)
+    {
+        int a = 0;
+        write_text = "";
+        for (a = 0;a < narration.Length;a++)
+        {
+            write_text += narration[a];
+            sentence_text.text = write_text;
+            yield return null;
+        }
     }
 
     //스페이스바 누르면 다음 문장 실행

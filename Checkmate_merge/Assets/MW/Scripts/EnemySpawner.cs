@@ -90,6 +90,9 @@ public class EnemySpawner : MonoBehaviour
     float firstCount;
     bool firstSpawn = true;
 
+    bool ponBossIsSpwan = false;
+
+
     float delayTime = 0.93023255813953488372093023255812f * 5;
 
     // Start is called before the first frame update
@@ -114,28 +117,29 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator timer(float delayTime)
     {
+
         yield return new WaitForSeconds(delayTime);
-
-
-        if(GameManager.score >= 0 && GameManager.score < 200)
-        {
-            StartCoroutine(PonRound());
-        }
 
         if (GameManager.score >= 0 && GameManager.score < 200)
         {
             StartCoroutine(PonRound());
         }
 
-        if (GameManager.score >= 200 && GameManager.score < 400)
+        if(GameManager.score > 200 && ponBossIsSpwan == false)
         {
-            StartCoroutine(PonRound());
+            ponBossIsSpwan = true;
+            StartCoroutine(PonBossRound());  
         }
 
-        if (GameManager.score >= 400 && GameManager.score < 600)
+
+        if (GameManager.score > 200 && GameManager.score < 400)
         {
-            StartCoroutine(PonRound());
+            StartCoroutine(RockRound());
         }
+
+ 
+
+
 
     }
 
@@ -169,6 +173,28 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(timer(delayTime));
 
     }
+
+    IEnumerator PonBossRound()
+    {
+        bool ponBossDie = false;
+        roundNum = Random.Range(1, 5);
+        switch (roundNum)
+        {
+            case 1:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                break;
+
+        }
+        if (ponBossDie)
+        {
+            StartCoroutine(timer(delayTime));
+            yield return null;
+        }
+    }
+
 
 
 
