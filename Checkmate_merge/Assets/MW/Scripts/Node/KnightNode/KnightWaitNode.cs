@@ -20,13 +20,36 @@ public class KnightWaitNode : Node
 
     public override NodeState Evaluate()
     {
-        delayTime = 0.93023255813953488372093023255814f * 2; 
+        //delayTime = 3f;
+
+        ai.StopEvaluateCoroutine();
+
+        ai.StartWaitCoroutine(this);
+
+
+        if (IsWaiting)
+        {
+            IsWaiting = true;
+        
+            return NodeState.SUCCESS;
+        }
+        else
+        {
+            IsWaiting = true;
+
+            return NodeState.FAILURE;
+        }
+
+
+
+
+        //그나마 작동하는 코드
+        /*
         count += Time.deltaTime;
 
   
         if (count > delayTime)
         {
-            
             Debug.Log("3초 기다림이 완료되었습니다");
             count = 0;
             return NodeState.SUCCESS;
@@ -34,7 +57,7 @@ public class KnightWaitNode : Node
         Debug.Log("3초를 기다리는 중입니다.");
 
         return NodeState.FAILURE;
- 
+        */
 
 
     }

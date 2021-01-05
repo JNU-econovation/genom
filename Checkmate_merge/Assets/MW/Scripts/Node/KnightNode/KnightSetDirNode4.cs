@@ -104,25 +104,25 @@ public class KnightSetDirNode4 : Node
         }
 
 
-        if (knightPivot.transform.position.y < -5 && knightPivot.transform.position.x > 1)
+        if (knightPivot.transform.position.y < -4 && knightPivot.transform.position.x > 1)
         {
             knightPivot.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
             return NodeState.SUCCESS;
         }
 
-        if (knightPivot.transform.position.y > -5 && knightPivot.transform.position.x > 1)
+        if (knightPivot.transform.position.y > -4 && knightPivot.transform.position.x > 1)
         {
             knightPivot.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
             return NodeState.SUCCESS;
         }
 
 
-        if (knightPivot.transform.position.y < -5 && knightPivot.transform.position.x <= 1)
+        if (knightPivot.transform.position.y < -4 && knightPivot.transform.position.x <= 1)
         {
             knightPivot.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
             return NodeState.SUCCESS;
         }
-        if (knightPivot.transform.position.y > -5 && knightPivot.transform.position.x <= 1)
+        if (knightPivot.transform.position.y > -4 && knightPivot.transform.position.x <= 1)
         {
             knightPivot.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
             return NodeState.SUCCESS;

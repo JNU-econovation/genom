@@ -26,7 +26,7 @@ public class FindMoveNode : Node
     public override NodeState Evaluate()
     {
 
-        if (Mathf.Abs(player.transform.position.x - findPivot1.transform.position.x) < 0.1f && Mathf.Abs(player.transform.position.y - findPivot1.transform.position.y) < 0.1f)
+        if (Mathf.Abs(player.transform.position.x - findPivot1.transform.position.x) < 0.5f && Mathf.Abs(player.transform.position.y - findPivot1.transform.position.y) < 0.5f)
         {
             ai.StartLerpCoroutine2(this);
 

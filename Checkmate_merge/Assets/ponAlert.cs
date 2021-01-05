@@ -22,7 +22,7 @@ public class ponAlert : MonoBehaviour
 
     void setRound()
     {
-        Instantiate(ponPrefab, this.transform.position + new Vector3(0, 0.314f, 0), Quaternion.identity);
+        Instantiate(ponPrefab, this.transform.position + new Vector3(0, 0.614f, 0), Quaternion.identity);
         Destroy(ponAlt);
 
     }

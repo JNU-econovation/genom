@@ -30,7 +30,7 @@ public class KnightSetDirNode2 : Node
 
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if(knightPivot1.transform.position.x <-4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if(knightPivot1.transform.position.x <-4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -44,7 +44,7 @@ public class KnightSetDirNode2 : Node
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -58,7 +58,7 @@ public class KnightSetDirNode2 : Node
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -71,7 +71,7 @@ public class KnightSetDirNode2 : Node
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -85,7 +85,7 @@ public class KnightSetDirNode2 : Node
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -98,7 +98,7 @@ public class KnightSetDirNode2 : Node
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
 
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -117,7 +117,7 @@ public class KnightSetDirNode2 : Node
      && (player.transform.position.y - knight.transform.position.y) > 1.9f && (player.transform.position.y - knight.transform.position.y) < 2.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -130,7 +130,7 @@ public class KnightSetDirNode2 : Node
     && (player.transform.position.y - knight.transform.position.y) > 3.2f && (player.transform.position.y - knight.transform.position.y) < 3.4f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -144,7 +144,7 @@ public class KnightSetDirNode2 : Node
      && (player.transform.position.y - knight.transform.position.y) > 1.9f && (player.transform.position.y - knight.transform.position.y) < 2.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -156,7 +156,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -0.1f && (player.transform.position.y - knight.transform.position.y) < 0.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -169,7 +169,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -1.3f && (player.transform.position.y - knight.transform.position.y) < -0.8f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -182,7 +182,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -1.3f && (player.transform.position.y - knight.transform.position.y) < -0.8f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -198,7 +198,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -2.4f && (player.transform.position.y - knight.transform.position.y) < -2.0f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -212,7 +212,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -3.4f && (player.transform.position.y - knight.transform.position.y) < -3.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -225,7 +225,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -3.4f && (player.transform.position.y - knight.transform.position.y) < -3.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -238,7 +238,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -2.3f && (player.transform.position.y - knight.transform.position.y) < -2.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -256,7 +256,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -4.5f && (player.transform.position.y - knight.transform.position.y) < -4.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -271,7 +271,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -4.5f && (player.transform.position.y - knight.transform.position.y) < -4.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -285,7 +285,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -3.4f && (player.transform.position.y - knight.transform.position.y) < -3.2f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -299,7 +299,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -1.2f && (player.transform.position.y - knight.transform.position.y) < -1.0f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -315,7 +315,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -4.5f && (player.transform.position.y - knight.transform.position.y) < -4.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x +1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -329,7 +329,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -3.4f && (player.transform.position.y - knight.transform.position.y) < -3.2f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -342,7 +342,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -0.1f && (player.transform.position.y - knight.transform.position.y) < 0.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -354,7 +354,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -1.2f && (player.transform.position.y - knight.transform.position.y) < -1.0f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 1.1f, knight.transform.position.y - 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -369,7 +369,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -2.3f && (player.transform.position.y - knight.transform.position.y) < -2.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -381,7 +381,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > -0.1f && (player.transform.position.y - knight.transform.position.y) < 0.1f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -395,7 +395,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > 1.0f && (player.transform.position.y - knight.transform.position.y) < 1.2f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y - 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -410,7 +410,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > 3.2f && (player.transform.position.y - knight.transform.position.y) < 3.4f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -422,7 +422,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > 2.1f && (player.transform.position.y - knight.transform.position.y) < 2.3f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }
@@ -438,7 +438,7 @@ public class KnightSetDirNode2 : Node
 && (player.transform.position.y - knight.transform.position.y) > 4.3f && (player.transform.position.y - knight.transform.position.y) < 4.5f)
         {
             knightPivot1.transform.position = new Vector2(knight.transform.position.x + 1.1f, knight.transform.position.y + 2.2f);
-            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -5)
+            if (knightPivot1.transform.position.x < -4 || knightPivot1.transform.position.x > 5.5 || knightPivot1.transform.position.y > 4.5 || knightPivot1.transform.position.y < -4)
             {
                 return NodeState.FAILURE;
             }

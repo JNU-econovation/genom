@@ -204,14 +204,14 @@ public class PonTreeAi : MonoBehaviour
 
             animator.SetFloat("Ver", -0.5f);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Rgh", 0);
         }
         if (ponPivot.transform.localPosition.x > 0.5f  && pon.tag == "PonCanKill")
         {
 
             animator.SetFloat("Ver", -0.5f);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Rgh", 1);
         }
 
 
@@ -221,14 +221,14 @@ public class PonTreeAi : MonoBehaviour
 
             animator.SetFloat("Ver", 1);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Lft", 0);
         }
         if (ponPivot.transform.localPosition.x < -0.5f && pon.tag == "PonCanKill")
         {
 
             animator.SetFloat("Ver", 1);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Lft", 1);
         }
 
 
@@ -238,14 +238,14 @@ public class PonTreeAi : MonoBehaviour
 
             animator.SetFloat("Ver", -1);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Back", 0);
         }
         if (ponPivot.transform.localPosition.y > 0.5f && pon.tag == "PonCanKill")
         {
 
             animator.SetFloat("Ver", -1);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Back", 1);
         }
 
 
@@ -256,14 +256,14 @@ public class PonTreeAi : MonoBehaviour
 
             animator.SetFloat("Ver", 0.5f);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Fwd", 0);
         }
         if (ponPivot.transform.localPosition.y < -0.5f && pon.tag == "PonCanKill")
         {
 
             animator.SetFloat("Ver", 0.5f);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("Fwd", 1);
         }
 
 

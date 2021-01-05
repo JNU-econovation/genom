@@ -32,7 +32,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x + 2.2f, knight.transform.position.y - 1.1f);
                         return NodeState.FAILURE;
@@ -45,7 +45,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x + 2.2f, knight.transform.position.y - 1.1f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x + 2.2f, knight.transform.position.y + 1.1f);
                         return NodeState.FAILURE;
@@ -64,7 +64,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
                         return NodeState.FAILURE;
@@ -77,7 +77,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x - 2.2f, knight.transform.position.y - 1.1f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x - 2.2f, knight.transform.position.y + 1.1f);
                         return NodeState.FAILURE;
@@ -96,7 +96,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x + 1.1f, knight.transform.position.y + 2.2f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
                         return NodeState.FAILURE;
@@ -109,7 +109,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x - 1.1f, knight.transform.position.y + 2.2f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x + 1.1f, knight.transform.position.y + 2.2f);
                         return NodeState.FAILURE;
@@ -125,7 +125,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x + 1.1f, knight.transform.position.y - 2.2f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
                         return NodeState.FAILURE;
@@ -138,7 +138,7 @@ public class KnightSetDirNode3 : Node
                 {
 
                     knightPivot.transform.position = new Vector3(knight.transform.position.x - 1.1f, knight.transform.position.y - 2.2f);
-                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -5)
+                    if (knightPivot.transform.position.x < -4 || knightPivot.transform.position.x > 5.5 || knightPivot.transform.position.y > 4.5 || knightPivot.transform.position.y < -4)
                     {
                         knightPivot.transform.position = new Vector3(knight.transform.position.x + 1.1f, knight.transform.position.y - 2.2f);
                         return NodeState.FAILURE;

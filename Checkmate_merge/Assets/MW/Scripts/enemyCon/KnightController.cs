@@ -143,7 +143,7 @@ public class KnightController : MonoBehaviour
         {
             Destroy(knight);
         }
-        if (knight.transform.position.y < -5)
+        if (knight.transform.position.y < -3.94f)
         {
             Destroy(knight);
         }

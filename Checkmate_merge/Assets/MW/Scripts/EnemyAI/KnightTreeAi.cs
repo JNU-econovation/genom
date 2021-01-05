@@ -11,7 +11,7 @@ public class KnightTreeAi : MonoBehaviour
     [SerializeField] GameObject knightPivot2;
     [SerializeField] LayerMask PlayerMask;
     public Animator animator;
-    float duration = 0.23255813953488372093023255813953f;
+    float duration = 0.23255813953488372093023255813953f*2f;
     public float step = 1f;
     public float delayTime = 10f;
 
@@ -174,13 +174,13 @@ public class KnightTreeAi : MonoBehaviour
         {
             animator.SetFloat("Ver", -0.5f);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("right", 0);
         }
         if ( ponPivot.transform.localPosition.x > 4f && pon.transform.tag == "KnightCanKill")
         {
             animator.SetFloat("Ver", -0.5f);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("right", 1);
         }
 
 
@@ -188,13 +188,13 @@ public class KnightTreeAi : MonoBehaviour
         {
             animator.SetFloat("Ver", 1);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("left", 0);
         }
         if ( ponPivot.transform.localPosition.x < -4f && pon.transform.tag == "KnightCanKill")
         {
             animator.SetFloat("Ver", 1);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("left", 1);
         }
 
 
@@ -204,26 +204,27 @@ public class KnightTreeAi : MonoBehaviour
         {
             animator.SetFloat("Ver", -1);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("up", 0);
         }
         if ( ponPivot.transform.localPosition.y > 4f && pon.transform.tag == "KnightCanKill")
         {
             animator.SetFloat("Ver", -1);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("up", 1);
         }
+
 
         if (ponPivot.transform.localPosition.y < -4f && pon.transform.tag == "KnightCanKilled")
         {
             animator.SetFloat("Ver", 0.5f);
             animator.SetFloat("Hor", 2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("down", 0);
         }
         if (ponPivot.transform.localPosition.y < -4f && pon.transform.tag == "KnightCanKill")
         {
             animator.SetFloat("Ver", 0.5f);
             animator.SetFloat("Hor", -2);
-            animator.SetFloat("Mag", 0.01f);
+            animator.SetFloat("down", 1);
         }
 
 
