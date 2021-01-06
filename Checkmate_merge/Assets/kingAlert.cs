@@ -22,7 +22,7 @@ public class kingAlert : MonoBehaviour
 
     void setRound()
     {
-        Instantiate(kingPrefab, this.transform.position + new Vector3(0, 0.314f, 0), Quaternion.identity);
+        Instantiate(kingPrefab, this.transform.position + new Vector3(0, 0.614f, 0), Quaternion.identity);
         Destroy(kingAlt);
 
     }

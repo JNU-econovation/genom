@@ -12,7 +12,7 @@ public class QueenTreeAi : MonoBehaviour
     [SerializeField] GameObject FindPivot2;
     [SerializeField] LayerMask PlayerMask;
     public Animator animator;
-    float duration = 0.23255813953488372093023255813953f;
+    float duration = 0.23255813953488372093023255813953f*2;
     public float step = 1f;
     public float delayTime = 10f;
 

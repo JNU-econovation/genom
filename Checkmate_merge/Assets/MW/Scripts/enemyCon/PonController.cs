@@ -161,7 +161,7 @@ public class PonController : MonoBehaviour
         {
             Destroy(pon);
         }
-        if (pon.transform.position.y < -5)
+        if (pon.transform.position.y < -4)
         {
             Destroy(pon);
         }
