@@ -79,12 +79,21 @@ public class EnemySpawner : MonoBehaviour
 
 
 
+
+
     public GameObject ponPrefab;
     public GameObject rockPrefab;
     public GameObject bishopPrefab;
     public GameObject knightPrefab;
     public GameObject kingPrefab;
     public GameObject queenPrefab;
+    public GameObject devilHand;
+
+    Vector2 ponBossPos = new Vector2(0.81f, 3.62f);
+    Vector2 devilHandPos = new Vector2(18.25f, -1.46f);
+
+
+    public GameObject ponBossPrefab;
     int roundNum = 0;
     float count;
     float firstCount;
@@ -92,7 +101,9 @@ public class EnemySpawner : MonoBehaviour
 
     bool ponBossIsSpwan = false;
 
-
+    public bool endPonBoss = false;
+    bool firstPonBossSpawn = false;
+    bool isDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 5;
 
     // Start is called before the first frame update
@@ -104,6 +115,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
     }
 
@@ -120,15 +132,22 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(delayTime);
 
-        if (GameManager.score >= 0 && GameManager.score < 200)
+        if (GameManager.score >= 0 && GameManager.score < 50)
         {
             StartCoroutine(PonRound());
         }
 
-        if(GameManager.score > 200 && ponBossIsSpwan == false)
+        if(GameManager.score >= 50 && ponBossIsSpwan == false)
         {
-            ponBossIsSpwan = true;
-            StartCoroutine(PonBossRound());  
+            if(isDevilFirst)
+            {
+                StartCoroutine(SpqwnDevilHand());
+                isDevilFirst = false;
+            }
+            if (!isDevilFirst)
+            {
+                PonBossRound();
+            }
         }
 
 
@@ -137,16 +156,54 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(RockRound());
         }
 
- 
+
 
 
 
     }
 
 
-
-    IEnumerator PonRound()
+    IEnumerator SpqwnDevilHand()
     {
+        Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(10);
+        StartCoroutine(PonBossRound());
+    }
+
+
+
+
+
+    IEnumerator ponBoss()
+    {
+        Debug.Log("폰보스 시작");
+        yield return new WaitForSeconds(10);
+        StartCoroutine(ponBossEnd());
+    }
+    IEnumerator ponBossEnd()
+    {
+        
+        Debug.Log("폰보스 끝");
+        GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
+        yield return null;
+    }
+
+
+
+    IEnumerator PonBossRound()
+    {
+        
+        if (firstPonBossSpawn == false)
+        {
+            ponBossPrefab.tag = "PSW";
+            firstPonBossSpawn = true;
+            Instantiate(ponBossPrefab, ponBossPos, Quaternion.identity);
+            StartCoroutine(ponBoss());
+        }
+        
+
+
+
         roundNum = Random.Range(1, 5);
         switch (roundNum)
         {
@@ -174,9 +231,11 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    IEnumerator PonBossRound()
+    IEnumerator PonRound()
     {
-        bool ponBossDie = false;
+ 
+
+
         roundNum = Random.Range(1, 5);
         switch (roundNum)
         {
@@ -186,13 +245,23 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(ponPrefab, g2, Quaternion.identity);
                 Instantiate(ponPrefab, g7, Quaternion.identity);
                 break;
+            case 2:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                break;
+            case 5:
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                break;
 
         }
-        if (ponBossDie)
-        {
-            StartCoroutine(timer(delayTime));
-            yield return null;
-        }
+        StartCoroutine(timer(delayTime));
+        yield return null;
+
     }
 
 

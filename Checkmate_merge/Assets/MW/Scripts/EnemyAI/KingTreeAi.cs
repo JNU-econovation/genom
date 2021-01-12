@@ -73,18 +73,33 @@ public class KingTreeAi : MonoBehaviour
         StartCoroutine(Wait( waitNode));
     }
 
-
+    public void endPonBoss()
+    {
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!");
+        pon.gameObject.tag = "PSW_over";
+    }
 
 
     IEnumerator Wait(KingWaitNode waitNode)
     {
 
         delayTime = 0.93023255813953488372093023255814f;
-        while(delayTime > 0)
+        if(transform.gameObject.tag == "PSW")
+        {
+            delayTime = 0.93023255813953488372093023255814f * 3f;
+        }
+        if (transform.gameObject.tag == "PSW_over")
+        {
+            delayTime = 0.93023255813953488372093023255814f * 3000f;
+        }
+        while (delayTime > 0)
         {
 
-
-            transform.gameObject.tag = "KingCanKilled";
+            if (transform.gameObject.tag != "PSW" && transform.gameObject.tag != "PSW_over")
+            {
+                transform.gameObject.tag = "KingCanKilled";
+            }
+ 
             delayTime -= Time.deltaTime;
             yield return null;
         }
@@ -132,11 +147,18 @@ public class KingTreeAi : MonoBehaviour
     {
         float startTime = Time.time;
         Vector2 startPos = transform.localPosition;
-
+        if (transform.gameObject.tag == "PSW")
+        {
+            duration = 0.23255813953488372093023255813953f * 2;
+        }
 
         while (Time.time - startTime <= duration)
         {
-            pon.gameObject.tag = "KingCanKill";
+            if (transform.gameObject.tag != "PSW" && transform.gameObject.tag != "PSW_over")
+            {
+                pon.gameObject.tag = "KingCanKill";
+            }
+
             transform.localPosition = Vector2.Lerp(startPos, endPos, (Time.time - startTime) / duration);
             yield return null;
         }
@@ -209,6 +231,37 @@ public class KingTreeAi : MonoBehaviour
         {
             animator.SetFloat("Att", 1);
         }
+
+
+        if(pon.transform.tag == "PSW" && ponPivot.transform.localPosition.x > 0.3)
+        {
+            animator.SetFloat("Mag", 1);
+            animator.SetFloat("Hor", -1);
+            animator.SetFloat("Ver", -1);
+        }
+        if (pon.transform.tag == "PSW" && ponPivot.transform.localPosition.x < -0.3)
+        {
+            animator.SetFloat("Mag", 1);
+            animator.SetFloat("Hor", -1);
+            animator.SetFloat("Ver", 1);
+        }
+        if (pon.transform.tag == "PSW" && ponPivot.transform.localPosition.y > 0.3)
+        {
+            animator.SetFloat("Mag", 1);
+            animator.SetFloat("Hor", 1);
+            animator.SetFloat("Ver", 1);
+        }
+        if (pon.transform.tag == "PSW" && ponPivot.transform.localPosition.y < -0.3)
+        {
+            animator.SetFloat("Mag", 1);
+            animator.SetFloat("Hor", 1);
+            animator.SetFloat("Ver", -1);
+        }
+        if (pon.transform.tag == "PSW_over" )
+        {
+            animator.SetFloat("Mag", 3);
+        }
+
     }
 
 

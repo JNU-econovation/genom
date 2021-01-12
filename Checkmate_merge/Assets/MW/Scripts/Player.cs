@@ -6,6 +6,7 @@ public class Player : Character
 { 
     [SerializeField] GameObject player;
     [SerializeField] GameObject playerControllUi;
+    [SerializeField] GameObject playerPos;
     private Rigidbody2D playerRigidbody;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
@@ -61,7 +62,7 @@ public class Player : Character
     {
         Destroy(player);
         Destroy(playerControllUi);
-
+        Destroy(playerPos);
         // 플레이어가 죽었을때 발동되는 함수들.
         GameManager.instance.GameOver();//게임오버함수 호출
     }

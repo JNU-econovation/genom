@@ -17,6 +17,9 @@ TagManager:
   - QueenCanKilled
   - KnightCanKill
   - KnightCanKilled
+  - PSW
+  - PSW_over
+  - Hand
   layers:
   - Default
   - TransparentFX

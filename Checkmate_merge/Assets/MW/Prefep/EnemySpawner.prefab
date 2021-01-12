@@ -43,15 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269276ca81cb9f1429846f0eab193aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ponPrefab: {fileID: 3724667215419304269, guid: 658f935dd5138e34fa4245dfa55c6d31,
+  ponPrefab: {fileID: 2675597320215411020, guid: a29e1880074c5d84b96d6c8e402fa141,
     type: 3}
-  rockPrefab: {fileID: 7979396190972591562, guid: 24aa21d50ba564c469dcf9ea79a67cda,
+  rockPrefab: {fileID: 256660523844570461, guid: 4cbc2c6c0ce801d4fa29ede299d42389,
     type: 3}
-  bishopPrefab: {fileID: 7230854803332369384, guid: 9848b8be5d29c0048a0623720467c4d9,
+  bishopPrefab: {fileID: 1041733747015810819, guid: 4ef901ca2adbe4d46bfff8a92b7631c5,
     type: 3}
-  knightPrefab: {fileID: 2244082258379111123, guid: 3e69c8ed54bd7f5498281c0fc2d458f1,
+  knightPrefab: {fileID: 3475964817984294413, guid: e28d1bfb756a07b4a9460f4e33485901,
     type: 3}
-  kingPrefab: {fileID: 2951760671384461760, guid: dcc59b2717695f849a73dc2d600cd029,
+  kingPrefab: {fileID: 6642614574565159384, guid: d09ddc55f85a1cf48affe6c58e8e450e,
     type: 3}
-  queenPrefab: {fileID: 1718774001787616951, guid: d7c984da90ffc09469821628ff5815bd,
+  queenPrefab: {fileID: 414595870472343477, guid: 2d5b22ba075e3ac43bc089eee31fde59,
     type: 3}
+  devilHand: {fileID: 8226018605706961920, guid: 8ecce23428907ba4fb0e42daa1154a83,
+    type: 3}
+  ponBossPrefab: {fileID: 3089041356996440304, guid: e00db237275961c428c439fac2a43e20,
+    type: 3}
+  endPonBoss: 0
