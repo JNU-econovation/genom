@@ -44,7 +44,10 @@ public class PonController : MonoBehaviour
 
 
 
-
+        else if (collision.tag == "Hand")
+        {
+            PonKilledByEnemy();
+        }
         else if (collision.tag == "PonCanKill")
         {
             PonKilledByEnemy();

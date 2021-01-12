@@ -23,6 +23,12 @@ public class KingSetDirNode : Node
 
     public override NodeState Evaluate()
     {
+        if(pon.tag == "PSW_over")
+        {
+            return NodeState.FAILURE;
+        }
+
+
         if (Mathf.Abs(player.transform.position.x - pon.transform.position.x) > Mathf.Abs(player.transform.position.y - pon.transform.position.y))
         {
             if ((player.transform.position.x - pon.transform.position.x) > 0)

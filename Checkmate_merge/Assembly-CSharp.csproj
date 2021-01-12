@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Erase_Hand.cs" />
     <Compile Include="Assets\JH\Script\CountdownControl.cs" />
     <Compile Include="Assets\JH\Script\DialogManager.cs" />
     <Compile Include="Assets\JH\Script\GameManager.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\MW\Scripts\enemyCon\PonController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\QueenController.cs" />
     <Compile Include="Assets\MW\Scripts\enemyCon\RockController.cs" />
+    <Compile Include="Assets\PSW_CON.cs" />
     <Compile Include="Assets\QueenAlert.cs" />
     <Compile Include="Assets\bishopAlert.cs" />
     <Compile Include="Assets\kingAlert.cs" />
