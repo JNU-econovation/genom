@@ -16,7 +16,9 @@ public class Dialog
 
 public class DialogManager : MonoBehaviour
 {
+    public GameObject startUI;
     public GameObject dialogUI;
+    
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
@@ -27,8 +29,8 @@ public class DialogManager : MonoBehaviour
     private List<Sprite> list_cg;
 
     private int count;// 대화 순서
-    private bool talking = false;
-    private bool keyActivated = false;
+    private bool isDialog = false;
+    private bool isStart = false;
 
     private void Start()
     {
@@ -40,11 +42,18 @@ public class DialogManager : MonoBehaviour
         list_sentence = new List<string>();
         list_cg = new List<Sprite>();
     }
+    //대화UI 시작
+    public void DialogUIstart()
+    {
+        isStart = true;
+        startUI.SetActive(true);
+        
+    }
 
     //리스트에 지정값만큼 넣기
     public void ShowDialog(Dialog dialog)
     {
-        talking = true;
+        isDialog = true;
 
         for (int i = 0; i < dialog.sentence.Length;i++)
         {
@@ -64,9 +73,6 @@ public class DialogManager : MonoBehaviour
         //이름
         name_text.text = list_name[count];
 
-        //대사
-        //sentence_text.text = list_sentence[count];
-
         //스탠딩 이미지
         if (count > 0)
         {
@@ -81,40 +87,31 @@ public class DialogManager : MonoBehaviour
             standing_cg.sprite = list_cg[count];
         }
 
-        StartCoroutine(Typing(list_sentence[count]));
-        yield return null;
-
-
         //대사 1글자씩 출력 
-        /*for (int i = 0; i < list_sentence[count].Length; i++)
+        for (int i = 0; i < list_sentence[count].Length; i++)
         {
-            
 
             sentence_text.text += list_sentence[count][i];
 
-            yield return new WaitForSeconds(0.01f);
-
-        }*/
-
-       
-    }
-
-    IEnumerator Typing(string narration)
-    {
-        int a = 0;
-        write_text = "";
-        for (a = 0;a < narration.Length;a++)
-        {
-            write_text += narration[a];
-            sentence_text.text = write_text;
             yield return null;
+
         }
+       
     }
 
     //스페이스바 누르면 다음 문장 실행
     private void Update()
     {
-        if(talking)
+        if(isStart)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                startUI.SetActive(false);
+                isStart = false;
+                Time.timeScale = 1.0f;
+            }
+        }
+        if(isDialog)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -151,7 +148,7 @@ public class DialogManager : MonoBehaviour
         list_cg.Clear();
 
         dialogUI.SetActive(false);
-        talking = false;
+        isDialog = false;
 
         Time.timeScale = 1.0f;
     }
