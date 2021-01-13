@@ -22,11 +22,12 @@ public class GameManager : MonoBehaviour
     public enum State { onDialog,offDialog };
     public State state;
 
-    public Dialog dialog1;
-    public Dialog dialog2;
-    public Dialog dialog3;
-    public Dialog dialog4;
-    public Dialog dialog5;
+    [SerializeField] private Dialog dialog1;
+    [SerializeField] private Dialog dialog2;
+    [SerializeField] private Dialog dialog3;
+    [SerializeField] private Dialog dialog4;
+    [SerializeField] private Dialog dialog5;
+    [SerializeField] private Dialog dialog6;
 
     //싱글톤
     private void Awake()
@@ -54,41 +55,57 @@ public class GameManager : MonoBehaviour
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
-        
+      
     }
 
     public void Update()
     {
-        if (score == 5 && state == State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog1));
-            
-        }
-        if(score == 10 && state==State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog2));
-        }
-        if (score == 15 && state == State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog3));
-        }
-        if (score == 20 && state == State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog4));
-        }
-        if (score == 25 && state == State.offDialog)
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog5));
-        }
+        if (score == 10 && state == State.offDialog)
+            {
+                state = State.onDialog;
+                StartCoroutine(DialogUI());
+            }
+        if (score == 30 && state == State.offDialog)//폰
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog1));
 
-
+            }
+        if (score == 150 && state == State.offDialog)//비숍
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog2));
+            }
+        if (score == 300 && state == State.offDialog)//룩
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog3));
+            }
+        if (score == 500 && state == State.offDialog)//나이트
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog4));
+            }
+        if (score == 750 && state == State.offDialog)//퀸
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog5));
+            }
+        if (score == 1000 && state == State.offDialog)//킹
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog6));
+            }
+  
     }
+    public IEnumerator DialogUI()
+    {
+        Time.timeScale = 0.0f;
+        FindObjectOfType<DialogManager>().DialogUIstart();
 
+        yield return new WaitForSeconds(1f);
+        state = State.offDialog;
+    }
     public IEnumerator Dialog(Dialog dialog)
     {
 
@@ -99,8 +116,7 @@ public class GameManager : MonoBehaviour
         state = State.offDialog;
 
     }
-
-    //기본 점수 계산
+    //생존 점수 계산
     private IEnumerator AddScore()
     {
         yield return new WaitForSeconds(4f);//4초 후에 점수 카운트 시작
@@ -111,8 +127,7 @@ public class GameManager : MonoBehaviour
             scoreText.text = "score : " + score.ToString();
             yield return new WaitForSeconds(0.5f);
         }
-
-        
+ 
     }
 
     //적 점수 계산
@@ -121,6 +136,7 @@ public class GameManager : MonoBehaviour
         enemyscore += value;//value 만큼 적 점수 증가
         enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
     }
+   
 
     //게임오버시 게임오버UI 활성화
     public void GameOver()

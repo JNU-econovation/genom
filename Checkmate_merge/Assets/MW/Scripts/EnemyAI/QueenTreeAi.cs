@@ -84,7 +84,10 @@ public class QueenTreeAi : MonoBehaviour
         {
 
 
-            transform.gameObject.tag = "QueenCanKilled";
+            if (transform.gameObject.tag != "QBCanKill" && transform.gameObject.tag != "QBCanKilled")
+            {
+                transform.gameObject.tag = "QueenCanKilled";
+            }
             delayTime -= Time.deltaTime;
             yield return null;
         }
@@ -114,7 +117,12 @@ public class QueenTreeAi : MonoBehaviour
     */
 
 
+    public void endQueenBoss()
+    {
 
+        pon.gameObject.tag = "QBCanKilled";
+        animator2.SetFloat("Mag", 3);
+    }
 
 
 
@@ -123,10 +131,29 @@ public class QueenTreeAi : MonoBehaviour
         float startTime = Time.time;
         Vector2 startPos = transform.localPosition;
 
+        if(Mathf.Abs(pon.transform.localPosition.x - ponPivot.transform.localPosition.x) > 7 || Mathf.Abs(pon.transform.localPosition.y - ponPivot.transform.localPosition.y) > 7)
+        {
+            duration = 0.23255813953488372093023255813953f * 5;
+        }
+        else if (Mathf.Abs(pon.transform.localPosition.x - ponPivot.transform.localPosition.x) > 5 || Mathf.Abs(pon.transform.localPosition.y - ponPivot.transform.localPosition.y) > 5)
+        {
+            duration = 0.23255813953488372093023255813953f * 4;
+        }
+        else if (Mathf.Abs(pon.transform.localPosition.x - ponPivot.transform.localPosition.x) > 3 || Mathf.Abs(pon.transform.localPosition.y   - ponPivot.transform.localPosition.y) > 3)
+        {
+            duration = 0.23255813953488372093023255813953f * 3;
+        }
+        else if (Mathf.Abs(pon.transform.localPosition.x - ponPivot.transform.localPosition.x) > 0 || Mathf.Abs(pon.transform.localPosition.y - ponPivot.transform.localPosition.y) > 0)
+        {
+            duration = 0.23255813953488372093023255813953f * 2;
+        }
 
         while (Time.time - startTime <= duration)
         {
-            pon.gameObject.tag = "QueenCanKill";
+            if (transform.gameObject.tag != "QBCanKill" && transform.gameObject.tag != "QBCanKilled")
+            {
+                transform.gameObject.tag = "QueenCanKill";
+            }
             transform.localPosition = Vector2.Lerp(startPos, endPos, (Time.time - startTime) / duration);
             yield return null;
         }
@@ -134,8 +161,7 @@ public class QueenTreeAi : MonoBehaviour
         transform.localPosition = endPos;
 
 
-    }
-
+    }               
 
 
 
@@ -185,8 +211,10 @@ public class QueenTreeAi : MonoBehaviour
 
     }
 
+    public Animator animator2;
     void Update()
     {
+
 
         moveDir();
     }
@@ -200,6 +228,11 @@ public class QueenTreeAi : MonoBehaviour
         {
             animator.SetFloat("attck", 1);
         }
+        if (pon.transform.tag == "QBKilled")
+        {
+            animator2.SetFloat("Mag", 0);
+        }
     }
+
 
 }

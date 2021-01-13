@@ -60,3 +60,8 @@ MonoBehaviour:
   ponBossPrefab: {fileID: 3089041356996440304, guid: e00db237275961c428c439fac2a43e20,
     type: 3}
   endPonBoss: 0
+  RBU: {fileID: 8168979027251856697, guid: c9c691b0b7126004a9aae1f0416a54f3, type: 3}
+  RBD: {fileID: 8812450813740207993, guid: 9b056efa41d34d6478141e91bc426289, type: 3}
+  RBL: {fileID: 5227534940544775608, guid: 91e8d01948d369844a9725e8a5c15783, type: 3}
+  RBR: {fileID: 6064774850651973229, guid: 217996d263fac66428ba630d1115203a, type: 3}
+  RBover: {fileID: 5140371237927609176, guid: a1a61c3c9a8aa5d46a4f43a2d6983488, type: 3}

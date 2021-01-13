@@ -123,7 +123,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator fisrtTimer()
     {
         yield return new WaitForSeconds(0.93023255813953488372093023255812f * 6);
-        StartCoroutine(PonRound());
+        StartCoroutine(QueenBossRound());
     }
 
 
@@ -132,12 +132,12 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(delayTime);
 
-        if (GameManager.score >= 0 && GameManager.score < 50)
+        if (GameManager.score >= 0 && GameManager.score < 100)
         {
-            StartCoroutine(PonRound());
+            StartCoroutine(QueenBossRound());
         }
 
-        if(GameManager.score >= 50 && ponBossIsSpwan == false)
+        if(GameManager.score >= 100 && ponBossIsSpwan == false)
         {
             if(isDevilFirst)
             {
@@ -166,7 +166,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpqwnDevilHand()
     {
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         StartCoroutine(PonBossRound());
     }
 
@@ -177,7 +177,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator ponBoss()
     {
         Debug.Log("폰보스 시작");
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         StartCoroutine(ponBossEnd());
     }
     IEnumerator ponBossEnd()
@@ -233,8 +233,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator PonRound()
     {
- 
-
 
         roundNum = Random.Range(1, 5);
         switch (roundNum)
@@ -306,6 +304,258 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(rockPrefab, d3, Quaternion.identity);
                 Instantiate(rockPrefab, e3, Quaternion.identity);
                 break;
+        }
+        yield return null;
+        StartCoroutine(timer(delayTime));
+
+    }
+
+    int RockBossRange = 0;
+    int RBcounter = 0;
+    public GameObject RBU;
+    public GameObject RBD;
+    public GameObject RBL;
+    public GameObject RBR;
+    public GameObject RBover;
+    Vector2 endRBPos = new Vector2(1.16f, 2.76f);
+
+    Vector2 Hor1 = new Vector2(-2.03f, -0.34f);
+    Vector2 Hor2 = new Vector2(-0.92f, -0.34f);
+    Vector2 Hor3 = new Vector2(0.13f, -0.34f);
+    Vector2 Hor4 = new Vector2(1.24f, -0.34f);
+    Vector2 Hor5 = new Vector2(2.32f, -0.34f);
+    Vector2 Hor6 = new Vector2(3.46f, -0.34f);
+
+    Vector2 Ver1 = new Vector2(0.65f, 2.4f);
+    Vector2 Ver2 = new Vector2(0.65f, 1.33f);
+    Vector2 Ver3 = new Vector2(0.65f, 0.22f);
+    Vector2 Ver4 = new Vector2(0.65f, -0.88f);
+    Vector2 Ver5 = new Vector2(0.65f, -1.98f);
+    Vector2 Ver6 = new Vector2(0.65f, -3.08f);
+    IEnumerator RockBossRound()
+    {
+
+        RockBossRange = Random.Range(1,24);
+        if (RBcounter == 4)
+        {
+            RBcounter++;
+            Instantiate(RBover, endRBPos, Quaternion.identity);
+        }
+        if (RBcounter < 4) {
+            switch (RockBossRange)
+            {
+                case 1:
+                    Instantiate(RBU, Hor1, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 2:
+                    Instantiate(RBU, Hor2, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 3:
+                    Instantiate(RBU, Hor3, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 4:
+                    Instantiate(RBU, Hor4, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 5:
+                    Instantiate(RBU, Hor5, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 6:
+                    Instantiate(RBU, Hor6, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 7:
+                    Instantiate(RBD, Hor1, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 8:
+                    Instantiate(RBD, Hor2, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 9:
+                    Instantiate(RBD, Hor3, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 10:
+                    Instantiate(RBD, Hor4, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 11:
+                    Instantiate(RBD, Hor5, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 12:
+                    Instantiate(RBD, Hor6, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 13:
+                    Instantiate(RBL, Ver1, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 14:
+                    Instantiate(RBL, Ver2, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 15:
+                    Instantiate(RBL, Ver3, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 16:
+                    Instantiate(RBL, Ver4, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 17:
+                    Instantiate(RBL, Ver5, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 18:
+                    Instantiate(RBL, Ver6, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 19:
+                    Instantiate(RBR, Ver1, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 20:
+                    Instantiate(RBR, Ver2, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 21:
+                    Instantiate(RBR, Ver3, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 22:
+                    Instantiate(RBR, Ver4, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 23:
+                    Instantiate(RBR, Ver5, Quaternion.identity);
+                    RBcounter++;
+                    break;
+                case 24:
+                    Instantiate(RBR, Ver6, Quaternion.identity);
+                    RBcounter++;
+                    break;
+
+            }
+
+        }
+        
+    
+
+        yield return null;
+        StartCoroutine(timer(delayTime));
+
+    }
+    bool firstBishopBossSpawn = false;
+    public GameObject lightningPrefep;
+    public GameObject BB;
+    int bishopBosNum;
+    IEnumerator BishopBossRound()
+    {
+
+        bishopBosNum = Random.Range(1, 5);
+        if (firstBishopBossSpawn != false)
+        {
+            switch (bishopBosNum)
+            {
+                case 1:
+                    Instantiate(lightningPrefep, c2 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, b3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, d3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, c4 + new Vector2(0, 0.2f), Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(lightningPrefep, e3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, f2 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, f4 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, g3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(lightningPrefep, a3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, b4 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, c5 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, d6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, e7 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, f8 + new Vector2(0, 0.2f), Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(lightningPrefep, b5 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, c4 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, c6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, d5 + new Vector2(0, 0.2f), Quaternion.identity);
+                    break;
+                case 5:
+                    Instantiate(lightningPrefep, e6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, f5 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, f7 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    break;
+            }
+        }
+            
+        if (firstBishopBossSpawn == false)
+        {
+            firstBishopBossSpawn = true;
+            Instantiate(BB, ponBossPos, Quaternion.identity);
+        }
+        yield return null;
+        StartCoroutine(timer(delayTime));
+
+    }
+
+
+    IEnumerator queenBoss()
+    {
+        Debug.Log("폰보스 시작");
+        yield return new WaitForSeconds(5);
+        StartCoroutine(queenBossEnd());
+    }
+    IEnumerator queenBossEnd()
+    {
+        GameObject.Find("QBRed(Clone)").GetComponent<QueenTreeAi>().endQueenBoss();
+        yield return null;
+    }
+
+    bool firstQueenBossSpawn = false;
+    public GameObject QB;
+    int QueenBosNum;
+    IEnumerator QueenBossRound()
+    {
+
+        QueenBosNum = Random.Range(1, 5);
+        if (firstQueenBossSpawn != false)
+        {
+            switch (QueenBosNum)
+            {
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+            }
+        }
+
+        if (firstQueenBossSpawn == false)
+        {
+            ponBossPrefab.tag = "QBCanKill";
+            firstQueenBossSpawn = true;
+            StartCoroutine(queenBoss());
+            Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
         }
         yield return null;
         StartCoroutine(timer(delayTime));
