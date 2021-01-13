@@ -11,7 +11,7 @@ public class Dialog
     public string[] sentence;//대사
     public string[] name;//이름
     public Sprite[] cg;//스탠딩 이미지
-
+    public Vector2[] pos;//이미지 위치
 }
 
 public class DialogManager : MonoBehaviour
@@ -22,11 +22,12 @@ public class DialogManager : MonoBehaviour
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
-    private string write_text;//시범 텍스트
+    private Vector2 pos;
 
     private List<string> list_name;
     private List<string> list_sentence;
     private List<Sprite> list_cg;
+    private List<Vector2> list_pos;
 
     private int count;// 대화 순서
     private bool isDialog = false;
@@ -37,11 +38,14 @@ public class DialogManager : MonoBehaviour
         count = 0;
         name_text.text = "";
         sentence_text.text = "";
+        pos = standing_cg.transform.position;
 
         list_name = new List<string>();
         list_sentence = new List<string>();
         list_cg = new List<Sprite>();
+        list_pos = new List<Vector2>();
     }
+
     //대화UI 시작
     public void DialogUIstart()
     {
@@ -60,7 +64,7 @@ public class DialogManager : MonoBehaviour
             list_name.Add(dialog.name[i]);
             list_sentence.Add(dialog.sentence[i]);
             list_cg.Add(dialog.cg[i]);
-
+            list_pos.Add(dialog.pos[i]);
         }
         dialogUI.SetActive(true);
         StartCoroutine(StartDialog());
@@ -72,13 +76,15 @@ public class DialogManager : MonoBehaviour
     {
         //이름
         name_text.text = list_name[count];
-
+        
+        
         //스탠딩 이미지
         if (count > 0)
         {
             if (list_cg[count] != list_cg[count - 1])//두개의 이미지가 다르다면 이미지 교체
             {
                 standing_cg.sprite = list_cg[count];
+                
             }
 
         }
