@@ -28,6 +28,8 @@ TagManager:
   - BBCanKill
   - BBCanKilled
   - KnightPvot
+  - spearAtt
+  - QBEatAtt
   layers:
   - Default
   - TransparentFX

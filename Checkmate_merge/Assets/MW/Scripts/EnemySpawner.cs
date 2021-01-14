@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-
+    public GameObject PlayerPos;
 
     public GameObject ponPrefab;
     public GameObject rockPrefab;
@@ -123,7 +123,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator fisrtTimer()
     {
         yield return new WaitForSeconds(0.93023255813953488372093023255812f * 6);
-        StartCoroutine(QueenBossRound());
+        StartCoroutine(RockBossRound());
     }
 
 
@@ -134,7 +134,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (GameManager.score >= 0 && GameManager.score < 100)
         {
-            StartCoroutine(QueenBossRound());
+            StartCoroutine(RockBossRound());
         }
 
         if(GameManager.score >= 100 && ponBossIsSpwan == false)
@@ -512,7 +512,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator queenBoss()
     {
         Debug.Log("폰보스 시작");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(20);
         StartCoroutine(queenBossEnd());
     }
     IEnumerator queenBossEnd()
@@ -533,19 +533,19 @@ public class EnemySpawner : MonoBehaviour
             switch (QueenBosNum)
             {
                 case 1:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 2:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 3:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 4:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 5:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
             }
         }
@@ -556,6 +556,8 @@ public class EnemySpawner : MonoBehaviour
             firstQueenBossSpawn = true;
             StartCoroutine(queenBoss());
             Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
+
+
         }
         yield return null;
         StartCoroutine(timer(delayTime));

@@ -68,7 +68,6 @@
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
     <Compile Include="Assets\JH\Script\PauseManager.cs" />
-    <Compile Include="Assets\KB.cs" />
     <Compile Include="Assets\MW\Scripts\Alert\KnightAlert.cs" />
     <Compile Include="Assets\MW\Scripts\Alert\QueenAlert.cs" />
     <Compile Include="Assets\MW\Scripts\Alert\bishopAlert.cs" />
@@ -123,6 +122,10 @@
     <Compile Include="Assets\MW\Scripts\Player.cs" />
     <Compile Include="Assets\MW\Scripts\VirtualJoystick.cs" />
     <Compile Include="Assets\MW\Scripts\boss\Erase_Hand.cs" />
+    <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB.cs" />
+    <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB2.cs" />
+    <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB3.cs" />
+    <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB4.cs" />
     <Compile Include="Assets\MW\Scripts\boss\WarMachin_Left.cs" />
     <Compile Include="Assets\MW\Scripts\boss\WarMachin_Right.cs" />
     <Compile Include="Assets\MW\Scripts\boss\WarMachin_back.cs" />
@@ -140,7 +143,9 @@
     <Compile Include="Assets\W_Ver.cs" />
     <Compile Include="Assets\W_Ver1.cs" />
     <Compile Include="Assets\anglerSSun.cs" />
+    <Compile Include="Assets\eatAtt.cs" />
     <Compile Include="Assets\lightning.cs" />
+    <Compile Include="Assets\spearAtack.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

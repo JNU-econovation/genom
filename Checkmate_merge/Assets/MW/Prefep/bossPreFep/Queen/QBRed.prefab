@@ -111,6 +111,7 @@ MonoBehaviour:
   dirCheckNum: 0
   isWaitEnd: 0
   isTimerOn: 0
+  QBeatatt: {fileID: 722183416788809786, guid: 93e3eaa7ba9af3c488c6a5e772b8417e, type: 3}
   animator2: {fileID: 6399898253040434315}
 --- !u!114 &6399898253040434314
 MonoBehaviour:
