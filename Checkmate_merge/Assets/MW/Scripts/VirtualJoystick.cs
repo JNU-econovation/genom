@@ -70,6 +70,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
     public void Move()
     {
+        if (!ismoving)
         StartCoroutine(smoothMove(Player, PlayerPivot.transform.position));
 
 

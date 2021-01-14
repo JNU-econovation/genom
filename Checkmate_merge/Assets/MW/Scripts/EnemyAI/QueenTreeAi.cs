@@ -30,7 +30,7 @@ public class QueenTreeAi : MonoBehaviour
         
         ConstructBehaviourTree();
         evaluateCoroutine = StartCoroutine(StartEvaluate());
-        
+        StartCoroutine(timer());
         
     }
 
@@ -73,10 +73,27 @@ public class QueenTreeAi : MonoBehaviour
         StartCoroutine(Wait( waitNode));
     }
 
+    public GameObject QBeatatt;
+    IEnumerator QBeatAttak()
+    {
+        if(transform.gameObject.tag != "QBCanKill")
+        {
+   
+            Instantiate(QBeatatt, player.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            StartCoroutine(timer());
+            yield return null;
+        }
 
 
+    }
 
-    IEnumerator Wait(QueenWaitNode waitNode)
+    IEnumerator timer()
+    {
+        yield return new WaitForSeconds(0.93023255813953488372093023255812f * 2);
+        StartCoroutine(QBeatAttak());
+    }
+
+        IEnumerator Wait(QueenWaitNode waitNode)
     {
 
         delayTime = 0.93023255813953488372093023255814f * 2;

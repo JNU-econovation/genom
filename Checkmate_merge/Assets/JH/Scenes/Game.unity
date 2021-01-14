@@ -2046,6 +2046,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: PlayerPos
+      value: 
+      objectReference: {fileID: 1697076178}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: QBeatatt
+      value: 
+      objectReference: {fileID: 722183416788809786, guid: 93e3eaa7ba9af3c488c6a5e772b8417e,
+        type: 3}
     - target: {fileID: 1880714271278250261, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}
       propertyPath: m_Name
@@ -2054,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 1880714271278250261, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1880714271278250263, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}

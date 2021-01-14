@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-
+    public GameObject PlayerPos;
 
     public GameObject ponPrefab;
     public GameObject rockPrefab;
@@ -533,19 +533,19 @@ public class EnemySpawner : MonoBehaviour
             switch (QueenBosNum)
             {
                 case 1:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 2:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 3:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 4:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
                 case 5:
-
+                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
                     break;
             }
         }
@@ -556,6 +556,8 @@ public class EnemySpawner : MonoBehaviour
             firstQueenBossSpawn = true;
             StartCoroutine(queenBoss());
             Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
+
+
         }
         yield return null;
         StartCoroutine(timer(delayTime));
