@@ -65,3 +65,7 @@ MonoBehaviour:
   RBL: {fileID: 5227534940544775608, guid: 91e8d01948d369844a9725e8a5c15783, type: 3}
   RBR: {fileID: 6064774850651973229, guid: 217996d263fac66428ba630d1115203a, type: 3}
   RBover: {fileID: 5140371237927609176, guid: a1a61c3c9a8aa5d46a4f43a2d6983488, type: 3}
+  lightningPrefep: {fileID: 4308856565639685519, guid: f736ab24634bfb146815e56db84e5157,
+    type: 3}
+  BB: {fileID: 6132526703561590492, guid: e6cb9d3720017c849b718dedd1a57ab5, type: 3}
+  QB: {fileID: 6399898253040434310, guid: bc755ea54fca0d34e8ef62902f499ae2, type: 3}

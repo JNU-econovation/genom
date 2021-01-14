@@ -123,7 +123,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator fisrtTimer()
     {
         yield return new WaitForSeconds(0.93023255813953488372093023255812f * 6);
-        StartCoroutine(QueenBossRound());
+        StartCoroutine(RockBossRound());
     }
 
 
@@ -134,7 +134,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (GameManager.score >= 0 && GameManager.score < 100)
         {
-            StartCoroutine(QueenBossRound());
+            StartCoroutine(RockBossRound());
         }
 
         if(GameManager.score >= 100 && ponBossIsSpwan == false)
@@ -512,7 +512,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator queenBoss()
     {
         Debug.Log("폰보스 시작");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(20);
         StartCoroutine(queenBossEnd());
     }
     IEnumerator queenBossEnd()

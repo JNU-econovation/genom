@@ -28,6 +28,7 @@ TagManager:
   - BBCanKill
   - BBCanKilled
   - KnightPvot
+  - spearAtt
   layers:
   - Default
   - TransparentFX
