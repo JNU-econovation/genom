@@ -20,13 +20,18 @@ public class QueenSetDirNode2 : Node
 
     public override NodeState Evaluate()
     {
-        if ( Mathf.Abs(player.transform.position.x - queen.transform.position.x) > Mathf.Abs(player.transform.position.y - queen.transform.position.y))
+        if (queen.transform.tag == "QBCanKilled")
+        {
+            return NodeState.FAILURE;
+        }
+
+        else if ( Mathf.Abs(player.transform.position.x - queen.transform.position.x) > Mathf.Abs(player.transform.position.y - queen.transform.position.y))
         {
             queenPivot.transform.position = new Vector2(player.transform.position.x, queen.transform.position.y);
             return NodeState.SUCCESS;
         }
 
-        if (Mathf.Abs(player.transform.position.x - queen.transform.position.x) < Mathf.Abs(player.transform.position.y - queen.transform.position.y))
+        else if (Mathf.Abs(player.transform.position.x - queen.transform.position.x) < Mathf.Abs(player.transform.position.y - queen.transform.position.y))
         {
             queenPivot.transform.position = new Vector2(queen.transform.position.x, player.transform.position.y);
             return NodeState.SUCCESS;

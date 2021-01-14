@@ -75,7 +75,7 @@ public class KingTreeAi : MonoBehaviour
 
     public void endPonBoss()
     {
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         pon.gameObject.tag = "PSW_over";
     }
 

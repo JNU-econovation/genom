@@ -20,6 +20,14 @@ TagManager:
   - PSW
   - PSW_over
   - Hand
+  - RBp
+  - RBover
+  - QBattack
+  - QBCanKilled
+  - QBCanKill
+  - BBCanKill
+  - BBCanKilled
+  - KnightPvot
   layers:
   - Default
   - TransparentFX

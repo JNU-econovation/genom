@@ -31,7 +31,11 @@ public class QueenController : MonoBehaviour
             GameManager.instance.EnemyScore(queen_score);
 
         }
+        else if (collision.tag == "Player" && queen.tag == "QBCanKilled")
+        {
+            QueenKilledByPlayer();
 
+        }
 
         else if (collision.tag == "Player" && queen.tag == "QueenCanKill")
         {
@@ -39,8 +43,13 @@ public class QueenController : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
+        else if (collision.tag == "Player" && queen.tag == "QBCanKill")
+        {
 
-       
+            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
+            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+        }
+
 
         else if (collision.tag == "KingCanKill")
         {
@@ -65,8 +74,10 @@ public class QueenController : MonoBehaviour
 
     }
 
-    void Update()
+void Update()
     {
+
+
 
         QueenDestroy();
         if (queen.transform.position.y > 3.744f && queen.transform.position.y < 4.85f)

@@ -11,23 +11,22 @@ public class Dialog
     public string[] sentence;//대사
     public string[] name;//이름
     public Sprite[] cg;//스탠딩 이미지
-    public Vector2[] pos;//이미지 위치
+
 }
 
 public class DialogManager : MonoBehaviour
 {
     public GameObject startUI;
     public GameObject dialogUI;
-    
+
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
-    private Vector2 pos;
+    
 
     private List<string> list_name;
     private List<string> list_sentence;
     private List<Sprite> list_cg;
-    private List<Vector2> list_pos;
 
     private int count;// 대화 순서
     private bool isDialog = false;
@@ -38,12 +37,10 @@ public class DialogManager : MonoBehaviour
         count = 0;
         name_text.text = "";
         sentence_text.text = "";
-        pos = standing_cg.transform.position;
 
         list_name = new List<string>();
         list_sentence = new List<string>();
         list_cg = new List<Sprite>();
-        list_pos = new List<Vector2>();
     }
 
     //대화UI 시작
@@ -51,7 +48,7 @@ public class DialogManager : MonoBehaviour
     {
         isStart = true;
         startUI.SetActive(true);
-        
+
     }
 
     //리스트에 지정값만큼 넣기
@@ -59,12 +56,12 @@ public class DialogManager : MonoBehaviour
     {
         isDialog = true;
 
-        for (int i = 0; i < dialog.sentence.Length;i++)
+        for (int i = 0; i < dialog.sentence.Length; i++)
         {
             list_name.Add(dialog.name[i]);
             list_sentence.Add(dialog.sentence[i]);
             list_cg.Add(dialog.cg[i]);
-            list_pos.Add(dialog.pos[i]);
+
         }
         dialogUI.SetActive(true);
         StartCoroutine(StartDialog());
@@ -76,21 +73,36 @@ public class DialogManager : MonoBehaviour
     {
         //이름
         name_text.text = list_name[count];
-        
-        
+
         //스탠딩 이미지
         if (count > 0)
         {
             if (list_cg[count] != list_cg[count - 1])//두개의 이미지가 다르다면 이미지 교체
             {
                 standing_cg.sprite = list_cg[count];
-                
+
+                if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
+                {
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);//이미지 위치를 (650,40)으로 변경
+                }
+                else
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);
+
+                Debug.Log("Sprite:" + standing_cg.sprite + " Position:" + standing_cg.transform.position + " count:" + count);
             }
 
         }
         else//count==0 (첫 이미지)
         {
             standing_cg.sprite = list_cg[count];
+
+            if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
+            {
+                standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);//이미지 위치를 (650,40)으로 변경
+            }
+            else
+                standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);
+            Debug.Log("Sprite:" + standing_cg.sprite + " Position:" + standing_cg.transform.position + " count:" + count);
         }
 
         //대사 1글자씩 출력 
@@ -102,22 +114,23 @@ public class DialogManager : MonoBehaviour
             yield return null;
 
         }
-       
+
     }
+
 
     //스페이스바 누르면 다음 문장 실행
     private void Update()
     {
-        if(isStart)
+        if (isStart)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 startUI.SetActive(false);
                 isStart = false;
                 Time.timeScale = 1.0f;
             }
         }
-        if(isDialog)
+        if (isDialog)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -134,11 +147,11 @@ public class DialogManager : MonoBehaviour
                     StopAllCoroutines();
                     StartCoroutine(StartDialog());
                 }
-                Debug.Log("count:" + count);
+                
             }
         }
-        
-        
+
+
     }
 
 
@@ -159,4 +172,3 @@ public class DialogManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 }
-

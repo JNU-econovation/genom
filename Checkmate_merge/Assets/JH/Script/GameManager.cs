@@ -60,12 +60,12 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (score == 10 && state == State.offDialog)
+        if (score == 5 && state == State.offDialog)
             {
                 state = State.onDialog;
                 StartCoroutine(DialogUI());
             }
-        if (score == 30 && state == State.offDialog)//폰
+        if (score == 10 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));
