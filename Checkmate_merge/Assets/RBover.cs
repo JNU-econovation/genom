@@ -24,13 +24,6 @@ public class RBover : MonoBehaviour
 
 
         }
-        if (collision.tag == "Hand")//폰이 플레이어에 의해 죽음(1점 증가)
-        {
-
-            RBDestory();
-
-
-        }
     }
         // Update is called once per frame
         void Update()

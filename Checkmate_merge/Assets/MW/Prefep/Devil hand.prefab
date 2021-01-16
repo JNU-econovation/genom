@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8226018605706961926}
   - component: {fileID: 8226018605706961921}
   - component: {fileID: 8226018605706961924}
-  - component: {fileID: 558417806}
   m_Layer: 0
   m_Name: Devil hand
   m_TagString: Hand
@@ -96,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ee62184b85b8442afcb683cb4767bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 8226018605706961920}
 --- !u!68 &8226018605706961924
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -107,7 +105,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -139,24 +137,3 @@ EdgeCollider2D:
   - {x: 0.4883767, y: 2.5321991}
   - {x: 1.9969609, y: -1.7801174}
   - {x: 2.4939504, y: -2.9170656}
---- !u!50 &558417806
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8226018605706961920}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

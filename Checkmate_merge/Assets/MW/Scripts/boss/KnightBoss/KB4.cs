@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class KB4 : MonoBehaviour
 {
-    private SpriteRenderer sprite;
-    public int sortingOrder = 0;
     int hold = 0;
     public Animator animator;
     GameObject player;
@@ -32,91 +30,13 @@ public class KB4 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player");
-        StartCoroutine(firstTimer());
-    }
-    public void KingKilledByPlayer()
-    {
-        Destroy(KBv);
-    }
-    public void endKngitBoss()
-    {
-        animator.SetFloat("Mag", 2);
-        KBv.gameObject.tag = "KBCanKilled";
-    }
-    public void KingKilledByEnemy()
-    {
-        Destroy(KBv);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && KBv.gameObject.tag == "KBCanKilled")
-        {
-            KingKilledByPlayer();
-            //GameManager.instance.EnemyScore(king_score);
-        }
-        if (collision.tag == "Hand")
-        {
-            KingKilledByEnemy();
-            //GameManager.instance.EnemyScore(king_score);
-        }
-
-        else if (collision.tag == "Player" && KBv.gameObject.tag == "KBCanKill")
-        {
-
-            GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            // GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
-        }
-    }
-    bool first = false;
-    IEnumerator firstTimer()
-    {
-
-        yield return new WaitForSeconds(0.93023255813953488372093023255812f * 3f);
-        first = true;
         StartCoroutine(moveCoroutine1(right));
     }
+
     // Update is called once per frame
     void Update()
     {
-        if (KBv.gameObject.tag == "KBCanKilled")
-        {
-            StopAllCoroutines();
-        }
-        if (KBv.transform.position.y > 3.744f && KBv.transform.position.y < 4.85f)
-        {
-            sprite.sortingOrder = 1;
-        }
-        if (KBv.transform.position.y > 2.656f && KBv.transform.position.y < 3.743f)
-        {
-            sprite.sortingOrder = 2;
-        }
-        if (KBv.transform.position.y > 1.55f && KBv.transform.position.y < 2.655f)
-        {
-            sprite.sortingOrder = 3;
-        }
-        if (KBv.transform.position.y > 0.458f && KBv.transform.position.y < 1.54f)
-        {
-            sprite.sortingOrder = 4;
-        }
-        if (KBv.transform.position.y > -0.655f && KBv.transform.position.y < 0.457f)
-        {
-            sprite.sortingOrder = 5;
-        }
-        if (KBv.transform.position.y > -1.75f && KBv.transform.position.y < -0.656f)
-        {
-            sprite.sortingOrder = 6;
-        }
-
-        if (KBv.transform.position.y > -2.84f && KBv.transform.position.y < -1.76f)
-        {
-            sprite.sortingOrder = 7;
-        }
-        if (KBv.transform.position.y > -3.94f && KBv.transform.position.y < -2.85f)
-        {
-            sprite.sortingOrder = 8;
-        }
         moveDir();
         //player = GameObject.FindWithTag("Player");
         //SetDir();
@@ -193,26 +113,26 @@ public class KB4 : MonoBehaviour
 
     IEnumerator spearAttack()
     {
-        if (hold != 1 && KBv.gameObject.tag != "KBCanKilled")
+        if (hold != 1)
         {
             yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             animator.SetFloat("Hor", 1);
             animator.SetFloat("Ver", 0);
-            Instantiate(spearAttRIGHT, new Vector2(KBv.transform.position.x + 0.9f, KBv.transform.position.y - 0.3f), Quaternion.identity);
+            Instantiate(spearAttRIGHT, new Vector2(KBv.transform.position.x + 1.1f, KBv.transform.position.y), Quaternion.identity);
             yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             animator.SetFloat("Hor", 0);
             animator.SetFloat("Ver", 1);
-            Instantiate(spearAttUP, new Vector2(KBv.transform.position.x - 0.1f, KBv.transform.position.y + 0.5f), Quaternion.identity);
+            Instantiate(spearAttUP, new Vector2(KBv.transform.position.x, KBv.transform.position.y + 1.1f), Quaternion.identity);
             yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             animator.SetFloat("Hor", -1);
             animator.SetFloat("Ver", 0);
-            Instantiate(spearAttLEFT, new Vector2(KBv.transform.position.x - 0.8f, KBv.transform.position.y - 0.3f), Quaternion.identity);
+            Instantiate(spearAttLEFT, new Vector2(KBv.transform.position.x - 1.1f, KBv.transform.position.y), Quaternion.identity);
             yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             animator.SetFloat("Hor", 0);
             animator.SetFloat("Ver", -1);
-            Instantiate(spearAttDOWN, new Vector2(KBv.transform.position.x + 0.1f, KBv.transform.position.y - 1.1f), Quaternion.identity);
+            Instantiate(spearAttDOWN, new Vector2(KBv.transform.position.x, KBv.transform.position.y - 1.1f), Quaternion.identity);
         }
-        if (hold == 1 && KBv.gameObject.tag != "KBCanKilled")
+        if (hold == 1)
         {
             yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             animator.SetFloat("Hor", 1);
@@ -233,11 +153,6 @@ public class KB4 : MonoBehaviour
 
     IEnumerator Timer()
     {
-        if (KBv.gameObject.tag == "KBCanKilled")
-        {
-            yield return new WaitForSeconds(0.93023255813953488372093023255812f * 1400);
-
-        }
         yield return new WaitForSeconds(0.93023255813953488372093023255812f * 3);
         if (counter == 1)
         {

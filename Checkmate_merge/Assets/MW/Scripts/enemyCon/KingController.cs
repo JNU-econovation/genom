@@ -51,10 +51,7 @@ public class KingController : MonoBehaviour
             KingKilledByEnemy();
         }
 
-        else if (collision.tag == "Hand")
-        {
-            KingKilledByEnemy();
-        }
+
 
 
 

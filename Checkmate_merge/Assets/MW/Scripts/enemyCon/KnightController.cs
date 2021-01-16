@@ -36,10 +36,7 @@ public class KnightController : MonoBehaviour
         }
 
 
-        else if (collision.tag == "Hand")
-        {
-            KnightKilledByEnemy();
-        }
+
 
         else if (collision.tag == "KingCanKill")
         {

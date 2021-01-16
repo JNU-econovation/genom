@@ -11,36 +11,31 @@ public class spearAtack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         sprite = GetComponent<SpriteRenderer>();
         StartCoroutine(end());
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && SpearEF.gameObject.tag == "spearAtt")//폰이 플레이어를 죽임(게임 오버)
+
+
+        if (collision.tag == "Player")//폰이 플레이어를 죽임(게임 오버)
         {
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
 
+
     }
     IEnumerator end()
     {
-        yield return new WaitForSeconds(0.0013022093023255812f);
-        yield return new WaitForSeconds(0.0013022093023255812f);
-        SpearEF.gameObject.tag = "spearAtt";
-
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.93023255813953488372093023255812f);
         Destroy(SpearEF);
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
-
         if (SpearEF.transform.position.y > 3.744f && SpearEF.transform.position.y < 4.85f)
         {
             sprite.sortingOrder = 1;

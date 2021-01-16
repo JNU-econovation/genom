@@ -10,15 +10,17 @@ public class anglerSSun : MonoBehaviour
     void Start()
     {
         SSun.gameObject.tag = "BBCanKill";
-
+        StartCoroutine(timer());
     }
-    public void endBishopBoss()
+
+    IEnumerator timer()
     {
+        yield return new WaitForSeconds(30);
         SSun.gameObject.tag = "BBCanKilled";
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         if (SSun.transform.tag == "BBCanKilled")
         {
@@ -38,11 +40,7 @@ public class anglerSSun : MonoBehaviour
             Die();
 
         }
-        if (collision.tag == "Hand")
-        {
-            Die();
-            //GameManager.instance.EnemyScore(king_score);
-        }
+
 
         else if (collision.tag == "Player" && SSun.tag == "BBCanKill")
         {
