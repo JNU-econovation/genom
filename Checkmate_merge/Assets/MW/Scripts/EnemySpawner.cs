@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 5;
-
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 30f;
     bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
@@ -269,7 +269,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator ponBoss()
     {
         Debug.Log("폰보스 시작");
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(BpssdelayTime);
 
         StartCoroutine(ponBossEnd());
     }
@@ -278,7 +278,7 @@ public class EnemySpawner : MonoBehaviour
         ponBossisEnd = true;
         Debug.Log("폰보스 끝");
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(delayTime*2);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return null;
     }
@@ -432,20 +432,29 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator RockBossRound()
     {
-
-        RockBossRange = Random.Range(1,24);
-        if (RBcounter == 30)
+        if(RBcounter == 0)
         {
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(delayTime);
+        }
+
+
+        RockBossRange = Random.Range(1,24);
+        if (RBcounter == 6)
+        {
+
             RBcounter++;
             rockBossisEnd = true;
-            yield return new WaitForSeconds(5);
-            Instantiate(devilHand, devilHandPos, Quaternion.identity);
+
             Instantiate(RBover, endRBPos, Quaternion.identity);
+            yield return new WaitForSeconds(delayTime * 2);
+
+            Instantiate(devilHand, devilHandPos, Quaternion.identity);
         }
-        if (RBcounter < 30) {
+
+
+        if (RBcounter < 6) {
             switch (RockBossRange)
             {
                 case 1:
@@ -595,7 +604,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator bishopBoss()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(BpssdelayTime);
         bishopBossisEnd = true;
         StartCoroutine(bishopBossEnd());
     }
@@ -603,7 +612,7 @@ public class EnemySpawner : MonoBehaviour
     {
 
         GameObject.Find("anglerSSun(Clone)").GetComponent< anglerSSun> ().endBishopBoss();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(delayTime * 2);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return null;
     }
@@ -654,9 +663,9 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(delayTime);
             firstBishopBossSpawn = true;
-            StartCoroutine(bishopBossEnd());
+            StartCoroutine(bishopBoss());
             Instantiate(BB, ponBossPos, Quaternion.identity);
         }
         yield return null;
@@ -699,14 +708,14 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator queenBoss()
     {
 
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(BpssdelayTime);
         queenBossisEnd = true;
         StartCoroutine(queenBossEnd());
     }
     IEnumerator queenBossEnd()
     {
         GameObject.Find("QBRed(Clone)").GetComponent<QueenTreeAi>().endQueenBoss();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(delayTime * 2);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return null;
     }
@@ -748,7 +757,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(delayTime);
             ponBossPrefab.tag = "QBCanKill";
             firstQueenBossSpawn = true;
             StartCoroutine(queenBoss());
@@ -800,7 +809,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator knightBoss()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(BpssdelayTime);
         knightBossisEnd = true;
         StartCoroutine(knightBossEnd());
     }
@@ -810,7 +819,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject.Find("KBfU(Clone)").GetComponent<KB>().endKngitBoss();
         GameObject.Find("KBfR(Clone)").GetComponent<KB4>().endKngitBoss();
         GameObject.Find("KBfL(Clone)").GetComponent<KB3>().endKngitBoss();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(delayTime * 2);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return null;
     }
@@ -848,7 +857,7 @@ public class EnemySpawner : MonoBehaviour
 
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(delayTime);
 
             Debug.Log("최초의 나이트보스 등장");
             KBfD.tag = "KBCanKill";
