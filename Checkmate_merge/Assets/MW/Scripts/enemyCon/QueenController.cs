@@ -49,7 +49,11 @@ public class QueenController : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
-
+        if (collision.tag == "Hand")
+        {
+            QueenKilledByEnemy();
+            //GameManager.instance.EnemyScore(king_score);
+        }
 
         else if (collision.tag == "KingCanKill")
         {

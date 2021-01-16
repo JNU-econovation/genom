@@ -43,7 +43,10 @@ public class BishopController : MonoBehaviour
         }
 
 
-
+        else if (collision.tag == "Hand")
+        {
+            BishopKilledByEnemy();
+        }
 
         else if (collision.tag == "KingCanKill")
         {

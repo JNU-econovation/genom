@@ -30,6 +30,8 @@ TagManager:
   - KnightPvot
   - spearAtt
   - QBEatAtt
+  - KBCanKill
+  - KBCanKilled
   layers:
   - Default
   - TransparentFX

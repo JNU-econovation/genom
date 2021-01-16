@@ -32,7 +32,11 @@ public class PSW_CON : MonoBehaviour
             //GameManager.instance.EnemyScore(king_score);
         }
 
-
+        if (collision.tag == "Hand")
+        {
+            KingKilledByPlayer();
+            //GameManager.instance.EnemyScore(king_score);
+        }
         else if (collision.tag == "Player" && PSW.tag == "PSW")
         {
 
