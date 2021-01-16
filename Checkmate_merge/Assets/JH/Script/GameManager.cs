@@ -60,11 +60,14 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        
         if (score == 5 && state == State.offDialog)
             {
                 state = State.onDialog;
-                StartCoroutine(DialogUI());
-            }
+                
+                FindObjectOfType<DialogManager>().FirstDialog();
+
+        }
         if (score == 10 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
@@ -98,35 +101,32 @@ public class GameManager : MonoBehaviour
             }
   
     }
-    public IEnumerator DialogUI()
-    {
-        Time.timeScale = 0.0f;
-        FindObjectOfType<DialogManager>().DialogUIstart();
-
-        yield return new WaitForSeconds(1f);
-        state = State.offDialog;
-    }
+    
+    //대화 
     public IEnumerator Dialog(Dialog dialog)
     {
 
         Time.timeScale = 0.0f;
         FindObjectOfType<DialogManager>().ShowDialog(dialog);
 
-        yield return new WaitForSeconds(1f);
-        state = State.offDialog;
+        yield return null;
 
     }
+
     //생존 점수 계산
-    private IEnumerator AddScore()
+    public IEnumerator AddScore()
     {
         yield return new WaitForSeconds(4f);//4초 후에 점수 카운트 시작
 
         while (isPlay)
         {
+            
             score++;
             scoreText.text = "score : " + score.ToString();
             yield return new WaitForSeconds(0.5f);
+            
         }
+        
  
     }
 

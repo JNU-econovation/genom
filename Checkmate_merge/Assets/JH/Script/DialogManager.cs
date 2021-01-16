@@ -16,6 +16,8 @@ public class Dialog
 
 public class DialogManager : MonoBehaviour
 {
+    public static DialogManager instance;
+    
     public GameObject startUI;
     public GameObject dialogUI;
 
@@ -29,8 +31,23 @@ public class DialogManager : MonoBehaviour
     private List<Sprite> list_cg;
 
     private int count;// 대화 순서
-    private bool isDialog = false;
-    private bool isStart = false;
+    public bool isDialog = false;
+    public bool isFirst = false;
+    public bool canKeyControl = false;//스페이스바 조절
+
+    //싱글톤
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("씬에 두개 이상의 게임 매니저가 존재합니다!");
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -43,18 +60,12 @@ public class DialogManager : MonoBehaviour
         list_cg = new List<Sprite>();
     }
 
-    //대화UI 시작
-    public void DialogUIstart()
-    {
-        isStart = true;
-        startUI.SetActive(true);
-
-    }
-
     //리스트에 지정값만큼 넣기
     public void ShowDialog(Dialog dialog)
     {
+        
         isDialog = true;
+        canKeyControl = true;
 
         for (int i = 0; i < dialog.sentence.Length; i++)
         {
@@ -63,10 +74,92 @@ public class DialogManager : MonoBehaviour
             list_cg.Add(dialog.cg[i]);
 
         }
+
         dialogUI.SetActive(true);
         StartCoroutine(StartDialog());
     }
 
+    // 대화 종료
+    public IEnumerator EndDialog()
+    {
+        name_text.text = "";
+        sentence_text.text = "";
+        count = 0;
+
+        list_name.Clear();
+        list_sentence.Clear();
+        list_cg.Clear();
+
+        dialogUI.SetActive(false);
+        isDialog = false;
+
+        Time.timeScale = 1.0f;//점수,기물 재시작
+
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.state = GameManager.State.offDialog;
+    }
+
+    
+    //첫대화 시작
+    public void FirstDialog()
+    {
+        Time.timeScale = 0.0f;//기물, 점수 정지
+        isFirst = true;
+        canKeyControl = true;
+        startUI.SetActive(true);
+        
+
+    }
+    public IEnumerator EndFirstDialog()
+    {
+        startUI.SetActive(false);
+        isFirst = false;
+        Time.timeScale = 1.0f;//점수,기물 다시 시작
+
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.state = GameManager.State.offDialog;
+    }
+    
+
+    //스페이스바 누르면 다음 문장 실행
+    private void Update()
+    {
+        Debug.Log("isPause:"+PauseManager.instance.isPaused + "canKeycontrol:"+ canKeyControl );
+
+        if (isFirst&&canKeyControl)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+              
+                StartCoroutine(EndFirstDialog());
+           
+            }
+        }
+        if (isDialog&&canKeyControl)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                
+                count++;
+                sentence_text.text = "";
+
+                if (count == list_sentence.Count)//count가 list의 지정된 count와 같다면 대화 종료
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(EndDialog());
+                    
+                }
+                else//그렇지 않다면 계속 대화
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(StartDialog());
+                }
+                
+            }
+        }
+
+
+    }
 
     //대화 뽑아내기
     public IEnumerator StartDialog()
@@ -83,10 +176,10 @@ public class DialogManager : MonoBehaviour
 
                 if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
                 {
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);//이미지 위치를 (650,40)으로 변경
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);//이미지 위치를 (650,40)으로 변경
                 }
                 else
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);
 
                 Debug.Log("Sprite:" + standing_cg.sprite + " Position:" + standing_cg.transform.position + " count:" + count);
             }
@@ -98,10 +191,10 @@ public class DialogManager : MonoBehaviour
 
             if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
             {
-                standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);//이미지 위치를 (650,40)으로 변경
+                standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);//이미지 위치를 (650,40)으로 변경
             }
             else
-                standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);
+                standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);
             Debug.Log("Sprite:" + standing_cg.sprite + " Position:" + standing_cg.transform.position + " count:" + count);
         }
 
@@ -118,57 +211,5 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    //스페이스바 누르면 다음 문장 실행
-    private void Update()
-    {
-        if (isStart)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                startUI.SetActive(false);
-                isStart = false;
-                Time.timeScale = 1.0f;
-            }
-        }
-        if (isDialog)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                count++;
-                sentence_text.text = "";
 
-                if (count == list_sentence.Count)//count가 list의 지정된 count와 같다면 대화 종료
-                {
-                    StopAllCoroutines();
-                    EndDialog();
-                }
-                else//그렇지 않다면 계속 대화
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(StartDialog());
-                }
-                
-            }
-        }
-
-
-    }
-
-
-    // 대화 종료
-    public void EndDialog()
-    {
-        name_text.text = "";
-        sentence_text.text = "";
-        count = 0;
-
-        list_name.Clear();
-        list_sentence.Clear();
-        list_cg.Clear();
-
-        dialogUI.SetActive(false);
-        isDialog = false;
-
-        Time.timeScale = 1.0f;
-    }
 }
