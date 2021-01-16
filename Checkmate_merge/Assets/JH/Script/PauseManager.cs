@@ -29,15 +29,26 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = true;//게임상태 pause로 변경
         Time.timeScale = 0.0f;// 모든 게임오브젝트 정지
-        
         puasemenuUI.SetActive(true);// 퍼즈메뉴 창 실행
-   
+
+        if (GameManager.instance.state == GameManager.State.onDialog)
+        {
+            DialogManager.instance.canKeyControl = false;
+        }
+
     }
     public void OnclickContinue()//계속하기 버튼
     {
         isPaused = false;
         Time.timeScale = 1.0f;
         puasemenuUI.SetActive(false);
+
+        if (GameManager.instance.state == GameManager.State.onDialog)//대화 중이라면 기물 및 점수 계속 정지
+        {
+            DialogManager.instance.canKeyControl = true;
+            Time.timeScale = 0.0f;
+        }
+        
     }
     public void OnclickRestart()// 다시 시작
     {
