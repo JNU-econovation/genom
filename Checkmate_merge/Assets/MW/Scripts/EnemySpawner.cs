@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     public GameObject PlayerPos;
-
+    public GameObject Manager;
     public GameObject ponPrefab;
     public GameObject rockPrefab;
     public GameObject bishopPrefab;
@@ -106,13 +106,27 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 5;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 30f;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 60;
     bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
     bool queenBossisEnd = false;
     bool rockBossisEnd = false;
     bool kingBossisEnd = false;
+    bool ponBfirstStop = false;
+    bool knightBfirstStop = false;
+    bool bishopBfirstStop = false;
+    bool queenBfirstStop = false;
+    bool rockBfirstStop = false;
+    bool kingBfirstStop = false;
+
+
+    int ponRoundScoreRange = 151;
+    int knightRoundScoreRange = 301;
+    int bishopRoundScoreRange = 451;
+    int rockRoundScoreRange = 601;
+    int queenRoundScoreRange = 751;
+
 
     // Start is called before the first frame update
     void Start()
@@ -123,14 +137,47 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.score == ponRoundScoreRange && !ponBfirstStop)
+        {
+            ponBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
 
+        if (GameManager.score == knightRoundScoreRange && !knightBfirstStop)
+        {
+            knightBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
 
+        if (GameManager.score == bishopRoundScoreRange && !bishopBfirstStop)
+        {
+            bishopBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
+
+        if (GameManager.score == rockRoundScoreRange && !rockBfirstStop)
+        {
+            rockBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
+
+        if (GameManager.score == queenRoundScoreRange && !queenBfirstStop)
+        {
+            queenBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
+
+        if (GameManager.score == 901 && !kingBfirstStop)
+        {
+            kingBfirstStop = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        }
     }
 
 
     IEnumerator fisrtTimer()
     {
-        yield return new WaitForSeconds(0.93023255813953488372093023255812f * 6);
+        yield return new WaitForSeconds(0.93023255813953488372093023255812f * 8);
         StartCoroutine(PonRound());
     }
 
@@ -140,16 +187,20 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(delayTime);
 
-        if (GameManager.score >= 0 && GameManager.score < 100)
+
+
+        if (GameManager.score >= 0 && GameManager.score < ponRoundScoreRange)
         {
+
             StartCoroutine(PonRound());
         }
 
-        else if(GameManager.score >= 100 && ponBossisEnd == false)
+        else if(GameManager.score >= ponRoundScoreRange && ponBossisEnd == false)
         {
             if(isPonDevilFirst)
             {
                 isPonDevilFirst = false;
+
                 StartCoroutine(ponSpqwnDevilHand());
 
             }
@@ -162,64 +213,66 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-        else if (GameManager.score >= 200 && GameManager.score < 300)
+        else if (GameManager.score >= ponRoundScoreRange && GameManager.score < knightRoundScoreRange)
         {
+
             StartCoroutine(KnightRound());
         }
 
-        else if (GameManager.score >= 300 && knightBossisEnd == false)
+        else if (GameManager.score >= knightRoundScoreRange && knightBossisEnd == false)
         {
+
             StartCoroutine(KnightBossRound());
         }
 
 
 
 
-        else if(GameManager.score > 400 && GameManager.score < 500)
+        else if(GameManager.score >= knightRoundScoreRange && GameManager.score < bishopRoundScoreRange)
         {
+
             StartCoroutine(bishopRound());
         }
 
-        else if(GameManager.score >= 500 && bishopBossisEnd == false)
+        else if(GameManager.score >= bishopRoundScoreRange && bishopBossisEnd == false)
         {
             StartCoroutine(BishopBossRound());
         }
 
 
-        else if(GameManager.score > 600 && GameManager.score < 700)
+        else if(GameManager.score >= bishopRoundScoreRange && GameManager.score < rockRoundScoreRange)
         {
 
             StartCoroutine(RockRound());
         }
 
-        else if(GameManager.score >= 700 && rockBossisEnd == false)
+        else if(GameManager.score >= rockRoundScoreRange && rockBossisEnd == false)
         {
             StartCoroutine(RockBossRound());
         }
 
 
-        else if(GameManager.score > 800 && GameManager.score < 900)
+        else if(GameManager.score >= rockRoundScoreRange && GameManager.score < queenRoundScoreRange)
         {
 
             StartCoroutine(QueenRound());
         }
 
-        else if(GameManager.score >= 900 && queenBossisEnd == false)
+        else if(GameManager.score >= queenRoundScoreRange && queenBossisEnd == false)
         {
             StartCoroutine(QueenBossRound());
         }
 
-        else
-        {
-            Debug.Log("인터벌");
-            StartCoroutine(interverTimer(delayTime));
-        }
+
 
 
     }
+
+    bool isintervel = false;
     IEnumerator interverTimer(float     delayTime)
     {
-        yield return new WaitForSeconds(delayTime/2);
+        isintervel = true;
+        yield return new WaitForSeconds(delayTime/4);
         StartCoroutine(timer(delayTime));
     }
 
@@ -273,13 +326,31 @@ public class EnemySpawner : MonoBehaviour
 
         StartCoroutine(ponBossEnd());
     }
+
+    bool reset = false;
+
+    void allStopCor()
+    {
+        StopAllCoroutines();
+        reset = true;
+        StartCoroutine(ponBossEnd());
+    }
     IEnumerator ponBossEnd()
     {
-        ponBossisEnd = true;
+        if(reset == false)
+        {
+            allStopCor();
+        }
+
+
         Debug.Log("폰보스 끝");
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
-        yield return new WaitForSeconds(delayTime*2);
+        yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime);
+        ponBossisEnd = true;
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        StartCoroutine(timer(delayTime));
         yield return null;
     }
 
@@ -429,32 +500,47 @@ public class EnemySpawner : MonoBehaviour
     Vector2 Ver5 = new Vector2(0.65f, -1.98f);
     Vector2 Ver6 = new Vector2(0.65f, -3.08f);
 
+    bool reset2 = false;
 
+    void allStopCor2()
+    {
+        StopAllCoroutines();
+        reset2 = true;
+        StartCoroutine(RockBossRound());
+    }
     IEnumerator RockBossRound()
     {
+     
         if(RBcounter == 0)
         {
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
-
+            RBcounter++;
             yield return new WaitForSeconds(delayTime);
         }
 
 
         RockBossRange = Random.Range(1,24);
-        if (RBcounter == 6)
+        if (RBcounter == 12)
         {
 
-            RBcounter++;
+            if (reset2 == false)
+            {
+                allStopCor2();
+            }
             rockBossisEnd = true;
-
+            StopCoroutine(timer(delayTime));
+            StopCoroutine(RockBossRound());
             Instantiate(RBover, endRBPos, Quaternion.identity);
-            yield return new WaitForSeconds(delayTime * 2);
+            yield return new WaitForSeconds(delayTime);
 
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
+            yield return new WaitForSeconds(delayTime);
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            StartCoroutine(timer(delayTime));
         }
 
 
-        if (RBcounter < 6) {
+        if (RBcounter < 12) {
             switch (RockBossRange)
             {
                 case 1:
@@ -600,7 +686,14 @@ public class EnemySpawner : MonoBehaviour
     public GameObject lightningPrefep;
     public GameObject BB;
     int bishopBosNum;
+    bool reset3 = false;
 
+    void allStopCor3()
+    {
+        StopAllCoroutines();
+        reset3 = true;
+        StartCoroutine(bishopBossEnd());
+    }
 
     IEnumerator bishopBoss()
     {
@@ -610,10 +703,18 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator bishopBossEnd()
     {
-
+        if (reset3 == false)
+        {
+            allStopCor3();
+        }
+        StopCoroutine(timer(delayTime));
+        StopCoroutine(BishopBossRound());
         GameObject.Find("anglerSSun(Clone)").GetComponent< anglerSSun> ().endBishopBoss();
-        yield return new WaitForSeconds(delayTime * 2);
+        yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime);
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        StartCoroutine(timer(delayTime));
         yield return null;
     }
     IEnumerator BishopBossRound()
@@ -704,7 +805,14 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    bool reset4 = false;
 
+    void allStopCor4()
+    {
+        StopAllCoroutines();
+        reset4 = true;
+        StartCoroutine(queenBossEnd());
+    }
     IEnumerator queenBoss()
     {
 
@@ -714,9 +822,18 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator queenBossEnd()
     {
+        if(reset4 == false)
+        {
+            allStopCor4();
+        }
+        StopCoroutine(timer(delayTime));
+        StopCoroutine(BishopBossRound());
         GameObject.Find("QBRed(Clone)").GetComponent<QueenTreeAi>().endQueenBoss();
-        yield return new WaitForSeconds(delayTime * 2);
+        yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime);
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        StartCoroutine(timer(delayTime));
         yield return null;
     }
 
@@ -806,7 +923,14 @@ public class EnemySpawner : MonoBehaviour
     public GameObject KBfL;
     public GameObject KBfR;
 
+    bool reset5= false;
 
+    void allStopCor5()
+    {
+        StopAllCoroutines();
+        reset5 = true;
+        StartCoroutine(knightBossEnd());
+    }
     IEnumerator knightBoss()
     {
         yield return new WaitForSeconds(BpssdelayTime);
@@ -815,12 +939,21 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator knightBossEnd()
     {
+        if(reset5 == false)
+        {
+            allStopCor5();
+        }
+        StopCoroutine(timer(delayTime));
+        StopCoroutine(KnightBossRound());
         GameObject.Find("KBfD(Clone)").GetComponent<KB2>().endKngitBoss();
         GameObject.Find("KBfU(Clone)").GetComponent<KB>().endKngitBoss();
         GameObject.Find("KBfR(Clone)").GetComponent<KB4>().endKngitBoss();
         GameObject.Find("KBfL(Clone)").GetComponent<KB3>().endKngitBoss();
-        yield return new WaitForSeconds(delayTime * 2);
+        yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime*2);
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        StartCoroutine(timer(delayTime));
         yield return null;
     }
 

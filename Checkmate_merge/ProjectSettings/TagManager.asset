@@ -69,30 +69,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: A
+  - name: SIDE
+    uniqueID: 3779898113
+    locked: 0
+  - name: LAYER
+    uniqueID: 163782027
+    locked: 0
+  - name: TABLE
     uniqueID: 2494257215
     locked: 0
-  - name: B
-    uniqueID: 409418069
+  - name: New Layer
+    uniqueID: 3694122005
     locked: 0
-  - name: C
-    uniqueID: 3798774631
-    locked: 0
-  - name: D
-    uniqueID: 2002519779
-    locked: 0
-  - name: E
-    uniqueID: 3771797805
-    locked: 0
-  - name: F
-    uniqueID: 1374031987
-    locked: 0
-  - name: G
-    uniqueID: 1254962615
-    locked: 0
-  - name: H
-    uniqueID: 4082628393
-    locked: 0
-  - name: F
-    uniqueID: 3607263615
+  - name: moveThing
+    uniqueID: 4055701665
     locked: 0

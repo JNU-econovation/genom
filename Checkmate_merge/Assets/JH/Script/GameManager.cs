@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private bool isPlay = false;//플레이 중인가?
+    public bool isPlay = false;//플레이 중인가?
     public GameObject gameoverUI;//게임오버 UI
     
     public static int score;//기본 점수
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        
+
         if (score == 5 && state == State.offDialog)
             {
                 state = State.onDialog;
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(Dialog(dialog6));
             }
   
+
     }
     
     //대화 
@@ -126,9 +127,37 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             
         }
-        
+        // isPlay false시 공회전 코루틴 시작
+        if (!isPlay)
+        {
+            StartCoroutine(WaitAddScore());
+        }
  
     }
+
+    //MW 추가내역, 보스전투시 점수 공회전 코루틴
+    public IEnumerator WaitAddScore()
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(AddScore());
+    }
+
+    //isplay 상태 변환 함수
+    public void ChangePlayState()
+    {
+        if (isPlay)
+        {
+            isPlay = false;
+        }
+
+        else if (!isPlay)
+        {
+
+            isPlay = true;
+        }
+    }
+
+
 
     //적 점수 계산
     public void EnemyScore(int value)
