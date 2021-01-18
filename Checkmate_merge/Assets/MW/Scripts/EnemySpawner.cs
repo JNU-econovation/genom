@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 60;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 60 ;
     bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
@@ -351,7 +351,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         ponBossisEnd = true;
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(timer(delayTime));
+        StartCoroutine(bishopRound());
         yield return null;
     }
 
@@ -984,7 +984,7 @@ public class EnemySpawner : MonoBehaviour
 
 
         RockBossRange = Random.Range(1,24);
-        if (RBcounter == 12)
+        if (RBcounter == 6)
         {
 
             if (reset2 == false)
@@ -1000,11 +1000,11 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
             yield return new WaitForSeconds(delayTime);
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-            StartCoroutine(timer(delayTime));
+            StartCoroutine(QueenRound());
         }
 
         roundNum = Random.Range(1, 15);
-        if (RBcounter < 12)
+        if (RBcounter < 6)
         {
             switch (roundNum)
             {
@@ -1240,7 +1240,9 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
         }
-        if (RBcounter < 12) {
+        if (RBcounter < 5) {
+
+            yield return new WaitForSeconds(delayTime/2);
             switch (RockBossRange)
             {
                 case 1:
@@ -1557,14 +1559,12 @@ public class EnemySpawner : MonoBehaviour
         {
             allStopCor3();
         }
-        StopCoroutine(timer(delayTime));
-        StopCoroutine(BishopBossRound());
-        GameObject.Find("anglerSSun(Clone)").GetComponent< anglerSSun> ().endBishopBoss();
+        GameObject.Find("anglerSSun(Clone)").GetComponent<anglerSSun> ().endBishopBoss();
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(timer(delayTime));
+        StartCoroutine(KnightRound());
         yield return null;
     }
     IEnumerator BishopBossRound()
@@ -2532,7 +2532,7 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime*2);
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(timer(delayTime));
+        StartCoroutine(RockRound());
         yield return null;
     }
 
