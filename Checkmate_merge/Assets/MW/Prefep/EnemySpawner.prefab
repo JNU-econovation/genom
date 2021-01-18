@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269276ca81cb9f1429846f0eab193aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerPos: {fileID: 0}
+  Manager: {fileID: 0}
   ponPrefab: {fileID: 2675597320215411020, guid: a29e1880074c5d84b96d6c8e402fa141,
     type: 3}
   rockPrefab: {fileID: 256660523844570461, guid: 4cbc2c6c0ce801d4fa29ede299d42389,
@@ -69,3 +71,7 @@ MonoBehaviour:
     type: 3}
   BB: {fileID: 6132526703561590492, guid: e6cb9d3720017c849b718dedd1a57ab5, type: 3}
   QB: {fileID: 6399898253040434310, guid: bc755ea54fca0d34e8ef62902f499ae2, type: 3}
+  KBfD: {fileID: 7465017243072269544, guid: 7ee1ff97d6761a54a801972b37784dea, type: 3}
+  KBfU: {fileID: 6565834791026655108, guid: b225e56b9413f6e4ebcf841484c4a4e5, type: 3}
+  KBfL: {fileID: 5484988137139369768, guid: 832abca47e3b66a4dbf0aaf0b687de68, type: 3}
+  KBfR: {fileID: 5123886158064645901, guid: f1581dd3dcf619049ae0a98feaefbbc2, type: 3}

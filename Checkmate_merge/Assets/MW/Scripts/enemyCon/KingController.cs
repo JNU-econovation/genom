@@ -38,7 +38,7 @@ public class KingController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+           // GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
 
         else if (collision.tag == "KingCanKill")
@@ -57,7 +57,58 @@ public class KingController : MonoBehaviour
         }
 
 
-
+        else if (collision.tag == "PSW")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            KingKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
+            KingKilledByEnemy();
+        }
 
     }
 

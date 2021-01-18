@@ -105,7 +105,7 @@ public class EnemySpawner : MonoBehaviour
     bool isBishopDevilFirst = true;
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
-    float delayTime = 0.93023255813953488372093023255812f * 5;
+    float delayTime = 0.93023255813953488372093023255812f * 9;
     float BpssdelayTime = 0.93023255813953488372093023255812f * 60;
     bool ponBossisEnd = false;
     bool knightBossisEnd = false;
@@ -122,8 +122,8 @@ public class EnemySpawner : MonoBehaviour
 
 
     int ponRoundScoreRange = 151;
-    int knightRoundScoreRange = 301;
-    int bishopRoundScoreRange = 451;
+    int bishopRoundScoreRange = 301;
+    int knightRoundScoreRange = 451;
     int rockRoundScoreRange = 601;
     int queenRoundScoreRange = 751;
 
@@ -213,34 +213,35 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-        else if (GameManager.score >= ponRoundScoreRange && GameManager.score < knightRoundScoreRange)
-        {
-
-            StartCoroutine(KnightRound());
-        }
-
-        else if (GameManager.score >= knightRoundScoreRange && knightBossisEnd == false)
-        {
-
-            StartCoroutine(KnightBossRound());
-        }
-
-
-
-
-        else if(GameManager.score >= knightRoundScoreRange && GameManager.score < bishopRoundScoreRange)
+        else if (GameManager.score >= ponRoundScoreRange && GameManager.score < bishopRoundScoreRange)
         {
 
             StartCoroutine(bishopRound());
         }
 
-        else if(GameManager.score >= bishopRoundScoreRange && bishopBossisEnd == false)
+        else if (GameManager.score >= bishopRoundScoreRange && bishopBossisEnd == false)
         {
+
             StartCoroutine(BishopBossRound());
         }
 
+        
 
-        else if(GameManager.score >= bishopRoundScoreRange && GameManager.score < rockRoundScoreRange)
+
+
+        else if(GameManager.score >= bishopRoundScoreRange && GameManager.score < knightRoundScoreRange)
+        {
+
+            StartCoroutine(KnightRound());
+        }
+
+        else if(GameManager.score >= knightRoundScoreRange && knightBossisEnd == false)
+        {
+            StartCoroutine(KnightBossRound());
+        }
+
+
+        else if(GameManager.score >= knightRoundScoreRange && GameManager.score < rockRoundScoreRange)
         {
 
             StartCoroutine(RockRound());
@@ -362,26 +363,160 @@ public class EnemySpawner : MonoBehaviour
      
 
 
-        randPonBossNum = Random.Range(1, 5);
+        randPonBossNum = Random.Range(1, 15);
         switch (randPonBossNum)
         {
             case 1:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
                 Instantiate(ponPrefab, b2, Quaternion.identity);
-                Instantiate(ponPrefab, b7, Quaternion.identity);
-                Instantiate(ponPrefab, g2, Quaternion.identity);
-                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
                 Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
                 break;
             case 5:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
                 Instantiate(ponPrefab, g7, Quaternion.identity);
+                break;
+            case 6:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 7:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d3, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, d6, Quaternion.identity);
+                Instantiate(ponPrefab, e3, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, e6, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d6, Quaternion.identity);
+                Instantiate(ponPrefab, e3, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, c4, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d3, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f5, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 14:
+                Instantiate(ponPrefab, a4, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                break;
+            case 15:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, c2, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, f7, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
                 break;
         }
         if (firstPonBossSpawn == false)
@@ -401,28 +536,161 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator PonRound()
     {
 
-        roundNum = Random.Range(1, 5);
+        roundNum = Random.Range(1, 15);
         switch (roundNum)
         {
             case 1:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
                 Instantiate(ponPrefab, b2, Quaternion.identity);
-                Instantiate(ponPrefab, b7, Quaternion.identity);
-                Instantiate(ponPrefab, g2, Quaternion.identity);
-                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
                 Instantiate(ponPrefab, g2, Quaternion.identity);
-                break;
-            case 5:
                 Instantiate(ponPrefab, g7, Quaternion.identity);
                 break;
-
+            case 5:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                break;
+            case 6:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 7:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d3, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, d6, Quaternion.identity);
+                Instantiate(ponPrefab, e3, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, e6, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, d6, Quaternion.identity);
+                Instantiate(ponPrefab, e3, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, c4, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, d3, Quaternion.identity);
+                Instantiate(ponPrefab, d5, Quaternion.identity);
+                Instantiate(ponPrefab, e4, Quaternion.identity);
+                Instantiate(ponPrefab, e6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f5, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+                break;
+            case 14:
+                Instantiate(ponPrefab, a4, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                break;
+            case 15:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, c2, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, f7, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                break;
         }
         StartCoroutine(timer(delayTime));
         yield return null;
@@ -434,42 +702,238 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator RockRound()
     {
-        roundNum = Random.Range(1, 5);
+        roundNum = Random.Range(1, 15);
         switch (roundNum)
         {
             case 1:
-                Instantiate(rockPrefab, a1, Quaternion.identity);
-                Instantiate(rockPrefab, c1, Quaternion.identity);
-                Instantiate(rockPrefab, e1, Quaternion.identity);
-                Instantiate(rockPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(rockPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h3, Quaternion.identity);
+                Instantiate(rockPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                Instantiate(rockPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h7, Quaternion.identity);
+                Instantiate(rockPrefab, h8, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(rockPrefab, h1, Quaternion.identity);
-                Instantiate(rockPrefab, h3, Quaternion.identity);
-                Instantiate(rockPrefab, h5, Quaternion.identity);
-                Instantiate(rockPrefab, h7, Quaternion.identity);
+                Instantiate(rockPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a2, Quaternion.identity);
+                Instantiate(rockPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a4, Quaternion.identity);
+                Instantiate(rockPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a6, Quaternion.identity);
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(rockPrefab, h8, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h3, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                Instantiate(rockPrefab, c1, Quaternion.identity);
                 Instantiate(rockPrefab, f8, Quaternion.identity);
-                Instantiate(rockPrefab, d8, Quaternion.identity);
-                Instantiate(rockPrefab, b8, Quaternion.identity);
+                Instantiate(knightPrefab, d4, Quaternion.identity);
+                Instantiate(knightPrefab, e5, Quaternion.identity);
                 break;
             case 4:
-                Instantiate(rockPrefab, a7, Quaternion.identity);
-                Instantiate(rockPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
                 Instantiate(rockPrefab, a3, Quaternion.identity);
-                Instantiate(rockPrefab, a1, Quaternion.identity);
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+                Instantiate(rockPrefab, h2, Quaternion.identity);
+                Instantiate(rockPrefab, h6, Quaternion.identity);
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
                 break;
             case 5:
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+                Instantiate(rockPrefab, b8, Quaternion.identity);
+                Instantiate(rockPrefab, g1, Quaternion.identity);
+                Instantiate(knightPrefab, c1, Quaternion.identity);
+                Instantiate(knightPrefab, d8, Quaternion.identity);
+                Instantiate(knightPrefab, e1, Quaternion.identity);
+                Instantiate(knightPrefab, f8, Quaternion.identity);
+                break;
+            case 6:
+                Instantiate(ponPrefab, b1, Quaternion.identity);
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(bishopPrefab, a1, Quaternion.identity);
+                Instantiate(bishopPrefab, c1, Quaternion.identity);
+                Instantiate(bishopPrefab, e1, Quaternion.identity);
+                Instantiate(bishopPrefab, f1, Quaternion.identity);
+                Instantiate(rockPrefab, b8, Quaternion.identity);
+                Instantiate(rockPrefab, d8, Quaternion.identity);
+                Instantiate(rockPrefab, f8, Quaternion.identity);
+                Instantiate(rockPrefab, h8, Quaternion.identity);
+
+
+                break;
+            case 7:
+                Instantiate(ponPrefab, b3, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b5, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+
+                Instantiate(bishopPrefab, d3, Quaternion.identity);
+                Instantiate(bishopPrefab, d4, Quaternion.identity);
+                Instantiate(bishopPrefab, d5, Quaternion.identity);
+                Instantiate(bishopPrefab, d6, Quaternion.identity);
+
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+                Instantiate(knightPrefab, f4, Quaternion.identity);
+                Instantiate(knightPrefab, f5, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                Instantiate(rockPrefab, h3, Quaternion.identity);
+                Instantiate(rockPrefab, h4, Quaternion.identity);
+                Instantiate(rockPrefab, h5, Quaternion.identity);
+                Instantiate(rockPrefab, h6, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, d2, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+
+                Instantiate(knightPrefab, a8, Quaternion.identity);
+                Instantiate(knightPrefab, h1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                Instantiate(rockPrefab, d8, Quaternion.identity);
+                Instantiate(rockPrefab, f8, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                Instantiate(bishopPrefab, a5, Quaternion.identity);
+                Instantiate(bishopPrefab, d1, Quaternion.identity);
+                Instantiate(bishopPrefab, e8, Quaternion.identity);
+                Instantiate(bishopPrefab, h4, Quaternion.identity);
+
+
+                Instantiate(rockPrefab, a6, Quaternion.identity);
+                Instantiate(rockPrefab, b1, Quaternion.identity);
+                Instantiate(rockPrefab, h2, Quaternion.identity);
+                Instantiate(rockPrefab, g8, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, g5, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, b1, Quaternion.identity);
+                Instantiate(bishopPrefab, b3, Quaternion.identity);
+                Instantiate(bishopPrefab, b5, Quaternion.identity);
+                Instantiate(bishopPrefab, b7, Quaternion.identity);
+
+                Instantiate(rockPrefab, d4, Quaternion.identity);
+                Instantiate(rockPrefab, d5, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, f2, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+
+
+                Instantiate(knightPrefab, b7, Quaternion.identity);
+                Instantiate(knightPrefab, g2, Quaternion.identity);
+
+                Instantiate(rockPrefab, b2, Quaternion.identity);
+                Instantiate(rockPrefab, c3, Quaternion.identity);
+                Instantiate(rockPrefab, f6, Quaternion.identity);
+                Instantiate(rockPrefab, g7, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+
+                Instantiate(bishopPrefab, a3, Quaternion.identity);
+                Instantiate(bishopPrefab, a5, Quaternion.identity);
+                Instantiate(bishopPrefab, a7, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+                Instantiate(bishopPrefab, h4, Quaternion.identity);
+                Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                Instantiate(rockPrefab, d4, Quaternion.identity);
+                Instantiate(rockPrefab, e5, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+
                 Instantiate(rockPrefab, c4, Quaternion.identity);
-                Instantiate(rockPrefab, c5, Quaternion.identity);
-                Instantiate(rockPrefab, d6, Quaternion.identity);
-                Instantiate(rockPrefab, e6, Quaternion.identity);
-                Instantiate(rockPrefab, f4, Quaternion.identity);
+                Instantiate(rockPrefab, c7, Quaternion.identity);
+                Instantiate(rockPrefab, f2, Quaternion.identity);
                 Instantiate(rockPrefab, f5, Quaternion.identity);
-                Instantiate(rockPrefab, d3, Quaternion.identity);
-                Instantiate(rockPrefab, e3, Quaternion.identity);
+                break;
+            case 14:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a6, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+
+
+                Instantiate(rockPrefab, a4, Quaternion.identity);
+                Instantiate(rockPrefab, a5, Quaternion.identity);
+                Instantiate(rockPrefab, d1, Quaternion.identity);
+                Instantiate(rockPrefab, e1, Quaternion.identity);
+                Instantiate(rockPrefab, h3, Quaternion.identity);
+                Instantiate(rockPrefab, h8, Quaternion.identity);
+                Instantiate(rockPrefab, c8, Quaternion.identity);
+                Instantiate(rockPrefab, f8, Quaternion.identity);
+                break;
+            case 15:
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+
+                Instantiate(knightPrefab, b2, Quaternion.identity);
+                Instantiate(knightPrefab, b7, Quaternion.identity);
+                Instantiate(knightPrefab, g2, Quaternion.identity);
+                Instantiate(knightPrefab, g7, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+                Instantiate(bishopPrefab, f3, Quaternion.identity);
+
+                Instantiate(rockPrefab, c3, Quaternion.identity);
+                Instantiate(rockPrefab, c6, Quaternion.identity);
                 break;
         }
         yield return null;
@@ -539,7 +1003,243 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(timer(delayTime));
         }
 
+        roundNum = Random.Range(1, 15);
+        if (RBcounter < 12)
+        {
+            switch (roundNum)
+            {
+                case 1:
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(rockPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h3, Quaternion.identity);
+                    Instantiate(rockPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+                    Instantiate(rockPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h7, Quaternion.identity);
+                    Instantiate(rockPrefab, h8, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(rockPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a2, Quaternion.identity);
+                    Instantiate(rockPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a4, Quaternion.identity);
+                    Instantiate(rockPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a6, Quaternion.identity);
+                    Instantiate(rockPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h3, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+                    Instantiate(rockPrefab, c1, Quaternion.identity);
+                    Instantiate(rockPrefab, f8, Quaternion.identity);
+                    Instantiate(knightPrefab, d4, Quaternion.identity);
+                    Instantiate(knightPrefab, e5, Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(ponPrefab, d4, Quaternion.identity);
+                    Instantiate(ponPrefab, e5, Quaternion.identity);
+                    Instantiate(rockPrefab, a3, Quaternion.identity);
+                    Instantiate(rockPrefab, a7, Quaternion.identity);
+                    Instantiate(rockPrefab, h2, Quaternion.identity);
+                    Instantiate(rockPrefab, h6, Quaternion.identity);
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+                    break;
+                case 5:
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+                    Instantiate(rockPrefab, b8, Quaternion.identity);
+                    Instantiate(rockPrefab, g1, Quaternion.identity);
+                    Instantiate(knightPrefab, c1, Quaternion.identity);
+                    Instantiate(knightPrefab, d8, Quaternion.identity);
+                    Instantiate(knightPrefab, e1, Quaternion.identity);
+                    Instantiate(knightPrefab, f8, Quaternion.identity);
+                    break;
+                case 6:
+                    Instantiate(ponPrefab, b1, Quaternion.identity);
+                    Instantiate(ponPrefab, d1, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    Instantiate(ponPrefab, c8, Quaternion.identity);
+                    Instantiate(ponPrefab, e8, Quaternion.identity);
+                    Instantiate(ponPrefab, f8, Quaternion.identity);
+                    Instantiate(bishopPrefab, a1, Quaternion.identity);
+                    Instantiate(bishopPrefab, c1, Quaternion.identity);
+                    Instantiate(bishopPrefab, e1, Quaternion.identity);
+                    Instantiate(bishopPrefab, f1, Quaternion.identity);
+                    Instantiate(rockPrefab, b8, Quaternion.identity);
+                    Instantiate(rockPrefab, d8, Quaternion.identity);
+                    Instantiate(rockPrefab, f8, Quaternion.identity);
+                    Instantiate(rockPrefab, h8, Quaternion.identity);
 
+
+                    break;
+                case 7:
+                    Instantiate(ponPrefab, b3, Quaternion.identity);
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, b5, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, d3, Quaternion.identity);
+                    Instantiate(bishopPrefab, d4, Quaternion.identity);
+                    Instantiate(bishopPrefab, d5, Quaternion.identity);
+                    Instantiate(bishopPrefab, d6, Quaternion.identity);
+
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+                    Instantiate(knightPrefab, f4, Quaternion.identity);
+                    Instantiate(knightPrefab, f5, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                    Instantiate(rockPrefab, h3, Quaternion.identity);
+                    Instantiate(rockPrefab, h4, Quaternion.identity);
+                    Instantiate(rockPrefab, h5, Quaternion.identity);
+                    Instantiate(rockPrefab, h6, Quaternion.identity);
+                    break;
+                case 8:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, c1, Quaternion.identity);
+                    Instantiate(ponPrefab, c3, Quaternion.identity);
+                    Instantiate(ponPrefab, d2, Quaternion.identity);
+                    Instantiate(ponPrefab, e1, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a8, Quaternion.identity);
+                    Instantiate(knightPrefab, h1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                    Instantiate(rockPrefab, d8, Quaternion.identity);
+                    Instantiate(rockPrefab, f8, Quaternion.identity);
+                    break;
+                case 9:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, c8, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                    Instantiate(bishopPrefab, a5, Quaternion.identity);
+                    Instantiate(bishopPrefab, d1, Quaternion.identity);
+                    Instantiate(bishopPrefab, e8, Quaternion.identity);
+                    Instantiate(bishopPrefab, h4, Quaternion.identity);
+
+
+                    Instantiate(rockPrefab, a6, Quaternion.identity);
+                    Instantiate(rockPrefab, b1, Quaternion.identity);
+                    Instantiate(rockPrefab, h2, Quaternion.identity);
+                    Instantiate(rockPrefab, g8, Quaternion.identity);
+                    break;
+                case 10:
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, g5, Quaternion.identity);
+                    Instantiate(ponPrefab, g7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b1, Quaternion.identity);
+                    Instantiate(bishopPrefab, b3, Quaternion.identity);
+                    Instantiate(bishopPrefab, b5, Quaternion.identity);
+                    Instantiate(bishopPrefab, b7, Quaternion.identity);
+
+                    Instantiate(rockPrefab, d4, Quaternion.identity);
+                    Instantiate(rockPrefab, d5, Quaternion.identity);
+                    break;
+                case 11:
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, b7, Quaternion.identity);
+                    Instantiate(ponPrefab, f2, Quaternion.identity);
+                    Instantiate(ponPrefab, f6, Quaternion.identity);
+
+
+                    Instantiate(knightPrefab, b7, Quaternion.identity);
+                    Instantiate(knightPrefab, g2, Quaternion.identity);
+
+                    Instantiate(rockPrefab, b2, Quaternion.identity);
+                    Instantiate(rockPrefab, c3, Quaternion.identity);
+                    Instantiate(rockPrefab, f6, Quaternion.identity);
+                    Instantiate(rockPrefab, g7, Quaternion.identity);
+                    break;
+                case 12:
+                    Instantiate(ponPrefab, c3, Quaternion.identity);
+                    Instantiate(ponPrefab, c6, Quaternion.identity);
+                    Instantiate(ponPrefab, f3, Quaternion.identity);
+                    Instantiate(ponPrefab, f6, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, a3, Quaternion.identity);
+                    Instantiate(bishopPrefab, a5, Quaternion.identity);
+                    Instantiate(bishopPrefab, a7, Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h4, Quaternion.identity);
+                    Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                    Instantiate(rockPrefab, d4, Quaternion.identity);
+                    Instantiate(rockPrefab, e5, Quaternion.identity);
+                    break;
+                case 13:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                    Instantiate(rockPrefab, c4, Quaternion.identity);
+                    Instantiate(rockPrefab, c7, Quaternion.identity);
+                    Instantiate(rockPrefab, f2, Quaternion.identity);
+                    Instantiate(rockPrefab, f5, Quaternion.identity);
+                    break;
+                case 14:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a6, Quaternion.identity);
+                    Instantiate(ponPrefab, c1, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+                    Instantiate(ponPrefab, d8, Quaternion.identity);
+                    Instantiate(ponPrefab, e8, Quaternion.identity);
+
+
+                    Instantiate(rockPrefab, a4, Quaternion.identity);
+                    Instantiate(rockPrefab, a5, Quaternion.identity);
+                    Instantiate(rockPrefab, d1, Quaternion.identity);
+                    Instantiate(rockPrefab, e1, Quaternion.identity);
+                    Instantiate(rockPrefab, h3, Quaternion.identity);
+                    Instantiate(rockPrefab, h8, Quaternion.identity);
+                    Instantiate(rockPrefab, c8, Quaternion.identity);
+                    Instantiate(rockPrefab, f8, Quaternion.identity);
+                    break;
+                case 15:
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, d1, Quaternion.identity);
+                    Instantiate(ponPrefab, e8, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+
+                    Instantiate(knightPrefab, b2, Quaternion.identity);
+                    Instantiate(knightPrefab, b7, Quaternion.identity);
+                    Instantiate(knightPrefab, g2, Quaternion.identity);
+                    Instantiate(knightPrefab, g7, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+                    Instantiate(bishopPrefab, f3, Quaternion.identity);
+
+                    Instantiate(rockPrefab, c3, Quaternion.identity);
+                    Instantiate(rockPrefab, c6, Quaternion.identity);
+                    break;
+            }
+        }
         if (RBcounter < 12) {
             switch (RockBossRange)
             {
@@ -655,28 +1355,178 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator bishopRound()
     {
 
-        roundNum = Random.Range(1, 5);
+        roundNum = Random.Range(1, 13);
         switch (roundNum)
         {
             case 1:
-                Instantiate(bishopPrefab, b2, Quaternion.identity);
-                Instantiate(bishopPrefab, b7, Quaternion.identity);
-                Instantiate(bishopPrefab, g2, Quaternion.identity);
-                Instantiate(bishopPrefab, g7, Quaternion.identity);
+                Instantiate(bishopPrefab, a1, Quaternion.identity);
+                Instantiate(bishopPrefab, a3, Quaternion.identity);
+                Instantiate(bishopPrefab, a5, Quaternion.identity);
+                Instantiate(bishopPrefab, a7, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+                Instantiate(bishopPrefab, h4, Quaternion.identity);
+                Instantiate(bishopPrefab, h6, Quaternion.identity);
+                Instantiate(bishopPrefab, h8, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, a1, Quaternion.identity);
+                Instantiate(bishopPrefab, b8, Quaternion.identity);
+                Instantiate(bishopPrefab, c1, Quaternion.identity);
+                Instantiate(bishopPrefab, d8, Quaternion.identity);
+                Instantiate(bishopPrefab, e1, Quaternion.identity);
+                Instantiate(bishopPrefab, f8, Quaternion.identity);
+                Instantiate(bishopPrefab, g1, Quaternion.identity);
+                Instantiate(bishopPrefab, h8, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(bishopPrefab, b7, Quaternion.identity);
+                Instantiate(bishopPrefab, a1, Quaternion.identity);
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, d4, Quaternion.identity);
+                Instantiate(bishopPrefab, e5, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+                Instantiate(bishopPrefab, h8, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(bishopPrefab, a8, Quaternion.identity);
+                Instantiate(bishopPrefab, b7, Quaternion.identity);
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+                Instantiate(bishopPrefab, d5, Quaternion.identity);
+                Instantiate(bishopPrefab, e4, Quaternion.identity);
+                Instantiate(bishopPrefab, f3, Quaternion.identity);
                 Instantiate(bishopPrefab, g2, Quaternion.identity);
+                Instantiate(bishopPrefab, h1, Quaternion.identity);
                 break;
             case 5:
-                Instantiate(bishopPrefab, g7, Quaternion.identity);
-                break;
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
 
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, b4, Quaternion.identity);
+                Instantiate(bishopPrefab, b6, Quaternion.identity);
+                Instantiate(bishopPrefab, g3, Quaternion.identity);
+                Instantiate(bishopPrefab, g5, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                break;
+            case 6:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, c7, Quaternion.identity);
+                Instantiate(bishopPrefab, d2, Quaternion.identity);
+                Instantiate(bishopPrefab, e7, Quaternion.identity);
+                Instantiate(bishopPrefab, f2, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                break;
+            case 7:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, c6, Quaternion.identity);
+                Instantiate(ponPrefab, f3, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                Instantiate(bishopPrefab, d5, Quaternion.identity);
+                Instantiate(bishopPrefab, e4, Quaternion.identity);
+
+                break;
+            case 8:
+                Instantiate(ponPrefab, a4, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+                break;
+            case 9:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c4, Quaternion.identity);
+                Instantiate(bishopPrefab, c7, Quaternion.identity);
+                Instantiate(bishopPrefab, f2, Quaternion.identity);
+                Instantiate(bishopPrefab, f5, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, c2, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, f7, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+                Instantiate(bishopPrefab, f3, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h3, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h7, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, a1, Quaternion.identity);
+                Instantiate(bishopPrefab, a8, Quaternion.identity);
+                Instantiate(bishopPrefab, d4, Quaternion.identity);
+                Instantiate(bishopPrefab, d5, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, c3, Quaternion.identity);
+                Instantiate(ponPrefab, d4, Quaternion.identity);
+                Instantiate(ponPrefab, e5, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, d4, Quaternion.identity);
+                Instantiate(bishopPrefab, d5, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+                Instantiate(bishopPrefab, h7, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c1, Quaternion.identity);
+                Instantiate(bishopPrefab, d8, Quaternion.identity);
+                Instantiate(bishopPrefab, e1, Quaternion.identity);
+                Instantiate(bishopPrefab, f8, Quaternion.identity);
+                break;
         }
         StartCoroutine(timer(delayTime));
         yield return null;
@@ -720,42 +1570,179 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator BishopBossRound()
     {
 
-        bishopBosNum = Random.Range(1, 5);
+        bishopBosNum = Random.Range(1, 13);
         if (firstBishopBossSpawn != false)
         {
             switch (bishopBosNum)
             {
                 case 1:
-                    Instantiate(lightningPrefep, c2 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, b3 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, d3 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, c4 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(bishopPrefab, a1, Quaternion.identity);
+                    Instantiate(bishopPrefab, a3, Quaternion.identity);
+                    Instantiate(bishopPrefab, a5, Quaternion.identity);
+                    Instantiate(bishopPrefab, a7, Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h4, Quaternion.identity);
+                    Instantiate(bishopPrefab, h6, Quaternion.identity);
+                    Instantiate(bishopPrefab, h8, Quaternion.identity);
                     break;
                 case 2:
-                    Instantiate(lightningPrefep, e3 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, f2 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, f4 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, g3 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(bishopPrefab, a1, Quaternion.identity);
+                    Instantiate(bishopPrefab, b8, Quaternion.identity);
+                    Instantiate(bishopPrefab, c1, Quaternion.identity);
+                    Instantiate(bishopPrefab, d8, Quaternion.identity);
+                    Instantiate(bishopPrefab, e1, Quaternion.identity);
+                    Instantiate(bishopPrefab, f8, Quaternion.identity);
+                    Instantiate(bishopPrefab, g1, Quaternion.identity);
+                    Instantiate(bishopPrefab, h8, Quaternion.identity);
                     break;
                 case 3:
-                    Instantiate(lightningPrefep, a3 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, b4 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, c5 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, d6 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, e7 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, f8 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(bishopPrefab, a1, Quaternion.identity);
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, d4, Quaternion.identity);
+                    Instantiate(bishopPrefab, e5, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+                    Instantiate(bishopPrefab, h8, Quaternion.identity);
                     break;
                 case 4:
-                    Instantiate(lightningPrefep, b5 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, c4 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, c6 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, d5 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(bishopPrefab, a8, Quaternion.identity);
+                    Instantiate(bishopPrefab, b7, Quaternion.identity);
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+                    Instantiate(bishopPrefab, d5, Quaternion.identity);
+                    Instantiate(bishopPrefab, e4, Quaternion.identity);
+                    Instantiate(bishopPrefab, f3, Quaternion.identity);
+                    Instantiate(bishopPrefab, g2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h1, Quaternion.identity);
                     break;
                 case 5:
-                    Instantiate(lightningPrefep, e6 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, f5 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, f7 + new Vector2(0, 0.2f), Quaternion.identity);
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, b4, Quaternion.identity);
+                    Instantiate(bishopPrefab, b6, Quaternion.identity);
+                    Instantiate(bishopPrefab, g3, Quaternion.identity);
+                    Instantiate(bishopPrefab, g5, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    break;
+                case 6:
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, c7, Quaternion.identity);
+                    Instantiate(bishopPrefab, d2, Quaternion.identity);
+                    Instantiate(bishopPrefab, e7, Quaternion.identity);
+                    Instantiate(bishopPrefab, f2, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    break;
+                case 7:
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, b7, Quaternion.identity);
+                    Instantiate(ponPrefab, c3, Quaternion.identity);
+                    Instantiate(ponPrefab, c6, Quaternion.identity);
+                    Instantiate(ponPrefab, f3, Quaternion.identity);
+                    Instantiate(ponPrefab, f6, Quaternion.identity);
+                    Instantiate(ponPrefab, g2, Quaternion.identity);
+                    Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, d5, Quaternion.identity);
+                    Instantiate(bishopPrefab, e4, Quaternion.identity);
+
+                    break;
+                case 8:
+                    Instantiate(ponPrefab, a4, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, d1, Quaternion.identity);
+                    Instantiate(ponPrefab, d8, Quaternion.identity);
+                    Instantiate(ponPrefab, e1, Quaternion.identity);
+                    Instantiate(ponPrefab, e8, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+                    break;
+                case 9:
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c4, Quaternion.identity);
+                    Instantiate(bishopPrefab, c7, Quaternion.identity);
+                    Instantiate(bishopPrefab, f2, Quaternion.identity);
+                    Instantiate(bishopPrefab, f5, Quaternion.identity);
+                    break;
+                case 10:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, c2, Quaternion.identity);
+                    Instantiate(ponPrefab, c8, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, f7, Quaternion.identity);
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+                    Instantiate(bishopPrefab, f3, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+                    break;
+                case 11:
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h3, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h7, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, a1, Quaternion.identity);
+                    Instantiate(bishopPrefab, a8, Quaternion.identity);
+                    Instantiate(bishopPrefab, d4, Quaternion.identity);
+                    Instantiate(bishopPrefab, d5, Quaternion.identity);
+                    break;
+                case 12:
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, c3, Quaternion.identity);
+                    Instantiate(ponPrefab, d4, Quaternion.identity);
+                    Instantiate(ponPrefab, e5, Quaternion.identity);
+                    Instantiate(ponPrefab, f6, Quaternion.identity);
+                    Instantiate(ponPrefab, g7, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, d4, Quaternion.identity);
+                    Instantiate(bishopPrefab, d5, Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h7, Quaternion.identity);
+                    break;
+                case 13:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c1, Quaternion.identity);
+                    Instantiate(bishopPrefab, d8, Quaternion.identity);
+                    Instantiate(bishopPrefab, e1, Quaternion.identity);
+                    Instantiate(bishopPrefab, f8, Quaternion.identity);
                     break;
             }
         }
@@ -777,7 +1764,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator QueenRound()
     {
 
-        roundNum = Random.Range(1, 5);
+        roundNum = Random.Range(1, 15);
         switch (roundNum)
         {
             case 1:
@@ -787,16 +1774,226 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(queenPrefab, g7, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(queenPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+                Instantiate(bishopPrefab, h4, Quaternion.identity);
+                Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                Instantiate(rockPrefab, a3, Quaternion.identity);
+                Instantiate(rockPrefab, a5, Quaternion.identity);
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+
+                Instantiate(queenPrefab, a1, Quaternion.identity);
+                Instantiate(queenPrefab, h8, Quaternion.identity);
+
                 break;
             case 3:
-                Instantiate(queenPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+
+                Instantiate(queenPrefab, c3, Quaternion.identity);
+                Instantiate(queenPrefab, f6, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, c6, Quaternion.identity);
+                Instantiate(knightPrefab, d4, Quaternion.identity);
+                Instantiate(knightPrefab, e5, Quaternion.identity);
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                Instantiate(queenPrefab, b7, Quaternion.identity);
                 Instantiate(queenPrefab, g2, Quaternion.identity);
                 break;
             case 5:
-                Instantiate(queenPrefab, g7, Quaternion.identity);
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, c6, Quaternion.identity);
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+                Instantiate(rockPrefab, b1, Quaternion.identity);
+                Instantiate(rockPrefab, g8, Quaternion.identity);
+                Instantiate(rockPrefab, h2, Quaternion.identity);
+
+                Instantiate(queenPrefab, d4, Quaternion.identity);
+                Instantiate(queenPrefab, d5, Quaternion.identity);
+                break;
+            case 6:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, c1, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, d2, Quaternion.identity);
+                Instantiate(ponPrefab, d8, Quaternion.identity);
+                Instantiate(ponPrefab, e1, Quaternion.identity);
+                Instantiate(ponPrefab, e7, Quaternion.identity);
+                Instantiate(ponPrefab, f6, Quaternion.identity);
+                Instantiate(ponPrefab, f8, Quaternion.identity);
+                Instantiate(ponPrefab, g5, Quaternion.identity);
+                Instantiate(ponPrefab, g6, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                Instantiate(queenPrefab, a1, Quaternion.identity);
+                Instantiate(queenPrefab, h8, Quaternion.identity);
+                break;
+            case 7:
+                Instantiate(bishopPrefab, a3, Quaternion.identity);
+                Instantiate(bishopPrefab, a5, Quaternion.identity);
+                Instantiate(bishopPrefab, a7, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+                Instantiate(bishopPrefab, h4, Quaternion.identity);
+                Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                Instantiate(rockPrefab, c3, Quaternion.identity);
+                Instantiate(rockPrefab, f6, Quaternion.identity);
+
+                Instantiate(queenPrefab, a1, Quaternion.identity);
+                Instantiate(queenPrefab, h8, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, b8, Quaternion.identity);
+                Instantiate(knightPrefab, c1, Quaternion.identity);
+                Instantiate(knightPrefab, d8, Quaternion.identity);
+                Instantiate(knightPrefab, e1, Quaternion.identity);
+                Instantiate(knightPrefab, f8, Quaternion.identity);
+                Instantiate(knightPrefab, g1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                Instantiate(queenPrefab, c3, Quaternion.identity);
+                Instantiate(queenPrefab, f6, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, g5, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                Instantiate(rockPrefab, a3, Quaternion.identity);
+                Instantiate(rockPrefab, a7, Quaternion.identity);
+                Instantiate(rockPrefab, b2, Quaternion.identity);
+                Instantiate(rockPrefab, b6, Quaternion.identity);
+
+                Instantiate(queenPrefab, a1, Quaternion.identity);
+                Instantiate(queenPrefab, a8, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b5, Quaternion.identity);
+                Instantiate(ponPrefab, d2, Quaternion.identity);
+                Instantiate(ponPrefab, d7, Quaternion.identity);
+                Instantiate(ponPrefab, e2, Quaternion.identity);
+                Instantiate(ponPrefab, e7, Quaternion.identity);
+                Instantiate(ponPrefab, g4, Quaternion.identity);
+                Instantiate(ponPrefab, g5, Quaternion.identity);
+
+
+                Instantiate(knightPrefab, c6, Quaternion.identity);
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+
+
+                Instantiate(queenPrefab, c3, Quaternion.identity);
+                Instantiate(queenPrefab, f6, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, a8, Quaternion.identity);
+                Instantiate(knightPrefab, h1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                Instantiate(queenPrefab, c6, Quaternion.identity);
+                Instantiate(queenPrefab, f3, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, c2, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, f7, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                Instantiate(queenPrefab, c5, Quaternion.identity);
+                Instantiate(queenPrefab, f4, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, b6, Quaternion.identity);
+                Instantiate(bishopPrefab, g3, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                Instantiate(rockPrefab, b4, Quaternion.identity);
+                Instantiate(rockPrefab, g5, Quaternion.identity);
+
+                Instantiate(queenPrefab, a8, Quaternion.identity);
+                Instantiate(queenPrefab, a1, Quaternion.identity);
+                break;
+            case 14:
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, b8, Quaternion.identity);
+                Instantiate(ponPrefab, c7, Quaternion.identity);
+                Instantiate(ponPrefab, f2, Quaternion.identity);
+                Instantiate(ponPrefab, g1, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+
+
+                Instantiate(rockPrefab, b2, Quaternion.identity);
+                Instantiate(rockPrefab, c3, Quaternion.identity);
+                Instantiate(rockPrefab, f6, Quaternion.identity);
+                Instantiate(rockPrefab, g7, Quaternion.identity);
+
+                Instantiate(queenPrefab, b7, Quaternion.identity);
+                Instantiate(queenPrefab, g2, Quaternion.identity);
+                break;
+            case 15:
+                Instantiate(ponPrefab, d1, Quaternion.identity);
+                Instantiate(ponPrefab, e8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+                Instantiate(bishopPrefab, f3, Quaternion.identity);
+
+                Instantiate(knightPrefab, b2, Quaternion.identity);
+                Instantiate(knightPrefab, b7, Quaternion.identity);
+                Instantiate(knightPrefab, g2, Quaternion.identity);
+                Instantiate(knightPrefab, g7, Quaternion.identity);
+
+
+                Instantiate(rockPrefab, c3, Quaternion.identity);
+                Instantiate(rockPrefab, f6, Quaternion.identity);
+
+
+                Instantiate(queenPrefab, a5, Quaternion.identity);
+                Instantiate(queenPrefab, h4, Quaternion.identity);
                 break;
 
         }
@@ -847,25 +2044,238 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator QueenBossRound()
     {
 
-        QueenBosNum = Random.Range(1, 5);
+        QueenBosNum = Random.Range(1, 15);
         if (firstQueenBossSpawn != false)
         {
             switch (QueenBosNum)
             {
                 case 1:
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(queenPrefab, b2, Quaternion.identity);
+                    Instantiate(queenPrefab, b7, Quaternion.identity);
+                    Instantiate(queenPrefab, g2, Quaternion.identity);
+                    Instantiate(queenPrefab, g7, Quaternion.identity);
                     break;
                 case 2:
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h4, Quaternion.identity);
+                    Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                    Instantiate(rockPrefab, a3, Quaternion.identity);
+                    Instantiate(rockPrefab, a5, Quaternion.identity);
+                    Instantiate(rockPrefab, a7, Quaternion.identity);
+
+                    Instantiate(queenPrefab, a1, Quaternion.identity);
+                    Instantiate(queenPrefab, h8, Quaternion.identity);
+
                     break;
                 case 3:
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, b8, Quaternion.identity);
+                    Instantiate(ponPrefab, c1, Quaternion.identity);
+                    Instantiate(ponPrefab, d8, Quaternion.identity);
+                    Instantiate(ponPrefab, e1, Quaternion.identity);
+                    Instantiate(ponPrefab, f8, Quaternion.identity);
+                    Instantiate(ponPrefab, g1, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+
+                    Instantiate(queenPrefab, c3, Quaternion.identity);
+                    Instantiate(queenPrefab, f6, Quaternion.identity);
                     break;
                 case 4:
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, c6, Quaternion.identity);
+                    Instantiate(knightPrefab, d4, Quaternion.identity);
+                    Instantiate(knightPrefab, e5, Quaternion.identity);
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                    Instantiate(queenPrefab, b7, Quaternion.identity);
+                    Instantiate(queenPrefab, g2, Quaternion.identity);
                     break;
                 case 5:
-                    Instantiate(lightningPrefep, g6 + new Vector2(0, 0.2f), Quaternion.identity);
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, c6, Quaternion.identity);
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                    Instantiate(rockPrefab, a7, Quaternion.identity);
+                    Instantiate(rockPrefab, b1, Quaternion.identity);
+                    Instantiate(rockPrefab, g8, Quaternion.identity);
+                    Instantiate(rockPrefab, h2, Quaternion.identity);
+
+                    Instantiate(queenPrefab, d4, Quaternion.identity);
+                    Instantiate(queenPrefab, d5, Quaternion.identity);
+                    break;
+                case 6:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, c1, Quaternion.identity);
+                    Instantiate(ponPrefab, c5, Quaternion.identity);
+                    Instantiate(ponPrefab, d2, Quaternion.identity);
+                    Instantiate(ponPrefab, d8, Quaternion.identity);
+                    Instantiate(ponPrefab, e1, Quaternion.identity);
+                    Instantiate(ponPrefab, e7, Quaternion.identity);
+                    Instantiate(ponPrefab, f6, Quaternion.identity);
+                    Instantiate(ponPrefab, f8, Quaternion.identity);
+                    Instantiate(ponPrefab, g5, Quaternion.identity);
+                    Instantiate(ponPrefab, g6, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                    Instantiate(queenPrefab, a1, Quaternion.identity);
+                    Instantiate(queenPrefab, h8, Quaternion.identity);
+                    break;
+                case 7:
+                    Instantiate(bishopPrefab, a3, Quaternion.identity);
+                    Instantiate(bishopPrefab, a5, Quaternion.identity);
+                    Instantiate(bishopPrefab, a7, Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+                    Instantiate(bishopPrefab, h4, Quaternion.identity);
+                    Instantiate(bishopPrefab, h6, Quaternion.identity);
+
+                    Instantiate(rockPrefab, c3, Quaternion.identity);
+                    Instantiate(rockPrefab, f6, Quaternion.identity);
+
+                    Instantiate(queenPrefab, a1, Quaternion.identity);
+                    Instantiate(queenPrefab, h8, Quaternion.identity);
+                    break;
+                case 8:
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, b8, Quaternion.identity);
+                    Instantiate(knightPrefab, c1, Quaternion.identity);
+                    Instantiate(knightPrefab, d8, Quaternion.identity);
+                    Instantiate(knightPrefab, e1, Quaternion.identity);
+                    Instantiate(knightPrefab, f8, Quaternion.identity);
+                    Instantiate(knightPrefab, g1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                    Instantiate(queenPrefab, c3, Quaternion.identity);
+                    Instantiate(queenPrefab, f6, Quaternion.identity);
+                    break;
+                case 9:
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, g5, Quaternion.identity);
+                    Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                    Instantiate(rockPrefab, a3, Quaternion.identity);
+                    Instantiate(rockPrefab, a7, Quaternion.identity);
+                    Instantiate(rockPrefab, b2, Quaternion.identity);
+                    Instantiate(rockPrefab, b6, Quaternion.identity);
+
+                    Instantiate(queenPrefab, a1, Quaternion.identity);
+                    Instantiate(queenPrefab, a8, Quaternion.identity);
+                    break;
+                case 10:
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, b5, Quaternion.identity);
+                    Instantiate(ponPrefab, d2, Quaternion.identity);
+                    Instantiate(ponPrefab, d7, Quaternion.identity);
+                    Instantiate(ponPrefab, e2, Quaternion.identity);
+                    Instantiate(ponPrefab, e7, Quaternion.identity);
+                    Instantiate(ponPrefab, g4, Quaternion.identity);
+                    Instantiate(ponPrefab, g5, Quaternion.identity);
+
+
+                    Instantiate(knightPrefab, c6, Quaternion.identity);
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+
+
+                    Instantiate(queenPrefab, c3, Quaternion.identity);
+                    Instantiate(queenPrefab, f6, Quaternion.identity);
+                    break;
+                case 11:
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, a8, Quaternion.identity);
+                    Instantiate(knightPrefab, h1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                    Instantiate(queenPrefab, c6, Quaternion.identity);
+                    Instantiate(queenPrefab, f3, Quaternion.identity);
+                    break;
+                case 12:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, c2, Quaternion.identity);
+                    Instantiate(ponPrefab, c8, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, f7, Quaternion.identity);
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                    Instantiate(queenPrefab, c5, Quaternion.identity);
+                    Instantiate(queenPrefab, f4, Quaternion.identity);
+                    break;
+                case 13:
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, b6, Quaternion.identity);
+                    Instantiate(bishopPrefab, g3, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+
+                    Instantiate(rockPrefab, b4, Quaternion.identity);
+                    Instantiate(rockPrefab, g5, Quaternion.identity);
+
+                    Instantiate(queenPrefab, a8, Quaternion.identity);
+                    Instantiate(queenPrefab, a1, Quaternion.identity);
+                    break;
+                case 14:
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, b8, Quaternion.identity);
+                    Instantiate(ponPrefab, c7, Quaternion.identity);
+                    Instantiate(ponPrefab, f2, Quaternion.identity);
+                    Instantiate(ponPrefab, g1, Quaternion.identity);
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+
+
+                    Instantiate(rockPrefab, b2, Quaternion.identity);
+                    Instantiate(rockPrefab, c3, Quaternion.identity);
+                    Instantiate(rockPrefab, f6, Quaternion.identity);
+                    Instantiate(rockPrefab, g7, Quaternion.identity);
+
+                    Instantiate(queenPrefab, b7, Quaternion.identity);
+                    Instantiate(queenPrefab, g2, Quaternion.identity);
+                    break;
+                case 15:
+                    Instantiate(ponPrefab, d1, Quaternion.identity);
+                    Instantiate(ponPrefab, e8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+                    Instantiate(bishopPrefab, f3, Quaternion.identity);
+
+                    Instantiate(knightPrefab, b2, Quaternion.identity);
+                    Instantiate(knightPrefab, b7, Quaternion.identity);
+                    Instantiate(knightPrefab, g2, Quaternion.identity);
+                    Instantiate(knightPrefab, g7, Quaternion.identity);
+
+
+                    Instantiate(rockPrefab, c3, Quaternion.identity);
+                    Instantiate(rockPrefab, f6, Quaternion.identity);
+
+
+                    Instantiate(queenPrefab, a5, Quaternion.identity);
+                    Instantiate(queenPrefab, h4, Quaternion.identity);
                     break;
             }
         }
@@ -889,27 +2299,196 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator KnightRound()
     {
 
-        roundNum = Random.Range(1, 5);
+        roundNum = Random.Range(1, 14);
         switch (roundNum)
         {
             case 1:
-                Instantiate(knightPrefab, b2, Quaternion.identity);
-                Instantiate(knightPrefab, b7, Quaternion.identity);
-                Instantiate(knightPrefab, g2, Quaternion.identity);
-                Instantiate(knightPrefab, g7, Quaternion.identity);
+                Instantiate(ponPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+                Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                Instantiate(knightPrefab, d4, Quaternion.identity);
+                Instantiate(knightPrefab, d5, Quaternion.identity);
+                Instantiate(knightPrefab, e4, Quaternion.identity);
+                Instantiate(knightPrefab, e5, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(knightPrefab, b2, Quaternion.identity);
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(knightPrefab, d4, Quaternion.identity);
+                Instantiate(knightPrefab, e5, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(knightPrefab, b7, Quaternion.identity);
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+                Instantiate(bishopPrefab, f3, Quaternion.identity);
+                Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, a8, Quaternion.identity);
+                Instantiate(knightPrefab, h1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
                 break;
             case 4:
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, d3, Quaternion.identity);
+                Instantiate(ponPrefab, e6, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+
+                Instantiate(bishopPrefab, d4, Quaternion.identity);
+                Instantiate(bishopPrefab, e5, Quaternion.identity);
+
+                Instantiate(knightPrefab, b2, Quaternion.identity);
+                Instantiate(knightPrefab, b7, Quaternion.identity);
                 Instantiate(knightPrefab, g2, Quaternion.identity);
-                break;
-            case 5:
                 Instantiate(knightPrefab, g7, Quaternion.identity);
                 break;
+            case 5:
+                Instantiate(knightPrefab, c5, Quaternion.identity);
+                Instantiate(knightPrefab, d4, Quaternion.identity);
+                Instantiate(knightPrefab, d6, Quaternion.identity);
+                Instantiate(knightPrefab, e3, Quaternion.identity);
+                Instantiate(knightPrefab, e5, Quaternion.identity);
+                Instantiate(knightPrefab, f4, Quaternion.identity);
+                break;
+            case 6:
+
+                Instantiate(bishopPrefab, a7, Quaternion.identity);
+                Instantiate(bishopPrefab, c1, Quaternion.identity);
+                Instantiate(bishopPrefab, f8, Quaternion.identity);
+                Instantiate(bishopPrefab, h2, Quaternion.identity);
+
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, c6, Quaternion.identity);
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+                break;
+            case 7:
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, b4, Quaternion.identity);
+                Instantiate(bishopPrefab, b6, Quaternion.identity);
+                Instantiate(bishopPrefab, g3, Quaternion.identity);
+                Instantiate(bishopPrefab, g5, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+                break;
+            case 8:
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, b6, Quaternion.identity);
+                Instantiate(ponPrefab, c2, Quaternion.identity);
+                Instantiate(ponPrefab, c8, Quaternion.identity);
+                Instantiate(ponPrefab, f1, Quaternion.identity);
+                Instantiate(ponPrefab, f7, Quaternion.identity);
+                Instantiate(ponPrefab, g3, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+                break;
+            case 9:
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, c7, Quaternion.identity);
+                Instantiate(bishopPrefab, d2, Quaternion.identity);
+                Instantiate(bishopPrefab, e7, Quaternion.identity);
+                Instantiate(bishopPrefab, f2, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+                break;
+            case 10:
+                Instantiate(ponPrefab, h1, Quaternion.identity);
+                Instantiate(ponPrefab, h2, Quaternion.identity);
+                Instantiate(ponPrefab, h3, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+                Instantiate(ponPrefab, h5, Quaternion.identity);
+                Instantiate(ponPrefab, h6, Quaternion.identity);
+                Instantiate(ponPrefab, h7, Quaternion.identity);
+                Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                Instantiate(bishopPrefab, c3, Quaternion.identity);
+                Instantiate(bishopPrefab, c6, Quaternion.identity);
+
+                Instantiate(knightPrefab, a1, Quaternion.identity);
+                Instantiate(knightPrefab, a8, Quaternion.identity);
+                break;
+            case 11:
+                Instantiate(ponPrefab, a1, Quaternion.identity);
+                Instantiate(ponPrefab, a2, Quaternion.identity);
+                Instantiate(ponPrefab, a3, Quaternion.identity);
+                Instantiate(ponPrefab, a4, Quaternion.identity);
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a6, Quaternion.identity);
+                Instantiate(ponPrefab, a7, Quaternion.identity);
+                Instantiate(ponPrefab, a8, Quaternion.identity);
+
+                Instantiate(knightPrefab, h2, Quaternion.identity);
+                Instantiate(knightPrefab, h4, Quaternion.identity);
+                Instantiate(knightPrefab, h6, Quaternion.identity);
+                Instantiate(knightPrefab, h8, Quaternion.identity);
+                break;
+            case 12:
+                Instantiate(ponPrefab, b4, Quaternion.identity);
+                Instantiate(ponPrefab, b5, Quaternion.identity);
+                Instantiate(ponPrefab, d2, Quaternion.identity);
+                Instantiate(ponPrefab, d7, Quaternion.identity);
+                Instantiate(ponPrefab, e2, Quaternion.identity);
+                Instantiate(ponPrefab, e7, Quaternion.identity);
+                Instantiate(ponPrefab, g4, Quaternion.identity);
+                Instantiate(ponPrefab, g5, Quaternion.identity);
+
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, c6, Quaternion.identity);
+                Instantiate(knightPrefab, f3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+                break;
+            case 13:
+                Instantiate(ponPrefab, a5, Quaternion.identity);
+                Instantiate(ponPrefab, a6, Quaternion.identity);
+                Instantiate(ponPrefab, h3, Quaternion.identity);
+                Instantiate(ponPrefab, h4, Quaternion.identity);
+
+                Instantiate(bishopPrefab, b2, Quaternion.identity);
+                Instantiate(bishopPrefab, b4, Quaternion.identity);
+                Instantiate(bishopPrefab, g5, Quaternion.identity);
+                Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                Instantiate(knightPrefab, b7, Quaternion.identity);
+                Instantiate(knightPrefab, g2, Quaternion.identity);
+
+                break;
+            case 14:
+                Instantiate(ponPrefab, b7, Quaternion.identity);
+                Instantiate(ponPrefab, c5, Quaternion.identity);
+                Instantiate(ponPrefab, d6, Quaternion.identity);
+                Instantiate(ponPrefab, e3, Quaternion.identity);
+                Instantiate(ponPrefab, f4, Quaternion.identity);
+                Instantiate(ponPrefab, g2, Quaternion.identity);
+
+                Instantiate(knightPrefab, c3, Quaternion.identity);
+                Instantiate(knightPrefab, f6, Quaternion.identity);
+
+                break;
+
+
+
 
         }
         StartCoroutine(timer(delayTime));
@@ -962,25 +2541,194 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator KnightBossRound()
     {
 
-        KnightBosNum = Random.Range(1, 5);
+        KnightBosNum = Random.Range(1, 14);
         if (firstKnightBossSpawn != false)
         {
             switch (KnightBosNum)
             {
                 case 1:
-                    Instantiate(knightPrefab, b5 , Quaternion.identity);
+                    Instantiate(ponPrefab, b2, Quaternion.identity);
+                    Instantiate(ponPrefab, b7, Quaternion.identity);
+                    Instantiate(ponPrefab, g2, Quaternion.identity);
+                    Instantiate(ponPrefab, g7, Quaternion.identity);
+
+                    Instantiate(knightPrefab, d4, Quaternion.identity);
+                    Instantiate(knightPrefab, d5, Quaternion.identity);
+                    Instantiate(knightPrefab, e4, Quaternion.identity);
+                    Instantiate(knightPrefab, e5, Quaternion.identity);
                     break;
                 case 2:
-                    Instantiate(knightPrefab, b5 , Quaternion.identity);
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(knightPrefab, d4, Quaternion.identity);
+                    Instantiate(knightPrefab, e5, Quaternion.identity);
                     break;
                 case 3:
-                    Instantiate(knightPrefab, b5 , Quaternion.identity);
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+                    Instantiate(bishopPrefab, f3, Quaternion.identity);
+                    Instantiate(bishopPrefab, f6, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, a8, Quaternion.identity);
+                    Instantiate(knightPrefab, h1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
                     break;
                 case 4:
-                    Instantiate(knightPrefab, b5 , Quaternion.identity);
+                    Instantiate(ponPrefab, c5, Quaternion.identity);
+                    Instantiate(ponPrefab, d3, Quaternion.identity);
+                    Instantiate(ponPrefab, e6, Quaternion.identity);
+                    Instantiate(ponPrefab, f4, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, d4, Quaternion.identity);
+                    Instantiate(bishopPrefab, e5, Quaternion.identity);
+
+                    Instantiate(knightPrefab, b2, Quaternion.identity);
+                    Instantiate(knightPrefab, b7, Quaternion.identity);
+                    Instantiate(knightPrefab, g2, Quaternion.identity);
+                    Instantiate(knightPrefab, g7, Quaternion.identity);
                     break;
                 case 5:
-                    Instantiate(knightPrefab, b5 , Quaternion.identity);
+                    Instantiate(knightPrefab, c5, Quaternion.identity);
+                    Instantiate(knightPrefab, d4, Quaternion.identity);
+                    Instantiate(knightPrefab, d6, Quaternion.identity);
+                    Instantiate(knightPrefab, e3, Quaternion.identity);
+                    Instantiate(knightPrefab, e5, Quaternion.identity);
+                    Instantiate(knightPrefab, f4, Quaternion.identity);
+                    break;
+                case 6:
+
+                    Instantiate(bishopPrefab, a7, Quaternion.identity);
+                    Instantiate(bishopPrefab, c1, Quaternion.identity);
+                    Instantiate(bishopPrefab, f8, Quaternion.identity);
+                    Instantiate(bishopPrefab, h2, Quaternion.identity);
+
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, c6, Quaternion.identity);
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+                    break;
+                case 7:
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, b4, Quaternion.identity);
+                    Instantiate(bishopPrefab, b6, Quaternion.identity);
+                    Instantiate(bishopPrefab, g3, Quaternion.identity);
+                    Instantiate(bishopPrefab, g5, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+                    break;
+                case 8:
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, b6, Quaternion.identity);
+                    Instantiate(ponPrefab, c2, Quaternion.identity);
+                    Instantiate(ponPrefab, c8, Quaternion.identity);
+                    Instantiate(ponPrefab, f1, Quaternion.identity);
+                    Instantiate(ponPrefab, f7, Quaternion.identity);
+                    Instantiate(ponPrefab, g3, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+
+
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+                    break;
+                case 9:
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, c7, Quaternion.identity);
+                    Instantiate(bishopPrefab, d2, Quaternion.identity);
+                    Instantiate(bishopPrefab, e7, Quaternion.identity);
+                    Instantiate(bishopPrefab, f2, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+                    break;
+                case 10:
+                    Instantiate(ponPrefab, h1, Quaternion.identity);
+                    Instantiate(ponPrefab, h2, Quaternion.identity);
+                    Instantiate(ponPrefab, h3, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+                    Instantiate(ponPrefab, h5, Quaternion.identity);
+                    Instantiate(ponPrefab, h6, Quaternion.identity);
+                    Instantiate(ponPrefab, h7, Quaternion.identity);
+                    Instantiate(ponPrefab, h8, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, c3, Quaternion.identity);
+                    Instantiate(bishopPrefab, c6, Quaternion.identity);
+
+                    Instantiate(knightPrefab, a1, Quaternion.identity);
+                    Instantiate(knightPrefab, a8, Quaternion.identity);
+                    break;
+                case 11:
+                    Instantiate(ponPrefab, a1, Quaternion.identity);
+                    Instantiate(ponPrefab, a2, Quaternion.identity);
+                    Instantiate(ponPrefab, a3, Quaternion.identity);
+                    Instantiate(ponPrefab, a4, Quaternion.identity);
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a6, Quaternion.identity);
+                    Instantiate(ponPrefab, a7, Quaternion.identity);
+                    Instantiate(ponPrefab, a8, Quaternion.identity);
+
+                    Instantiate(knightPrefab, h2, Quaternion.identity);
+                    Instantiate(knightPrefab, h4, Quaternion.identity);
+                    Instantiate(knightPrefab, h6, Quaternion.identity);
+                    Instantiate(knightPrefab, h8, Quaternion.identity);
+                    break;
+                case 12:
+                    Instantiate(ponPrefab, b4, Quaternion.identity);
+                    Instantiate(ponPrefab, b5, Quaternion.identity);
+                    Instantiate(ponPrefab, d2, Quaternion.identity);
+                    Instantiate(ponPrefab, d7, Quaternion.identity);
+                    Instantiate(ponPrefab, e2, Quaternion.identity);
+                    Instantiate(ponPrefab, e7, Quaternion.identity);
+                    Instantiate(ponPrefab, g4, Quaternion.identity);
+                    Instantiate(ponPrefab, g5, Quaternion.identity);
+
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, c6, Quaternion.identity);
+                    Instantiate(knightPrefab, f3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+                    break;
+                case 13:
+                    Instantiate(ponPrefab, a5, Quaternion.identity);
+                    Instantiate(ponPrefab, a6, Quaternion.identity);
+                    Instantiate(ponPrefab, h3, Quaternion.identity);
+                    Instantiate(ponPrefab, h4, Quaternion.identity);
+
+                    Instantiate(bishopPrefab, b2, Quaternion.identity);
+                    Instantiate(bishopPrefab, b4, Quaternion.identity);
+                    Instantiate(bishopPrefab, g5, Quaternion.identity);
+                    Instantiate(bishopPrefab, g7, Quaternion.identity);
+
+                    Instantiate(knightPrefab, b7, Quaternion.identity);
+                    Instantiate(knightPrefab, g2, Quaternion.identity);
+
+                    break;
+                case 14:
+                    Instantiate(ponPrefab, b7, Quaternion.identity);
+                    Instantiate(ponPrefab, c5, Quaternion.identity);
+                    Instantiate(ponPrefab, d6, Quaternion.identity);
+                    Instantiate(ponPrefab, e3, Quaternion.identity);
+                    Instantiate(ponPrefab, f4, Quaternion.identity);
+                    Instantiate(ponPrefab, g2, Quaternion.identity);
+
+                    Instantiate(knightPrefab, c3, Quaternion.identity);
+                    Instantiate(knightPrefab, f6, Quaternion.identity);
+
                     break;
             }
         }

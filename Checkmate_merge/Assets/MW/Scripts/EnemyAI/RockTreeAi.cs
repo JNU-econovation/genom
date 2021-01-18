@@ -12,7 +12,7 @@ public class RockTreeAi : MonoBehaviour
     public Animator animator;
 
 
-    float duration = 0.23255813953488372093023255813953f /2;
+    float duration = 0.23255813953488372093023255813953f * 1;
     public float step = 1f;
     public float delayTime = 10f;
 

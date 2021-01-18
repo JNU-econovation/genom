@@ -15,6 +15,8 @@ public class RockController : MonoBehaviour
 
     }
 
+
+
     public void RockKilledByPlayer()
     {
         Destroy(rock);
@@ -38,7 +40,7 @@ public class RockController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+            //GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
         else if (collision.tag == "Hand")
         {
@@ -76,8 +78,58 @@ public class RockController : MonoBehaviour
 
             RockKilledByEnemy();
         }
-
-
+        else if (collision.tag == "PSW")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            RockKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
+            RockKilledByEnemy();
+        }
 
 
     }

@@ -12,7 +12,7 @@ public class BishopTreeAi : MonoBehaviour
     public Animator animator;
 
 
-    float duration = 0.23255813953488372093023255813953f /2;
+    float duration = 0.23255813953488372093023255813953f * 2;
     public float step = 1f;
     public float delayTime = 10f;
 
@@ -77,7 +77,7 @@ public class BishopTreeAi : MonoBehaviour
     IEnumerator Wait(BishopWaitNode waitNode)
     {
 
-        delayTime = 0.93023255813953488372093023255814f* 5f;
+        delayTime = 0.93023255813953488372093023255814f* 4f;
         while(delayTime > 0)
         {
             transform.gameObject.tag = "BishopCanKilled";

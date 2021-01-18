@@ -35,7 +35,58 @@ public class KnightController : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
         }
 
-
+        else if (collision.tag == "PSW")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            KnightKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
+            KnightKilledByEnemy();
+        }
         else if (collision.tag == "Hand")
         {
             KnightKilledByEnemy();

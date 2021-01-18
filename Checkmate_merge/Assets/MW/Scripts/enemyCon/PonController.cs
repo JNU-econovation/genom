@@ -39,8 +39,63 @@ public class PonController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+
         }
+
+
+        else if (collision.tag == "PSW")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            PonKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
+            PonKilledByEnemy();
+        }
+
 
 
 

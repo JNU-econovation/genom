@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    float delayTime = 0.93023255813953488372093023255812f;
     public static GameManager instance;
 
     public bool isPlay = false;//플레이 중인가?
@@ -117,14 +118,14 @@ public class GameManager : MonoBehaviour
     //생존 점수 계산
     public IEnumerator AddScore()
     {
-        yield return new WaitForSeconds(4f);//4초 후에 점수 카운트 시작
+        yield return new WaitForSeconds(delayTime* 4f);//4초 후에 점수 카운트 시작
 
         while (isPlay)
         {
             
             score++;
             scoreText.text = "score : " + score.ToString();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(delayTime*0.5f);
             
         }
         // isPlay false시 공회전 코루틴 시작
@@ -138,7 +139,7 @@ public class GameManager : MonoBehaviour
     //MW 추가내역, 보스전투시 점수 공회전 코루틴
     public IEnumerator WaitAddScore()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(delayTime);
         StartCoroutine(AddScore());
     }
 

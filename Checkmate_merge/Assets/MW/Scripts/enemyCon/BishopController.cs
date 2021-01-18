@@ -39,7 +39,7 @@ public class BishopController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+            //GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
 
 
@@ -74,14 +74,11 @@ public class BishopController : MonoBehaviour
         }
   
 
-        else if (collision.tag == "BishopCanKill")
+        else if (collision.tag == "BishopCanKill" && bishop.tag == "BishopCanKilled")
         {
             BishopKilledByEnemy();
         }
-        else if (collision.tag == "BishopCanKilled")
-        {
-            BishopKilledByEnemy();
-        }
+
 
         else if (collision.tag == "RockCanKill")
         {
@@ -91,6 +88,58 @@ public class BishopController : MonoBehaviour
         else if (collision.tag == "RockCanKilled")
         {
 
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "PSW")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            BishopKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
             BishopKilledByEnemy();
         }
     }

@@ -41,20 +41,71 @@ public class QueenController : MonoBehaviour
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+           // GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
         else if (collision.tag == "Player" && queen.tag == "QBCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+          //  GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
         if (collision.tag == "Hand")
         {
             QueenKilledByEnemy();
             //GameManager.instance.EnemyScore(king_score);
         }
-
+        else if (collision.tag == "PSW")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "PSW_over")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "RBp")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "RBover")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "QBattack")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "QBcanKilled")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "QBCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "BBCanKilled")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "spearAtt")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "QBEatAtt")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+        else if (collision.tag == "KBCanKilled")
+        {
+            QueenKilledByEnemy();
+        }
         else if (collision.tag == "KingCanKill")
         {
             QueenKilledByEnemy();
