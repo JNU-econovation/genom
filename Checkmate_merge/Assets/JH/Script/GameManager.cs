@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour
     
     public static int score;//기본 점수
     public Text scoreText;
-
-    public int enemyscore;//적 점수
+    private static int enemyscore;//적 점수
     public Text enemyscore_text;
-
     private int lastscore;//총 점수
     public Text lastscore_txt;
 
@@ -55,31 +53,27 @@ public class GameManager : MonoBehaviour
         scoreText.text = "score : " + score.ToString();
         enemyscore = 0;
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
-
-        
-
+    
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
-        
+      
     }
 
-    //점수에 따라 대화 시작
     public void Update()
     {
         
-
-        if (score == 100 && state == State.offDialog)
-        {
-            state = State.onDialog;
+        if (score == 5 && state == State.offDialog)
+            {
+                state = State.onDialog;
                 
-            FindObjectOfType<DialogManager>().FirstDialog();
+                FindObjectOfType<DialogManager>().FirstDialog();
 
         }
-        if (score == 120 && state == State.offDialog)//폰
-        {
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog1));
+        if (score == 10 && state == State.offDialog)//폰
+            {
+                state = State.onDialog;
+                StartCoroutine(Dialog(dialog1));
 
-        }
+            }
         if (score == 150 && state == State.offDialog)//비숍
             {
                 state = State.onDialog;
@@ -107,21 +101,7 @@ public class GameManager : MonoBehaviour
             }
   
     }
-
     
-
-    //적 점수 계산
-    public void EnemyScore(int value)
-    { 
-        enemyscore += value;//value 만큼 적 점수 증가
-        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
-
-        
-    }
-
-    
-
-
     //대화 
     public IEnumerator Dialog(Dialog dialog)
     {
@@ -150,8 +130,12 @@ public class GameManager : MonoBehaviour
  
     }
 
-    
-
+    //적 점수 계산
+    public void EnemyScore(int value)
+    {
+        enemyscore += value;//value 만큼 적 점수 증가
+        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+    }
    
 
     //게임오버시 게임오버UI 활성화

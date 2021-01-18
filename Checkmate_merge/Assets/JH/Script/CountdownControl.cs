@@ -8,7 +8,7 @@ public class CountdownControl : MonoBehaviour
     public int countdownTime;
     public Text countdownTxt;
     public GameObject player;
-    
+
     public void Start()
     {
         player.SetActive(false);

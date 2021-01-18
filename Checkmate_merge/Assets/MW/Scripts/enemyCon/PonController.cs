@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PonController : MonoBehaviour
 {
@@ -16,15 +15,14 @@ public class PonController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void PonKilledByPlayer()//폰이 플레이어에 잡혔을 때(폰 파괴)
+    public void PonKilledByPlayer()//폰이 플레이어에 잡혔을 때 함수(폰 파괴)
     {
         Destroy(pon);
     }
-    public void PonKilledByEnemy()//폰이 다른 적에게 잡혔을때(폰 파괴)
+    public void PonKilledByEnemy()
     {
         Destroy(pon);
     }
-    [SerializeField] GameObject Prefab_floatingText;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,12 +32,7 @@ public class PonController : MonoBehaviour
            
             PonKilledByPlayer();
             GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
-
-            string message = "+" + pon_score;
-            FloatingTextManager.instance.CreateFloatingText(transform.position, message);
-
-            Debug.Log("적 위치: " + pon.transform.position);
-            
+           
 
         }
         else if (collision.tag == "Player" && pon.tag == "PonCanKill")//폰이 플레이어를 죽임(게임 오버)
@@ -48,6 +41,8 @@ public class PonController : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
+
+
 
         else if (collision.tag == "Hand")
         {
@@ -113,8 +108,6 @@ public class PonController : MonoBehaviour
         }
 
     }
-
-  
 
     void Update()//매 프레임마다 폰의 위치를 파악하여 범위에서 벗어나면 폰 파괴
     {
