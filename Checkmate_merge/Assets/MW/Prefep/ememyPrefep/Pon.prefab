@@ -126,6 +126,8 @@ MonoBehaviour:
   pon: {fileID: 3724667215419304269}
   pon_score: 1
   sortingOrder: 0
+  Prefab_floatingText: {fileID: 5721019282987461981, guid: aff9f59c7937f4842b133c1a22457e03,
+    type: 3}
 --- !u!61 &3724667215419304240
 BoxCollider2D:
   m_ObjectHideFlags: 0

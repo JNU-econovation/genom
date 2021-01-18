@@ -124,7 +124,7 @@ public class DialogManager : MonoBehaviour
     //스페이스바 누르면 다음 문장 실행
     private void Update()
     {
-        Debug.Log("isPause:"+PauseManager.instance.isPaused + "canKeycontrol:"+ canKeyControl );
+        
 
         if (isFirst&&canKeyControl)
         {
@@ -195,7 +195,7 @@ public class DialogManager : MonoBehaviour
             }
             else
                 standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);
-            Debug.Log("Sprite:" + standing_cg.sprite + " Position:" + standing_cg.transform.position + " count:" + count);
+            
         }
 
         //대사 1글자씩 출력 

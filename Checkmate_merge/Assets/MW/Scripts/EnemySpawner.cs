@@ -87,6 +87,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject knightPrefab;
     public GameObject kingPrefab;
     public GameObject queenPrefab;
+
     public GameObject devilHand;
 
     Vector2 ponBossPos = new Vector2(0.81f, 3.62f);

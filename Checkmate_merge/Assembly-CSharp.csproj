@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\JH\Script\CountdownControl.cs" />
     <Compile Include="Assets\JH\Script\DialogManager.cs" />
+    <Compile Include="Assets\JH\Script\FloatingText.cs" />
+    <Compile Include="Assets\JH\Script\FloatingTextManager.cs" />
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
     <Compile Include="Assets\JH\Script\PauseManager.cs" />
