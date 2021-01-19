@@ -132,9 +132,9 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
 
 
-            if (rectJoystick.localPosition.x >= 4)
+            if (rectJoystick.localPosition.x >= 8)
             {
-                if (rectJoystick.localPosition.y < 6 && rectJoystick.localPosition.y > -6) // 오른쪽
+                if (rectJoystick.localPosition.y < 8 && rectJoystick.localPosition.y > -8) // 오른쪽
                 {
 
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 0f);
@@ -144,14 +144,14 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
 
                 }
-                if (rectJoystick.localPosition.y < 19 && rectJoystick.localPosition.y > 6)  // 오른쪽 상단
+                if (rectJoystick.localPosition.y < 19 && rectJoystick.localPosition.y > 8)  // 오른쪽 상단
                 {
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", 1);
                     animator.SetFloat("Magnitude", 1);
                 }
-                if (rectJoystick.localPosition.y < -6 && rectJoystick.localPosition.y > -19)   //오른쪽 하단
+                if (rectJoystick.localPosition.y < -8 && rectJoystick.localPosition.y > -19)   //오른쪽 하단
                 {
                     PlayerPivot.transform.localPosition = new Vector2(1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);
@@ -160,9 +160,9 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                 }
             }
 
-            if (rectJoystick.localPosition.x > -6 && rectJoystick.localPosition.x < 6)
+            if (rectJoystick.localPosition.x > -8 && rectJoystick.localPosition.x < 8)
             {
-                if (rectJoystick.localPosition.y > 6)
+                if (rectJoystick.localPosition.y > 8)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(0f, 1.1f);     //가운데 상단
                     animator.SetFloat("Horizontal", 1);
@@ -170,7 +170,7 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                     animator.SetFloat("Magnitude", 1);
 
                 }
-                if (rectJoystick.localPosition.y < -6)
+                if (rectJoystick.localPosition.y < -8)
                 {
                     PlayerPivot.transform.localPosition = new Vector2(0f, -1.1f);     //가운데 하단
                     animator.SetFloat("Horizontal", -1);
@@ -179,25 +179,25 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
                 }
             }
 
-            if (rectJoystick.localPosition.x <= -6)
+            if (rectJoystick.localPosition.x <= -8)
             {
 
 
-                if (rectJoystick.localPosition.y < 6 && rectJoystick.localPosition.y > -6)  //오른쪽 
+                if (rectJoystick.localPosition.y < 8 && rectJoystick.localPosition.y > -8)  //오른쪽 
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 0f);
                     animator.SetFloat("Horizontal", 0);
                     animator.SetFloat("Vertical", -1);
                     animator.SetFloat("Magnitude", 1);
                 }
-                if (rectJoystick.localPosition.y < 19 && rectJoystick.localPosition.y > 6)    //오른쪽 상단
+                if (rectJoystick.localPosition.y < 19 && rectJoystick.localPosition.y > 8)    //오른쪽 상단
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, 1.1f);
                     animator.SetFloat("Horizontal", 1);
                     animator.SetFloat("Vertical", -1);
                     animator.SetFloat("Magnitude", 1);
                 }
-                if (rectJoystick.localPosition.y < -6 && rectJoystick.localPosition.y > -19)     //오른쪽 하단.
+                if (rectJoystick.localPosition.y < -8 && rectJoystick.localPosition.y > -19)     //오른쪽 하단.
                 {
                     PlayerPivot.transform.localPosition = new Vector2(-1.1f, -1.1f);
                     animator.SetFloat("Horizontal", -1);

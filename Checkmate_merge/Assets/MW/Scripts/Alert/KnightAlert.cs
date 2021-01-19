@@ -25,7 +25,7 @@ public class KnightAlert : MonoBehaviour
 
     void setRound()
     {
-        Instantiate(knightPrefab, this.transform.position + new Vector3(0, 0.714f, 0), Quaternion.identity);
+        Instantiate(knightPrefab, this.transform.position + new Vector3(0, 0.81f, 0), Quaternion.identity);
         Destroy(knightAlt);
 
     }

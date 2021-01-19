@@ -31,6 +31,7 @@ TagManager:
   - spearAtt
   - QBEatAtt
   - KBCanKill
+  - KBCanKilled
   layers:
   - Default
   - TransparentFX
@@ -68,14 +69,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: C
+    uniqueID: 3798774631
+    locked: 0
   - name: B
     uniqueID: 409418069
     locked: 0
   - name: A
     uniqueID: 2494257215
-    locked: 0
-  - name: C
-    uniqueID: 3798774631
     locked: 0
   - name: D
     uniqueID: 2002519779

@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     //MW 추가내역, 보스전투시 점수 공회전 코루틴
     public IEnumerator WaitAddScore()
     {
-        yield return new WaitForSeconds(delayTime);
+        yield return new WaitForSeconds(delayTime*0.25f);
         StartCoroutine(AddScore());
     }
 
