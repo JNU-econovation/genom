@@ -32,6 +32,9 @@ public class BishopController : MonoBehaviour
             BishopKilledByPlayer();
             GameManager.instance.EnemyScore(bishop_score);
 
+            string message = "+" + bishop_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
 
 

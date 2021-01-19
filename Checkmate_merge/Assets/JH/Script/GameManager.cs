@@ -62,14 +62,14 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         
-        if (score == 5 && state == State.offDialog)
+        if (score == 100 && state == State.offDialog)
             {
                 state = State.onDialog;
                 
                 FindObjectOfType<DialogManager>().FirstDialog();
 
-        }
-        if (score == 10 && state == State.offDialog)//폰
+            }
+        if (score == 120 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));

@@ -30,6 +30,9 @@ public class QueenController : MonoBehaviour
             QueenKilledByPlayer();
             GameManager.instance.EnemyScore(queen_score);
 
+            string message = "+" + queen_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
         else if (collision.tag == "Player" && queen.tag == "QBCanKilled")
         {

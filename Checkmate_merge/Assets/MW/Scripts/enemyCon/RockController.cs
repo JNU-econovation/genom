@@ -33,6 +33,9 @@ public class RockController : MonoBehaviour
             RockKilledByPlayer();
             GameManager.instance.EnemyScore(rock_score);
 
+            string message = "+" + rock_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
 
 
