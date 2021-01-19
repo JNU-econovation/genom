@@ -20,10 +20,9 @@ public class KBatt : MonoBehaviour
     IEnumerator destroy()
     {
 
-        yield return new WaitForSeconds(0.4f);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         me.gameObject.tag = "skillATT";
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(me);
 
 
