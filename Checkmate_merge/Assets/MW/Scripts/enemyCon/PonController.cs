@@ -32,9 +32,6 @@ public class PonController : MonoBehaviour
            
             PonKilledByPlayer();
             GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
-
-            string message = "+" + pon_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트(+1)
            
 
         }
@@ -43,6 +40,12 @@ public class PonController : MonoBehaviour
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
 
+        }
+
+        else if (collision.tag == "skillATT")
+        {
+            PonKilledByPlayer();
+            GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
         }
 
 

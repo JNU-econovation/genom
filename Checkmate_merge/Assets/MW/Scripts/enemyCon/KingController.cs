@@ -31,12 +31,13 @@ public class KingController : MonoBehaviour
         {
             KingKilledByPlayer();
             GameManager.instance.EnemyScore(king_score);
-
-            string message = "+" + king_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
 
-
+        else if (collision.tag == "skillATT")
+        {
+            KingKilledByPlayer();
+            GameManager.instance.EnemyScore(king_score);
+        }
         else if (collision.tag == "Player" && king.tag == "KingCanKill")
         {
 
