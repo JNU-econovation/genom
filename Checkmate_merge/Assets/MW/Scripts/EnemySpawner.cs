@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 60 ;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 15 ;
     bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
@@ -121,12 +121,12 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    int ponRoundScoreRange = 151;
-    int bishopRoundScoreRange = 301;
-    int knightRoundScoreRange = 451;
-    int rockRoundScoreRange = 601;
-    int queenRoundScoreRange = 751;
-    int kingRoundScoreRange = 901;
+    int ponRoundScoreRange = 1;
+    int bishopRoundScoreRange = 2;
+    int knightRoundScoreRange = 3;
+    int rockRoundScoreRange = 4;
+    int queenRoundScoreRange = 5;
+    int kingRoundScoreRange = 55;
 
     // Start is called before the first frame update
     void Start()
@@ -981,8 +981,28 @@ public class EnemySpawner : MonoBehaviour
     {
         StopAllCoroutines();
         reset2 = true;
-        StartCoroutine(RockBossRound());
+        StartCoroutine(RBend());
     }
+
+    IEnumerator RBend()
+    {
+        RBcounter++;
+        if (reset2 == false)
+        {
+            allStopCor2();
+        }
+        rockBossisEnd = true;
+
+        Instantiate(RBover, endRBPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime);
+
+        Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        yield return new WaitForSeconds(delayTime);
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        StartCoroutine(QueenRound());
+    }
+
+
     IEnumerator RockBossRound()
     {
      
@@ -995,23 +1015,9 @@ public class EnemySpawner : MonoBehaviour
 
 
         RockBossRange = Random.Range(1,24);
-        if (RBcounter >= 6)
+        if (RBcounter == 6)
         {
-            RBcounter++;
-            if (reset2 == false)
-            {
-                allStopCor2();
-            }
-            rockBossisEnd = true;
-            StopCoroutine(timer(delayTime));
-            StopCoroutine(RockBossRound());
-            Instantiate(RBover, endRBPos, Quaternion.identity);
-            yield return new WaitForSeconds(delayTime);
-
-            Instantiate(devilHand, devilHandPos, Quaternion.identity);
-            yield return new WaitForSeconds(delayTime);
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-            StartCoroutine(QueenRound());
+            StartCoroutine(RBend());
         }
 
         roundNum = Random.Range(1, 15);
@@ -1355,8 +1361,13 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
-            yield return null;
-            StartCoroutine(timer(delayTime));
+            if(RBcounter < 6)
+            {
+                yield return null;
+                StartCoroutine(timer(delayTime));
+
+            }
+
         }
         
     
@@ -1781,7 +1792,7 @@ public class EnemySpawner : MonoBehaviour
     void queenSetter()
     {
         StopAllCoroutines();
-        StartCoroutine(QueenBossRound());
+        StartCoroutine(QueenRound());
     }
 
 
@@ -2052,7 +2063,7 @@ public class EnemySpawner : MonoBehaviour
             allStopCor4();
         }
         StopCoroutine(timer(delayTime));
-        StopCoroutine(BishopBossRound());
+        StopCoroutine(QueenBossRound());
         GameObject.Find("QBRed(Clone)").GetComponent<QueenTreeAi>().endQueenBoss();
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
@@ -2319,7 +2330,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(delayTime);
             ponBossPrefab.tag = "QBCanKill";
             firstQueenBossSpawn = true;
-            StartCoroutine(queenBoss());
+
             Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
 
 
