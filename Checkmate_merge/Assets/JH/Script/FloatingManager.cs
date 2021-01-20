@@ -7,6 +7,7 @@ public class FloatingManager : MonoBehaviour
 {
     public static FloatingManager instance;
     [SerializeField] GameObject Prefab_FlaotingCanvas;
+    [SerializeField] GameObject Prefab_pos;
 
     private void Start()
     {
@@ -15,10 +16,20 @@ public class FloatingManager : MonoBehaviour
 
     public void CreateFloatingCanvas(string _text)
     {
-        GameObject clone = Instantiate(Prefab_FlaotingCanvas, new Vector2(0,0), Prefab_FlaotingCanvas.transform.rotation);
+        GameObject clone = Instantiate(Prefab_FlaotingCanvas, Prefab_pos.transform.position, Prefab_FlaotingCanvas.transform.rotation);
         clone.GetComponentInChildren<Text>().text = _text;
-        clone.GetComponentInChildren<Text>().rectTransform.anchoredPosition = new Vector2(-225, 160);
+        
+        clone.transform.SetParent(Prefab_pos.transform);
 
-        Debug.Log("클론 위치:" +clone.transform.position + "클론 렉트 위치: " + clone.GetComponentInChildren<Text>().rectTransform.anchoredPosition);
+        //clone.transform.position = Prefab_pos.transform.position;
+        //clone.GetComponentInChildren<Text>().rectTransform.anchoredPosition = Prefab_pos.transform.position;
+
+        //clone.transform.position = Prefab_pos.transform.position;
+
+        //clone.GetComponentInChildren<Text>().rectTransform.anchoredPosition = new Vector2(-225, 160);
+
+        Debug.Log("클론 위치: " + clone.transform.position + "렉트위치: " + clone.GetComponentInChildren<Text>().rectTransform.anchoredPosition + "오브젝트: " + Prefab_pos.transform.position);
+
     }
+
 }

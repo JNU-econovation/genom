@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+//추가사항 1
 public class GameManager : MonoBehaviour
 {
     float delayTime = 0.93023255813953488372093023255812f;
@@ -60,32 +60,32 @@ public class GameManager : MonoBehaviour
     }
 
     public void Update()
-    {/*
+    {
         
-        if (score == 100 && state == State.offDialog)
+        if (score == 5 && state == State.offDialog)
             {
                 state = State.onDialog;
                 
                 FindObjectOfType<DialogManager>().FirstDialog();
 
             }
-        if (score == 120 && state == State.offDialog)//폰
+        if (score == 150 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));
 
             }
-        if (score == 150 && state == State.offDialog)//비숍
+        if (score == 300 && state == State.offDialog)//비숍
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog2));
             }
-        if (score == 300 && state == State.offDialog)//룩
+        if (score == 600 && state == State.offDialog)//룩
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog3));
             }
-        if (score == 500 && state == State.offDialog)//나이트
+        if (score == 450 && state == State.offDialog)//나이트
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog4));
@@ -95,12 +95,12 @@ public class GameManager : MonoBehaviour
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog5));
             }
-        if (score == 1000 && state == State.offDialog)//킹
+        if (score == 900 && state == State.offDialog)//킹
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog6));
             }
-      */
+  
     }
     
     //대화 

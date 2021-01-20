@@ -31,7 +31,8 @@ public class BishopController : MonoBehaviour
         {
             BishopKilledByPlayer();
             GameManager.instance.EnemyScore(bishop_score);
-
+            string message = "+" + bishop_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
 
 
@@ -45,6 +46,8 @@ public class BishopController : MonoBehaviour
         {
             BishopKilledByPlayer();
             GameManager.instance.EnemyScore(bishop_score);
+            string message = "+" + bishop_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
 
         else if (collision.tag == "Hand")

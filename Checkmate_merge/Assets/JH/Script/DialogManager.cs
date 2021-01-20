@@ -128,7 +128,7 @@ public class DialogManager : MonoBehaviour
 
         if (isFirst&&canKeyControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButton(0))
             {
               
                 StartCoroutine(EndFirstDialog());
@@ -137,7 +137,7 @@ public class DialogManager : MonoBehaviour
         }
         if (isDialog&&canKeyControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 
                 count++;

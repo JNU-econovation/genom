@@ -33,12 +33,18 @@ public class RockController : MonoBehaviour
             RockKilledByPlayer();
             GameManager.instance.EnemyScore(rock_score);
 
+            string message = "+" + rock_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
 
         else if (collision.tag == "skillATT")
         {
             RockKilledByPlayer();
             GameManager.instance.EnemyScore(rock_score);
+
+            string message = "+" + rock_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
 
         }
         else if (collision.tag == "Player" && rock.tag == "RockCanKill")
