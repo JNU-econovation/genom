@@ -29,11 +29,15 @@ public class QueenController : MonoBehaviour
         {
             QueenKilledByPlayer();
             GameManager.instance.EnemyScore(queen_score);
-
+            string message = "+" + queen_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
         else if (collision.tag == "skillATT" && queen.tag == "QueenCanKilled") // 퀸이 스킬에 맞으면
         {
             QueenKilledByPlayer();
+            GameManager.instance.EnemyScore(queen_score);
+            string message = "+" + queen_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
 
 

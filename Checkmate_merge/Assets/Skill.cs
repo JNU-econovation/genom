@@ -62,8 +62,8 @@ public class Skill : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             image.fillAmount += 1 / cooldown * Time.deltaTime;
         }
 
-
         attPos = playerpos.transform.position;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (isCoolTime == false)
