@@ -32,6 +32,9 @@ public class BishopController : MonoBehaviour
             BishopKilledByPlayer();
             GameManager.instance.EnemyScore(bishop_score);
 
+            string message = "+" + bishop_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
 
 
@@ -41,11 +44,7 @@ public class BishopController : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
             //GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
-        else if (collision.tag == "skillATT")
-        {
-            BishopKilledByPlayer();
-            GameManager.instance.EnemyScore(bishop_score);
-        }
+
 
         else if (collision.tag == "Hand")
         {

@@ -126,7 +126,7 @@ public class EnemySpawner : MonoBehaviour
     int knightRoundScoreRange = 451;
     int rockRoundScoreRange = 601;
     int queenRoundScoreRange = 751;
-    int kingRoundScoreRange = 901;
+
 
     // Start is called before the first frame update
     void Start()
@@ -167,7 +167,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
-        if (GameManager.score == kingRoundScoreRange && !kingBfirstStop)
+        if (GameManager.score == 901 && !kingBfirstStop)
         {
             kingBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
@@ -265,17 +265,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-
-        else if (GameManager.score >= queenRoundScoreRange && GameManager.score < kingRoundScoreRange)
-        {
-
-            StartCoroutine(kingRound());
-        }
-
-        else if (GameManager.score >= kingRoundScoreRange && kingBossisEnd == false)
-        {
-            StartCoroutine(KingBossRound());
-        }
 
 
     }
@@ -995,9 +984,9 @@ public class EnemySpawner : MonoBehaviour
 
 
         RockBossRange = Random.Range(1,24);
-        if (RBcounter >= 6)
+        if (RBcounter == 6)
         {
-            RBcounter++;
+
             if (reset2 == false)
             {
                 allStopCor2();
@@ -1251,7 +1240,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
         }
-        if (RBcounter < 6) {
+        if (RBcounter < 5) {
 
             yield return new WaitForSeconds(delayTime/2);
             switch (RockBossRange)
@@ -1355,13 +1344,12 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
-            yield return null;
-            StartCoroutine(timer(delayTime));
         }
         
     
 
-
+        yield return null;
+        StartCoroutine(timer(delayTime));
 
     }
 
@@ -1758,9 +1746,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
         }
-
-
-
+            
         if (firstBishopBossSpawn == false)
         {
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
@@ -1775,23 +1761,9 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-
-
-    bool firstqueenSpwan = false;
-    void queenSetter()
-    {
-        StopAllCoroutines();
-        StartCoroutine(QueenBossRound());
-    }
-
-
     IEnumerator QueenRound()
     {
-        if (firstqueenSpwan == false)
-        {
-            firstqueenSpwan = true;
-            queenSetter();
-        }
+
         roundNum = Random.Range(1, 15);
         switch (roundNum)
         {
@@ -2058,7 +2030,7 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(kingRound());
+        StartCoroutine(timer(delayTime));
         yield return null;
     }
 
@@ -2069,12 +2041,8 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-
     IEnumerator QueenBossRound()
     {
-
-
-
 
         QueenBosNum = Random.Range(1, 15);
         if (firstQueenBossSpawn != false)
@@ -2785,667 +2753,6 @@ public class EnemySpawner : MonoBehaviour
             firstKnightBossSpawn = true;
             StartCoroutine(knightBoss());
 
-        }
-        yield return null;
-        StartCoroutine(timer(delayTime));
-
-    }
-
-
-    // 킹 라운드
-
-
-
-
-    IEnumerator kingRound()
-    {
-
-        roundNum = Random.Range(1, 14);
-        switch (roundNum)
-        {
-            case 1:
-                Instantiate(queenPrefab, c3, Quaternion.identity);
-                Instantiate(queenPrefab, c6, Quaternion.identity);
-                Instantiate(queenPrefab, f3, Quaternion.identity);
-                Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                Instantiate(kingPrefab, h1, Quaternion.identity);
-                Instantiate(kingPrefab, h8, Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(ponPrefab, e1, Quaternion.identity);
-                Instantiate(ponPrefab, e3, Quaternion.identity);
-                Instantiate(ponPrefab, e5, Quaternion.identity);
-                Instantiate(ponPrefab, e7, Quaternion.identity);
-                Instantiate(ponPrefab, f2, Quaternion.identity);
-                Instantiate(ponPrefab, f4, Quaternion.identity);
-                Instantiate(ponPrefab, f6, Quaternion.identity);
-                Instantiate(ponPrefab, f8, Quaternion.identity);
-                Instantiate(ponPrefab, g1, Quaternion.identity);
-                Instantiate(ponPrefab, g3, Quaternion.identity);
-                Instantiate(ponPrefab, g5, Quaternion.identity);
-                Instantiate(ponPrefab, g7, Quaternion.identity);
-                Instantiate(ponPrefab, h2, Quaternion.identity);
-                Instantiate(ponPrefab, h4, Quaternion.identity);
-                Instantiate(ponPrefab, h6, Quaternion.identity);
-                Instantiate(ponPrefab, h8, Quaternion.identity);
-
-
-                Instantiate(kingPrefab, a1, Quaternion.identity);
-                Instantiate(kingPrefab, a8, Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(knightPrefab, a1, Quaternion.identity);
-                Instantiate(knightPrefab, b2, Quaternion.identity);
-                Instantiate(knightPrefab, c3, Quaternion.identity);
-                Instantiate(knightPrefab, d4, Quaternion.identity);
-                Instantiate(knightPrefab, e5, Quaternion.identity);
-                Instantiate(knightPrefab, f6, Quaternion.identity);
-                Instantiate(knightPrefab, g7, Quaternion.identity);
-                Instantiate(knightPrefab, h8, Quaternion.identity);
-
-                Instantiate(queenPrefab, c6, Quaternion.identity);
-
-                Instantiate(kingPrefab, f3, Quaternion.identity);
-
-                break;
-            case 4:
-                Instantiate(bishopPrefab, d4, Quaternion.identity);
-                Instantiate(bishopPrefab, e5, Quaternion.identity);
-
-                Instantiate(knightPrefab, b3, Quaternion.identity);
-                Instantiate(knightPrefab, g6, Quaternion.identity);
-
-                Instantiate(rockPrefab, c2, Quaternion.identity);
-                Instantiate(rockPrefab, c7, Quaternion.identity);
-                Instantiate(rockPrefab, f2, Quaternion.identity);
-                Instantiate(rockPrefab, f7, Quaternion.identity);
-
-                Instantiate(queenPrefab, b6, Quaternion.identity);
-                Instantiate(queenPrefab, g3, Quaternion.identity);
-
-                Instantiate(kingPrefab, d5, Quaternion.identity);
-                Instantiate(kingPrefab, e4, Quaternion.identity);
-                break;
-            case 5:
-                Instantiate(ponPrefab, f4, Quaternion.identity);
-                Instantiate(ponPrefab, f5, Quaternion.identity);
-
-                Instantiate(bishopPrefab, a1, Quaternion.identity);
-                Instantiate(bishopPrefab, b8, Quaternion.identity);
-                Instantiate(bishopPrefab, c1, Quaternion.identity);
-                Instantiate(bishopPrefab, d8, Quaternion.identity);
-                Instantiate(bishopPrefab, e1, Quaternion.identity);
-                Instantiate(bishopPrefab, f8, Quaternion.identity);
-                Instantiate(bishopPrefab, g1, Quaternion.identity);
-                Instantiate(bishopPrefab, h8, Quaternion.identity);
-
-                Instantiate(knightPrefab, a8, Quaternion.identity);
-                Instantiate(knightPrefab, b1, Quaternion.identity);
-                Instantiate(knightPrefab, c8, Quaternion.identity);
-                Instantiate(knightPrefab, d1, Quaternion.identity);
-                Instantiate(knightPrefab, e8, Quaternion.identity);
-                Instantiate(knightPrefab, f1, Quaternion.identity);
-                Instantiate(knightPrefab, g8, Quaternion.identity);
-                Instantiate(knightPrefab, h1, Quaternion.identity);
-
-
-                Instantiate(queenPrefab, c4, Quaternion.identity);
-
-                Instantiate(kingPrefab, d5, Quaternion.identity);
-
-                break;
-            case 6:
-
-                Instantiate(knightPrefab, b6, Quaternion.identity);
-                Instantiate(knightPrefab, g3, Quaternion.identity);
-
-                Instantiate(rockPrefab, a3, Quaternion.identity);
-                Instantiate(rockPrefab, a7, Quaternion.identity);
-                Instantiate(rockPrefab, h2, Quaternion.identity);
-                Instantiate(rockPrefab, h6, Quaternion.identity);
-
-                Instantiate(queenPrefab, a1, Quaternion.identity);
-                Instantiate(queenPrefab, b8, Quaternion.identity);
-                Instantiate(queenPrefab, g1, Quaternion.identity);
-                Instantiate(queenPrefab, h8, Quaternion.identity);
-
-                Instantiate(kingPrefab, d4, Quaternion.identity);
-                Instantiate(kingPrefab, e5, Quaternion.identity);
-
-                break;
-            case 7:
-                Instantiate(ponPrefab, h1, Quaternion.identity);
-                Instantiate(ponPrefab, h2, Quaternion.identity);
-                Instantiate(ponPrefab, h3, Quaternion.identity);
-                Instantiate(ponPrefab, h4, Quaternion.identity);
-                Instantiate(ponPrefab, h5, Quaternion.identity);
-                Instantiate(ponPrefab, h6, Quaternion.identity);
-                Instantiate(ponPrefab, h7, Quaternion.identity);
-                Instantiate(ponPrefab, h8, Quaternion.identity);
-
-                Instantiate(knightPrefab, f3, Quaternion.identity);
-                Instantiate(knightPrefab, f4, Quaternion.identity);
-                Instantiate(knightPrefab, f5, Quaternion.identity);
-                Instantiate(knightPrefab, f6, Quaternion.identity);
-
-                Instantiate(queenPrefab, e2, Quaternion.identity);
-                Instantiate(queenPrefab, e7, Quaternion.identity);
-
-                Instantiate(kingPrefab, c3, Quaternion.identity);
-                Instantiate(kingPrefab, c6, Quaternion.identity);
-
-                break;
-            case 8:
-                Instantiate(ponPrefab, d2, Quaternion.identity);
-                Instantiate(ponPrefab, e7, Quaternion.identity);
-                Instantiate(ponPrefab, g4, Quaternion.identity);
-
-                Instantiate(bishopPrefab, d1, Quaternion.identity);
-                Instantiate(bishopPrefab, e8, Quaternion.identity);
-                Instantiate(bishopPrefab, h4, Quaternion.identity);
-
-
-                Instantiate(rockPrefab, b1, Quaternion.identity);
-                Instantiate(rockPrefab, d4, Quaternion.identity);
-                Instantiate(rockPrefab, g8, Quaternion.identity);
-                Instantiate(rockPrefab, h2, Quaternion.identity);
-
-                Instantiate(queenPrefab, c8, Quaternion.identity);
-                Instantiate(queenPrefab, f1, Quaternion.identity);
-                Instantiate(queenPrefab, h6, Quaternion.identity);
-
-                Instantiate(kingPrefab, b6, Quaternion.identity);
-
-                break;
-            case 9:
-
-
-                Instantiate(bishopPrefab, c6, Quaternion.identity);
-                Instantiate(bishopPrefab, f3, Quaternion.identity);
-
-                Instantiate(knightPrefab, b2, Quaternion.identity);
-                Instantiate(knightPrefab, b7, Quaternion.identity);
-                Instantiate(knightPrefab, g2, Quaternion.identity);
-                Instantiate(knightPrefab, g7, Quaternion.identity);
-
-
-                Instantiate(rockPrefab, c3, Quaternion.identity);
-                Instantiate(rockPrefab, f6, Quaternion.identity);
-
-
-                Instantiate(queenPrefab, d8, Quaternion.identity);
-                Instantiate(queenPrefab, e1, Quaternion.identity);
-
-                Instantiate(kingPrefab, d4, Quaternion.identity);
-                Instantiate(kingPrefab, e5, Quaternion.identity);
-                break;
-            case 10:
-
-
-                Instantiate(knightPrefab, a7, Quaternion.identity);
-                Instantiate(knightPrefab, b6, Quaternion.identity);
-                Instantiate(knightPrefab, b8, Quaternion.identity);
-                Instantiate(knightPrefab, c7, Quaternion.identity);
-                Instantiate(knightPrefab, f2, Quaternion.identity);
-                Instantiate(knightPrefab, g1, Quaternion.identity);
-                Instantiate(knightPrefab, g3, Quaternion.identity);
-                Instantiate(knightPrefab, h2, Quaternion.identity);
-
-
-                Instantiate(rockPrefab, b2, Quaternion.identity);
-                Instantiate(rockPrefab, g7, Quaternion.identity);
-
-
-                Instantiate(queenPrefab, c3, Quaternion.identity);
-                Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                Instantiate(kingPrefab, b7, Quaternion.identity);
-                Instantiate(kingPrefab, g2, Quaternion.identity);
-                break;
-            case 11:
-                Instantiate(ponPrefab, b2, Quaternion.identity);
-                Instantiate(ponPrefab, b4, Quaternion.identity);
-                Instantiate(ponPrefab, b6, Quaternion.identity);
-                Instantiate(ponPrefab, c7, Quaternion.identity);
-                Instantiate(ponPrefab, f2, Quaternion.identity);
-                Instantiate(ponPrefab, g3, Quaternion.identity);
-                Instantiate(ponPrefab, g5, Quaternion.identity);
-                Instantiate(ponPrefab, g7, Quaternion.identity);
-
-                Instantiate(bishopPrefab, c5, Quaternion.identity);
-                Instantiate(bishopPrefab, f4, Quaternion.identity);
-
-                Instantiate(knightPrefab, d2, Quaternion.identity);
-                Instantiate(knightPrefab, e7, Quaternion.identity);
-                Instantiate(knightPrefab, e3, Quaternion.identity);
-                Instantiate(knightPrefab, f6, Quaternion.identity);
-
-                Instantiate(rockPrefab, c3, Quaternion.identity);
-                Instantiate(rockPrefab, d6, Quaternion.identity);
-
-                Instantiate(queenPrefab, e5, Quaternion.identity);
-
-                Instantiate(kingPrefab, d4, Quaternion.identity);
-                break;
-            case 12:
-                Instantiate(ponPrefab, c1, Quaternion.identity);
-                Instantiate(ponPrefab, c8, Quaternion.identity);
-                Instantiate(ponPrefab, f1, Quaternion.identity);
-                Instantiate(ponPrefab, f8, Quaternion.identity);
-                Instantiate(ponPrefab, d2, Quaternion.identity);
-                Instantiate(ponPrefab, d7, Quaternion.identity);
-                Instantiate(ponPrefab, e2, Quaternion.identity);
-                Instantiate(ponPrefab, e7, Quaternion.identity);
-
-
-                Instantiate(knightPrefab, c6, Quaternion.identity);
-                Instantiate(knightPrefab, f3, Quaternion.identity);
-
-
-                Instantiate(rockPrefab, h2, Quaternion.identity);
-                Instantiate(rockPrefab, h7, Quaternion.identity);
-
-                Instantiate(queenPrefab, c3, Quaternion.identity);
-                Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                Instantiate(kingPrefab, d4, Quaternion.identity);
-                Instantiate(kingPrefab, e5, Quaternion.identity);
-                break;
-            case 13:
-
-                Instantiate(knightPrefab, a1, Quaternion.identity);
-                Instantiate(knightPrefab, b8, Quaternion.identity);
-                Instantiate(knightPrefab, c1, Quaternion.identity);
-                Instantiate(knightPrefab, d8, Quaternion.identity);
-                Instantiate(knightPrefab, e1, Quaternion.identity);
-                Instantiate(knightPrefab, f8, Quaternion.identity);
-                Instantiate(knightPrefab, g1, Quaternion.identity);
-                Instantiate(knightPrefab, h8, Quaternion.identity);
-
-
-                Instantiate(rockPrefab, d1, Quaternion.identity);
-                Instantiate(rockPrefab, e8, Quaternion.identity);
-
-                Instantiate(queenPrefab, c3, Quaternion.identity);
-                Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                Instantiate(kingPrefab, c6, Quaternion.identity);
-                Instantiate(kingPrefab, f3, Quaternion.identity);
-                break;
-            case 14:
-                Instantiate(bishopPrefab, f2, Quaternion.identity);
-                Instantiate(bishopPrefab, f4, Quaternion.identity);
-                Instantiate(bishopPrefab, f6, Quaternion.identity);
-                Instantiate(bishopPrefab, g2, Quaternion.identity);
-                Instantiate(bishopPrefab, g4, Quaternion.identity);
-                Instantiate(bishopPrefab, g6, Quaternion.identity);
-                Instantiate(bishopPrefab, h2, Quaternion.identity);
-                Instantiate(bishopPrefab, h4, Quaternion.identity);
-                Instantiate(bishopPrefab, h6, Quaternion.identity);
-
-
-                Instantiate(knightPrefab, a1, Quaternion.identity);
-                Instantiate(knightPrefab, c1, Quaternion.identity);
-                Instantiate(knightPrefab, e1, Quaternion.identity);
-
-                Instantiate(rockPrefab, d8, Quaternion.identity);
-
-                Instantiate(queenPrefab, f8, Quaternion.identity);
-
-
-                Instantiate(kingPrefab, h8, Quaternion.identity);
-                break;
-        }
-        StartCoroutine(timer(delayTime));
-        yield return null;
-
-    }
-    bool firstKingBossSpawn = false;
-
-    public GameObject KingB;
-    int kingBosNum;
-    bool reset6 = false;
-
-    void allStopCor6()
-    {
-        StopAllCoroutines();
-        reset6 = true;
-        StartCoroutine(kingBossEnd());
-    }
-
-    IEnumerator kingBoss()
-    {
-        yield return new WaitForSeconds(BpssdelayTime);
-        bishopBossisEnd = true;
-        StartCoroutine(kingBossEnd());
-    }
-    IEnumerator kingBossEnd()
-    {
-        if (reset3 == false)
-        {
-            allStopCor3();
-        }
-        GameObject.Find("(Clone)").GetComponent<anglerSSun>().endBishopBoss();
-        yield return new WaitForSeconds(delayTime);
-        Instantiate(devilHand, devilHandPos, Quaternion.identity);
-        yield return new WaitForSeconds(delayTime);
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(kingRound());
-        yield return null;
-    }
-    IEnumerator KingBossRound()
-    {
-
-        bishopBosNum = Random.Range(1, 14);
-        if (firstKingBossSpawn != false)
-        {
-            switch (bishopBosNum)
-            {
-                case 1:
-                    Instantiate(queenPrefab, c3, Quaternion.identity);
-                    Instantiate(queenPrefab, c6, Quaternion.identity);
-                    Instantiate(queenPrefab, f3, Quaternion.identity);
-                    Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, h1, Quaternion.identity);
-                    Instantiate(kingPrefab, h8, Quaternion.identity);
-                    break;
-                case 2:
-                    Instantiate(ponPrefab, e1, Quaternion.identity);
-                    Instantiate(ponPrefab, e3, Quaternion.identity);
-                    Instantiate(ponPrefab, e5, Quaternion.identity);
-                    Instantiate(ponPrefab, e7, Quaternion.identity);
-                    Instantiate(ponPrefab, f2, Quaternion.identity);
-                    Instantiate(ponPrefab, f4, Quaternion.identity);
-                    Instantiate(ponPrefab, f6, Quaternion.identity);
-                    Instantiate(ponPrefab, f8, Quaternion.identity);
-                    Instantiate(ponPrefab, g1, Quaternion.identity);
-                    Instantiate(ponPrefab, g3, Quaternion.identity);
-                    Instantiate(ponPrefab, g5, Quaternion.identity);
-                    Instantiate(ponPrefab, g7, Quaternion.identity);
-                    Instantiate(ponPrefab, h2, Quaternion.identity);
-                    Instantiate(ponPrefab, h4, Quaternion.identity);
-                    Instantiate(ponPrefab, h6, Quaternion.identity);
-                    Instantiate(ponPrefab, h8, Quaternion.identity);
-
-
-                    Instantiate(kingPrefab, a1, Quaternion.identity);
-                    Instantiate(kingPrefab, a8, Quaternion.identity);
-                    break;
-                case 3:
-                    Instantiate(knightPrefab, a1, Quaternion.identity);
-                    Instantiate(knightPrefab, b2, Quaternion.identity);
-                    Instantiate(knightPrefab, c3, Quaternion.identity);
-                    Instantiate(knightPrefab, d4, Quaternion.identity);
-                    Instantiate(knightPrefab, e5, Quaternion.identity);
-                    Instantiate(knightPrefab, f6, Quaternion.identity);
-                    Instantiate(knightPrefab, g7, Quaternion.identity);
-                    Instantiate(knightPrefab, h8, Quaternion.identity);
-
-                    Instantiate(queenPrefab, c6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, f3, Quaternion.identity);
-
-                    break;
-                case 4:
-                    Instantiate(bishopPrefab, d4, Quaternion.identity);
-                    Instantiate(bishopPrefab, e5, Quaternion.identity);
-
-                    Instantiate(knightPrefab, b3, Quaternion.identity);
-                    Instantiate(knightPrefab, g6, Quaternion.identity);
-
-                    Instantiate(rockPrefab, c2, Quaternion.identity);
-                    Instantiate(rockPrefab, c7, Quaternion.identity);
-                    Instantiate(rockPrefab, f2, Quaternion.identity);
-                    Instantiate(rockPrefab, f7, Quaternion.identity);
-
-                    Instantiate(queenPrefab, b6, Quaternion.identity);
-                    Instantiate(queenPrefab, g3, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d5, Quaternion.identity);
-                    Instantiate(kingPrefab, e4, Quaternion.identity);
-                    break;
-                case 5:
-                    Instantiate(ponPrefab, f4, Quaternion.identity);
-                    Instantiate(ponPrefab, f5, Quaternion.identity);
-
-                    Instantiate(bishopPrefab, a1, Quaternion.identity);
-                    Instantiate(bishopPrefab, b8, Quaternion.identity);
-                    Instantiate(bishopPrefab, c1, Quaternion.identity);
-                    Instantiate(bishopPrefab, d8, Quaternion.identity);
-                    Instantiate(bishopPrefab, e1, Quaternion.identity);
-                    Instantiate(bishopPrefab, f8, Quaternion.identity);
-                    Instantiate(bishopPrefab, g1, Quaternion.identity);
-                    Instantiate(bishopPrefab, h8, Quaternion.identity);
-
-                    Instantiate(knightPrefab, a8, Quaternion.identity);
-                    Instantiate(knightPrefab, b1, Quaternion.identity);
-                    Instantiate(knightPrefab, c8, Quaternion.identity);
-                    Instantiate(knightPrefab, d1, Quaternion.identity);
-                    Instantiate(knightPrefab, e8, Quaternion.identity);
-                    Instantiate(knightPrefab, f1, Quaternion.identity);
-                    Instantiate(knightPrefab, g8, Quaternion.identity);
-                    Instantiate(knightPrefab, h1, Quaternion.identity);
-
-
-                    Instantiate(queenPrefab, c4, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d5, Quaternion.identity);
-
-                    break;
-                case 6:
-
-                    Instantiate(knightPrefab, b6, Quaternion.identity);
-                    Instantiate(knightPrefab, g3, Quaternion.identity);
-
-                    Instantiate(rockPrefab, a3, Quaternion.identity);
-                    Instantiate(rockPrefab, a7, Quaternion.identity);
-                    Instantiate(rockPrefab, h2, Quaternion.identity);
-                    Instantiate(rockPrefab, h6, Quaternion.identity);
-
-                    Instantiate(queenPrefab, a1, Quaternion.identity);
-                    Instantiate(queenPrefab, b8, Quaternion.identity);
-                    Instantiate(queenPrefab, g1, Quaternion.identity);
-                    Instantiate(queenPrefab, h8, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d4, Quaternion.identity);
-                    Instantiate(kingPrefab, e5, Quaternion.identity);
-
-                    break;
-                case 7:
-                    Instantiate(ponPrefab, h1, Quaternion.identity);
-                    Instantiate(ponPrefab, h2, Quaternion.identity);
-                    Instantiate(ponPrefab, h3, Quaternion.identity);
-                    Instantiate(ponPrefab, h4, Quaternion.identity);
-                    Instantiate(ponPrefab, h5, Quaternion.identity);
-                    Instantiate(ponPrefab, h6, Quaternion.identity);
-                    Instantiate(ponPrefab, h7, Quaternion.identity);
-                    Instantiate(ponPrefab, h8, Quaternion.identity);
-
-                    Instantiate(knightPrefab, f3, Quaternion.identity);
-                    Instantiate(knightPrefab, f4, Quaternion.identity);
-                    Instantiate(knightPrefab, f5, Quaternion.identity);
-                    Instantiate(knightPrefab, f6, Quaternion.identity);
-
-                    Instantiate(queenPrefab, e2, Quaternion.identity);
-                    Instantiate(queenPrefab, e7, Quaternion.identity);
-
-                    Instantiate(kingPrefab, c3, Quaternion.identity);
-                    Instantiate(kingPrefab, c6, Quaternion.identity);
-
-                    break;
-                case 8:
-                    Instantiate(ponPrefab, d2, Quaternion.identity);
-                    Instantiate(ponPrefab, e7, Quaternion.identity);
-                    Instantiate(ponPrefab, g4, Quaternion.identity);
-
-                    Instantiate(bishopPrefab, d1, Quaternion.identity);
-                    Instantiate(bishopPrefab, e8, Quaternion.identity);
-                    Instantiate(bishopPrefab, h4, Quaternion.identity);
-
-
-                    Instantiate(rockPrefab, b1, Quaternion.identity);
-                    Instantiate(rockPrefab, d4, Quaternion.identity);
-                    Instantiate(rockPrefab, g8, Quaternion.identity);
-                    Instantiate(rockPrefab, h2, Quaternion.identity);
-
-                    Instantiate(queenPrefab, c8, Quaternion.identity);
-                    Instantiate(queenPrefab, f1, Quaternion.identity);
-                    Instantiate(queenPrefab, h6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, b6, Quaternion.identity);
-
-                    break;
-                case 9:
-
-
-                    Instantiate(bishopPrefab, c6, Quaternion.identity);
-                    Instantiate(bishopPrefab, f3, Quaternion.identity);
-
-                    Instantiate(knightPrefab, b2, Quaternion.identity);
-                    Instantiate(knightPrefab, b7, Quaternion.identity);
-                    Instantiate(knightPrefab, g2, Quaternion.identity);
-                    Instantiate(knightPrefab, g7, Quaternion.identity);
-
-
-                    Instantiate(rockPrefab, c3, Quaternion.identity);
-                    Instantiate(rockPrefab, f6, Quaternion.identity);
-
-
-                    Instantiate(queenPrefab, d8, Quaternion.identity);
-                    Instantiate(queenPrefab, e1, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d4, Quaternion.identity);
-                    Instantiate(kingPrefab, e5, Quaternion.identity);
-                    break;
-                case 10:
-
-
-                    Instantiate(knightPrefab, a7, Quaternion.identity);
-                    Instantiate(knightPrefab, b6, Quaternion.identity);
-                    Instantiate(knightPrefab, b8, Quaternion.identity);
-                    Instantiate(knightPrefab, c7, Quaternion.identity);
-                    Instantiate(knightPrefab, f2, Quaternion.identity);
-                    Instantiate(knightPrefab, g1, Quaternion.identity);
-                    Instantiate(knightPrefab, g3, Quaternion.identity);
-                    Instantiate(knightPrefab, h2, Quaternion.identity);
-
-
-                    Instantiate(rockPrefab, b2, Quaternion.identity);
-                    Instantiate(rockPrefab, g7, Quaternion.identity);
-
-
-                    Instantiate(queenPrefab, c3, Quaternion.identity);
-                    Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, b7, Quaternion.identity);
-                    Instantiate(kingPrefab, g2, Quaternion.identity);
-                    break;
-                case 11:
-                    Instantiate(ponPrefab, b2, Quaternion.identity);
-                    Instantiate(ponPrefab, b4, Quaternion.identity);
-                    Instantiate(ponPrefab, b6, Quaternion.identity);
-                    Instantiate(ponPrefab, c7, Quaternion.identity);
-                    Instantiate(ponPrefab, f2, Quaternion.identity);
-                    Instantiate(ponPrefab, g3, Quaternion.identity);
-                    Instantiate(ponPrefab, g5, Quaternion.identity);
-                    Instantiate(ponPrefab, g7, Quaternion.identity);
-
-                    Instantiate(bishopPrefab, c5, Quaternion.identity);
-                    Instantiate(bishopPrefab, f4, Quaternion.identity);
-
-                    Instantiate(knightPrefab, d2, Quaternion.identity);
-                    Instantiate(knightPrefab, e7, Quaternion.identity);
-                    Instantiate(knightPrefab, e3, Quaternion.identity);
-                    Instantiate(knightPrefab, f6, Quaternion.identity);
-
-                    Instantiate(rockPrefab, c3, Quaternion.identity);
-                    Instantiate(rockPrefab, d6, Quaternion.identity);
-
-                    Instantiate(queenPrefab, e5, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d4, Quaternion.identity);
-                    break;
-                case 12:
-                    Instantiate(ponPrefab, c1, Quaternion.identity);
-                    Instantiate(ponPrefab, c8, Quaternion.identity);
-                    Instantiate(ponPrefab, f1, Quaternion.identity);
-                    Instantiate(ponPrefab, f8, Quaternion.identity);
-                    Instantiate(ponPrefab, d2, Quaternion.identity);
-                    Instantiate(ponPrefab, d7, Quaternion.identity);
-                    Instantiate(ponPrefab, e2, Quaternion.identity);
-                    Instantiate(ponPrefab, e7, Quaternion.identity);
-
-
-                    Instantiate(knightPrefab, c6, Quaternion.identity);
-                    Instantiate(knightPrefab, f3, Quaternion.identity);
-
-
-                    Instantiate(rockPrefab, h2, Quaternion.identity);
-                    Instantiate(rockPrefab, h7, Quaternion.identity);
-
-                    Instantiate(queenPrefab, c3, Quaternion.identity);
-                    Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, d4, Quaternion.identity);
-                    Instantiate(kingPrefab, e5, Quaternion.identity);
-                    break;
-                case 13:
-
-                    Instantiate(knightPrefab, a1, Quaternion.identity);
-                    Instantiate(knightPrefab, b8, Quaternion.identity);
-                    Instantiate(knightPrefab, c1, Quaternion.identity);
-                    Instantiate(knightPrefab, d8, Quaternion.identity);
-                    Instantiate(knightPrefab, e1, Quaternion.identity);
-                    Instantiate(knightPrefab, f8, Quaternion.identity);
-                    Instantiate(knightPrefab, g1, Quaternion.identity);
-                    Instantiate(knightPrefab, h8, Quaternion.identity);
-
-
-                    Instantiate(rockPrefab, d1, Quaternion.identity);
-                    Instantiate(rockPrefab, e8, Quaternion.identity);
-
-                    Instantiate(queenPrefab, c3, Quaternion.identity);
-                    Instantiate(queenPrefab, f6, Quaternion.identity);
-
-                    Instantiate(kingPrefab, c6, Quaternion.identity);
-                    Instantiate(kingPrefab, f3, Quaternion.identity);
-                    break;
-                case 14:
-                    Instantiate(bishopPrefab, f2, Quaternion.identity);
-                    Instantiate(bishopPrefab, f4, Quaternion.identity);
-                    Instantiate(bishopPrefab, f6, Quaternion.identity);
-                    Instantiate(bishopPrefab, g2, Quaternion.identity);
-                    Instantiate(bishopPrefab, g4, Quaternion.identity);
-                    Instantiate(bishopPrefab, g6, Quaternion.identity);
-                    Instantiate(bishopPrefab, h2, Quaternion.identity);
-                    Instantiate(bishopPrefab, h4, Quaternion.identity);
-                    Instantiate(bishopPrefab, h6, Quaternion.identity);
-
-
-                    Instantiate(knightPrefab, a1, Quaternion.identity);
-                    Instantiate(knightPrefab, c1, Quaternion.identity);
-                    Instantiate(knightPrefab, e1, Quaternion.identity);
-
-                    Instantiate(rockPrefab, d8, Quaternion.identity);
-
-                    Instantiate(queenPrefab, f8, Quaternion.identity);
-
-
-                    Instantiate(kingPrefab, h8, Quaternion.identity);
-                    break;
-            }
-        }
-
-        if (firstKingBossSpawn == false)
-        {
-            Instantiate(devilHand, devilHandPos, Quaternion.identity);
-
-            yield return new WaitForSeconds(delayTime);
-            firstKingBossSpawn = true;
-            StartCoroutine(kingBoss());
-            Instantiate(BB, ponBossPos, Quaternion.identity);
         }
         yield return null;
         StartCoroutine(timer(delayTime));

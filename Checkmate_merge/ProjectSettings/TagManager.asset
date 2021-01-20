@@ -32,7 +32,6 @@ TagManager:
   - QBEatAtt
   - KBCanKill
   - KBCanKilled
-  - skillATT
   layers:
   - Default
   - TransparentFX

@@ -30,105 +30,101 @@ public class QueenController : MonoBehaviour
             QueenKilledByPlayer();
             GameManager.instance.EnemyScore(queen_score);
 
+            string message = "+" + queen_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+
         }
-        else if (collision.tag == "skillATT" && queen.tag == "QueenCanKilled") // 퀸이 스킬에 맞으면
+        else if (collision.tag == "Player" && queen.tag == "QBCanKilled")
         {
             QueenKilledByPlayer();
-        }
 
+        }
 
         else if (collision.tag == "Player" && queen.tag == "QueenCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            // GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
-        }
-
-
-        else if (collision.tag == "Player" && queen.tag == "QBCanKilled") // 퀸보스
-        {
-            QueenKilledByPlayer();
-
+           // GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
         else if (collision.tag == "Player" && queen.tag == "QBCanKill")
         {
 
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            //  GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+          //  GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
         if (collision.tag == "Hand")
         {
             QueenKilledByEnemy();
             //GameManager.instance.EnemyScore(king_score);
         }
-        else if (collision.tag == "PSW" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "PSW")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "PSW_over" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "PSW_over")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "RBp" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "RBp")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "RBover" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "RBover")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "QBattack" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "QBattack")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "QBcanKilled" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "QBcanKilled")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "QBCanKill" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "QBCanKill")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "BBCanKill" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "BBCanKill")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "BBCanKilled" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "BBCanKilled")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "spearAtt" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "spearAtt")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "QBEatAtt" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "QBEatAtt")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "KBCanKill" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "KBCanKill")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "KBCanKilled" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "KBCanKilled")
         {
             QueenKilledByEnemy();
         }
-        else if (collision.tag == "KingCanKill" && queen.tag == "QueenCanKilled")
-        {
-            QueenKilledByEnemy();
-        }
-
-        else if (collision.tag == "KingCanKilled" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "KingCanKill")
         {
             QueenKilledByEnemy();
         }
 
-        else if (collision.tag == "QueenCanKill" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "KingCanKilled")
         {
             QueenKilledByEnemy();
         }
 
-        else if (collision.tag == "QueenCanKilled" && queen.tag == "QueenCanKilled")
+        else if (collision.tag == "QueenCanKill")
+        {
+            QueenKilledByEnemy();
+        }
+
+        else if (collision.tag == "QueenCanKilled")
         {
             QueenKilledByEnemy();
         }

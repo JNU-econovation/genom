@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Update()
-    {/*
+    {
         
         if (score == 100 && state == State.offDialog)
             {
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog6));
             }
-      */
+  
     }
     
     //대화 

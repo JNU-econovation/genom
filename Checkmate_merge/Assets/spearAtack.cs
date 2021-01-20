@@ -21,7 +21,7 @@ public class spearAtack : MonoBehaviour
         if (collision.tag == "Player" && SpearEF.gameObject.tag == "spearAtt")//폰이 플레이어를 죽임(게임 오버)
         {
             GameObject.Find("Player").GetComponent<Player>().PlayerKilledByEnemy();
-            //GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
+            GameManager.instance.GameOver();//플레이어를 죽이면 게임오버 함수 호출
         }
 
     }

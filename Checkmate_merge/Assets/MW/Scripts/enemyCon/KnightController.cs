@@ -26,12 +26,9 @@ public class KnightController : MonoBehaviour
         {
             KnightKilledByPlayer();
             GameManager.instance.EnemyScore(knight_score);
-        }
 
-        else if (collision.tag == "skillATT")
-        {
-            KnightKilledByPlayer();
-            GameManager.instance.EnemyScore(knight_score);
+            string message = "+" + knight_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
 
 
