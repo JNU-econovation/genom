@@ -990,7 +990,7 @@ public class EnemySpawner : MonoBehaviour
         {
             allStopCor2();
         }
-
+        
         rockBossisEnd = true;
 
         Instantiate(RBover, endRBPos, Quaternion.identity);
@@ -1028,6 +1028,112 @@ public class EnemySpawner : MonoBehaviour
         RockBossRange = Random.Range(1,24);
 
         roundNum = Random.Range(1, 15);
+
+
+
+
+        switch (RockBossRange)
+        {
+            case 1:
+                Instantiate(RBU, Hor1, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 2:
+                Instantiate(RBU, Hor2, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 3:
+                Instantiate(RBU, Hor3, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 4:
+                Instantiate(RBU, Hor4, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 5:
+                Instantiate(RBU, Hor5, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 6:
+                Instantiate(RBU, Hor6, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 7:
+                Instantiate(RBD, Hor1, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 8:
+                Instantiate(RBD, Hor2, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 9:
+                Instantiate(RBD, Hor3, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 10:
+                Instantiate(RBD, Hor4, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 11:
+                Instantiate(RBD, Hor5, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 12:
+                Instantiate(RBD, Hor6, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 13:
+                Instantiate(RBL, Ver1, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 14:
+                Instantiate(RBL, Ver2, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 15:
+                Instantiate(RBL, Ver3, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 16:
+                Instantiate(RBL, Ver4, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 17:
+                Instantiate(RBL, Ver5, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 18:
+                Instantiate(RBL, Ver6, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 19:
+                Instantiate(RBR, Ver1, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 20:
+                Instantiate(RBR, Ver2, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 21:
+                Instantiate(RBR, Ver3, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 22:
+                Instantiate(RBR, Ver4, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 23:
+                Instantiate(RBR, Ver5, Quaternion.identity);
+                RBcounter++;
+                break;
+            case 24:
+                Instantiate(RBR, Ver6, Quaternion.identity);
+                RBcounter++;
+                break;
+
+        }
+
+        yield return new WaitForSeconds(delayTime / 2);
 
         switch (roundNum)
         {
@@ -1262,109 +1368,6 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(rockPrefab, c6, Quaternion.identity);
                 break;
         }
-
-        yield return new WaitForSeconds(delayTime / 2);
-        switch (RockBossRange)
-        {
-            case 1:
-                Instantiate(RBU, Hor1, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 2:
-                Instantiate(RBU, Hor2, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 3:
-                Instantiate(RBU, Hor3, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 4:
-                Instantiate(RBU, Hor4, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 5:
-                Instantiate(RBU, Hor5, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 6:
-                Instantiate(RBU, Hor6, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 7:
-                Instantiate(RBD, Hor1, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 8:
-                Instantiate(RBD, Hor2, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 9:
-                Instantiate(RBD, Hor3, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 10:
-                Instantiate(RBD, Hor4, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 11:
-                Instantiate(RBD, Hor5, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 12:
-                Instantiate(RBD, Hor6, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 13:
-                Instantiate(RBL, Ver1, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 14:
-                Instantiate(RBL, Ver2, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 15:
-                Instantiate(RBL, Ver3, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 16:
-                Instantiate(RBL, Ver4, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 17:
-                Instantiate(RBL, Ver5, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 18:
-                Instantiate(RBL, Ver6, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 19:
-                Instantiate(RBR, Ver1, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 20:
-                Instantiate(RBR, Ver2, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 21:
-                Instantiate(RBR, Ver3, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 22:
-                Instantiate(RBR, Ver4, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 23:
-                Instantiate(RBR, Ver5, Quaternion.identity);
-                RBcounter++;
-                break;
-            case 24:
-                Instantiate(RBR, Ver6, Quaternion.identity);
-                RBcounter++;
-                break;
-
-        }
-
         if (RBcounter != 10)
         {
             yield return null;
