@@ -1014,7 +1014,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 6f51a6c0f5c55c22ee8b5ce70441e0c2
+      Hash: 237b3a76e89392ad0200e4c390396039
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemySpawner

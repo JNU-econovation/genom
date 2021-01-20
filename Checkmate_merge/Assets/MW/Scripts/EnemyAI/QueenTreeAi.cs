@@ -76,7 +76,7 @@ public class QueenTreeAi : MonoBehaviour
     public GameObject QBeatatt;
     IEnumerator QBeatAttak()
     {
-        if(transform.gameObject.tag != "QBCanKill")
+        if(transform.gameObject.tag == "QBCanKill")
         {
    
             Instantiate(QBeatatt, player.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
