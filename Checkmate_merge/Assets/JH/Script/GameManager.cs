@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+//추가사항 1
 public class GameManager : MonoBehaviour
 {
     float delayTime = 0.93023255813953488372093023255812f;
