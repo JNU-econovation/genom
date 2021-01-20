@@ -1355,12 +1355,13 @@ public class EnemySpawner : MonoBehaviour
 
             }
 
+            yield return null;
+            StartCoroutine(timer(delayTime));
         }
         
     
 
-        yield return null;
-        StartCoroutine(timer(delayTime));
+
 
     }
 
@@ -1774,9 +1775,23 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+
+
+    bool firstqueenSpwan = false;
+    void queenSetter()
+    {
+        StopAllCoroutines();
+        StartCoroutine(QueenBossRound());
+    }
+
+
     IEnumerator QueenRound()
     {
-
+        if (firstqueenSpwan == false)
+        {
+            firstqueenSpwan = true;
+            queenSetter();
+        }
         roundNum = Random.Range(1, 15);
         switch (roundNum)
         {
@@ -2054,8 +2069,12 @@ public class EnemySpawner : MonoBehaviour
 
 
 
+
     IEnumerator QueenBossRound()
     {
+
+
+
 
         QueenBosNum = Random.Range(1, 15);
         if (firstQueenBossSpawn != false)
