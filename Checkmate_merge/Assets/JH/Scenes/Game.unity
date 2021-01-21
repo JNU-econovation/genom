@@ -1126,6 +1126,7 @@ MonoBehaviour:
   gameoverUI: {fileID: 1864077842}
   scoreText: {fileID: 881306291}
   enemyscore_text: {fileID: 61755308}
+  deathCounter_text: {fileID: 763666990}
   lastscore_txt: {fileID: 702322168}
   state: 1
   dialog1:
@@ -1822,7 +1823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Death :   '
+  m_Text: 'Death : 0'
 --- !u!222 &763666991
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4105,7 +4106,7 @@ PrefabInstance:
     - target: {fileID: 4083616982539691612, guid: 66ec58d1f20c5274e9f9624bd5ed90f4,
         type: 3}
       propertyPath: noDeathMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4083616982539691613, guid: 66ec58d1f20c5274e9f9624bd5ed90f4,
         type: 3}

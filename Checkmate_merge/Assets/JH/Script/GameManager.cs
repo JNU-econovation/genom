@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour
     public static int score;//기본 점수
     public Text scoreText;
     private static int enemyscore;//적 점수
-    private static int deathCounter;//데스카운텉
+    private static int deathCounter=0;//데스카운텉
     public Text enemyscore_text;
+    public Text deathCounter_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
 
@@ -189,10 +190,10 @@ public class GameManager : MonoBehaviour
         enemyscore += value;//value 만큼 적 점수 증가
         enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
     }
-    public void DeathCount(int value)
+    public void DeathCount()
     {
         deathCounter += 1;//value 만큼 적 점수 증가
-        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+        deathCounter_text.text = "Death : " + deathCounter.ToString();//적 점수 표시
     }
 
     //게임오버시 게임오버UI 활성화
