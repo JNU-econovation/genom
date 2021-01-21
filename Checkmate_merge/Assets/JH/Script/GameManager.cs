@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static int score;//기본 점수
     public Text scoreText;
     private static int enemyscore;//적 점수
+    private static int deathCounter;//데스카운텉
     public Text enemyscore_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
@@ -58,6 +59,21 @@ public class GameManager : MonoBehaviour
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
       
+    }
+
+    public void PonBossDialog()  // 폰보스 엔딩 다이얼로그 출력함수
+    {
+        
+        if(state == State.offDialog)
+        {
+            Debug.Log("폰대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(ponEndDialog));
+
+            Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
+        }
+
     }
 
     public void Update()
@@ -173,7 +189,11 @@ public class GameManager : MonoBehaviour
         enemyscore += value;//value 만큼 적 점수 증가
         enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
     }
-   
+    public void DeathCount(int value)
+    {
+        deathCounter += 1;//value 만큼 적 점수 증가
+        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+    }
 
     //게임오버시 게임오버UI 활성화
     public void GameOver()

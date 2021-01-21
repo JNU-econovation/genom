@@ -393,16 +393,18 @@ public class EnemySpawner : MonoBehaviour
             allStopCor();
         }
         Debug.Log("폰보스 끝");
-        
-        
 
+        GameObject.Find("GameManager").GetComponent<GameManager>().PonBossDialog();
+        //isPonDialog = true;
+        Debug.Log("ponBossisEnd: " + ponBossisEnd);
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
+
         yield return new WaitForSeconds(delayTime);
 
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
 
-        isPonDialog = true;
+
         //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
         //{
         //    Debug.Log("폰대화시작");
@@ -416,7 +418,7 @@ public class EnemySpawner : MonoBehaviour
         //}
 
         ponBossisEnd = true;
-        Debug.Log("ponBossisEnd: " + ponBossisEnd);
+
 
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
 
