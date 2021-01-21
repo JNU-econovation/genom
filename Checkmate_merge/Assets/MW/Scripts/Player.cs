@@ -87,7 +87,7 @@ public class Player : Character
 
     IEnumerator whenReSpwan()
     {
-
+        GameManager.instance.DeathCount();//폰 점수(1점) 넣기
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         StartCoroutine(twinkle());
         yield return new WaitForSeconds(0.93023255813953488372093023255812f * 3);

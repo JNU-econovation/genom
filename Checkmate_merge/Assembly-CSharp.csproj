@@ -123,7 +123,7 @@
     <Compile Include="Assets\MW\Scripts\Node\rockNode\RockWaitNode.cs" />
     <Compile Include="Assets\MW\Scripts\Player.cs" />
     <Compile Include="Assets\MW\Scripts\VirtualJoystick1.cs" />
-    <Compile Include="Assets\MW\Scripts\anglerSSun.cs" />
+    <Compile Include="Assets\MW\Scripts\anglerSSun1.cs" />
     <Compile Include="Assets\MW\Scripts\boss\Erase_Hand.cs" />
     <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB.cs" />
     <Compile Include="Assets\MW\Scripts\boss\KnightBoss\KB2.cs" />
