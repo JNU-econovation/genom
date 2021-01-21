@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RockController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject rock;
     public int rock_score;
     public int sortingOrder = 0;
@@ -14,16 +15,24 @@ public class RockController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
     }
-
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(rock);
+    }
 
 
     public void RockKilledByPlayer()
     {
-        Destroy(rock);
+        animator.SetFloat("Die", 1);
+        rock.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     public void RockKilledByEnemy()
     {
-        Destroy(rock);
+        animator.SetFloat("Die", 1);
+        rock.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BishopController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject bishop;
     public int bishop_score;
     public int sortingOrder = 0;
@@ -14,14 +15,22 @@ public class BishopController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
     }
-
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(bishop);
+    }
     public void BishopKilledByPlayer()
     {
-        Destroy(bishop);
+        animator.SetFloat("Die", 1);
+        bishop.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     public void BishopKilledByEnemy()
     {
-        Destroy(bishop);
+        animator.SetFloat("Die", 1);
+        bishop.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
 
 

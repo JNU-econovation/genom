@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class KnightController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject knight;
     public int knight_score;
 
     // Start is called before the first frame update
- 
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(knight);
+    }
 
     public void KnightKilledByPlayer()
     {
-        Destroy(knight);
+        animator.SetFloat("Die", 1);
+        knight.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     public void KnightKilledByEnemy()
     {
-        Destroy(knight);
+        animator.SetFloat("Die", 1);
+        knight.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

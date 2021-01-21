@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QueenController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject queen;
     public int queen_score;
     public int sortingOrder = 0;
@@ -13,14 +14,22 @@ public class QueenController : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
     }
-
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(queen);
+    }
     public void QueenKilledByPlayer()
     {
-        Destroy(queen);
+        animator.SetFloat("Die", 1);
+        queen.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     public void QueenKilledByEnemy()
     {
-        Destroy(queen);
+        animator.SetFloat("Die", 1);
+        queen.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

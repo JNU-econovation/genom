@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KingController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject king;
     public int king_score = 4;
 
@@ -15,14 +16,22 @@ public class KingController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
     }
-
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(king);
+    }
     public void KingKilledByPlayer()
     {
-        Destroy(king);
+        animator.SetFloat("Die", 1);
+        king.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
     public void KingKilledByEnemy()
     {
-        Destroy(king);
+        animator.SetFloat("Die", 1);
+        king.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c585ca7b2d249943b11e474b98633ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 550611692}
   king: {fileID: 2951760671384461760}
   king_score: 4
   sortingOrder: 0
