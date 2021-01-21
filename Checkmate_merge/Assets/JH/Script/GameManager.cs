@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//추가사항 222
 //추가사항 1
 public class GameManager : MonoBehaviour
 {
