@@ -103,18 +103,20 @@ public class DialogManager : MonoBehaviour
             Debug.Log("iscanDialog: " + EnemySpawner.instance.isPonDialog);
         }
 
-        Time.timeScale = 1.0f;
-        canRoundStart = true;
+        //Time.timeScale = 1.0f;
+        //canRoundStart = true;
+
+        if (Time.timeScale == 0.0f)
+        {
+            yield return new WaitForSeconds(2f);
+            Time.timeScale = 1.0f;
+            Debug.Log("재시작");
+        }
 
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.state = GameManager.State.offDialog;
 
-        //if(Time.timeScale==0.0f)
-        //{
-        //    yield return new WaitForSeconds(2f);
-        //    Time.timeScale = 1.0f;
-        //    Debug.Log("재시작");
-        //}
+        
     }
 
 
