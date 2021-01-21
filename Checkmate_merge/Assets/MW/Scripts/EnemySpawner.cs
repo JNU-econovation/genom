@@ -5,6 +5,19 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+    [SerializeField] private Dialog ponEndDialog;
+    [SerializeField] private Dialog bishopEndDialog;
+    [SerializeField] private Dialog knightEndDialog;
+    [SerializeField] private Dialog rockEndDialog;
+    [SerializeField] private Dialog queenEndDialog;
+    [SerializeField] private Dialog kingEndDialog;
+    public bool isPonDialog = false;
+    public bool isBishopDialog = false;
+    public bool isKnightDialog = false;
+    public bool isrRockDialog = false;
+    public bool isQueenDialog = false;
+    public bool isKingDialog = false;
 
     Vector2 a1 = new Vector2(-3.157f, 3.501f);
     Vector2 a2 = new Vector2(-2.057f, 3.501f);
@@ -110,8 +123,8 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 60 ;
-    bool ponBossisEnd = false;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 5 ;
+    public bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
     bool queenBossisEnd = false;
@@ -125,13 +138,26 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    int ponRoundScoreRange = 10;
+    public int ponRoundScoreRange = 10;
     int bishopRoundScoreRange = 301;
     int knightRoundScoreRange = 451;
     int rockRoundScoreRange = 601;
     int queenRoundScoreRange = 751;
     int kingRoundScoreRange = 901;
 
+    //싱글톤
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("씬에 두개 이상의 게임 매니저가 존재합니다!");
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -216,8 +242,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-
-
         else if (GameManager.score >= ponRoundScoreRange && GameManager.score < bishopRoundScoreRange)
         {
 
@@ -229,10 +253,6 @@ public class EnemySpawner : MonoBehaviour
 
             StartCoroutine(BishopBossRound());
         }
-
-        
-
-
 
         else if(GameManager.score >= bishopRoundScoreRange && GameManager.score < knightRoundScoreRange)
         {
@@ -297,11 +317,10 @@ public class EnemySpawner : MonoBehaviour
         }
 
         countdownTxt.gameObject.SetActive(false);//카운트다운 텍스트 비활성화
-        
-
 
     }
     */
+
     bool isintervel = false;
     IEnumerator interverTimer(float     delayTime)
     {
@@ -310,9 +329,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(timer(delayTime));
     }
 
-
-
-        IEnumerator ponSpqwnDevilHand()
+    IEnumerator ponSpqwnDevilHand()
     {
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(5);
@@ -350,9 +367,6 @@ public class EnemySpawner : MonoBehaviour
         //StartCoroutine(king());
     }
 
-
-
-
     IEnumerator ponBoss()
     {
         Debug.Log("폰보스 시작");
@@ -369,33 +383,64 @@ public class EnemySpawner : MonoBehaviour
         reset = true;
         StartCoroutine(ponBossEnd());
     }
+
+    
+
     IEnumerator ponBossEnd()
     {
         if(reset == false)
         {
             allStopCor();
         }
-
-        //StopCoroutine(Countstart());
-
         Debug.Log("폰보스 끝");
+        
+        
+
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
         yield return new WaitForSeconds(delayTime);
+
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
+        isPonDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
+
         ponBossisEnd = true;
+        Debug.Log("ponBossisEnd: " + ponBossisEnd);
+
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-        StartCoroutine(bishopRound());
+
+     
+       StartCoroutine(bishopRound());
+         
+        
+        
         yield return null;
     }
 
+    public IEnumerator Dialog(Dialog dialog)
+    {
+
+        Time.timeScale = 0.0f;
+        FindObjectOfType<DialogManager>().ShowDialog(dialog);
+
+        yield return null;
+
+    }
 
     int randPonBossNum = 0;
     IEnumerator PonBossRound()
     {
-        
-     
-
 
         randPonBossNum = Random.Range(1, 15);
         switch (randPonBossNum)
@@ -733,8 +778,6 @@ public class EnemySpawner : MonoBehaviour
     }
 
 
-
-
     IEnumerator RockRound()
     {
         roundNum = Random.Range(1, 15);
@@ -1019,8 +1062,23 @@ public class EnemySpawner : MonoBehaviour
 
         Instantiate(RBover, endRBPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
+        //isCanDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
+
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(QueenRound());
 
@@ -1609,10 +1667,26 @@ public class EnemySpawner : MonoBehaviour
         {
             allStopCor3();
         }
+
         GameObject.Find("anglerSSun(Clone)").GetComponent<anglerSSun> ().endBishopBoss();
         yield return new WaitForSeconds(delayTime);
+
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
+        //isCanDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
+
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(KnightRound());
         yield return null;
@@ -2080,6 +2154,7 @@ public class EnemySpawner : MonoBehaviour
         queenBossisEnd = true;
         StartCoroutine(queenBossEnd());
     }
+
     IEnumerator queenBossEnd()
     {
         if(reset4 == false)
@@ -2092,6 +2167,20 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
+        //isCanDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
+
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(kingRound());
         yield return null;
@@ -2596,6 +2685,19 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime*2);
+
+        //isCanDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(RockRound());
         yield return null;
@@ -2826,9 +2928,6 @@ public class EnemySpawner : MonoBehaviour
 
 
     // 킹 라운드
-
-
-
 
     IEnumerator kingRound()
     {
@@ -3163,6 +3262,20 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
+
+        //isCanDialog = true;
+        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
+        //{
+        //    Debug.Log("폰대화시작");
+
+        //    GameManager.instance.state = GameManager.State.onDialog;
+        //    StartCoroutine(Dialog(ponEndDialog));
+        //    yield return new WaitForSeconds(1f);
+        //    isCanDialog = false;
+
+        //    Debug.Log("isCanDialog: " + isCanDialog);
+        //}
+
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(kingRound());
         yield return null;

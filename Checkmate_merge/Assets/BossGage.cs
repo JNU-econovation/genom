@@ -11,10 +11,15 @@ public class BossGage : MonoBehaviour
     public Image image;
     public Animator animator;
     public GameObject ME;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 60;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 5;
 
     Vector2 attPos;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine(Wait());
+    }
 
     IEnumerator Wait()
     {
@@ -24,13 +29,6 @@ public class BossGage : MonoBehaviour
 
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(Wait());
-    }
-
-
     float cooldown = 60;
 
     // Update is called once per frame
@@ -38,11 +36,6 @@ public class BossGage : MonoBehaviour
     {
 
             image.fillAmount -= 1 / BpssdelayTime * Time.deltaTime;
-
-
-
-
-
 
     }
 
