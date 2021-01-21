@@ -81,6 +81,8 @@ public class EnemySpawner : MonoBehaviour
     public int countdownTime;
     public Text countdownTxt;
 
+    public GameObject BossGage;
+
     public GameObject PlayerPos;
     public GameObject Manager;
     public GameObject ponPrefab;
@@ -93,7 +95,7 @@ public class EnemySpawner : MonoBehaviour
 
     Vector2 ponBossPos = new Vector2(0.81f, 3.62f);
     Vector2 devilHandPos = new Vector2(18.25f, -1.46f);
-
+    Vector2 BossGagePos = new Vector2(18.25f, -1.46f);
 
     public GameObject ponBossPrefab;
     int roundNum = 0;
@@ -209,7 +211,7 @@ public class EnemySpawner : MonoBehaviour
             else if (!isPonDevilFirst)
             {
                 StartCoroutine(PonBossRound());
-                StartCoroutine(Countstart());
+               // StartCoroutine(Countstart());
             }
         }
 
@@ -282,7 +284,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     }
-
+    /*
     public IEnumerator Countstart()
     {
         while (countdownTime > 0)
@@ -299,6 +301,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     }
+    */
     bool isintervel = false;
     IEnumerator interverTimer(float     delayTime)
     {
@@ -373,7 +376,7 @@ public class EnemySpawner : MonoBehaviour
             allStopCor();
         }
 
-        StopCoroutine(Countstart());
+        //StopCoroutine(Countstart());
 
         Debug.Log("폰보스 끝");
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
@@ -554,6 +557,7 @@ public class EnemySpawner : MonoBehaviour
         {
             ponBossPrefab.tag = "PSW";
             firstPonBossSpawn = true;
+            Instantiate(BossGage, BossGagePos, Quaternion.identity);
             Instantiate(ponBossPrefab, ponBossPos, Quaternion.identity);
             StartCoroutine(ponBoss());
         }
@@ -1039,6 +1043,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(RBRealend());
         if(RBcounter == 0)
         {
+            Instantiate(BossGage, BossGagePos, Quaternion.identity);
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
             RBcounter++;
             yield return new WaitForSeconds(delayTime);
@@ -1799,6 +1804,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
             yield return new WaitForSeconds(delayTime);
+            Instantiate(BossGage, BossGagePos, Quaternion.identity);
             firstBishopBossSpawn = true;
             StartCoroutine(bishopBoss());
             Instantiate(BB, ponBossPos, Quaternion.identity);
@@ -2346,7 +2352,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(delayTime);
             ponBossPrefab.tag = "QBCanKill";
             firstQueenBossSpawn = true;
-
+            Instantiate(BossGage, BossGagePos, Quaternion.identity);
             Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
 
 
@@ -2804,7 +2810,7 @@ public class EnemySpawner : MonoBehaviour
             KBfU.tag = "KBCanKill";
             KBfL.tag = "KBCanKill";
             KBfR.tag = "KBCanKill";
-
+            Instantiate(BossGage, BossGagePos, Quaternion.identity);
             Instantiate(KBfD, b3 + new Vector2(0, 0.35f), Quaternion.identity);
             Instantiate(KBfU, g6 + new Vector2(0, 0.35f), Quaternion.identity);
             Instantiate(KBfL, c7 + new Vector2(0, 0.35f), Quaternion.identity);

@@ -2068,6 +2068,12 @@ PrefabInstance:
       propertyPath: countdownTxt
       value: 
       objectReference: {fileID: 1737356632}
+    - target: {fileID: 1880714271278250260, guid: 37b963ad554101e40bbb2427ba6bc408,
+        type: 3}
+      propertyPath: BossGage
+      value: 
+      objectReference: {fileID: 6756543159287198603, guid: 5f6cfaf67e39a4443a63d98ec500ef09,
+        type: 3}
     - target: {fileID: 1880714271278250261, guid: 37b963ad554101e40bbb2427ba6bc408,
         type: 3}
       propertyPath: m_Name
@@ -3645,6 +3651,11 @@ PrefabInstance:
       propertyPath: playerControllUi
       value: 
       objectReference: {fileID: 802216897}
+    - target: {fileID: 4083616982539691612, guid: 66ec58d1f20c5274e9f9624bd5ed90f4,
+        type: 3}
+      propertyPath: noDeathMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4083616982539691613, guid: 66ec58d1f20c5274e9f9624bd5ed90f4,
         type: 3}
       propertyPath: m_Offset.y
