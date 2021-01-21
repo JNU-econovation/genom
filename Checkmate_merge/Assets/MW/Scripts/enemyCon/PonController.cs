@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PonController : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] GameObject pon;
     public int pon_score = 1;
 
@@ -14,13 +15,22 @@ public class PonController : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
     }
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(pon);
+    }
 
     public void PonKilledByPlayer()//폰이 플레이어에 잡혔을 때 함수(폰 파괴)
     {
-        Destroy(pon);
+        animator.SetFloat("Die", 1);
+        pon.gameObject.tag = "Untagged";
+        StartCoroutine(die());
+ 
     }
     public void PonKilledByEnemy()
     {
+        animator.SetFloat("Die", 1);
         Destroy(pon);
     }
 
@@ -29,7 +39,7 @@ public class PonController : MonoBehaviour
 
         if (collision.tag == "Player" && pon.tag == "PonCanKilled")//폰이 플레이어에 의해 죽음(1점 증가)
         {
-           
+
             PonKilledByPlayer();
             GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
             string message = "+" + pon_score;

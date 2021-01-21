@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1800710081
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4eba779ec38ef4f438a7eb0a3bb32cb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,7 +105,7 @@ MonoBehaviour:
   ponPivot: {fileID: 3724667216073358006}
   FindPivot1: {fileID: 3724667216035117425}
   FindPivot2: {fileID: 3724667216450128790}
-  animator: {fileID: 0}
+  animator: {fileID: 367341188}
   step: 1
   delayTime: 1
   dirCheckNum: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a17fb32169e6f4ca1ea4262233d2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 367341188}
   pon: {fileID: 3724667215419304269}
   pon_score: 1
   sortingOrder: 0
