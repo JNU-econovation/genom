@@ -35,6 +35,8 @@ public class DialogManager : MonoBehaviour
     public bool isFirst = false;
     public bool canKeyControl = false;//스페이스바 조절
 
+    public bool canRoundStart = false;
+
     //싱글톤
     private void Awake()
     {
@@ -93,13 +95,29 @@ public class DialogManager : MonoBehaviour
         dialogUI.SetActive(false);
         isDialog = false;
 
-        Time.timeScale = 1.0f;//점수,기물 재시작
+        Debug.Log("대화종료");
+
+        if(EnemySpawner.instance.isPonDialog==true)
+        {
+            EnemySpawner.instance.isPonDialog = false;
+            Debug.Log("iscanDialog: " + EnemySpawner.instance.isPonDialog);
+        }
+
+        Time.timeScale = 1.0f;
+        canRoundStart = true;
 
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.state = GameManager.State.offDialog;
+
+        //if(Time.timeScale==0.0f)
+        //{
+        //    yield return new WaitForSeconds(2f);
+        //    Time.timeScale = 1.0f;
+        //    Debug.Log("재시작");
+        //}
     }
 
-    
+
     //첫대화 시작
     public void FirstDialog()
     {
@@ -114,6 +132,8 @@ public class DialogManager : MonoBehaviour
     {
         startUI.SetActive(false);
         isFirst = false;
+
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 1.0f;//점수,기물 다시 시작
 
         yield return new WaitForSeconds(0.5f);
@@ -128,7 +148,7 @@ public class DialogManager : MonoBehaviour
 
         if (isFirst&&canKeyControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButton(0))
+            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonUp(0))
             {
               
                 StartCoroutine(EndFirstDialog());
@@ -137,7 +157,7 @@ public class DialogManager : MonoBehaviour
         }
         if (isDialog&&canKeyControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
                 
                 count++;
@@ -176,10 +196,10 @@ public class DialogManager : MonoBehaviour
 
                 if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
                 {
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);//이미지 위치를 (650,40)으로 변경
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(39,67);//이미지 위치를 (650,40)으로 변경
                 }
                 else
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(629,67);
 
                
             }
@@ -191,10 +211,10 @@ public class DialogManager : MonoBehaviour
 
             if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
             {
-                standing_cg.rectTransform.anchoredPosition = new Vector2(30, 40);//이미지 위치를 (650,40)으로 변경
+                standing_cg.rectTransform.anchoredPosition = new Vector2(39,67);//이미지 위치를 (650,40)으로 변경
             }
             else
-                standing_cg.rectTransform.anchoredPosition = new Vector2(650, 40);
+                standing_cg.rectTransform.anchoredPosition = new Vector2(629,67);
             
         }
 

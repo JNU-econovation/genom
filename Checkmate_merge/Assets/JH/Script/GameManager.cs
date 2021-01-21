@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public static int score;//기본 점수
     public Text scoreText;
     private static int enemyscore;//적 점수
+    private static int deathCounter;//데스카운텉
     public Text enemyscore_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Dialog dialog4;
     [SerializeField] private Dialog dialog5;
     [SerializeField] private Dialog dialog6;
+    [SerializeField] private Dialog ponEndDialog;
 
     //싱글톤
     private void Awake()
@@ -59,17 +61,42 @@ public class GameManager : MonoBehaviour
       
     }
 
-    public void Update()
+    public void PonBossDialog()  // 폰보스 엔딩 다이얼로그 출력함수
     {
         
-        if (score == 5 && state == State.offDialog)
+        if(state == State.offDialog)
+        {
+            Debug.Log("폰대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(ponEndDialog));
+
+            Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
+        }
+
+    }
+
+    public void Update()
+    {
+        if(EnemySpawner.instance.isPonDialog==true && state == State.offDialog)
+        {
+            Debug.Log("폰대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(ponEndDialog));
+ 
+            Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
+
+        }
+
+        if (score == 100 && state == State.offDialog)
             {
                 state = State.onDialog;
                 
                 FindObjectOfType<DialogManager>().FirstDialog();
 
             }
-        if (score == 150 && state == State.offDialog)//폰
+        if (score == 120 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));
@@ -162,7 +189,11 @@ public class GameManager : MonoBehaviour
         enemyscore += value;//value 만큼 적 점수 증가
         enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
     }
-   
+    public void DeathCount(int value)
+    {
+        deathCounter += 1;//value 만큼 적 점수 증가
+        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+    }
 
     //게임오버시 게임오버UI 활성화
     public void GameOver()
