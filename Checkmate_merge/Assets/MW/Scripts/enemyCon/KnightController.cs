@@ -6,7 +6,7 @@ public class KnightController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject knight;
-    public int knight_score;
+    int knight_score=3;
 
     // Start is called before the first frame update
     IEnumerator die()

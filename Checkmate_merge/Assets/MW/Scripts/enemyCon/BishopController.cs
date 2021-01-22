@@ -6,7 +6,7 @@ public class BishopController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject bishop;
-    public int bishop_score;
+    private int bishop_score=3;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update
@@ -40,6 +40,7 @@ public class BishopController : MonoBehaviour
         {
             BishopKilledByPlayer();
             GameManager.instance.EnemyScore(bishop_score);
+
             string message = "+" + bishop_score;
             FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }

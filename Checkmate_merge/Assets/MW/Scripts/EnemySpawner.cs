@@ -128,7 +128,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 60 ;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 45 ;
     public bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
@@ -143,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    static int ponRoundScoreRange = 51;
+    static int ponRoundScoreRange = 16;
     static int bishopRoundScoreRange = 151;
     static int knightRoundScoreRange = 301;
     static int rockRoundScoreRange = 501;
@@ -425,14 +425,13 @@ public class EnemySpawner : MonoBehaviour
         }
         Debug.Log("폰보스 끝");
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().PonBossDialog();
+       
         //isPonDialog = true;
-        Debug.Log("ponBossisEnd: " + ponBossisEnd);
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
-
+        GameObject.Find("GameManager").GetComponent<GameManager>().PonBossDialog();//폰 대사
         yield return new WaitForSeconds(delayTime);
 
-        Instantiate(devilHand, devilHandPos, Quaternion.identity);
+        Instantiate(devilHand, devilHandPos, Quaternion.identity);//악마손
         yield return new WaitForSeconds(delayTime);
 
 
@@ -461,15 +460,15 @@ public class EnemySpawner : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator Dialog(Dialog dialog)
-    {
+    //public IEnumerator Dialog(Dialog dialog)
+    //{
 
-        Time.timeScale = 0.0f;
-        FindObjectOfType<DialogManager>().ShowDialog(dialog);
+    //    Time.timeScale = 0.0f;
+    //    FindObjectOfType<DialogManager>().ShowDialog(dialog);
 
-        yield return null;
+    //    yield return null;
 
-    }
+    //}
 
     int randPonBossNum = 0;
     IEnumerator PonBossRound()
@@ -1090,7 +1089,7 @@ public class EnemySpawner : MonoBehaviour
         {
             allStopCor2();
         }
-        
+        GameObject.Find("GameManager").GetComponent<GameManager>().RockBossDialog();//룩 대사
         rockBossisEnd = true;
 
         Instantiate(RBover, endRBPos, Quaternion.identity);
@@ -1703,8 +1702,9 @@ public class EnemySpawner : MonoBehaviour
         {
             allStopCor3();
         }
-
+        Debug.Log("비숍보스 끝");
         GameObject.Find("anglerSSun(Clone)").GetComponent<anglerSSun> ().endBishopBoss();
+        GameObject.Find("GameManager").GetComponent<GameManager>().BishopBossDialog();//비숍 대사
         yield return new WaitForSeconds(delayTime);
 
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
@@ -2202,6 +2202,7 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(timer(delayTime));
         StopCoroutine(QueenBossRound());
         GameObject.Find("QBRed(Clone)").GetComponent<QueenTreeAi>().endQueenBoss();
+        GameObject.Find("GameManager").GetComponent<GameManager>().QueenBossDialog();//퀸 대사
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);
@@ -2722,6 +2723,9 @@ public class EnemySpawner : MonoBehaviour
         GameObject.Find("KBfU(Clone)").GetComponent<KB>().endKngitBoss();
         GameObject.Find("KBfR(Clone)").GetComponent<KB4>().endKngitBoss();
         GameObject.Find("KBfL(Clone)").GetComponent<KB3>().endKngitBoss();
+
+        GameObject.Find("GameManager").GetComponent<GameManager>().KnightBossDialog();//나이트 대사
+
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime*2);
@@ -3302,6 +3306,7 @@ public class EnemySpawner : MonoBehaviour
             allStopCor3();
         }
         GameObject.Find("(Clone)").GetComponent<anglerSSun>().endBishopBoss();
+        GameObject.Find("GameManager").GetComponent<GameManager>().PonBossDialog();//킹 대사
         yield return new WaitForSeconds(delayTime);
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(delayTime);

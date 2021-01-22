@@ -6,7 +6,7 @@ public class QueenController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject queen;
-    public int queen_score;
+    int queen_score=9;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update

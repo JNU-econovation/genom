@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월 23일 추가사항 1. 대사 타이핑 효과 코루틴 수정 2.보스딜레이 타임 45초로 바꿈(영우님 요청사항) 3.DialogEnd 판넬 추가 4.DialogStartUI,DialogEndUI,각 Dialog 끝나면 2초 뒤에 적 기물과 점수 움직임 
+                     //5. 모든 대사 입력 완료
 //1월22일 추가사항 1. 보스도 알림마크 추가, 2.영우님이 주신 메뉴창이랑 죽을때 뜨는창 이미지 수정 및 메인화면 수정, 3. 글자 폰트 바꾸기, 4. 주희님 폴더에 sprite->대화창 폴더에 쓰실 이미지들 미리 추가해뒀습니다.
-//추가사항 2
-//추가사항 1
 public class GameManager : MonoBehaviour
 {
     float delayTime = 0.93023255813953488372093023255812f;
@@ -34,8 +34,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Dialog dialog4;
     [SerializeField] private Dialog dialog5;
     [SerializeField] private Dialog dialog6;
+
     [SerializeField] private Dialog ponEndDialog;
+    [SerializeField] private Dialog bishopEndDialog;
+    [SerializeField] private Dialog knightEndDialog;
+    [SerializeField] private Dialog rockEndDialog;
+    [SerializeField] private Dialog queenEndDialog;
+    [SerializeField] private Dialog kingEndDialog;
+
     bool isFirstDialog = false;
+    bool isLastDialog = false;
+
     bool isPonBossDialog = false;
     bool isBishpBossDialog = false;
     bool isKnightBossDialog = false;
@@ -46,7 +55,7 @@ public class GameManager : MonoBehaviour
     //싱글톤
     private void Awake()
     {
-        
+       
         if (instance == null)
         {
             instance = this;
@@ -61,6 +70,7 @@ public class GameManager : MonoBehaviour
     // 초기화
     public void Start()
     {
+        
         isPlay = true;
         state = State.offDialog;
 
@@ -71,21 +81,6 @@ public class GameManager : MonoBehaviour
     
         StartCoroutine(AddScore());//생존점수계산 코루틴 시작
       
-    }
-
-    public void PonBossDialog()  // 폰보스 엔딩 다이얼로그 출력함수
-    {
-        
-        if(state == State.offDialog)
-        {
-            Debug.Log("폰대화시작");
-
-            state = State.onDialog;
-            StartCoroutine(Dialog(ponEndDialog));
-
-            Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
-        }
-
     }
 
     public void Update()
@@ -102,14 +97,15 @@ public class GameManager : MonoBehaviour
 
         }
         */
-        if (score == 5 && state == State.offDialog &&isFirstDialog == false)
-            {
+        if (score == 5 && state == State.offDialog && isFirstDialog == false)
+        {
             isFirstDialog = true;
-               state = State.onDialog;
-                
-                FindObjectOfType<DialogManager>().FirstDialog();
+            state = State.onDialog;
 
-            }
+            FindObjectOfType<DialogManager>().FirstDialog();
+
+        }
+        
         if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
         {
             isPonBossDialog = true;
@@ -117,33 +113,33 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(Dialog(dialog1));
 
             }
-        if (score == 150 && state == State.offDialog && isPonBossDialog == false)//비숍
+        if (score == 150 && state == State.offDialog && isBishpBossDialog == false)//비숍
         {
             isBishpBossDialog = true;
             state = State.onDialog;
                 StartCoroutine(Dialog(dialog2));
             }
 
-        if (score == 300 && state == State.offDialog && isPonBossDialog == false)//나이트
+        if (score == 300 && state == State.offDialog && isKnightBossDialog == false)//나이트
         {
             isKnightBossDialog = true;
             state = State.onDialog;
                 StartCoroutine(Dialog(dialog4));
             }
 
-        if (score == 500 && state == State.offDialog && isPonBossDialog == false)//룩
+        if (score == 500 && state == State.offDialog && isRockBossDialog == false)//룩
         {
             isRockBossDialog = true;
             state = State.onDialog;
             StartCoroutine(Dialog(dialog3));
         }
-        if (score == 750 && state == State.offDialog && isPonBossDialog == false)//퀸
+        if (score == 750 && state == State.offDialog && isQueenBossDialog == false)//퀸
         {
             isQueenBossDialog = true;
             state = State.onDialog;
                 StartCoroutine(Dialog(dialog5));
             }
-        if (score == 1000 && state == State.offDialog && isPonBossDialog == false)//킹
+        if (score == 1000 && state == State.offDialog && isKingBossDialog == false)//킹
         {
             isKingBossDialog = true;
             state = State.onDialog;
@@ -162,6 +158,86 @@ public class GameManager : MonoBehaviour
         yield return null;
 
     }
+    public void PonBossDialog()  // 폰보스 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("폰대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(ponEndDialog));
+
+            //Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
+        }
+
+    }
+    public void BishopBossDialog()  // 비숍 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("비숍대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(bishopEndDialog));
+
+        }
+
+    }
+    public void KnightBossDialog()  // 나이트 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("나이트대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(knightEndDialog));
+
+        }
+
+    }
+    public void RockBossDialog()  //룩 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("룩 대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(rockEndDialog));
+
+        }
+
+    }
+    public void QueenBossDialog()  // 퀸 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("퀸 대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(queenEndDialog));
+
+        }
+
+    }
+    public void KingBossDialog()  // 킹 엔딩 다이얼로그 출력함수
+    {
+
+        if (state == State.offDialog)
+        {
+            Debug.Log("킹 대화시작");
+
+            state = State.onDialog;
+            StartCoroutine(Dialog(kingEndDialog));
+
+        }
+
+    }
+
 
     //생존 점수 계산
     public IEnumerator AddScore()
@@ -184,6 +260,34 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    //적 점수 계산
+    public void EnemyScore(int value)
+    {
+        enemyscore += value;//value 만큼 적 점수 증가
+        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+    }
+    public void DeathCount()
+    {
+        deathCounter += 1;//value 만큼 적 점수 증가
+        deathCounter_text.text = "Death : " + deathCounter.ToString();//적 점수 표시
+    }
+
+    //게임오버시 게임오버UI 활성화
+    public void GameOver()
+    {
+        isPlay = false;//플레이가 종료되면
+        StopCoroutine(AddScore());//코루틴 정지
+        Time.timeScale = 0.0f;//모든 오브젝트 정지
+
+        gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
+        lastscore = score + enemyscore;
+        lastscore_txt.text = "총 점수 : " + lastscore.ToString();
+        lastDeathCount = deathCounter;
+        lastDeathCount_text.text = "죽음 : " + lastDeathCount.ToString();
+    }
+
+
     //MW 추가내역, 보스전투시 점수 공회전 코루틴
     public IEnumerator WaitAddScore()
     {
@@ -205,32 +309,7 @@ public class GameManager : MonoBehaviour
             isPlay = true;
         }
     }
-    //적 점수 계산
-    public void EnemyScore(int value)
-    {
-        enemyscore += value;//value 만큼 적 점수 증가
-        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
-    }
-    public void DeathCount()
-    {
-        deathCounter += 1;//value 만큼 적 점수 증가
-        deathCounter_text.text = "Death : " + deathCounter.ToString();//적 점수 표시
-    }
-
-    //게임오버시 게임오버UI 활성화
-    public void GameOver()
-    {
-        isPlay=false;//플레이가 종료되면
-        StopCoroutine(AddScore());//코루틴 정지
-        Time.timeScale = 0.0f;//모든 오브젝트 정지
-        
-        gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
-        lastscore = score + enemyscore;
-        lastscore_txt.text = "총 점수 : " + lastscore.ToString();
-        lastDeathCount = deathCounter;
-        lastDeathCount_text.text = "죽음 : " + lastDeathCount.ToString();
-    }
-
+    
     
 
 

@@ -20,7 +20,7 @@ public class DialogManager : MonoBehaviour
     
     public GameObject startUI;
     public GameObject dialogUI;
-
+    
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
@@ -81,6 +81,58 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(StartDialog());
     }
 
+    //대화 뽑아내기
+    public IEnumerator StartDialog()
+    {
+        //이름
+        name_text.text = list_name[count];
+
+        //스탠딩 이미지
+        if (count > 0)
+        {
+            if (list_cg[count] != list_cg[count - 1])//두개의 이미지가 다르다면 이미지 교체
+            {
+                standing_cg.sprite = list_cg[count];
+
+                if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
+                {
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(51, 55);//이미지 위치를 (650,40)으로 변경
+
+                }
+                else
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(601, 55);
+
+
+            }
+
+        }
+        else//count==0 (첫 이미지)
+        {
+            standing_cg.sprite = list_cg[count];
+
+            if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
+            {
+                standing_cg.rectTransform.anchoredPosition = new Vector2(51, 55);//이미지 위치를 (650,40)으로 변경
+
+            }
+            else
+                standing_cg.rectTransform.anchoredPosition = new Vector2(601, 55);
+
+        }
+
+        //대사 1글자씩 출력 
+        for (int i = 0; i < list_sentence[count].Length; i++)
+        {
+            Debug.Log("count: " + count + "타이핑 효과 i: " + i);
+            sentence_text.text += list_sentence[count][i];
+
+            yield return new WaitForSecondsRealtime(0.01f);
+            Debug.Log("0.01초");
+
+        }
+
+    }
+
     // 대화 종료
     public IEnumerator EndDialog()
     {
@@ -97,24 +149,55 @@ public class DialogManager : MonoBehaviour
 
         Debug.Log("대화종료");
 
-        if(EnemySpawner.instance.isPonDialog==true)
-        {
-            EnemySpawner.instance.isPonDialog = false;
-            Debug.Log("iscanDialog: " + EnemySpawner.instance.isPonDialog);
-        }
-
+        yield return new WaitForSecondsRealtime(2f);
+        Debug.Log("2초 기다림");
         Time.timeScale = 1.0f;
-        canRoundStart = true;
+        //canRoundStart = true;
 
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.state = GameManager.State.offDialog;
+    }
 
-        //if(Time.timeScale==0.0f)
-        //{
-        //    yield return new WaitForSeconds(2f);
-        //    Time.timeScale = 1.0f;
-        //    Debug.Log("재시작");
-        //}
+
+   
+
+    //스페이스바 누르면 다음 문장 실행
+    private void Update()
+    {
+        if (isFirst && canKeyControl)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
+            {
+                StartCoroutine(EndFirstDialog());
+               
+
+            }
+        }
+
+        if (isDialog && canKeyControl)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
+            {
+
+                count++;
+                sentence_text.text = "";
+
+                if (count == list_sentence.Count)//count가 list의 지정된 count와 같다면 대화 종료
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(EndDialog());
+
+                }
+                else//그렇지 않다면 계속 대화
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(StartDialog());
+                }
+
+            }
+        }
+
+
     }
 
 
@@ -125,110 +208,28 @@ public class DialogManager : MonoBehaviour
         isFirst = true;
         canKeyControl = true;
         startUI.SetActive(true);
-        
+
 
     }
+
     public IEnumerator EndFirstDialog()
     {
         startUI.SetActive(false);
         isFirst = false;
 
-       // yield return new WaitForSeconds(2f);  // 이거 있으면 점수가 다시 안올라가서 주석처리 해뒀습니다!
+        yield return new WaitForSecondsRealtime(2f);
+        Debug.Log("2초 기다림");
         Time.timeScale = 1.0f;//점수,기물 다시 시작
 
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.state = GameManager.State.offDialog;
     }
-    
-
-    //스페이스바 누르면 다음 문장 실행
-    private void Update()
-    {
 
 
-        if (isFirst&&canKeyControl)
-        {
-            if (Input.GetKeyDown(KeyCode.Space)|| Input.GetMouseButtonUp(0))
-            {
-              
-                StartCoroutine(EndFirstDialog());
-           
-            }
-        }
-        if (isDialog&&canKeyControl)
-        {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
-            {
-                
-                count++;
-                sentence_text.text = "";
-
-                if (count == list_sentence.Count)//count가 list의 지정된 count와 같다면 대화 종료
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(EndDialog());
-                    
-                }
-                else//그렇지 않다면 계속 대화
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(StartDialog());
-                }
-                
-            }
-        }
 
 
-    }
 
-    //대화 뽑아내기
-    public IEnumerator StartDialog()
-    {
-        //이름
-        name_text.text = list_name[count];
 
-        //스탠딩 이미지
-        if (count > 0)
-        {
-            if (list_cg[count] != list_cg[count - 1])//두개의 이미지가 다르다면 이미지 교체
-            {
-                standing_cg.sprite = list_cg[count];
-
-                if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
-                {
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(39,67);//이미지 위치를 (650,40)으로 변경
-                }
-                else
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(629,67);
-
-               
-            }
-
-        }
-        else//count==0 (첫 이미지)
-        {
-            standing_cg.sprite = list_cg[count];
-
-            if (list_cg[count].name == "down 1")//리스트에 할당된 이미지가 down 1이면
-            {
-                standing_cg.rectTransform.anchoredPosition = new Vector2(39,67);//이미지 위치를 (650,40)으로 변경
-            }
-            else
-                standing_cg.rectTransform.anchoredPosition = new Vector2(629,67);
-            
-        }
-
-        //대사 1글자씩 출력 
-        for (int i = 0; i < list_sentence[count].Length; i++)
-        {
-
-            sentence_text.text += list_sentence[count][i];
-
-            yield return null;
-
-        }
-
-    }
 
 
 

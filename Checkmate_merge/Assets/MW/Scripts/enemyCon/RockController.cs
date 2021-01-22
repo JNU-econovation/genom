@@ -6,7 +6,7 @@ public class RockController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject rock;
-    public int rock_score;
+    int rock_score=5;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update

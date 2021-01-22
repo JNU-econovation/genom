@@ -6,7 +6,7 @@ public class PonController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject pon;
-    public int pon_score = 1;
+    private int pon_score = 1;
 
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
