@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public AudioClip nomalRound;
+    public AudioClip bossRound;
+    public AudioSource backAudio;
+
+
     public static EnemySpawner instance;
     [SerializeField] private Dialog ponEndDialog;
     [SerializeField] private Dialog bishopEndDialog;
@@ -123,7 +128,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 5 ;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 60 ;
     public bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
@@ -148,6 +153,8 @@ public class EnemySpawner : MonoBehaviour
     //싱글톤
     private void Awake()
     {
+        backAudio.clip = nomalRound;
+        backAudio.Play();
         if (instance == null)
         {
             instance = this;
@@ -167,38 +174,60 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.score == ponRoundScoreRange && !ponBfirstStop)
+        if(backAudio.clip == nomalRound)
         {
+            backAudio.volume =0.5f;
+        }
+        if (backAudio.clip == bossRound)
+        {
+            backAudio.volume = 1f;
+        }
+
+
+        if (GameManager.score == ponRoundScoreRange && !ponBfirstStop)
+        {
+            backAudio.clip = bossRound;
+            backAudio.Play();
             ponBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
         if (GameManager.score == knightRoundScoreRange && !knightBfirstStop)
         {
+            backAudio.clip = bossRound;
+            backAudio.Play();
             knightBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
         if (GameManager.score == bishopRoundScoreRange && !bishopBfirstStop)
         {
+            backAudio.clip = bossRound;
+            backAudio.Play();
             bishopBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
         if (GameManager.score == rockRoundScoreRange && !rockBfirstStop)
         {
+            backAudio.clip = bossRound;
+            backAudio.Play();
             rockBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
         if (GameManager.score == queenRoundScoreRange && !queenBfirstStop)
         {
+            backAudio.clip = bossRound;
+            backAudio.Play();
             queenBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
 
         if (GameManager.score == kingRoundScoreRange && !kingBfirstStop)
         {
+            backAudio.clip = bossRound; 
+            backAudio.Play();
             kingBfirstStop = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         }
@@ -332,6 +361,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator ponSpqwnDevilHand()
     {
+
         Instantiate(devilHand, devilHandPos, Quaternion.identity);
         yield return new WaitForSeconds(5);
         StartCoroutine(PonBossRound());
@@ -422,9 +452,9 @@ public class EnemySpawner : MonoBehaviour
 
 
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
-
-     
-       StartCoroutine(bishopRound());
+        backAudio.clip = nomalRound;
+        backAudio.Play();
+        StartCoroutine(bishopRound());
          
         
         
@@ -1081,7 +1111,8 @@ public class EnemySpawner : MonoBehaviour
 
         //    Debug.Log("isCanDialog: " + isCanDialog);
         //}
-
+        backAudio.clip = nomalRound;
+        backAudio.Play();
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(QueenRound());
 
@@ -1090,6 +1121,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator RBRealend()
     {
+
         yield return new WaitForSeconds(BpssdelayTime);
         RBcounter = 10;
         StartCoroutine(RBend());
@@ -1104,6 +1136,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(RBRealend());
         if(RBcounter == 0)
         {
+
             Instantiate(BossGage, BossGagePos, Quaternion.identity);
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
             RBcounter++;
@@ -1689,7 +1722,8 @@ public class EnemySpawner : MonoBehaviour
 
         //    Debug.Log("isCanDialog: " + isCanDialog);
         //}
-
+        backAudio.clip = nomalRound;
+        backAudio.Play();
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(KnightRound());
         yield return null;
@@ -1878,6 +1912,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (firstBishopBossSpawn == false)
         {
+
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 
             yield return new WaitForSeconds(delayTime);
@@ -2183,7 +2218,8 @@ public class EnemySpawner : MonoBehaviour
 
         //    Debug.Log("isCanDialog: " + isCanDialog);
         //}
-
+        backAudio.clip = nomalRound;
+        backAudio.Play();
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(kingRound());
         yield return null;
@@ -2439,6 +2475,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (firstQueenBossSpawn == false)
         {
+
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
             StartCoroutine(queenBoss());
             yield return new WaitForSeconds(delayTime);
@@ -2701,6 +2738,8 @@ public class EnemySpawner : MonoBehaviour
 
         //    Debug.Log("isCanDialog: " + isCanDialog);
         //}
+        backAudio.clip = nomalRound;
+        backAudio.Play();
         GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
         StartCoroutine(RockRound());
         yield return null;
@@ -2905,6 +2944,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (firstKnightBossSpawn == false)
         {
+
 
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
 

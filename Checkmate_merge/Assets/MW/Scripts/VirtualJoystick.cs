@@ -35,6 +35,112 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
     // Update is called once per frame
     void Update()
     {
+        float xinput = Input.GetAxis("Horizontal");
+
+        float yinput = Input.GetAxis("Vertical");
+
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(10f, 0f);
+        }
+        else if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(-10f, 0f);
+        }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(0, 10f);
+        }
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(0, -10f);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(-10f, 0f);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(-10, 0f);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(0, -10f);
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(0, 10f);
+        }
+
+
+
+        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(-10f, -10f);
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow)&&Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(10f, 10f);
+        }
+
+
+
+
+        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(10f, -10f);
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow) && Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(-10f, 10f);
+        }
+
+
+
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(-10f, 10f);
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow) && Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(10f, -10f);
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            isTouch = true;
+            rectJoystick.transform.localPosition = new Vector2(10f, 10f);
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow) && Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            isTouch = false;
+
+            rectJoystick.transform.localPosition = new Vector2(-10f, -10f);
+        }
+
+
+
         MoveDir();
         CanMove();
 
@@ -127,6 +233,11 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
 
     public void MoveDir()
     {
+
+
+
+
+
         if (isTouch)
         {
 
@@ -219,4 +330,8 @@ public class VirtualJoystick : Character, IPointerDownHandler, IPointerUpHandler
             animator.SetFloat("Magnitude", 0);
         }
     }
+
+
+
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월22일 추가사항 1. 보스도 알림마크 추가, 2.영우님이 주신 메뉴창이랑 죽을때 뜨는창 이미지 수정 및 메인화면 수정, 3. 글자 폰트 바꾸기, 4. 주희님 폴더에 sprite->대화창 폴더에 쓰실 이미지들 미리 추가해뒀습니다.
 //추가사항 2
 //추가사항 1
 public class GameManager : MonoBehaviour
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     //싱글톤
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
