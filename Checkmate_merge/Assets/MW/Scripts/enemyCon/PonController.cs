@@ -31,7 +31,8 @@ public class PonController : MonoBehaviour
     public void PonKilledByEnemy()
     {
         animator.SetFloat("Die", 1);
-        Destroy(pon);
+        pon.gameObject.tag = "Untagged";
+        StartCoroutine(die());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

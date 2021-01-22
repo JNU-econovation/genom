@@ -88,7 +88,10 @@ public class BishopController : MonoBehaviour
         {
             BishopKilledByEnemy();
         }
-  
+        else if (collision.tag == "KnightCanKilled")
+        {
+            BishopKilledByEnemy();
+        }
 
         else if (collision.tag == "BishopCanKill" && bishop.tag == "BishopCanKilled")
         {

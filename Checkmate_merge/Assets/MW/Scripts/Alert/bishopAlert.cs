@@ -22,7 +22,7 @@ public class bishopAlert : MonoBehaviour
 
     void setRound()
     {
-        Instantiate(bishopPrefab, this.transform.position + new Vector3(0, 0.51f, 0), Quaternion.identity);
+        Instantiate(bishopPrefab, this.transform.position + new Vector3(0, 0.31f, 0), Quaternion.identity);
         Destroy(bishopAlt);
 
     }

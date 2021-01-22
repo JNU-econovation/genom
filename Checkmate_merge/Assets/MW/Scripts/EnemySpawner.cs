@@ -143,12 +143,12 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    static int ponRoundScoreRange = 151;
-    static int bishopRoundScoreRange = 301;
-    static int knightRoundScoreRange = 451;
-    static int rockRoundScoreRange = 601;
+    static int ponRoundScoreRange = 51;
+    static int bishopRoundScoreRange = 151;
+    static int knightRoundScoreRange = 301;
+    static int rockRoundScoreRange = 501;
     static int queenRoundScoreRange = 751;
-    static int kingRoundScoreRange = 901;
+    static int kingRoundScoreRange = 1001;
 
     //싱글톤
     private void Awake()

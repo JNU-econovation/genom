@@ -35,6 +35,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Dialog dialog5;
     [SerializeField] private Dialog dialog6;
     [SerializeField] private Dialog ponEndDialog;
+    bool isFirstDialog = false;
+    bool isPonBossDialog = false;
+    bool isBishpBossDialog = false;
+    bool isKnightBossDialog = false;
+    bool isRockBossDialog = false;
+    bool isQueenBossDialog = false;
+    bool isKingBossDialog = false;
 
     //싱글톤
     private void Awake()
@@ -95,42 +102,51 @@ public class GameManager : MonoBehaviour
 
         }
         */
-        if (score == 5 && state == State.offDialog)
+        if (score == 5 && state == State.offDialog &&isFirstDialog == false)
             {
-                state = State.onDialog;
+            isFirstDialog = true;
+               state = State.onDialog;
                 
                 FindObjectOfType<DialogManager>().FirstDialog();
 
             }
-        if (score == 150 && state == State.offDialog)//폰
-            {
-                state = State.onDialog;
+        if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
+        {
+            isPonBossDialog = true;
+            state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));
 
             }
-        if (score == 300 && state == State.offDialog)//비숍
-            {
-                state = State.onDialog;
+        if (score == 150 && state == State.offDialog && isPonBossDialog == false)//비숍
+        {
+            isBishpBossDialog = true;
+            state = State.onDialog;
                 StartCoroutine(Dialog(dialog2));
             }
-        if (score == 600 && state == State.offDialog)//룩
-            {
-                state = State.onDialog;
-                StartCoroutine(Dialog(dialog3));
-            }
-        if (score == 450 && state == State.offDialog)//나이트
-            {
-                state = State.onDialog;
+
+        if (score == 300 && state == State.offDialog && isPonBossDialog == false)//나이트
+        {
+            isKnightBossDialog = true;
+            state = State.onDialog;
                 StartCoroutine(Dialog(dialog4));
             }
-        if (score == 750 && state == State.offDialog)//퀸
-            {
-                state = State.onDialog;
+
+        if (score == 500 && state == State.offDialog && isPonBossDialog == false)//룩
+        {
+            isRockBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog3));
+        }
+        if (score == 750 && state == State.offDialog && isPonBossDialog == false)//퀸
+        {
+            isQueenBossDialog = true;
+            state = State.onDialog;
                 StartCoroutine(Dialog(dialog5));
             }
-        if (score == 900 && state == State.offDialog)//킹
-            {
-                state = State.onDialog;
+        if (score == 1000 && state == State.offDialog && isPonBossDialog == false)//킹
+        {
+            isKingBossDialog = true;
+            state = State.onDialog;
                 StartCoroutine(Dialog(dialog6));
             }
   
@@ -157,7 +173,7 @@ public class GameManager : MonoBehaviour
 
             score++;
             scoreText.text = "score : " + score.ToString();
-            yield return new WaitForSeconds(delayTime * 0.5f);
+            yield return new WaitForSeconds(delayTime * 1f);
 
         }
         // isPlay false시 공회전 코루틴 시작

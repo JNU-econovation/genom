@@ -137,10 +137,7 @@ public class KnightController : MonoBehaviour
         }
  
 
-        else if (collision.tag == "BishopCanKill")
-        {
-            KnightKilledByEnemy();
-        }
+
 
 
         else if (collision.tag == "RockCanKill")
