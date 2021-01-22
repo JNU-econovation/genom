@@ -11,7 +11,7 @@ public class BossGage : MonoBehaviour
     public Image image;
     public Animator animator;
     public GameObject ME;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 5;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 60;
 
     Vector2 attPos;
 
@@ -23,7 +23,7 @@ public class BossGage : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(BpssdelayTime);
         Destroy(ME);
         yield return null;
 

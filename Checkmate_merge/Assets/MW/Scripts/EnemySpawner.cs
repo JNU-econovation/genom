@@ -106,7 +106,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject queenPrefab;
     public GameObject devilHand;
 
-    Vector2 ponBossPos = new Vector2(0.81f, 3.62f);
+    Vector2 ponBossPos = new Vector2(0.71f, 2.98f);
     Vector2 devilHandPos = new Vector2(18.25f, -1.46f);
     Vector2 BossGagePos = new Vector2(18.25f, -1.46f);
 
@@ -138,12 +138,12 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    public int ponRoundScoreRange = 10;
-    int bishopRoundScoreRange = 301;
-    int knightRoundScoreRange = 451;
-    int rockRoundScoreRange = 601;
-    int queenRoundScoreRange = 751;
-    int kingRoundScoreRange = 901;
+    static int ponRoundScoreRange = 151;
+    static int bishopRoundScoreRange = 301;
+    static int knightRoundScoreRange = 451;
+    static int rockRoundScoreRange = 601;
+    static int queenRoundScoreRange = 751;
+    static int kingRoundScoreRange = 901;
 
     //싱글톤
     private void Awake()
@@ -299,6 +299,7 @@ public class EnemySpawner : MonoBehaviour
 
         else if (GameManager.score >= kingRoundScoreRange && kingBossisEnd == false)
         {
+            GameManager.instance.GameOver();//게임오버함수 호출, 일단 킹보스 나오면 끝인걸로
             StartCoroutine(KingBossRound());
         }
 

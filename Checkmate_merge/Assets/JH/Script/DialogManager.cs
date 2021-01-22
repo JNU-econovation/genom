@@ -133,7 +133,7 @@ public class DialogManager : MonoBehaviour
         startUI.SetActive(false);
         isFirst = false;
 
-        yield return new WaitForSeconds(2f);
+       // yield return new WaitForSeconds(2f);  // 이거 있으면 점수가 다시 안올라가서 주석처리 해뒀습니다!
         Time.timeScale = 1.0f;//점수,기물 다시 시작
 
         yield return new WaitForSeconds(0.5f);

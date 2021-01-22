@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     public Text deathCounter_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
-
+    private static int lastDeathCount = 0;//데스카운텉
+    public Text lastDeathCount_text;
     public enum State { onDialog,offDialog };
     public State state;
 
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        /*
         if(EnemySpawner.instance.isPonDialog==true && state == State.offDialog)
         {
             Debug.Log("폰대화시작");
@@ -90,15 +92,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
 
         }
-
-        if (score == 100 && state == State.offDialog)
+        */
+        if (score == 5 && state == State.offDialog)
             {
                 state = State.onDialog;
                 
                 FindObjectOfType<DialogManager>().FirstDialog();
 
             }
-        if (score == 120 && state == State.offDialog)//폰
+        if (score == 150 && state == State.offDialog)//폰
             {
                 state = State.onDialog;
                 StartCoroutine(Dialog(dialog1));
@@ -207,6 +209,8 @@ public class GameManager : MonoBehaviour
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
         lastscore = score + enemyscore;
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
+        lastDeathCount = deathCounter;
+        lastDeathCount_text.text = "죽음 : " + lastDeathCount.ToString();
     }
 
     
