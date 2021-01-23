@@ -143,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    static int ponRoundScoreRange = 51;
+    static int ponRoundScoreRange = 6;
     static int bishopRoundScoreRange = 151;
     static int knightRoundScoreRange = 301;
     static int rockRoundScoreRange = 501;
@@ -426,7 +426,6 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log("폰보스 끝");
 
        
-        //isPonDialog = true;
         GameObject.Find("PSW(Clone)").GetComponent<KingTreeAi>().endPonBoss();
         GameObject.Find("GameManager").GetComponent<GameManager>().PonBossDialog();//폰 대사
         yield return new WaitForSeconds(delayTime);
@@ -434,18 +433,6 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(devilHand, devilHandPos, Quaternion.identity);//악마손
         yield return new WaitForSeconds(delayTime);
 
-
-        //if (GameManager.instance.state == GameManager.State.offDialog && isCanDialog == true)
-        //{
-        //    Debug.Log("폰대화시작");
-
-        //    GameManager.instance.state = GameManager.State.onDialog;
-        //    StartCoroutine(Dialog(ponEndDialog));
-        //    yield return new WaitForSeconds(1f);
-        //    isCanDialog = false;
-
-        //    Debug.Log("isCanDialog: " + isCanDialog);
-        //}
 
         ponBossisEnd = true;
 

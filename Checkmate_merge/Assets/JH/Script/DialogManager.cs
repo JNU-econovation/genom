@@ -35,7 +35,7 @@ public class DialogManager : MonoBehaviour
     public bool isFirst = false;
     public bool canKeyControl = false;//스페이스바 조절
 
-    public bool canRoundStart = false;
+    
 
     //싱글톤
     private void Awake()
@@ -53,6 +53,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
+        
         count = 0;
         name_text.text = "";
         sentence_text.text = "";
@@ -61,6 +62,35 @@ public class DialogManager : MonoBehaviour
         list_sentence = new List<string>();
         list_cg = new List<Sprite>();
     }
+    //-----------------------------------------------------------------------
+    //대화 시작 UI 실행
+    public void FirstDialog()
+    {
+        Time.timeScale = 0.0f;//기물, 점수 정지
+
+        isFirst = true;
+        canKeyControl = true;
+        startUI.SetActive(true);
+
+        Debug.Log("isFirstDialog(다이얼로그 UI 시작): " + GameManager.instance.isFirstDialog);
+
+    }
+    //대화 시작 UI 종료
+    public IEnumerator EndFirstDialog()
+    {
+        isFirst = false;
+        canKeyControl = false;
+        startUI.SetActive(false);
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        GameManager.instance.state = GameManager.State.offDialog;//offDialog 상태
+        GameManager.instance.isFirstDialog = false;
+        GameManager.instance.CanCountdown = true;
+
+        Debug.Log("UI끝/ state: " + GameManager.instance.state + " isFirstDialog: " + GameManager.instance.isFirstDialog + " canCountDown" + GameManager.instance.CanCountdown);
+        
+    }
+    //----------------------------------------------------------------------
 
     //리스트에 지정값만큼 넣기
     public void ShowDialog(Dialog dialog)
@@ -96,11 +126,11 @@ public class DialogManager : MonoBehaviour
 
                 if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
                 {
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(51, 55);//이미지 위치를 (650,40)으로 변경
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(70,42);//이미지 위치를 (650,40)으로 변경
 
                 }
                 else
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(601, 55);
+                    standing_cg.rectTransform.anchoredPosition = new Vector2(554,42);
 
 
             }
@@ -112,11 +142,11 @@ public class DialogManager : MonoBehaviour
 
             if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
             {
-                standing_cg.rectTransform.anchoredPosition = new Vector2(51, 55);//이미지 위치를 (650,40)으로 변경
+                standing_cg.rectTransform.anchoredPosition = new Vector2(70,42);//이미지 위치를 (650,40)으로 변경
 
             }
             else
-                standing_cg.rectTransform.anchoredPosition = new Vector2(601, 55);
+                standing_cg.rectTransform.anchoredPosition = new Vector2(554,42);
 
         }
 
@@ -158,21 +188,24 @@ public class DialogManager : MonoBehaviour
         GameManager.instance.state = GameManager.State.offDialog;
     }
 
-
-   
-
+    //----------------------------------------------------------
     //스페이스바 누르면 다음 문장 실행
     private void Update()
     {
+    
+
         if (isFirst && canKeyControl)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
+                Debug.Log("스페이스바 누름");
                 StartCoroutine(EndFirstDialog());
-               
-
             }
         }
+        
+        
+        
+
 
         if (isDialog && canKeyControl)
         {
@@ -201,29 +234,7 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    //첫대화 시작
-    public void FirstDialog()
-    {
-        Time.timeScale = 0.0f;//기물, 점수 정지
-        isFirst = true;
-        canKeyControl = true;
-        startUI.SetActive(true);
-
-
-    }
-
-    public IEnumerator EndFirstDialog()
-    {
-        startUI.SetActive(false);
-        isFirst = false;
-
-        yield return new WaitForSecondsRealtime(2f);
-        Debug.Log("2초 기다림");
-        Time.timeScale = 1.0f;//점수,기물 다시 시작
-
-        yield return new WaitForSeconds(0.5f);
-        GameManager.instance.state = GameManager.State.offDialog;
-    }
+   
 
 
 

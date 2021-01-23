@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월 24(jh)추가사항 1. play하자마자 DialogStartUI나오고,카운트다운 시작,생존 점수 시작 순서로 바꿈
 //1월 23(MW)추가사항 1. menu1 인트로 씬 추가 및 menu 기존씬과 연결, ui 알파값 조절
 //1월 23일 추가사항 1. 대사 타이핑 효과 코루틴 수정 2.보스딜레이 타임 45초로 바꿈(영우님 요청사항) 3.DialogEnd 판넬 추가 4.DialogStartUI,DialogEndUI,각 Dialog 끝나면 2초 뒤에 적 기물과 점수 움직임 
                      //5. 모든 대사 입력 완료
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private bool isPlay = false;//플레이 중인가?
+    public bool isContinued = false;//이어하기 버튼을 눌렀는가?
     public GameObject gameoverUI;//게임오버 UI
     
     public static int score;//기본 점수
@@ -26,7 +28,8 @@ public class GameManager : MonoBehaviour
     public Text lastscore_txt;
     private static int lastDeathCount = 0;//데스카운텉
     public Text lastDeathCount_text;
-    public enum State { onDialog,offDialog };
+
+    public enum State { onDialog,offDialog,onCounDown };
     public State state;
 
     [SerializeField] private Dialog dialog1;
@@ -43,9 +46,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Dialog queenEndDialog;
     [SerializeField] private Dialog kingEndDialog;
 
-    bool isFirstDialog = false;
-    bool isLastDialog = false;
+    public int countdownTime;
+    public Text countdownTxt;
+    public GameObject player;
 
+    public bool isFirstDialog = false;
+    public bool CanCountdown = false;
+   
+    
     bool isPonBossDialog = false;
     bool isBishpBossDialog = false;
     bool isKnightBossDialog = false;
@@ -71,47 +79,47 @@ public class GameManager : MonoBehaviour
     // 초기화
     public void Start()
     {
-        
+        player.SetActive(false);
+
+        isFirstDialog = true; 
         isPlay = true;
         state = State.offDialog;
+       
 
         score = 0;
         scoreText.text = "score : " + score.ToString();
         enemyscore = 0;
         enemyscore_text.text = "Enemy : " + enemyscore.ToString();
     
-        StartCoroutine(AddScore());//생존점수계산 코루틴 시작
+        //StartCoroutine(AddScore());//생존점수계산 코루틴 시작
       
     }
 
     public void Update()
     {
-        /*
-        if(EnemySpawner.instance.isPonDialog==true && state == State.offDialog)
+
+        if (state == State.offDialog && isFirstDialog == true)//StartUI 시작
         {
-            Debug.Log("폰대화시작");
-
+            
+            Debug.Log("Update1(게임매니저)/ state: " + state + " isFirstDialog: " + isFirstDialog + " canCountdown: " + CanCountdown);
             state = State.onDialog;
-            StartCoroutine(Dialog(ponEndDialog));
- 
-            Debug.Log("isCanDialog: " + EnemySpawner.instance.isPonDialog);
-
-        }
-        */
-        if (score == 5 && state == State.offDialog && isFirstDialog == false)
-        {
-            isFirstDialog = true;
-            state = State.onDialog;
-
             FindObjectOfType<DialogManager>().FirstDialog();
 
         }
-        
-        if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
+
+        if (state == State.offDialog && CanCountdown == true)//카운트 다운 시작
+        {
+            state = State.onCounDown;
+            Debug.Log("Update2(게임매니저)");
+            //FindObjectOfType<CountdownControl>().CountdownCoroutiine();
+            StartCoroutine(Countstart());
+        }
+
+        if (score == 5 && state == State.offDialog && isPonBossDialog == false)//폰
         {
             isPonBossDialog = true;
             state = State.onDialog;
-                StartCoroutine(Dialog(dialog1));
+            StartCoroutine(Dialog(dialog1));
 
             }
         if (score == 150 && state == State.offDialog && isBishpBossDialog == false)//비숍
@@ -239,26 +247,60 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //카운트 다운
+    public IEnumerator Countstart()
+    {
+       
+            Debug.Log("카운트다운");
 
+            countdownTxt.gameObject.SetActive(true);
+
+            while (countdownTime > 0)
+            {
+                countdownTxt.text = countdownTime.ToString();
+
+                yield return new WaitForSecondsRealtime(1f);//1초 쉬고
+                countdownTime--;
+            }
+
+            countdownTxt.text = "Go!";//타이머가 0이 되면 "go"출력
+
+            Time.timeScale = 1.0f;
+
+            yield return new WaitForSecondsRealtime(0.5f);//0.5초 쉬고
+            countdownTxt.gameObject.SetActive(false);//카운트다운 텍스트 비활성화
+            player.SetActive(true);
+
+            state = State.offDialog;
+            CanCountdown = false;
+            Debug.Log("카운트다운 끝");
+
+            StartCoroutine(AddScore());
+            
+
+
+    }
     //생존 점수 계산
     public IEnumerator AddScore()
     {
-        yield return new WaitForSeconds(delayTime * 4f);//4초 후에 점수 카운트 시작
+       
+        Debug.Log("생존점수 증가");
+        //yield return new WaitForSeconds(delayTime * 4f);//4초 후에 점수 카운트 시작
 
         while (isPlay)
         {
-
-            score++;
-            scoreText.text = "score : " + score.ToString();
-            yield return new WaitForSeconds(delayTime * 1f);
+                score++;
+                scoreText.text = "score : " + score.ToString();
+                yield return new WaitForSeconds(delayTime * 1f);
+                Debug.Log("생존점수 증가");
 
         }
         // isPlay false시 공회전 코루틴 시작
         if (!isPlay)
         {
-            StartCoroutine(WaitAddScore());
+                StartCoroutine(WaitAddScore());
         }
-
+  
 
     }
 
