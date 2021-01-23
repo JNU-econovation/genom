@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월 23(MW)추가사항 1. menu1 인트로 씬 추가 및 menu 기존씬과 연결, ui 알파값 조절
 //1월 23일 추가사항 1. 대사 타이핑 효과 코루틴 수정 2.보스딜레이 타임 45초로 바꿈(영우님 요청사항) 3.DialogEnd 판넬 추가 4.DialogStartUI,DialogEndUI,각 Dialog 끝나면 2초 뒤에 적 기물과 점수 움직임 
                      //5. 모든 대사 입력 완료
 //1월22일 추가사항 1. 보스도 알림마크 추가, 2.영우님이 주신 메뉴창이랑 죽을때 뜨는창 이미지 수정 및 메인화면 수정, 3. 글자 폰트 바꾸기, 4. 주희님 폴더에 sprite->대화창 폴더에 쓰실 이미지들 미리 추가해뒀습니다.
@@ -120,14 +121,14 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(Dialog(dialog2));
             }
 
-        if (score == 300 && state == State.offDialog && isKnightBossDialog == false)//나이트
+        if (score == 500 && state == State.offDialog && isKnightBossDialog == false)//룩
         {
             isKnightBossDialog = true;
             state = State.onDialog;
                 StartCoroutine(Dialog(dialog4));
             }
 
-        if (score == 500 && state == State.offDialog && isRockBossDialog == false)//룩
+        if (score == 300 && state == State.offDialog && isRockBossDialog == false)//나이트
         {
             isRockBossDialog = true;
             state = State.onDialog;

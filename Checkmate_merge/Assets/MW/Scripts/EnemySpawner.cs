@@ -143,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
     bool kingBfirstStop = false;
 
 
-    static int ponRoundScoreRange = 16;
+    static int ponRoundScoreRange = 51;
     static int bishopRoundScoreRange = 151;
     static int knightRoundScoreRange = 301;
     static int rockRoundScoreRange = 501;
@@ -2483,7 +2483,7 @@ public class EnemySpawner : MonoBehaviour
             ponBossPrefab.tag = "QBCanKill";
             firstQueenBossSpawn = true;
             Instantiate(BossGage, BossGagePos, Quaternion.identity);
-            Instantiate(QB, a4 + new Vector2(0, 0.5f), Quaternion.identity) ;
+            Instantiate(QB, a4, Quaternion.identity) ;
 
 
         }
@@ -2960,10 +2960,10 @@ public class EnemySpawner : MonoBehaviour
             KBfL.tag = "KBCanKill";
             KBfR.tag = "KBCanKill";
             Instantiate(BossGage, BossGagePos, Quaternion.identity);
-            Instantiate(KBfD, b3 + new Vector2(0, 0.35f), Quaternion.identity);
-            Instantiate(KBfU, g6 + new Vector2(0, 0.35f), Quaternion.identity);
-            Instantiate(KBfL, c7 + new Vector2(0, 0.35f), Quaternion.identity);
-            Instantiate(KBfR, f2 + new Vector2(0, 0.35f), Quaternion.identity);
+            Instantiate(KBfD, b3 , Quaternion.identity);
+            Instantiate(KBfU, g6 , Quaternion.identity);
+            Instantiate(KBfL, c7 , Quaternion.identity);
+            Instantiate(KBfR, f2 , Quaternion.identity);
             firstKnightBossSpawn = true;
             StartCoroutine(knightBoss());
 
