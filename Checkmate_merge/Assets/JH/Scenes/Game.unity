@@ -1090,6 +1090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+  isContinued: 0
+  isRestarted: 0
   puasemenuUI: {fileID: 1342078025}
 --- !u!4 &470496232
 Transform:

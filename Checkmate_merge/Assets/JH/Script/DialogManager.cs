@@ -35,8 +35,6 @@ public class DialogManager : MonoBehaviour
     public bool isFirst = false;
     public bool canKeyControl = false;//스페이스바 조절
 
-    
-
     //싱글톤
     private void Awake()
     {
@@ -63,6 +61,7 @@ public class DialogManager : MonoBehaviour
         list_cg = new List<Sprite>();
     }
     //-----------------------------------------------------------------------
+
     //대화 시작 UI 실행
     public void FirstDialog()
     {
@@ -70,11 +69,13 @@ public class DialogManager : MonoBehaviour
 
         isFirst = true;
         canKeyControl = true;
+        
         startUI.SetActive(true);
 
         Debug.Log("isFirstDialog(다이얼로그 UI 시작): " + GameManager.instance.isFirstDialog);
 
     }
+
     //대화 시작 UI 종료
     public IEnumerator EndFirstDialog()
     {
@@ -106,8 +107,9 @@ public class DialogManager : MonoBehaviour
             list_cg.Add(dialog.cg[i]);
 
         }
-
         dialogUI.SetActive(true);
+        
+        
         StartCoroutine(StartDialog());
     }
 
@@ -153,11 +155,11 @@ public class DialogManager : MonoBehaviour
         //대사 1글자씩 출력 
         for (int i = 0; i < list_sentence[count].Length; i++)
         {
-            Debug.Log("count: " + count + "타이핑 효과 i: " + i);
+            
             sentence_text.text += list_sentence[count][i];
 
             yield return new WaitForSecondsRealtime(0.01f);
-            Debug.Log("0.01초");
+            
 
         }
 
@@ -190,22 +192,21 @@ public class DialogManager : MonoBehaviour
 
     //----------------------------------------------------------
     //스페이스바 누르면 다음 문장 실행
+
+   
     private void Update()
     {
-    
 
         if (isFirst && canKeyControl)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
-                Debug.Log("스페이스바 누름");
-                StartCoroutine(EndFirstDialog());
-            }
-        }
-        
-        
-        
 
+                StartCoroutine(EndFirstDialog());
+                    
+            }
+     
+        }
 
         if (isDialog && canKeyControl)
         {
@@ -229,7 +230,6 @@ public class DialogManager : MonoBehaviour
 
             }
         }
-
 
     }
 

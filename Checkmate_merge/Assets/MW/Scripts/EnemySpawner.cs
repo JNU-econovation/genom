@@ -128,7 +128,7 @@ public class EnemySpawner : MonoBehaviour
     bool isQueenDevilFirst = true;
     bool isKingDevilFirst = true;
     float delayTime = 0.93023255813953488372093023255812f * 9;
-    float BpssdelayTime = 0.93023255813953488372093023255812f * 15;
+    float BpssdelayTime = 0.93023255813953488372093023255812f * 45;
     public bool ponBossisEnd = false;
     bool knightBossisEnd = false;
     bool bishopBossisEnd = false;
