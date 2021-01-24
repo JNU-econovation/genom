@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월 24(MW)추가사항 1.킹 보스패턴 추가. 2.인트로 영상 완성 3.보스 죽을때 메시지 나오도록 변동 4. 대화창 이름이 검은색은 잘 안보여서 흰색으로 변동 5.메뉴로 이동시 종료되던것을 메뉴로 이동되도록 씬연결
+                        //재설정 6. 빌드 설정 완료후 1차 exe빌드 완성
 //1월 24(jh)추가사항 1. play하자마자 DialogStartUI나오고,카운트다운 시작,생존 점수 시작 순서로 바꿈
 //1월 23(MW)추가사항 1. menu1 인트로 씬 추가 및 menu 기존씬과 연결, ui 알파값 조절
 //1월 23일 추가사항 1. 대사 타이핑 효과 코루틴 수정 2.보스딜레이 타임 45초로 바꿈(영우님 요청사항) 3.DialogEnd 판넬 추가 4.DialogStartUI,DialogEndUI,각 Dialog 끝나면 2초 뒤에 적 기물과 점수 움직임 
