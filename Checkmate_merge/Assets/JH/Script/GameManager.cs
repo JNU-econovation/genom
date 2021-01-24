@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//1월 25(JH)추가사항 1. 퍼즈매뉴 오류를 아직 못잡았습니다... 2. UI위치 조정 및 기타 스크립트 수정
 //1월 24(MW)추가사항 1.킹 보스패턴 추가. 2.인트로 영상 완성 3.보스 죽을때 메시지 나오도록 변동 4. 대화창 이름이 검은색은 잘 안보여서 흰색으로 변동 5.메뉴로 이동시 종료되던것을 메뉴로 이동되도록 씬연결
                         //재설정 6. 빌드 설정 완료후 1차 exe빌드 완성
 //1월 24(jh)추가사항 1. play하자마자 DialogStartUI나오고,카운트다운 시작,생존 점수 시작 순서로 바꿈
@@ -102,11 +103,16 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-
+        //if(PauseManager.instance.isRestarted==true)
+        //{
+        //    state = State.onCounDown;
+        //    CanCountdown = true;
+        //    StartCoroutine(Countstart());
+        //}
         if (state == State.offDialog && isFirstDialog == true)//StartUI 시작
         {
             
-            Debug.Log("Update1(게임매니저)/ state: " + state + " isFirstDialog: " + isFirstDialog + " canCountdown: " + CanCountdown);
+            
             state = State.onDialog;
             FindObjectOfType<DialogManager>().FirstDialog();
 
@@ -114,10 +120,11 @@ public class GameManager : MonoBehaviour
 
         if (state == State.offDialog && CanCountdown == true)//카운트 다운 시작
         {
+            Debug.Log("카운트");
             state = State.onCounDown;
-            Debug.Log("Update2(게임매니저)");
-            //FindObjectOfType<CountdownControl>().CountdownCoroutiine();
             StartCoroutine(Countstart());
+            
+            
         }
 
         if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
@@ -254,13 +261,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     //카운트 다운
     public IEnumerator Countstart()
     {
-       
+        if(state==State.onCounDown)
+        {
             Debug.Log("카운트다운");
 
             countdownTxt.gameObject.SetActive(true);
+
 
             while (countdownTime > 0)
             {
@@ -268,6 +278,8 @@ public class GameManager : MonoBehaviour
 
                 yield return new WaitForSecondsRealtime(1f);//1초 쉬고
                 countdownTime--;
+                Debug.Log("count: " + countdownTime);
+
             }
 
             countdownTxt.text = "Go!";//타이머가 0이 되면 "go"출력
@@ -283,6 +295,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("카운트다운 끝");
 
             StartCoroutine(AddScore());
+        }
+        
             
 
 
@@ -290,8 +304,6 @@ public class GameManager : MonoBehaviour
     //생존 점수 계산
     public IEnumerator AddScore()
     {
-       
-        Debug.Log("생존점수 증가");
         //yield return new WaitForSeconds(delayTime * 4f);//4초 후에 점수 카운트 시작
 
         while (isPlay)
