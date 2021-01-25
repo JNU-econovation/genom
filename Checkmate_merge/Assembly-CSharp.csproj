@@ -73,6 +73,7 @@
     <Compile Include="Assets\JH\Script\GameManager.cs" />
     <Compile Include="Assets\JH\Script\MenuControl.cs" />
     <Compile Include="Assets\JH\Script\PauseManager.cs" />
+    <Compile Include="Assets\JH\Script\test.cs" />
     <Compile Include="Assets\KBDAlert.cs" />
     <Compile Include="Assets\KBatt.cs" />
     <Compile Include="Assets\MW\Prefep\bossPreFep\kingBoss\KingBoss.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Assets\anglerSSun.cs" />
     <Compile Include="Assets\eatAtt.cs" />
     <Compile Include="Assets\lightning.cs" />
+    <Compile Include="Assets\menuScreenSet.cs" />
     <Compile Include="Assets\sc.cs" />
     <Compile Include="Assets\spearAtack.cs" />
     <Reference Include="UnityEngine">

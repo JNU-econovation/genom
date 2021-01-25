@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     bool isQueenBossDialog = false;
     bool isKingBossDialog = false;
 
+    #region
     //싱글톤
     private void Awake()
     {
@@ -81,10 +82,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
     // 초기화
     public void Start()
     {
+        Screen.SetResolution(1280, 720, true);
         player.SetActive(false);
 
         isFirstDialog = true; 
@@ -111,8 +114,12 @@ public class GameManager : MonoBehaviour
         //}
         if (state == State.offDialog && isFirstDialog == true)//StartUI 시작
         {
+<<<<<<< HEAD
+
+=======
             
             
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
             state = State.onDialog;
             FindObjectOfType<DialogManager>().FirstDialog();
 
@@ -120,14 +127,18 @@ public class GameManager : MonoBehaviour
 
         if (state == State.offDialog && CanCountdown == true)//카운트 다운 시작
         {
+<<<<<<< HEAD
+            
+=======
             Debug.Log("카운트");
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
             state = State.onCounDown;
             StartCoroutine(Countstart());
             
             
         }
 
-        if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
+        if (score == 1 && state == State.offDialog && isPonBossDialog == false)//폰
         {
             isPonBossDialog = true;
             state = State.onDialog;
@@ -267,8 +278,12 @@ public class GameManager : MonoBehaviour
     {
         if(state==State.onCounDown)
         {
+<<<<<<< HEAD
+           
+=======
             Debug.Log("카운트다운");
 
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
             countdownTxt.gameObject.SetActive(true);
 
 
@@ -278,7 +293,11 @@ public class GameManager : MonoBehaviour
 
                 yield return new WaitForSecondsRealtime(1f);//1초 쉬고
                 countdownTime--;
+<<<<<<< HEAD
+               
+=======
                 Debug.Log("count: " + countdownTime);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
             }
 
@@ -292,7 +311,7 @@ public class GameManager : MonoBehaviour
 
             state = State.offDialog;
             CanCountdown = false;
-            Debug.Log("카운트다운 끝");
+            
 
             StartCoroutine(AddScore());
         }

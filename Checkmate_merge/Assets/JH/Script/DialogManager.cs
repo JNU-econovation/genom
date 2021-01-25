@@ -17,14 +17,14 @@ public class Dialog
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
-    
+
     public GameObject startUI;
     public GameObject dialogUI;
-    
+
     public Text name_text;
     public Text sentence_text;
     public Image standing_cg;
-    
+
 
     private List<string> list_name;
     private List<string> list_sentence;
@@ -34,8 +34,23 @@ public class DialogManager : MonoBehaviour
     public bool isDialog = false;
     public bool isFirst = false;
     public bool canKeyControl = false;//스페이스바 조절
+    public bool CanNext = false;
 
+    public Vector2 kingPos = new Vector2(72, 22);
+    public Vector2 enemyPos = new Vector2(543, 22);
+
+    public Vector2 kingnamePos = new Vector2(287, 102);
+    public Vector2 kingsentencePos = new Vector2(287, -146);
+
+    public Vector2 enemynamePos = new Vector2(89, -102);
+    public Vector2 enemysentencePos = new Vector2(89, -146);
+
+<<<<<<< HEAD
+
+    #region 
+=======
     //싱글톤
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
     private void Awake()
     {
         if (instance == null)
@@ -48,10 +63,11 @@ public class DialogManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
     private void Start()
     {
-        
+
         count = 0;
         name_text.text = "";
         sentence_text.text = "";
@@ -69,10 +85,14 @@ public class DialogManager : MonoBehaviour
 
         isFirst = true;
         canKeyControl = true;
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         startUI.SetActive(true);
 
-        Debug.Log("isFirstDialog(다이얼로그 UI 시작): " + GameManager.instance.isFirstDialog);
+        
 
     }
 
@@ -89,14 +109,14 @@ public class DialogManager : MonoBehaviour
         GameManager.instance.CanCountdown = true;
 
         Debug.Log("UI끝/ state: " + GameManager.instance.state + " isFirstDialog: " + GameManager.instance.isFirstDialog + " canCountDown" + GameManager.instance.CanCountdown);
-        
+
     }
     //----------------------------------------------------------------------
 
     //리스트에 지정값만큼 넣기
     public void ShowDialog(Dialog dialog)
     {
-        
+
         isDialog = true;
         canKeyControl = true;
 
@@ -108,8 +128,13 @@ public class DialogManager : MonoBehaviour
 
         }
         dialogUI.SetActive(true);
+<<<<<<< HEAD
+
+
+=======
         
         
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         StartCoroutine(StartDialog());
     }
 
@@ -128,12 +153,20 @@ public class DialogManager : MonoBehaviour
 
                 if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
                 {
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(70,42);//이미지 위치를 (650,40)으로 변경
+                    standing_cg.rectTransform.anchoredPosition = kingPos;//이미지 위치를 (650,40)으로 변경
+                    name_text.rectTransform.anchoredPosition = kingnamePos;
+                    Debug.Log(name_text.rectTransform.anchoredPosition);
+                    Debug.Log(kingnamePos);
+                    sentence_text.rectTransform.anchoredPosition = kingsentencePos;
 
                 }
                 else
-                    standing_cg.rectTransform.anchoredPosition = new Vector2(554,42);
-
+                {
+                    standing_cg.rectTransform.anchoredPosition = enemyPos;
+                    name_text.rectTransform.anchoredPosition = enemynamePos;
+                    sentence_text.rectTransform.anchoredPosition = enemysentencePos;
+                }
+                    
 
             }
 
@@ -144,14 +177,23 @@ public class DialogManager : MonoBehaviour
 
             if (list_cg[count].name == "화이트킹")//리스트에 할당된 이미지가 down 1이면
             {
-                standing_cg.rectTransform.anchoredPosition = new Vector2(70,42);//이미지 위치를 (650,40)으로 변경
+                standing_cg.rectTransform.anchoredPosition = kingPos;//이미지 위치를 (650,40)으로 변경
+                name_text.rectTransform.anchoredPosition = kingnamePos;
+                sentence_text.rectTransform.anchoredPosition = kingsentencePos;
 
             }
             else
-                standing_cg.rectTransform.anchoredPosition = new Vector2(554,42);
 
+            {
+                standing_cg.rectTransform.anchoredPosition = enemyPos;
+                name_text.rectTransform.anchoredPosition = enemynamePos;
+                sentence_text.rectTransform.anchoredPosition = enemysentencePos;
+            }
+
+<<<<<<< HEAD
         }
 
+=======
         //대사 1글자씩 출력 
         for (int i = 0; i < list_sentence[count].Length; i++)
         {
@@ -160,53 +202,67 @@ public class DialogManager : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(0.01f);
             
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
+
+        StartCoroutine(Typing());
+
+        yield return null;
+    }
+
+    int i = 0;
+    public bool isTyping = false;
+
+    IEnumerator Typing()
+    {
+
+        for (i = 0; i < list_sentence[count].Length; i++)
+        {
+            isTyping = true;
+            sentence_text.text += list_sentence[count][i];
+            yield return new WaitForSecondsRealtime(0.015f);
 
         }
 
+
     }
 
-    // 대화 종료
-    public IEnumerator EndDialog()
+<<<<<<< HEAD
+
+    private void Update()
     {
-        name_text.text = "";
-        sentence_text.text = "";
-        count = 0;
 
-        list_name.Clear();
-        list_sentence.Clear();
-        list_cg.Clear();
-
-        dialogUI.SetActive(false);
-        isDialog = false;
-
-        Debug.Log("대화종료");
-
-        yield return new WaitForSecondsRealtime(2f);
-        Debug.Log("2초 기다림");
-        Time.timeScale = 1.0f;
-        //canRoundStart = true;
-
-        yield return new WaitForSeconds(0.5f);
-        GameManager.instance.state = GameManager.State.offDialog;
-    }
-
+=======
     //----------------------------------------------------------
     //스페이스바 누르면 다음 문장 실행
 
    
     private void Update()
     {
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
         if (isFirst && canKeyControl)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
+<<<<<<< HEAD
+                if (PauseManager.instance.isContinued == true)//이어하기를 눌렀다면
+                {
+                    FirstDialog();
+                }
+                else
+                    StartCoroutine(EndFirstDialog());
+=======
 
                 StartCoroutine(EndFirstDialog());
                     
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
             }
      
         }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
         if (isDialog && canKeyControl)
         {
@@ -234,14 +290,46 @@ public class DialogManager : MonoBehaviour
     }
 
 
-   
 
 
+    // 대화 종료
+    public IEnumerator EndDialog()
+    {
+        name_text.text = "";
+        sentence_text.text = "";
+        count = 0;
 
+        list_name.Clear();
+        list_sentence.Clear();
+        list_cg.Clear();
 
+        dialogUI.SetActive(false);
+        isDialog = false;
 
+        Debug.Log("대화종료");
 
+        yield return new WaitForSecondsRealtime(2f);
+        Debug.Log("2초 기다림");
+        Time.timeScale = 1.0f;
+        //canRoundStart = true;
 
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.state = GameManager.State.offDialog;
+    }
 
+      
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

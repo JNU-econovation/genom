@@ -55,6 +55,7 @@ ScriptsOnlyBuild:
     - eatAtt
     - kingAlert
     - lightning
+    - menuScreenSet
     - ponAlert
     - rockAlert
     - spearAtack
@@ -71,8 +72,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -559,7 +562,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13894}
     - Class: 114
+<<<<<<< HEAD
       Script: {instanceID: 14548}
+=======
+      Script: {instanceID: 14518}
+    - Class: 114
+      Script: {instanceID: 23940}
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1417,10 +1426,20 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: menuScreenSet
   platform: 5
   scenePathNames:
   - Assets/JH/Scenes/Menu 1.unity
   - Assets/JH/Scenes/Menu.unity
   - Assets/JH/Scenes/Game.unity
   - Assets/JH/Scenes/Game_Immortal.unity
+<<<<<<< HEAD
   playerPath: C:/Users/Coolblue/Music/VER.3/Checkmate2D.exe
+=======
+  playerPath: C:/Users/Coolblue/Music/ver.4/Checkmate2D.exe
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1

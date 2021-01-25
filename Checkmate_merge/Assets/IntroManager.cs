@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
 
+
+
     public SpriteRenderer firstAni_1;
     public SpriteRenderer firstAni_2;
     public SpriteRenderer firstAni_3;
@@ -25,6 +27,7 @@ public class IntroManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         if (Application.platform == RuntimePlatform.Android) Application.targetFrameRate = 60;
         StartCoroutine(firstAnimation());
     }
@@ -35,6 +38,21 @@ public class IntroManager : MonoBehaviour
     }
     float timer = 0.01f;
     int chekcer = 100;
+=======
+        Screen.SetResolution(1280, 720, true);
+        if (Application.platform == RuntimePlatform.Android) Application.targetFrameRate = 60;
+        StartCoroutine(firstAnimation());
+    }
+
+    float oneSec = 0.51089918256130790190735694822888f;
+    float timer = 0.0051089918256130790190735694822888f*2f;
+    int chekcer = 100;
+
+    float intervel = 0.51089918256130790190735694822888f * 2f;
+    float longInervel = 0.51089918256130790190735694822888f * 3f;
+
+
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
     IEnumerator firstAnimation()
     {
         for(int i =0;i< chekcer; i++)
@@ -42,18 +60,31 @@ public class IntroManager : MonoBehaviour
             yield return new WaitForSeconds(timer);
             firstAni_1.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
+=======
+
+        yield return new WaitForSeconds(intervel);
+
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             firstAni_2.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
+=======
+
+        yield return new WaitForSeconds(intervel);
+
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             firstAni_3.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
         for (int i = 0; i < chekcer; i++)
         {
@@ -62,6 +93,19 @@ public class IntroManager : MonoBehaviour
             firstAni_4.color += new Color(1, 1, 1, timer);
         }
         yield return new WaitForSeconds(1.5f);
+=======
+
+        yield return new WaitForSeconds(intervel);
+
+        for (int i = 0; i < chekcer; i++)
+        {
+            yield return new WaitForSeconds(timer);
+            firstAni_4.transform.position = firstAni_4.transform.position + new Vector3(0, -0.05f *2);
+
+        }
+        yield return new WaitForSeconds(longInervel);
+
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
@@ -70,7 +114,11 @@ public class IntroManager : MonoBehaviour
             firstAni_2.color -= new Color(1, 1, 1, timer);
             firstAni_1.color -= new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1f);
+=======
+        yield return new WaitForSeconds(oneSec/2);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         StartCoroutine(secAnimation());
 
     }
@@ -81,19 +129,28 @@ public class IntroManager : MonoBehaviour
             yield return new WaitForSeconds(timer);
             SecondAni_1.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
+=======
+        yield return new WaitForSeconds(intervel);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             SecondAni_2.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
+=======
+        yield return new WaitForSeconds(intervel);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             SecondAni_3.color += new Color(1, 1, 1, timer);
             SecondAni_31.color += new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1);
         for (int i = 0; i < chekcer; i++)
         {
@@ -104,19 +161,36 @@ public class IntroManager : MonoBehaviour
             SecondAni_4.color += new Color(1, 1, 1, 0.01f);
         }
         yield return new WaitForSeconds(1.5f);
+=======
+        yield return new WaitForSeconds(intervel);
+        for (int i = 0; i < chekcer; i++)
+        {
+            yield return new WaitForSeconds(timer);
+            SecondAni_4Pos.transform.position = SecondAni_4Pos.transform.position +new Vector3(0, 0.020f * 2);
+            SecondAni_5Pos.transform.position = SecondAni_5Pos.transform.position + new Vector3(0, -0.022f * 2);
+            SecondAni_5.color += new Color(1, 1, 1, 0.01f);
+            SecondAni_4.color += new Color(1, 1, 1, 0.01f);
+        }
+        yield return new WaitForSeconds(longInervel);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             SecondAni_6.color += new Color(1, 1, 1, timer);
             SecondAni_31.color -= new Color(1, 1, 1, timer);
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1.5f);
+=======
+        yield return new WaitForSeconds(intervel);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         for (int i = 0; i < chekcer; i++)
         {
             yield return new WaitForSeconds(timer);
             black.color += new Color(1, 1, 1, timer);
 
         }
+<<<<<<< HEAD
         yield return new WaitForSeconds(1.5f);
         for (int i = 0; i < chekcer; i++)
         {
@@ -125,6 +199,16 @@ public class IntroManager : MonoBehaviour
             SecondAni_7.color += new Color(1, 1, 1, timer);
         }
         yield return new WaitForSeconds(1.5f);
+=======
+        yield return new WaitForSeconds(longInervel);
+        for (int i = 0; i < chekcer; i++)
+        {
+            yield return new WaitForSeconds(timer);
+            SecondAni_7.transform.position = SecondAni_7.transform.position + new Vector3(-0.037f*4f, 0);
+            SecondAni_7.color += new Color(1, 1, 1, timer);
+        }
+        yield return new WaitForSeconds(longInervel*2f);
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
 
         for (int i = 0; i < chekcer*2; i++)
