@@ -364,8 +364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 555, y: 59}
-  m_SizeDelta: {x: 175.59584, y: 164.39886}
+  m_AnchoredPosition: {x: -42, y: -27.41}
+  m_SizeDelta: {x: 359.2094, y: 395.23538}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &107328457
 MonoBehaviour:
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a85118412c40d5147b6cb707106d67d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -725,7 +725,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 751.45496, y: 155.07666}
+  m_SizeDelta: {x: 751.45496, y: 175.68872}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &340318976
 MonoBehaviour:
@@ -1090,6 +1090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+  isContinued: 0
+  isRestarted: 0
   puasemenuUI: {fileID: 1342078025}
 --- !u!4 &470496232
 Transform:
@@ -2992,7 +2994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 78, y: -77.9}
+  m_AnchoredPosition: {x: 278, y: -103}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1289560940
@@ -3008,7 +3010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3070,7 +3072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 78, y: -128.5}
+  m_AnchoredPosition: {x: 278, y: -158}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1333315454
@@ -3643,6 +3645,14 @@ MonoBehaviour:
   isDialog: 0
   isFirst: 0
   canKeyControl: 0
+  CanNext: 0
+  kingPos: {x: -42, y: -27.263}
+  enemyPos: {x: 440.79, y: -27.263}
+  kingnamePos: {x: 278, y: 102}
+  kingsentencePos: {x: 278, y: -146}
+  enemynamePos: {x: 87, y: -102}
+  enemysentencePos: {x: 87, y: -146}
+  isTyping: 0
 --- !u!4 &1702224907
 Transform:
   m_ObjectHideFlags: 0

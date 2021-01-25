@@ -8,7 +8,9 @@ public class PauseManager : MonoBehaviour
 {
     public static PauseManager instance;
     public bool isPaused = false;//일시정지 중인가?
-    
+    public bool isContinued = false;
+    public bool isRestarted = false;
+
     public GameObject puasemenuUI;//일시정지 UI
 
     //싱글톤
@@ -28,9 +30,6 @@ public class PauseManager : MonoBehaviour
     //퍼즈메뉴 창 열기
     public void OpenPasemenuUI()
     {
-        Debug.Log("퍼즈버튼 누름");
-        Debug.Log("TimeScale: " + Time.timeScale);
-
         isPaused = true;//게임상태 pause로 변경
         Time.timeScale = 0.0f;// 모든 게임오브젝트 정지
         puasemenuUI.SetActive(true);// 퍼즈메뉴 창 실행
@@ -41,41 +40,38 @@ public class PauseManager : MonoBehaviour
         }
 
     }
-    public void OnclickContinue()//이어하기 버튼
+    public void OnclickContinue()//계속하기 버튼
     {
         isPaused = false;
         Time.timeScale = 1.0f;
         puasemenuUI.SetActive(false);
 
-        
         if (GameManager.instance.state == GameManager.State.onDialog)//대화 중이라면 기물 및 점수 계속 정지
-        { 
-                
+        {
             DialogManager.instance.canKeyControl = true;
             Time.timeScale = 0.0f;
         }
-        
+
     }
     public void OnclickRestart()// 다시 시작
     {
-        Debug.Log("다시 시작 버튼 누름");
         isPaused = false;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Game");
-        
+
     }
     public void OnclickMenu()//메뉴
     {
         isPaused = false;
         SceneManager.LoadScene("Menu");
     }
-    public void OnclickQuit()//종료
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            OpenPasemenuUI();
+        }
     }
+
 }
