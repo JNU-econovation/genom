@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     // 초기화
     public void Start()
     {
+        Screen.SetResolution(1280, 720, true);
         player.SetActive(false);
 
         isFirstDialog = true; 

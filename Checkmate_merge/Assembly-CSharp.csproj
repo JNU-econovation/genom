@@ -158,6 +158,7 @@
     <Compile Include="Assets\anglerSSun.cs" />
     <Compile Include="Assets\eatAtt.cs" />
     <Compile Include="Assets\lightning.cs" />
+    <Compile Include="Assets\menuScreenSet.cs" />
     <Compile Include="Assets\sc.cs" />
     <Compile Include="Assets\spearAtack.cs" />
     <Reference Include="UnityEngine">

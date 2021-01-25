@@ -91,7 +91,7 @@ public class QueenTreeAi : MonoBehaviour
     {
         if(transform.gameObject.tag != "QBCanKilled")
         {
-            yield return new WaitForSeconds(0.93023255813953488372093023255812f * 2);
+            yield return new WaitForSeconds(0.93023255813953488372093023255812f);
             StartCoroutine(QBeatAttak());
         }
 
