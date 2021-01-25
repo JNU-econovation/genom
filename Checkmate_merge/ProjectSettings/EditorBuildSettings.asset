@@ -14,10 +14,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/JH/Scenes/Game.unity
     guid: 90f155a9a21f8244bba938cf9dea514e
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/JH/Scenes/Game_Immortal.unity
+=======
+  - enabled: 0
+    path: 
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
     guid: c0b7f78fbc4c16449bc142e795f47f0e
   - enabled: 0
     path: Assets/MW/Scenes/s2.unity
     guid: b24fab5664ad1ea47977e81529bf2a4e
+<<<<<<< HEAD
+=======
+  - enabled: 1
+    path: Assets/JH/Scenes/Game_Immortal.unity
+    guid: 5cbb4d72bc1099a43a2c56cec487e406
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
   m_configObjects: {}

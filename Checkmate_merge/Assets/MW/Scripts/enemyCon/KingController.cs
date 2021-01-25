@@ -6,7 +6,7 @@ public class KingController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject king;
-    public int king_score = 4;
+    public int king_score = 5;
 
     public int sortingOrder = 0;
     private SpriteRenderer sprite;

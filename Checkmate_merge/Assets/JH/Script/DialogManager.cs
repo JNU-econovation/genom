@@ -45,8 +45,12 @@ public class DialogManager : MonoBehaviour
     public Vector2 enemynamePos = new Vector2(89, -102);
     public Vector2 enemysentencePos = new Vector2(89, -146);
 
+<<<<<<< HEAD
 
     #region 
+=======
+    //싱글톤
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
     private void Awake()
     {
         if (instance == null)
@@ -81,7 +85,11 @@ public class DialogManager : MonoBehaviour
 
         isFirst = true;
         canKeyControl = true;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         startUI.SetActive(true);
 
         
@@ -120,8 +128,13 @@ public class DialogManager : MonoBehaviour
 
         }
         dialogUI.SetActive(true);
+<<<<<<< HEAD
 
 
+=======
+        
+        
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
         StartCoroutine(StartDialog());
     }
 
@@ -177,8 +190,19 @@ public class DialogManager : MonoBehaviour
                 sentence_text.rectTransform.anchoredPosition = enemysentencePos;
             }
 
+<<<<<<< HEAD
         }
 
+=======
+        //대사 1글자씩 출력 
+        for (int i = 0; i < list_sentence[count].Length; i++)
+        {
+            
+            sentence_text.text += list_sentence[count][i];
+
+            yield return new WaitForSecondsRealtime(0.01f);
+            
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
         StartCoroutine(Typing());
 
@@ -202,24 +226,43 @@ public class DialogManager : MonoBehaviour
 
     }
 
+<<<<<<< HEAD
 
     private void Update()
     {
 
+=======
+    //----------------------------------------------------------
+    //스페이스바 누르면 다음 문장 실행
+
+   
+    private void Update()
+    {
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
         if (isFirst && canKeyControl)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
             {
+<<<<<<< HEAD
                 if (PauseManager.instance.isContinued == true)//이어하기를 눌렀다면
                 {
                     FirstDialog();
                 }
                 else
                     StartCoroutine(EndFirstDialog());
-            }
-        }
+=======
 
+                StartCoroutine(EndFirstDialog());
+                    
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
+            }
+     
+        }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4699f9b4ccd8fece6856ee2fd6c9335a5dbfbbc1
 
         if (isDialog && canKeyControl)
         {
@@ -243,7 +286,6 @@ public class DialogManager : MonoBehaviour
 
             }
         }
-
 
     }
 

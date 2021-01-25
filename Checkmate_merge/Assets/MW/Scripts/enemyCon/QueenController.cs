@@ -6,7 +6,7 @@ public class QueenController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject queen;
-    int queen_score=9;
+    int queen_score=5;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update
@@ -51,7 +51,13 @@ public class QueenController : MonoBehaviour
             string message = "+" + queen_score;
             FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
         }
-
+        else if (collision.tag == "skillATT" && queen.tag == "QueenCanKill") // 퀸이 스킬에 맞으면
+        {
+            QueenKilledByPlayer();
+            GameManager.instance.EnemyScore(queen_score);
+            string message = "+" + queen_score;
+            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+        }
 
         else if (collision.tag == "Player" && queen.tag == "QueenCanKill")
         {

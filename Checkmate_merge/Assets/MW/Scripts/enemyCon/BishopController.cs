@@ -6,7 +6,7 @@ public class BishopController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject bishop;
-    private int bishop_score=3;
+    private int bishop_score=2;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update
