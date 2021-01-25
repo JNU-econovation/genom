@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - PonCanKill
+  - PonCanKilled
+  - KingCanKill
+  - KingCanKilled
+  - RockCanKill
+  - RockCanKilled
+  - BishopCanKill
+  - BishopCanKilled
+  - PlayerPos
+  - QueenCanKill
+  - QueenCanKilled
+  - KnightCanKill
+  - KnightCanKilled
+  - PSW
+  - PSW_over
+  - Hand
+  - RBp
+  - RBover
+  - QBattack
+  - QBCanKilled
+  - QBCanKill
+  - BBCanKill
+  - BBCanKilled
+  - KnightPvot
+  - spearAtt
+  - QBEatAtt
+  - KBCanKill
+  - KBCanKilled
+  - skillATT
+  - FinalBossCanKill
+  - FinalBossCanKilled
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - F
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: C
+    uniqueID: 3798774631
+    locked: 0
+  - name: B
+    uniqueID: 409418069
+    locked: 0
+  - name: A
+    uniqueID: 2494257215
+    locked: 0
+  - name: D
+    uniqueID: 2002519779
+    locked: 0
+  - name: E
+    uniqueID: 3771797805
+    locked: 0
+  - name: F
+    uniqueID: 1374031987
+    locked: 0
+  - name: G
+    uniqueID: 1254962615
+    locked: 0
+  - name: H
+    uniqueID: 4082628393
+    locked: 0
+  - name: F
+    uniqueID: 3607263615
+    locked: 0
