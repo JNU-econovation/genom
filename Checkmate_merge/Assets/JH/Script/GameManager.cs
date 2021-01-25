@@ -128,48 +128,19 @@ public class GameManager : MonoBehaviour
             
         }
 
-        if (score == 50 && state == State.offDialog && isPonBossDialog == false)//폰
-        {
-            isPonBossDialog = true;
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog1));
 
-            }
-        if (score == 150 && state == State.offDialog && isBishpBossDialog == false)//비숍
-        {
-            isBishpBossDialog = true;
-            state = State.onDialog;
-                StartCoroutine(Dialog(dialog2));
-            }
 
-        if (score == 500 && state == State.offDialog && isKnightBossDialog == false)//룩
-        {
-            isKnightBossDialog = true;
-            state = State.onDialog;
-                StartCoroutine(Dialog(dialog4));
-            }
 
-        if (score == 300 && state == State.offDialog && isRockBossDialog == false)//나이트
-        {
-            isRockBossDialog = true;
-            state = State.onDialog;
-            StartCoroutine(Dialog(dialog3));
-        }
-        if (score == 750 && state == State.offDialog && isQueenBossDialog == false)//퀸
-        {
-            isQueenBossDialog = true;
-            state = State.onDialog;
-                StartCoroutine(Dialog(dialog5));
-            }
-        if (score == 1000 && state == State.offDialog && isKingBossDialog == false)//킹
-        {
-            isKingBossDialog = true;
-            state = State.onDialog;
-                StartCoroutine(Dialog(dialog6));
-            }
-  
+
+
+
+
+
     }
     
+
+
+
     //대화 
     public IEnumerator Dialog(Dialog dialog)
     {
@@ -180,6 +151,17 @@ public class GameManager : MonoBehaviour
         yield return null;
 
     }
+    public void PonBossStartDialog()  //폰보스 시작 다이얼로그 출력함수
+    {
+        if ( state == State.offDialog && isPonBossDialog == false)//폰
+        {
+            isPonBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog1));
+
+        }
+    }
+
     public void PonBossDialog()  // 폰보스 엔딩 다이얼로그 출력함수
     {
 
@@ -194,6 +176,19 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+
+    public void BishopBossStartDialog() // 비숍 스타트 다이얼로그 출력함수
+    {
+        if (state == State.offDialog && isBishpBossDialog == false)//비숍
+        {
+            isBishpBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog2));
+        }
+    }
+
+
     public void BishopBossDialog()  // 비숍 엔딩 다이얼로그 출력함수
     {
 
@@ -209,6 +204,16 @@ public class GameManager : MonoBehaviour
     }
 
     bool KBDchecke = false;
+
+    public void KnightBossStartDialog() // 나이트 스타트 다이얼로그 출력함수
+    {
+        if ( state == State.offDialog && isRockBossDialog == false)//나이트
+        {
+            isRockBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog3));
+        }
+    }
     public void KnightBossDialog()  // 나이트 엔딩 다이얼로그 출력함수
     {
 
@@ -222,6 +227,16 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    public void RockBossStartDialog() // 룩 스타트 다이얼로그 출력함수
+    {
+        if (state == State.offDialog && isKnightBossDialog == false)//룩
+        {
+            isKnightBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog4));
+        }
+    }
+    
     public void RockBossDialog()  //룩 엔딩 다이얼로그 출력함수
     {
 
@@ -235,6 +250,17 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    public void QueenBossStartDialog() // 퀸 스타트 다이얼로그 출력함수
+    {
+        if (state == State.offDialog && isQueenBossDialog == false)//퀸
+        {
+            isQueenBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog5));
+        }
+    }
+
     public void QueenBossDialog()  // 퀸 엔딩 다이얼로그 출력함수
     {
 
@@ -245,6 +271,17 @@ public class GameManager : MonoBehaviour
             state = State.onDialog;
             StartCoroutine(Dialog(queenEndDialog));
 
+        }
+
+    }
+
+    public void KingBossStartDialog() // 킹 스타트 다이얼로그 출력함수
+    {
+        if (state == State.offDialog && isKingBossDialog == false)//킹
+        {
+            isKingBossDialog = true;
+            state = State.onDialog;
+            StartCoroutine(Dialog(dialog6));
         }
 
     }

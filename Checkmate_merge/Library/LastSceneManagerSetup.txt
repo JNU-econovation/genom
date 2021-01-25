@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/JH/Scenes/Menu 1.unity
+- path: Assets/JH/Scenes/Game_Immortal.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
