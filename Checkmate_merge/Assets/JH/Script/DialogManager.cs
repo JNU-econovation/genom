@@ -34,7 +34,8 @@ public class DialogManager : MonoBehaviour
     public bool isDialog = false;
     public bool isFirst = false;
     public bool canKeyControl = false;//스페이스바 조절
-    public bool check = false;
+
+    public Button NextBtn;
 
     public Vector2 KingPos;
     public Vector2 King_name_Pos;
@@ -109,9 +110,10 @@ public class DialogManager : MonoBehaviour
     //리스트에 지정값만큼 넣기
     public void ShowDialog(Dialog dialog)
     {
-
+        
         isDialog = true;
         canKeyControl = true;
+        //NextBtn.SetActive(false);
 
         for (int i = 0; i < dialog.sentence.Length; i++)
         {
@@ -128,6 +130,7 @@ public class DialogManager : MonoBehaviour
     //대화 뽑아내기
     public IEnumerator StartDialog()
     {
+        NextBtn.gameObject.SetActive(false);
         //이름
         name_text.text = list_name[count];
 
@@ -187,23 +190,15 @@ public class DialogManager : MonoBehaviour
         //대사 1글자씩 출력 
         for (int i = 0; i < list_sentence[count].Length; i++)
         {
-            if (check == false)//1글자씩 출력
-            {
-                sentence_text.text += list_sentence[count][i];
+            canKeyControl = false;
+            sentence_text.text += list_sentence[count][i];
 
-                yield return new WaitForSecondsRealtime(0.1f);
-            }
-            else
-            {
-                sentence_text.text = list_sentence[count];
-                check = false;
-                yield break;
-            }
-               
-            
-
-
+            yield return new WaitForSecondsRealtime(0.015f);
         }
+        yield return new WaitForSecondsRealtime(0.2f);
+     
+        NextBtn.gameObject.SetActive(true);
+        canKeyControl = true;
     }
 
     //----------------------------------------------------------
@@ -227,10 +222,9 @@ public class DialogManager : MonoBehaviour
 
         if (isDialog && canKeyControl)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
+            if (Input.GetKeyDown(KeyCode.Space))// || Input.GetMouseButtonUp(0))
             {
-                check = true;
-
+                
                 count++;
                 sentence_text.text = "";
 
@@ -275,6 +269,25 @@ public class DialogManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         GameManager.instance.state = GameManager.State.offDialog;
+    }
+
+    public void OncclickNext()//모바일 버튼
+    {
+
+        count++;
+        sentence_text.text = "";
+
+        if (count == list_sentence.Count)//count가 list의 지정된 count와 같다면 대화 종료
+        {
+            StopAllCoroutines();
+            StartCoroutine(EndDialog());
+
+        }
+        else//그렇지 않다면 계속 대화
+        {
+            StopAllCoroutines();
+            StartCoroutine(StartDialog());
+        }
     }
 
 

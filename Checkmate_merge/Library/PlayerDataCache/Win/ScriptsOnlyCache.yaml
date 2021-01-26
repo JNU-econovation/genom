@@ -1176,7 +1176,7 @@ ScriptsOnlyBuild:
     className: W_Ver1
   - hash:
       serializedVersion: 2
-      Hash: 54577274940e893cd725e1587cd9e98e
+      Hash: c183f5ef64c99631ea805f55f74572d0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DialogManager
@@ -1432,4 +1432,4 @@ ScriptsOnlyBuild:
   - Assets/JH/Scenes/Menu.unity
   - Assets/JH/Scenes/Game.unity
   - Assets/JH/Scenes/Game_Immortal.unity
-  playerPath: C:/Users/Coolblue/Music/ver.5/Checkmate2D.exe
+  playerPath: C:/Users/Coolblue/Music/ver.6/Checkmate2D.exe

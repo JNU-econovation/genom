@@ -98,8 +98,16 @@ public class GameManager : MonoBehaviour
         isFirstDialog = true; 
         isPlay = true;
         state = State.offDialog;
-       
-
+        lastscore = 0;
+        ponCount = 0;
+        bishopCount = 0;
+        knightCount = 0;
+        rockCount = 0;
+        queenCount = 0;
+        kingCount = 0;
+        enemyAllCount = 0;
+        totalScore = 0;
+        totalScore = 0;
         score = 0;
         scoreText.text = "score : " + score.ToString();
         enemyscore = 0;
@@ -111,12 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        //if(PauseManager.instance.isRestarted==true)
-        //{
-        //    state = State.onCounDown;
-        //    CanCountdown = true;
-        //    StartCoroutine(Countstart());
-        //}
+        
         if (state == State.offDialog && isFirstDialog == true)//StartUI 시작
         {
             
@@ -134,13 +137,7 @@ public class GameManager : MonoBehaviour
             
             
         }
-        //if (score == 1 && state == State.offDialog && isPonBossDialog == false)//폰
-        //{
-        //    isPonBossDialog = true;
-        //    state = State.onDialog;
-        //    StartCoroutine(Dialog(dialog1));
 
-        //}
 
 
 
