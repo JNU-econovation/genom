@@ -1196,7 +1196,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator RockBossRound()
     {
 
-        StartCoroutine(RBRealend());
+
         if(RBcounter == 0)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().RockBossStartDialog();//룩 대사
@@ -1206,6 +1206,7 @@ public class EnemySpawner : MonoBehaviour
             backAudio.Play();
             RBcounter++;
             yield return new WaitForSeconds(handDelayTime);
+            StartCoroutine(RBRealend());
             Instantiate(BossGage, BossGagePos, Quaternion.identity);
             StartCoroutine(RBRoolout());
         }
@@ -2445,8 +2446,9 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(devilHand, devilHandPos, Quaternion.identity);
             backAudio.clip = bossRound;
             backAudio.Play();
-            StartCoroutine(queenBoss());
+
             yield return new WaitForSeconds(handDelayTime);
+            StartCoroutine(queenBoss());
             ponBossPrefab.tag = "QBCanKill";
             firstQueenBossSpawn = true;
             Instantiate(BossGage, BossGagePos, Quaternion.identity);

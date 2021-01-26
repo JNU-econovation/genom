@@ -353,7 +353,7 @@ public class GameManager : MonoBehaviour
                 score++;
             totalScore = score + enemyscore;
                 scoreText.text = "score : " + totalScore.ToString();
-                yield return new WaitForSeconds(delayTime * 1f);
+                yield return new WaitForSeconds(delayTime * 0.01f);
                
 
         }
