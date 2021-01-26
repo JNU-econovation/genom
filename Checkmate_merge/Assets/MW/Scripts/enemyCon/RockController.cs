@@ -6,7 +6,7 @@ public class RockController : MonoBehaviour
 {
     public Animator animator;
     [SerializeField] GameObject rock;
-    int rock_score=5;
+    int rock_score=4;
     public int sortingOrder = 0;
     private SpriteRenderer sprite;
     // Start is called before the first frame update
@@ -40,20 +40,30 @@ public class RockController : MonoBehaviour
         {
             // 점수 올리는 문항
             RockKilledByPlayer();
-            GameManager.instance.EnemyScore(rock_score);
+            GameManager.instance.EnemyCountScore(4);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(rock_score);
 
-            string message = "+" + rock_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+                string message = "+" + rock_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
 
         }
 
         else if (collision.tag == "skillATT")
         {
             RockKilledByPlayer();
-            GameManager.instance.EnemyScore(rock_score);
+            GameManager.instance.EnemyCountScore(4);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(rock_score);
 
-            string message = "+" + rock_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+                string message = "+" + rock_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
 
         }
         else if (collision.tag == "Player" && rock.tag == "RockCanKill")

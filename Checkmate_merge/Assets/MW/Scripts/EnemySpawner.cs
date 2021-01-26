@@ -145,7 +145,7 @@ public class EnemySpawner : MonoBehaviour
 
 
     static int ponRoundScoreRange = 50;
-    static int bishopRoundScoreRange = 151;
+    static int bishopRoundScoreRange = 150;
     static int knightRoundScoreRange = 300;
     static int rockRoundScoreRange = 500;
     static int queenRoundScoreRange = 750;
@@ -185,46 +185,46 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        if (GameManager.score == ponRoundScoreRange && !ponBfirstStop)
+        if (GameManager.totalScore >= ponRoundScoreRange && !ponBfirstStop)
         {
 
             ponBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
 
-        if (GameManager.score == knightRoundScoreRange && !knightBfirstStop)
+        if (GameManager.totalScore >= knightRoundScoreRange && !knightBfirstStop)
         {
 
             knightBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
 
-        if (GameManager.score == bishopRoundScoreRange && !bishopBfirstStop)
+        if (GameManager.totalScore >= bishopRoundScoreRange && !bishopBfirstStop)
         {
 
             bishopBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
 
-        if (GameManager.score == rockRoundScoreRange && !rockBfirstStop)
+        if (GameManager.totalScore >= rockRoundScoreRange && !rockBfirstStop)
         {
 
             rockBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
 
-        if (GameManager.score == queenRoundScoreRange && !queenBfirstStop)
+        if (GameManager.totalScore >= queenRoundScoreRange && !queenBfirstStop)
         {
 
             queenBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
 
-        if (GameManager.score == kingRoundScoreRange && !kingBfirstStop)
+        if (GameManager.totalScore >= kingRoundScoreRange && !kingBfirstStop)
         {
 
             kingBfirstStop = true;
-            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateFalse();
         }
     }
 
@@ -243,13 +243,13 @@ public class EnemySpawner : MonoBehaviour
 
 
 
-        if (GameManager.score >= 0 && GameManager.score < ponRoundScoreRange)
+        if (GameManager.totalScore >= 0 && GameManager.totalScore < ponRoundScoreRange)
         {
 
             StartCoroutine(PonRound());
         }
 
-        else if(GameManager.score >= ponRoundScoreRange && ponBossisEnd == false)
+        else if(GameManager.totalScore >= ponRoundScoreRange && ponBossisEnd == false)
         {
             if(isPonDevilFirst)
             {
@@ -266,62 +266,62 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        else if (GameManager.score >= ponRoundScoreRange && GameManager.score < bishopRoundScoreRange)
+        else if (GameManager.totalScore >= ponRoundScoreRange && GameManager.totalScore < bishopRoundScoreRange)
         {
 
             StartCoroutine(bishopRound());
         }
 
-        else if (GameManager.score >= bishopRoundScoreRange && bishopBossisEnd == false)
+        else if (GameManager.totalScore >= bishopRoundScoreRange && bishopBossisEnd == false)
         {
 
             StartCoroutine(BishopBossRound());
         }
 
-        else if(GameManager.score >= bishopRoundScoreRange && GameManager.score < knightRoundScoreRange)
+        else if(GameManager.totalScore >= bishopRoundScoreRange && GameManager.totalScore < knightRoundScoreRange)
         {
 
             StartCoroutine(KnightRound());
         }
 
-        else if(GameManager.score >= knightRoundScoreRange && knightBossisEnd == false)
+        else if(GameManager.totalScore >= knightRoundScoreRange && knightBossisEnd == false)
         {
             StartCoroutine(KnightBossRound());
         }
 
 
-        else if(GameManager.score >= knightRoundScoreRange && GameManager.score < rockRoundScoreRange)
+        else if(GameManager.totalScore >= knightRoundScoreRange && GameManager.totalScore < rockRoundScoreRange)
         {
 
             StartCoroutine(RockRound());
         }
 
-        else if(GameManager.score >= rockRoundScoreRange && rockBossisEnd == false)
+        else if(GameManager.totalScore >= rockRoundScoreRange && rockBossisEnd == false)
         {
             StartCoroutine(RockBossRound());
         }
 
 
-        else if(GameManager.score >= rockRoundScoreRange && GameManager.score < queenRoundScoreRange)
+        else if(GameManager.totalScore >= rockRoundScoreRange && GameManager.totalScore < queenRoundScoreRange)
         {
 
             StartCoroutine(QueenRound());
         }
 
-        else if(GameManager.score >= queenRoundScoreRange && queenBossisEnd == false)
+        else if(GameManager.totalScore >= queenRoundScoreRange && queenBossisEnd == false)
         {
             StartCoroutine(QueenBossRound());
         }
 
 
 
-        else if (GameManager.score >= queenRoundScoreRange && GameManager.score < kingRoundScoreRange)
+        else if (GameManager.totalScore >= queenRoundScoreRange && GameManager.totalScore < kingRoundScoreRange)
         {
 
             StartCoroutine(kingRound());
         }
 
-        else if (GameManager.score >= kingRoundScoreRange && kingBossisEnd == false)
+        else if (GameManager.totalScore >= kingRoundScoreRange && kingBossisEnd == false)
         {
 
             StartCoroutine(KingBossRound());
@@ -404,7 +404,7 @@ public class EnemySpawner : MonoBehaviour
         ponBossisEnd = true;
 
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         backAudio.clip = nomalRound;
         backAudio.Play();
         StartCoroutine(bishopRound());
@@ -1066,7 +1066,7 @@ public class EnemySpawner : MonoBehaviour
         //}
         backAudio.clip = nomalRound;
         backAudio.Play();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         StartCoroutine(QueenRound());
 
 
@@ -1688,7 +1688,7 @@ public class EnemySpawner : MonoBehaviour
         //}
         backAudio.clip = nomalRound;
         backAudio.Play();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         StartCoroutine(KnightRound());
         yield return null;
     }
@@ -2186,7 +2186,7 @@ public class EnemySpawner : MonoBehaviour
         //}
         backAudio.clip = nomalRound;
         backAudio.Play();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         StartCoroutine(kingRound());
         yield return null;
     }
@@ -2711,7 +2711,7 @@ public class EnemySpawner : MonoBehaviour
         //}
         backAudio.clip = nomalRound;
         backAudio.Play();
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         StartCoroutine(RockRound());
         yield return null;
     }
@@ -3297,7 +3297,7 @@ public class EnemySpawner : MonoBehaviour
         //    Debug.Log("isCanDialog: " + isCanDialog);
         //}
         GameManager.instance.GameOver();//게임오버함수 호출, 일단 킹보스 나오면 끝인걸로
-        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayState();
+        GameObject.Find("GameManager").GetComponent<GameManager>().ChangePlayStateTrue();
         StartCoroutine(kingRound());
 
         yield return null;

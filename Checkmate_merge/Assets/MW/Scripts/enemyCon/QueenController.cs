@@ -40,16 +40,28 @@ public class QueenController : MonoBehaviour
         if (collision.tag == "Player" && queen.tag == "QueenCanKilled")
         {
             QueenKilledByPlayer();
-            GameManager.instance.EnemyScore(queen_score);
-            string message = "+" + queen_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(5);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+
+                GameManager.instance.EnemyScore(queen_score);
+                string message = "+" + queen_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
         else if (collision.tag == "skillATT" && queen.tag == "QueenCanKilled") // 퀸이 스킬에 맞으면
         {
             QueenKilledByPlayer();
-            GameManager.instance.EnemyScore(queen_score);
-            string message = "+" + queen_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(5);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+
+                GameManager.instance.EnemyScore(queen_score);
+                string message = "+" + queen_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
         else if (collision.tag == "skillATT" && queen.tag == "QueenCanKill") // 퀸이 스킬에 맞으면
         {

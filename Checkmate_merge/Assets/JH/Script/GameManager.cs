@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+//1월 26(JH) 추가사항 1. 게임씬 대화 UI 이미지 및 위치 수정 2. 대사 타이핑 효과가 이상할텐데 아직 미완성이라 그렇습니당...
 //1월 25(JH)추가사항 1. 퍼즈매뉴 오류를 아직 못잡았습니다... 2. UI위치 조정 및 기타 스크립트 수정
 //1월 24(MW)추가사항 1.킹 보스패턴 추가. 2.인트로 영상 완성 3.보스 죽을때 메시지 나오도록 변동 4. 대화창 이름이 검은색은 잘 안보여서 흰색으로 변동 5.메뉴로 이동시 종료되던것을 메뉴로 이동되도록 씬연결
                         //재설정 6. 빌드 설정 완료후 1차 exe빌드 완성
@@ -17,19 +17,25 @@ public class GameManager : MonoBehaviour
     float delayTime = 0.93023255813953488372093023255812f;
     public static GameManager instance;
 
-    private bool isPlay = false;//플레이 중인가?
+    public static bool isPlay = false;//플레이 중인가?
     public bool isContinued = false;//이어하기 버튼을 눌렀는가?
     public GameObject gameoverUI;//게임오버 UI
     public GameObject gameoverDie;//죽었을때
     public GameObject gameoverWin;// 게임완료시
 
-
+    public static int totalScore;
     public static int score;//기본 점수
     public Text scoreText;
     private static int enemyscore;//적 점수
     private static int deathCounter=0;//데스카운텉
     public Text enemyscore_text;
     public Text deathCounter_text;
+    public Text ponEnd_text;
+    public Text bishopEnd_text;
+    public Text knightEnd_text;
+    public Text rockEnd_text;
+    public Text queenEnd_text;
+    public Text kingEnd_text;
     private int lastscore;//총 점수
     public Text lastscore_txt;
     private static int lastDeathCount = 0;//데스카운텉
@@ -67,7 +73,7 @@ public class GameManager : MonoBehaviour
     bool isQueenBossDialog = false;
     bool isKingBossDialog = false;
 
-    //싱글톤
+    #region//싱글톤
     private void Awake()
     {
        
@@ -81,6 +87,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
     // 초기화
     public void Start()
@@ -121,26 +128,24 @@ public class GameManager : MonoBehaviour
 
         if (state == State.offDialog && CanCountdown == true)//카운트 다운 시작
         {
-            Debug.Log("카운트");
+            
             state = State.onCounDown;
             StartCoroutine(Countstart());
             
             
         }
+        //if (score == 1 && state == State.offDialog && isPonBossDialog == false)//폰
+        //{
+        //    isPonBossDialog = true;
+        //    state = State.onDialog;
+        //    StartCoroutine(Dialog(dialog1));
 
-
-
-
-
-
+        //}
 
 
 
     }
     
-
-
-
     //대화 
     public IEnumerator Dialog(Dialog dialog)
     {
@@ -305,8 +310,7 @@ public class GameManager : MonoBehaviour
     {
         if(state==State.onCounDown)
         {
-            Debug.Log("카운트다운");
-
+            
             countdownTxt.gameObject.SetActive(true);
 
 
@@ -316,7 +320,7 @@ public class GameManager : MonoBehaviour
 
                 yield return new WaitForSecondsRealtime(1f);//1초 쉬고
                 countdownTime--;
-                Debug.Log("count: " + countdownTime);
+                
 
             }
 
@@ -330,7 +334,7 @@ public class GameManager : MonoBehaviour
 
             state = State.offDialog;
             CanCountdown = false;
-            Debug.Log("카운트다운 끝");
+            ;
 
             StartCoroutine(AddScore());
         }
@@ -339,6 +343,9 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
+
     //생존 점수 계산
     public IEnumerator AddScore()
     {
@@ -347,9 +354,10 @@ public class GameManager : MonoBehaviour
         while (isPlay)
         {
                 score++;
-                scoreText.text = "score : " + score.ToString();
+            totalScore = score + enemyscore;
+                scoreText.text = "score : " + totalScore.ToString();
                 yield return new WaitForSeconds(delayTime * 1f);
-                Debug.Log("생존점수 증가");
+               
 
         }
         // isPlay false시 공회전 코루틴 시작
@@ -364,9 +372,50 @@ public class GameManager : MonoBehaviour
     //적 점수 계산
     public void EnemyScore(int value)
     {
-        enemyscore += value;//value 만큼 적 점수 증가
-        enemyscore_text.text = "Enemy: " + enemyscore.ToString();//적 점수 표시
+        if (isPlay)
+        {
+            enemyscore += value;//value 만큼 적 점수 증가
+        }
+
     }
+    
+    public  int ponCount =0;
+    public  int bishopCount=0;
+    public  int knightCount=0;
+    public  int rockCount=0;
+    public  int queenCount=0;
+    public  int kingCount=0;
+    static int enemyAllCount=0;
+    public void EnemyCountScore(int val) // 적 기물당 1점 추가
+    {
+        if(val == 1)
+        {
+            ponCount++;
+        }
+        if (val == 2)
+        {
+            bishopCount++;
+        }
+        if (val == 3)
+        {
+            knightCount++;
+        }
+        if (val == 4)
+        {
+            rockCount++;
+        }
+        if (val == 5)
+        {
+            queenCount++;
+        }
+        if (val == 6)
+        {
+            kingCount++;
+        }
+        enemyAllCount = ponCount + bishopCount + knightCount + rockCount + queenCount + kingCount;
+        enemyscore_text.text = "Enemy: " + enemyAllCount.ToString();//적 점수 표시
+    }
+
     public void DeathCount()
     {
         deathCounter += 1;//value 만큼 적 점수 증가
@@ -381,10 +430,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;//모든 오브젝트 정지
         
         gameoverUI.SetActive(true); // 게임오버시 나오는 UI를 활성화시킴
-        lastscore = score + enemyscore;
+        lastscore = totalScore + enemyAllCount;
         lastscore_txt.text = "총 점수 : " + lastscore.ToString();
         lastDeathCount = deathCounter;
         lastDeathCount_text.text = "죽음 : " + lastDeathCount.ToString();
+        ponEnd_text.text = "폰 처치 : " + ponCount.ToString();
+        bishopEnd_text.text = "비숍 처치 : " + bishopCount.ToString();
+        knightEnd_text.text = "나이트 처치 : " + knightCount.ToString();
+        rockEnd_text.text = "룩 처치 : " + rockCount.ToString();
+        queenEnd_text.text = "퀸 처치 : " + queenCount.ToString();
+        kingEnd_text.text = "킹 처치 : " + kingCount.ToString();
     }
 
     public void GameWin() // 킹보스를 죽이고 승리했을시 ui변경
@@ -403,21 +458,19 @@ public class GameManager : MonoBehaviour
     }
 
     //isplay 상태 변환 함수
-    public void ChangePlayState()
+    public void ChangePlayStateFalse()
     {
-        if (isPlay)
-        {
-            isPlay = false;
-        }
 
-        else if (!isPlay)
-        {
+        isPlay = false;
 
-            isPlay = true;
-        }
     }
-    
-    
+    public void ChangePlayStateTrue()
+    {
+        isPlay = true;
+    }
+
+
+
 
 
 }

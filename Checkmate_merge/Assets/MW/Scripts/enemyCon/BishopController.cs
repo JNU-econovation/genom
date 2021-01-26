@@ -39,10 +39,15 @@ public class BishopController : MonoBehaviour
         if (collision.tag == "Player" && bishop.tag == "BishopCanKilled")
         {
             BishopKilledByPlayer();
-            GameManager.instance.EnemyScore(bishop_score);
+            GameManager.instance.EnemyCountScore(2);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(bishop_score);
 
-            string message = "+" + bishop_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+                string message = "+" + bishop_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
 
 
@@ -55,9 +60,15 @@ public class BishopController : MonoBehaviour
         else if (collision.tag == "skillATT")
         {
             BishopKilledByPlayer();
-            GameManager.instance.EnemyScore(bishop_score);
-            string message = "+" + bishop_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(2);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(bishop_score);
+
+                string message = "+" + bishop_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
 
         else if (collision.tag == "Hand")

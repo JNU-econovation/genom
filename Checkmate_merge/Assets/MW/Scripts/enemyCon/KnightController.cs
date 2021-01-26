@@ -33,18 +33,30 @@ public class KnightController : MonoBehaviour
 
         if (collision.tag == "Player" && knight.tag == "KnightCanKilled")
         {
+            GameManager.instance.EnemyCountScore(3);// 카운터 +1
             KnightKilledByPlayer();
-            GameManager.instance.EnemyScore(knight_score);
-            string message = "+" + knight_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(knight_score);
+
+                string message = "+" + knight_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
 
         else if (collision.tag == "skillATT")
         {
             KnightKilledByPlayer();
-            GameManager.instance.EnemyScore(knight_score);
-            string message = "+" + knight_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(3);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(knight_score);
+
+                string message = "+" + knight_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
 
 

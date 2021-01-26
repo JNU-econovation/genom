@@ -43,8 +43,14 @@ public class PonController : MonoBehaviour
 
             PonKilledByPlayer();
             GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
-            string message = "+" + pon_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트(+1)
+            GameManager.instance.EnemyCountScore(1);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+
+                string message = "+" + pon_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트(+1)
+            }
+
 
         }
         else if (collision.tag == "Player" && pon.tag == "PonCanKill")//폰이 플레이어를 죽임(게임 오버)
@@ -56,10 +62,16 @@ public class PonController : MonoBehaviour
 
         else if (collision.tag == "skillATT")
         {
+            GameManager.instance.EnemyCountScore(1);// 카운터 +1
             PonKilledByPlayer();
-            GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
-            string message = "+" + pon_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트(+1)
+            if (GameManager.isPlay == true)
+            {
+                GameManager.instance.EnemyScore(pon_score);//폰 점수(1점) 넣기
+
+                string message = "+" + pon_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트(+1)
+            }
+
         }
 
 

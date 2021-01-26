@@ -39,17 +39,29 @@ public class KingController : MonoBehaviour
         if (collision.tag == "Player" && king.tag == "KingCanKilled")
         {
             KingKilledByPlayer();
-            GameManager.instance.EnemyScore(king_score);
-            string message = "+" + king_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(6);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+
+                GameManager.instance.EnemyScore(king_score);
+                string message = "+" + king_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
 
         else if (collision.tag == "skillATT")
         {
             KingKilledByPlayer();
-            GameManager.instance.EnemyScore(king_score);
-            string message = "+" + king_score;
-            FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            GameManager.instance.EnemyCountScore(6);// 카운터 +1
+            if (GameManager.isPlay == true)
+            {
+
+                GameManager.instance.EnemyScore(king_score);
+                string message = "+" + king_score;
+                FloatingManager.instance.CreateFloatingCanvas(message);//플로팅 텍스트
+            }
+
         }
         else if (collision.tag == "Player" && king.tag == "KingCanKill")
         {
