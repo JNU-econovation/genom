@@ -1,19 +1,19 @@
 # genom(게임만드는놈들)
 
 ![image](https://github.com/JNU-econovation/genom/assets/68218063/18375a81-3a57-4dce-88ff-a91a3eacc7bf)
-
+ 
 에코노베이션 팀 프로젝트
-  
+  &nbsp;
 [주제]  
 체스 규칙을 기반으로하는 2D 액션게임 개발
 
 ![image](https://github.com/JNU-econovation/genom/assets/68218063/0fca57d1-30ed-4180-b238-08a4f78092eb)
-  
+  &nbsp;
 [기술 스택]  
 
 Unity3D / C# / Git
 
-
+&nbsp;
   
   
 [개발 기능]  
@@ -51,7 +51,7 @@ E 키를 누르면 거대한 손이 나와 체스판 위의 모든 적을 처치
 
 
 
-
+&nbsp;&nbsp;
 적 인공지능 :
 
 <details>
@@ -68,7 +68,7 @@ BT(행동 트리)를 이용하여 적 기물 인공지능 개발을 진행했습
 </details>
 
 
-
+&nbsp;&nbsp;
 구성된 기물 패턴화 작업 :
 
 <details>
@@ -78,7 +78,7 @@ BT(행동 트리)를 이용하여 적 기물 인공지능 개발을 진행했습
 </details>
 
 
-
+&nbsp;&nbsp;
 인게임 도트 그래픽 및 애니메이션 작업 및 연결 : 
 
 <details>
@@ -89,7 +89,7 @@ BT(행동 트리)를 이용하여 적 기물 인공지능 개발을 진행했습
 
 
 
-
+&nbsp;&nbsp;
 PC, 모바일 조작 개선 작업 :
 
 
