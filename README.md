@@ -1,8 +1,9 @@
 # genom(게임만드는놈들)
 
-  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 ![image](https://github.com/JNU-econovation/genom/assets/68218063/18375a81-3a57-4dce-88ff-a91a3eacc7bf)
- 
+
+ 
 에코노베이션 팀 프로젝트
 
 
